@@ -1680,7 +1680,9 @@ table.qtable td:first-child { font-weight: 600; color: #2563eb; }
 /* RIPPLE EFFECT */
 .btn, .next-btn, .start-quiz-final-btn, .result-btn, .submit-quiz-btn, .guest-btn, .name-submit {
   position: relative;
-  overflow: hidden;.hidden { display: none !important; }
+  overflow: hidden;
+}
+.hidden { display: none !important; }
 
 /* ===== EMPTY STATES ===== */
 .hist-empty {
@@ -1789,7 +1791,6 @@ table.qtable td:first-child { font-weight: 600; color: #2563eb; }
 ::selection {
   background: rgba(96,165,250,.3);
   color: var(--card-text);
-}
 }
 .btn::before, .next-btn::before, .start-quiz-final-btn::before, .result-btn::before {
   content: "";
@@ -3420,7 +3421,6 @@ welcomeNextBtn.addEventListener('click', function() {
   progressText.textContent = 'Step 1 of 4';
   setTimeout(initGoogleSignIn, 200);
 });
-});
 document.getElementById('guestStartBtn').addEventListener('click', guestStartFlow);
 document.getElementById('guestConfirmBtn').addEventListener('click', guestConfirm);
 document.getElementById('guestCancelBtn').addEventListener('click', function(){
@@ -4262,8 +4262,6 @@ function beginQuiz() {
   // Show palette flag on mobile
   if (window._showPaletteFlag) setTimeout(window._showPaletteFlag, 500);
 }
-}
-
 /* ============ SUGGESTION FORM ============ */
 const FORMSUBMIT_ENDPOINT = "https://formspree.io/f/xwlppdqp";
 const suggestionOverlay = document.getElementById('suggestionOverlay');
