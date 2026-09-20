@@ -79,6 +79,29 @@ body::before {
 @keyframes loaderSlide { 0% { margin-left:-40%; } 100% { margin-left:100%; } }
 .loader-text { margin-top:14px; font-size:.8rem; letter-spacing:4px; text-transform:uppercase; color:rgba(255,255,255,.6); font-weight:600; }
 
+/* Mobile loading screen fix */
+@media (max-width: 899px) {
+  #loadingScreen {
+    padding: 20px;
+  }
+  .loader-logo-wrap {
+    width: 110px;
+    height: 110px;
+    margin-bottom: 20px;
+  }
+  .loader-logo {
+    font-size: 2.6rem;
+    letter-spacing: 3px;
+  }
+  .loader-bar {
+    width: 200px;
+  }
+  .loader-text {
+    font-size: .7rem;
+    letter-spacing: 3px;
+  }
+}
+
 .container {
   background:var(--card-bg);
   width:100%; max-width:100%; height: calc(100vh - 16px);
@@ -779,7 +802,7 @@ table.qtable td:first-child { font-weight: 600; color: #2563eb; }
 </head>
 <body data-theme="light">
 
-<div id="loadingScreen">
+<div id="loadingScreen" style="display:flex !important; opacity:1;">
   <div class="loader-logo-wrap">
     <div class="loader-logo-ring"></div>
     <div class="loader-logo">LR</div>
@@ -1578,7 +1601,7 @@ function renderSideHistory(){
 }
 
 /* ============ INIT ============ */
-setTimeout(function() { document.getElementById('loadingScreen').classList.add('hide'); }, 1500);
+setTimeout(function() { document.getElementById('loadingScreen').classList.add('hide'); }, 2500);
 initFirebase();
 refreshHeaderChip();
 renderSideHistory();
