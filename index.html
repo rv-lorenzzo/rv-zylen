@@ -2410,9 +2410,6 @@ button:focus-visible, a:focus-visible, input:focus-visible {
           <div class="welcome-actions">
             <button class="welcome-icon-btn" id="welcomeProfileBtn" title="Profile">☾</button>
             <button class="welcome-theme-btn" id="welcomeThemeSwitch" title="Toggle Theme">🌙</button>
-            <button class="welcome-logout-btn" id="welcomeLogoutBtn">
-              <span>↪</span> Logout
-            </button>
           </div>
         </div>
         
@@ -3464,19 +3461,21 @@ function guestConfirm(){
 function renderSideHistory(){
   var box = document.getElementById('tabHistory');
   if (!box) return;
-  var u = getLoggedInUser();
-  if (!u) {
-    box.innerHTML = '<div class="hist-empty"><span class="big-emoji">🔒</span>Login to see your history</div>';
-    return;
-  }
-  // Hide quiz data if user is on home/welcome page
+  
+  // Hide entire history content on homepage
   var currentPage = null;
   Object.keys(pageWraps).forEach(function(k){
     if (pageWraps[k] && pageWraps[k].classList.contains('active')) currentPage = k;
   });
   var isHome = (currentPage === 'welcome' || currentPage === 'login' || currentPage === 'name');
   if (isHome) {
-    box.innerHTML = '<div class="hist-empty"><span class="big-emoji">🏠</span>Welcome back, ' + escapeHtml(u.name) + '!<br><small style="opacity:.7;">Start a quiz to see history here</small></div>';
+    box.innerHTML = '<div class="hist-empty"><span class="big-emoji">🏠</span>History is only available during quiz<br><small style="opacity:.7;">Start a quiz to see your past attempts</small></div>';
+    return;
+  }
+  
+  var u = getLoggedInUser();
+  if (!u) {
+    box.innerHTML = '<div class="hist-empty"><span class="big-emoji">🔒</span>Login to see your history</div>';
     return;
   }
   var list = getUserHistory();
@@ -3632,26 +3631,13 @@ document.addEventListener('visibilitychange', function() {
 document.getElementById('welcomeThemeSwitch').addEventListener('click', function() {
   themeToggle.click();
 });
-// Welcome page logout
-document.getElementById('welcomeLogoutBtn').addEventListener('click', doLogout);
-// Menu button removed from welcome (only floating ⋮ on other pages)
-// Hide side-menu-btn (floating ⋮) on welcome page
-var _origShowPage = showPage;
-showPage = function(name) {
-  _origShowPage(name);
-  var smb = document.getElementById('sideMenuBtn');
-  if (smb) {
-    if (name === 'welcome') smb.style.display = 'none';
-    else smb.style.display = '';
-  }
-};
 // Welcome page profile
 document.getElementById('welcomeProfileBtn').addEventListener('click', function() {
   var u = getLoggedInUser();
   if (u && u.name) showToast('👤 ' + u.name, 'info', 2500);
   else showToast('Not logged in', 'warning', 2000);
 });
-
+// Hide side-menu-btn (floating ⋮) on welcome page — handled in showPage
 welcomeNextBtn.addEventListener('click', function() {
   var logged = getLoggedInUser();
   if (logged && logged.name) {
