@@ -1110,10 +1110,11 @@ html {
   .welcome-next-btn { padding: 13px 36px; font-size: .75rem; letter-spacing: 2px; }
   .welcome-icon-btn, .welcome-theme-btn { width: 36px; height: 36px; font-size: .85rem; }
   .welcome-logout-btn { padding: 0 14px; height: 36px; font-size: .65rem; }
-}  color: rgba(30,41,59,.5);
+}
+[data-theme="light"] .welcome-footer {
+  color: rgba(30,41,59,.5);
   border-top-color: rgba(168,130,26,.15);
 }
-
 /* Mobile */
 @media (max-width: 899px) {
   .welcome-topbar { padding: 14px 16px; }
@@ -2265,8 +2266,101 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   .popup .emoji { font-size: 3rem; }
   .popup .text { font-size: .9rem; }
   .countdown-num { font-size: 6rem; }
-  .side-menu-btn { left: 6px; width: 38px; height: 38px; font-size: 1.4rem; padding-bottom: 6px; }
+   .side-menu-btn { left: 6px; width: 38px; height: 38px; font-size: 1.4rem; padding-bottom: 6px; }
   .side-panel { width: 88vw; }
+}
+
+/* ===== CLASSY GLASSMORPHISM UPGRADE ===== */
+
+/* Welcome contacts — glass buttons */
+.welcome-contact-btn {
+  background: linear-gradient(135deg, rgba(255,255,255,.08) 0%, rgba(255,255,255,.02) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212,175,55,.25);
+  box-shadow:
+    0 4px 16px rgba(0,0,0,.2),
+    inset 0 1px 0 rgba(255,255,255,.08);
+  transition: all .5s cubic-bezier(.34,1.56,.64,1);
+}
+.welcome-contact-btn:hover {
+  background: linear-gradient(135deg, rgba(212,175,55,.15) 0%, rgba(212,175,55,.05) 100%);
+  border-color: rgba(212,175,55,.6);
+  box-shadow:
+    0 12px 32px rgba(212,175,55,.25),
+    0 0 0 1px rgba(212,175,55,.2),
+    inset 0 1px 0 rgba(255,255,255,.15);
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* Next button — premium gold */
+.welcome-next-btn {
+  background: linear-gradient(135deg, rgba(212,175,55,.08) 0%, rgba(212,175,55,.02) 100%);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(212,175,55,.6);
+  box-shadow:
+    0 8px 24px rgba(212,175,55,.15),
+    inset 0 1px 0 rgba(255,255,255,.1);
+}
+.welcome-next-btn:hover {
+  background: linear-gradient(135deg, rgba(212,175,55,.25) 0%, rgba(212,175,55,.1) 100%);
+  box-shadow:
+    0 20px 50px rgba(212,175,55,.4),
+    0 0 0 1px rgba(212,175,55,.5),
+    inset 0 1px 0 rgba(255,255,255,.2);
+  letter-spacing: 4px;
+}
+
+/* Icon buttons — cleaner */
+.welcome-icon-btn,
+.welcome-theme-btn {
+  background: linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0,0,0,.15), inset 0 1px 0 rgba(255,255,255,.06);
+}
+.welcome-icon-btn:hover,
+.welcome-theme-btn:hover {
+  background: linear-gradient(135deg, rgba(212,175,55,.15), rgba(212,175,55,.05));
+  box-shadow: 0 8px 20px rgba(212,175,55,.3), inset 0 1px 0 rgba(255,255,255,.1);
+}
+
+/* Logo — better glow */
+.welcome-logo-big svg {
+  filter: drop-shadow(0 0 30px rgba(212,175,55,.3)) drop-shadow(0 4px 20px rgba(0,0,0,.4));
+  transition: filter .4s ease;
+}
+.welcome-logo-big:hover svg {
+  filter: drop-shadow(0 0 50px rgba(212,175,55,.5)) drop-shadow(0 4px 20px rgba(0,0,0,.4));
+}
+
+/* Heading — smoother */
+.welcome-heading {
+  text-shadow: 0 2px 40px rgba(212,175,55,.2);
+  transition: letter-spacing .6s ease, filter .6s ease;
+}
+.welcome-heading:hover {
+  letter-spacing: 1px;
+  filter: drop-shadow(0 6px 60px rgba(212,175,55,.5));
+}
+
+/* Cleaner background — no stars, just deep gradient */
+.welcome-page {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(88,60,180,.22) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 50% at 20% 100%, rgba(212,175,55,.06) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 80% 90%, rgba(96,165,250,.05) 0%, transparent 60%),
+    #05030c;
+}
+.welcome-page::before {
+  background-image:
+    radial-gradient(1px 1px at 12% 22%, rgba(255,255,255,.4), transparent),
+    radial-gradient(1px 1px at 45% 15%, rgba(255,255,255,.3), transparent),
+    radial-gradient(1px 1px at 78% 35%, rgba(255,255,255,.35), transparent),
+    radial-gradient(1px 1px at 25% 70%, rgba(255,255,255,.3), transparent),
+    radial-gradient(1px 1px at 62% 82%, rgba(255,255,255,.4), transparent),
+    radial-gradient(1px 1px at 88% 60%, rgba(255,255,255,.3), transparent);
+  animation: twinkle 10s ease-in-out infinite;
+  opacity: .5;
 }
 </style>
 </head>
@@ -2455,6 +2549,8 @@ button:focus-visible, a:focus-visible, input:focus-visible {
         <div class="welcome-footer">© 2026 RV ZYLEN OFFICIAL · MADE BY LR</div>
         
       </div>
+    </div>
+  </div>
   <div class="page-wrap" id="loginPageWrap">
     <div class="login-page">
       <button class="home-corner-btn" id="loginHomeBtn">🏠 Home</button>
