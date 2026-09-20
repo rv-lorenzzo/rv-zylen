@@ -168,7 +168,10 @@ body::before {
 /* ===== CINEMATIC LOADING SCREEN ===== */
 #loadingScreen {
   position: fixed; inset: 0; z-index: 9999999;
-  background: #05030f;
+  background: 
+    radial-gradient(ellipse 70% 50% at 20% 20%, rgba(88,60,180,.2) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 60% at 80% 80%, rgba(212,175,55,.12) 0%, transparent 55%),
+    #03010a;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   color: #fff;
   transition: opacity .8s cubic-bezier(.4,0,.2,1), visibility .8s;
@@ -777,14 +780,40 @@ html {
 .welcome-page {
   position: relative;
   padding: 0;
-  background: #05030f;
+  background: 
+    radial-gradient(ellipse 70% 50% at 20% 20%, rgba(88,60,180,.15) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 60% at 80% 80%, rgba(212,175,55,.08) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 40% at 50% 50%, rgba(30,20,80,.3) 0%, transparent 70%),
+    #03010a;
   color: #e8e6f0;
   min-height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   transition: background .8s ease, color .5s ease;
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+/* Ensure welcome page breaks out of container padding */
+#welcomePageWrap {
+  margin: -8px -10px;
+  padding: 0;
+  width: calc(100% + 20px);
+  min-height: calc(100vh - 16px);
+}
+#welcomePageWrap .welcome-page {
+  min-height: calc(100vh - 16px);
+}
+@media (max-width: 899px) {
+  #welcomePageWrap {
+    margin: -6px;
+    width: calc(100% + 12px);
+    min-height: calc(100vh - 12px);
+  }
+  #welcomePageWrap .welcome-page {
+    min-height: calc(100vh - 12px);
+  }
 }
 
 /* Animated mesh gradient */
@@ -2632,18 +2661,20 @@ button:focus-visible, a:focus-visible, input:focus-visible {
     </div>
     <div class="streak-badge" id="streakBadge"><span>🔥</span><span id="streakBadgeText">0</span></div>
    <div class="header-logo-badge">
-     <svg viewBox="0 0 40 40" width="22" height="22" xmlns="http://www.w3.org/2000/svg">
+     <svg viewBox="0 0 80 60" width="26" height="20" xmlns="http://www.w3.org/2000/svg">
        <defs>
-         <linearGradient id="rvGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+         <linearGradient id="rvGoldSm" x1="0%" y1="0%" x2="100%" y2="100%">
            <stop offset="0%" stop-color="#f5ecd0"/>
            <stop offset="50%" stop-color="#d4af37"/>
            <stop offset="100%" stop-color="#a8821a"/>
          </linearGradient>
        </defs>
-       <path d="M8 4 L14 4 L20 22 L26 4 L32 4 L24 32 L16 32 Z" fill="url(#rvGrad)" opacity="0.95"/>
-       <path d="M4 36 L36 36" stroke="url(#rvGrad)" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+       <path d="M8 4 L8 56 M8 4 L22 4 Q32 4 32 15 Q32 26 22 26 L8 26 M22 26 L34 56" 
+             stroke="url(#rvGoldSm)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+       <path d="M44 4 L56 56 L68 4" 
+             stroke="url(#rvGoldSm)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
      </svg>
-   </div>    <h1 id="headerTitle">RV ZYLEN OFFICIAL</h1>
+   </div>   <h1 id="headerTitle">RV ZYLEN OFFICIAL</h1>
     <div class="sub" id="progressText">Welcome</div>
   </div>
 
@@ -2668,16 +2699,20 @@ button:focus-visible, a:focus-visible, input:focus-visible {
           <!-- sideMenuBtn is hidden on welcome (integrated with this Menu button) -->
           <div class="welcome-brand">
             <div class="welcome-brand-logo">
-              <svg viewBox="0 0 60 60" width="38" height="38" xmlns="http://www.w3.org/2000/svg">
+              <svg viewBox="0 0 80 60" width="52" height="40" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                  <linearGradient id="rvGradBig" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <linearGradient id="rvGold" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stop-color="#f5ecd0"/>
                     <stop offset="50%" stop-color="#d4af37"/>
                     <stop offset="100%" stop-color="#a8821a"/>
                   </linearGradient>
                 </defs>
-                <path d="M12 6 L21 6 L30 34 L39 6 L48 6 L36 50 L24 50 Z" fill="url(#rvGradBig)"/>
-                <path d="M8 56 L52 56" stroke="url(#rvGradBig)" stroke-width="2" stroke-linecap="round"/>
+                <!-- R letter -->
+                <path d="M8 4 L8 56 M8 4 L22 4 Q32 4 32 15 Q32 26 22 26 L8 26 M22 26 L34 56" 
+                      stroke="url(#rvGold)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <!-- V letter -->
+                <path d="M44 4 L56 56 L68 4" 
+                      stroke="url(#rvGold)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
             <div class="welcome-brand-sub">RV ZYLEN OFFICIAL</div>
@@ -3045,14 +3080,17 @@ function showPage(name) {
   if (name === 'quiz') pageWraps[name].classList.add('quiz-mode');
   pageWraps[name].scrollTop = 0;
   
-  // Hide app header on welcome page (has own topbar)
+  // Hide app header + controls on welcome page (has own topbar)
   var appHeader = document.querySelector('.container > .header');
   var timerW = document.getElementById('timerWrap');
+  var sideBtn = document.getElementById('sideMenuBtn');
   if (name === 'welcome') {
     if (appHeader) appHeader.style.display = 'none';
     if (timerW) timerW.style.display = 'none';
+    if (sideBtn) sideBtn.style.display = 'none';
   } else {
     if (appHeader) appHeader.style.display = '';
+    if (sideBtn) sideBtn.style.display = '';
   }
   
   // Update streak badge visibility + history based on page
