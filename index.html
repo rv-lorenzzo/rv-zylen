@@ -126,9 +126,21 @@
   --palette-not-visited:#1e293b; --palette-not-visited-border:#475569; --palette-not-visited-text:#cbd5e1;
 }
 * { box-sizing:border-box; margin:0; padding:0; }
-* { transition: background-color .3s ease, border-color .3s ease, color .2s ease; }
+.option .badge,
+.palette-btn,
+.btn,
+button,
+.series-icon,
+.popup .emoji,
+.streak-fire,
+.streak-stars,
+.trophy,
+.reload-icon {
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'EmojiOne Color', 'Twemoji Mozilla', sans-serif;
+  font-variant-emoji: emoji;
+}* { transition: background-color .3s ease, border-color .3s ease, color .2s ease; }
 button, a { transition: all .25s cubic-bezier(.4, 0, .2, 1); }
-html { font-size:var(--base-font-size); transition:font-size .25s ease; }
+html { font-size:var(--base-font-size); }
 html, body { height:100%; overflow:hidden; }
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -1497,6 +1509,22 @@ table.qtable td:first-child { font-weight: 600; color: #2563eb; }
 
 .hidden { display: none !important; }
 
+/* ===== ANIME-STYLE EMOJI ===== */
+.emoji-realistic {
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.2));
+  display: inline-block;
+  transform: translateZ(0);
+}
+.popup .emoji {
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
+  text-shadow: 0 4px 12px rgba(0,0,0,.3);
+}
+.series-icon {
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,.2));
+}
+
 /* ===== USERNAME PROMPT ===== */
 .username-overlay {
   position: fixed;
@@ -1867,8 +1895,96 @@ table.qtable td:first-child { font-weight: 600; color: #2563eb; }
 @keyframes cdPop { 0% { transform: scale(.3); opacity: 0; } 50% { transform: scale(1.18); opacity: 1; } 100% { transform: scale(1); opacity: 1; } }
 .countdown-sub { font-size: .85rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,.65); font-weight: 600; position: relative; z-index: 2; }
 
-/* MOBILE */
+/* ===== MOBILE PALETTE FLAG ===== */
+.palette-flag {
+  display: none;
+}
+.palette-flag-hint {
+  display: none;
+}
 @media (max-width: 899px) {
+  /* Show flag only on mobile */
+  .palette-flag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, #2563eb, #1d4ed8);
+    color: #fff;
+    padding: 8px 24px 14px;
+    border-radius: 18px 18px 0 0;
+    box-shadow: 0 -4px 20px rgba(37,99,235,.5);
+    z-index: 8500;
+    cursor: grab;
+    font-size: .7rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+    min-width: 140px;
+    transition: transform .1s linear;
+  }
+  .palette-flag::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 32px;
+    height: 3px;
+    background: rgba(255,255,255,.5);
+    border-radius: 2px;
+  }
+  .palette-flag.dragging { cursor: grabbing; transition: none; }
+  .palette-flag.hidden { display: none !important; }
+
+  /* Hint notification */
+  .palette-flag-hint {
+    display: block;
+    position: fixed;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-size: .7rem;
+    font-weight: 700;
+    box-shadow: 0 8px 24px rgba(245,158,11,.5);
+    z-index: 8600;
+    animation: hintBounce 1.5s ease-in-out infinite;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .palette-flag-hint::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #d97706;
+  }
+  .palette-flag-hint.hidden { display: none !important; }
+  @keyframes hintBounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-6px); }
+  }
+
+  /* When palette is open (slid up) */
+  body.palette-open .palette-flag {
+    transform: translateX(-50%) translateY(-45vh);
+  }
+  
   .global-back-btn { top: 72px; left: 8px; padding: 6px 12px; font-size: .7rem; }
   body { padding: 6px; }
   .container { height: calc(100vh - 12px); border-radius: 10px; }
@@ -1883,8 +1999,8 @@ table.qtable td:first-child { font-weight: 600; color: #2563eb; }
   .streak-badge { right: 6px; top: 6px; font-size: .72rem; padding: 3px 9px; }
   .quiz-layout { grid-template-columns: 1fr; grid-template-rows: 1fr auto; height: 100%; }
   .quiz-main { grid-row: 1; padding: 12px 14px 12px; overflow-y: auto; }
-  .palette { grid-row: 2; height: auto; max-height: 38vh; border-right: none; border-top: 2px solid var(--palette-border); padding: 8px 12px 10px; overflow-y: auto; }
-  .palette-title, .palette-legend { display: none; }
+  .palette { grid-row: 2; height: auto; max-height: 38vh; min-height: 200px; border-right: none; border-top: 2px solid var(--palette-border); padding: 8px 12px 10px; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; position: relative; padding-bottom: 50px; transition: max-height .3s ease; }
+  body.palette-open .palette { max-height: 55vh; }  .palette-title, .palette-legend { display: none; }
   .palette-section-label { font-size: .66rem; margin: 4px 0 4px; }
   .palette-grid { grid-template-columns: repeat(auto-fill, minmax(30px, 1fr)); gap: 5px; margin-bottom: 5px; }
   .palette-btn { font-size: .68rem; }
@@ -1941,6 +2057,9 @@ table.qtable td:first-child { font-weight: 600; color: #2563eb; }
 <button class="global-back-btn" id="globalBackBtn">← Back</button>
 <button class="side-menu-btn" id="sideMenuBtn" title="Menu">⋮</button>
 
+<!-- Mobile Palette Flag -->
+<div class="palette-flag" id="paletteFlag">↑ SLIDE UP</div>
+<div class="palette-flag-hint" id="paletteFlagHint">Slide up to open question palette</div>
 <div class="side-panel-overlay" id="sidePanelOverlay"></div>
 <div class="side-panel" id="sidePanel">
   <div class="side-panel-header">
@@ -2420,6 +2539,10 @@ function showPage(name) {
   if (name === 'quiz') pageWraps[name].classList.add('quiz-mode');
   pageWraps[name].scrollTop = 0;
   
+  // Update streak badge visibility + history based on page
+  if (typeof updateStreakBadge === 'function') updateStreakBadge();
+  if (typeof renderSideHistory === 'function') renderSideHistory();
+  
   // Global Back button toggle
   var gbb = document.getElementById('globalBackBtn');
   if (gbb) {
@@ -2467,7 +2590,72 @@ const sidePanelOverlay = document.getElementById('sidePanelOverlay');
 const sidePanelClose = document.getElementById('sidePanelClose');
 function openSidePanel(){ sidePanel.classList.add('show'); sidePanelOverlay.classList.add('show'); sideMenuBtn.classList.add('hidden-btn'); }
 function closeSidePanel(){ sidePanel.classList.remove('show'); sidePanelOverlay.classList.remove('show'); sideMenuBtn.classList.remove('hidden-btn'); }
-sideMenuBtn.addEventListener('click', openSidePanel);
+// ===== SIDE MENU DRAG (Hold & Slide) =====
+(function() {
+  var btn = document.getElementById('sideMenuBtn');
+  if (!btn) return;
+  var dragging = false, moved = false;
+  var startY = 0, startTop = 0;
+  var btnH = 44;
+  
+  function getClientY(e) {
+    return e.touches ? e.touches[0].clientY : e.clientY;
+  }
+  
+  function onStart(e) {
+    var rect = btn.getBoundingClientRect();
+    startY = getClientY(e);
+    startTop = rect.top + rect.height / 2;
+    dragging = true;
+    moved = false;
+    btn.style.transition = 'none';
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('touchmove', onMove, { passive: false });
+    document.addEventListener('mouseup', onEnd);
+    document.addEventListener('touchend', onEnd);
+  }
+  
+  function onMove(e) {
+    if (!dragging) return;
+    var y = getClientY(e);
+    var deltaY = y - startY;
+    if (Math.abs(deltaY) > 5) {
+      moved = true;
+      e.preventDefault();
+    }
+    if (!moved) return;
+    var newCenter = startTop + deltaY;
+    var minY = btnH / 2 + 40;
+    var maxY = window.innerHeight - btnH / 2 - 40;
+    newCenter = Math.max(minY, Math.min(maxY, newCenter));
+    btn.style.top = newCenter + 'px';
+    btn.style.transform = 'translateY(-50%)';
+  }
+  
+  function onEnd() {
+    dragging = false;
+    btn.style.transition = '';
+    document.removeEventListener('mousemove', onMove);
+    document.removeEventListener('touchmove', onMove);
+    document.removeEventListener('mouseup', onEnd);
+    document.removeEventListener('touchend', onEnd);
+    if (moved) {
+      setTimeout(function() { moved = false; }, 50);
+    }
+  }
+  
+  btn.addEventListener('mousedown', onStart);
+  btn.addEventListener('touchstart', onStart, { passive: true });
+  
+  btn.addEventListener('click', function(e) {
+    if (moved) {
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
+    openSidePanel();
+  }, true);
+})();
 sidePanelClose.addEventListener('click', closeSidePanel);
 sidePanelOverlay.addEventListener('click', closeSidePanel);
 document.querySelectorAll('.side-tab').forEach(function(tab){
@@ -3025,6 +3213,16 @@ function renderSideHistory(){
     box.innerHTML = '<div class="hist-empty"><span class="big-emoji">🔒</span>Login to see your history</div>';
     return;
   }
+  // Hide quiz data if user is on home/welcome page
+  var currentPage = null;
+  Object.keys(pageWraps).forEach(function(k){
+    if (pageWraps[k] && pageWraps[k].classList.contains('active')) currentPage = k;
+  });
+  var isHome = (currentPage === 'welcome' || currentPage === 'login' || currentPage === 'name');
+  if (isHome) {
+    box.innerHTML = '<div class="hist-empty"><span class="big-emoji">🏠</span>Welcome back, ' + escapeHtml(u.name) + '!<br><small style="opacity:.7;">Start a quiz to see history here</small></div>';
+    return;
+  }
   var list = getUserHistory();
   var html = '<div class="hist-user-box">';
   html += '<div class="hu-name">👤 ' + escapeHtml(u.name) + '</div>';
@@ -3264,8 +3462,104 @@ document.querySelectorAll('.apex-item').forEach(function (item) {
 });
 startQuizFinalBtn.addEventListener('click', function () { beginQuiz(); });
 
+/* ===== MOBILE PALETTE FLAG (Slide Up/Down) ===== */
+(function() {
+  var flag = document.getElementById('paletteFlag');
+  var hint = document.getElementById('paletteFlagHint');
+  if (!flag) return;
+  var isMobile = function() { return window.innerWidth <= 899; };
+  var dragging = false, startY = 0, startBottom = 0;
+  var openThreshold = 0;
+  
+  function showFlag() {
+    if (!isMobile()) return;
+    flag.classList.remove('hidden');
+    // Show hint briefly
+    if (hint) {
+      hint.classList.remove('hidden');
+      setTimeout(function() { hint.classList.add('hidden'); }, 4500);
+    }
+  }
+  function hideFlag() {
+    flag.classList.add('hidden');
+    if (hint) hint.classList.add('hidden');
+  }
+  
+  // Expose for beginQuiz
+  window._showPaletteFlag = showFlag;
+  window._hidePaletteFlag = hideFlag;
+  
+  function getY(e) { return e.touches ? e.touches[0].clientY : e.clientY; }
+  
+  function onStart(e) {
+    if (!isMobile()) return;
+    dragging = true;
+    flag.classList.add('dragging');
+    startY = getY(e);
+    var rect = flag.getBoundingClientRect();
+    startBottom = window.innerHeight - rect.bottom;
+    openThreshold = window.innerHeight * 0.45;
+    e.preventDefault();
+  }
+  
+  function onMove(e) {
+    if (!dragging) return;
+    var y = getY(e);
+    var deltaY = startY - y; // positive when sliding up
+    var newBottom = Math.max(0, Math.min(window.innerHeight * 0.5, startBottom + deltaY));
+    flag.style.bottom = newBottom + 'px';
+    // Update label
+    if (newBottom > 100) {
+      flag.textContent = '↓ SLIDE DOWN';
+      document.body.classList.add('palette-open');
+    } else {
+      flag.textContent = '↑ SLIDE UP';
+      document.body.classList.remove('palette-open');
+    }
+    e.preventDefault();
+  }
+  
+  function onEnd() {
+    if (!dragging) return;
+    dragging = false;
+    flag.classList.remove('dragging');
+    var rect = flag.getBoundingClientRect();
+    var bottomOffset = window.innerHeight - rect.bottom;
+    
+    if (bottomOffset > window.innerHeight * 0.25) {
+      // Snap open
+      flag.style.bottom = '45vh';
+      flag.textContent = '↓ SLIDE DOWN';
+      document.body.classList.add('palette-open');
+    } else {
+      // Snap closed
+      flag.style.bottom = '0';
+      flag.textContent = '↑ SLIDE UP';
+      document.body.classList.remove('palette-open');
+    }
+  }
+  
+  flag.addEventListener('touchstart', onStart, { passive: false });
+  flag.addEventListener('touchmove', onMove, { passive: false });
+  flag.addEventListener('touchend', onEnd);
+  flag.addEventListener('mousedown', onStart);
+  document.addEventListener('mousemove', onMove);
+  document.addEventListener('mouseup', onEnd);
+  
+  // Hide on desktop
+  window.addEventListener('resize', function() {
+    if (!isMobile()) {
+      flag.style.bottom = '';
+      document.body.classList.remove('palette-open');
+      hideFlag();
+    }
+  });
+})();
+
 function goHome() {
   stopTimer(); timerWrap.classList.remove('show'); headerBar.classList.remove('bonus');
+  if (window._hidePaletteFlag) window._hidePaletteFlag();
+  document.body.classList.remove('palette-open');
   headerTitle.textContent = 'RV ZYLEN OFFICIAL';
   progressText.textContent = 'Welcome'; progressFill.style.width = '0%';
   showPage('welcome');
@@ -3385,6 +3679,14 @@ function showStreakPopup(count) {
   setTimeout(function () { streakOverlay.classList.remove('show'); }, 2400);
 }
 function updateStreakBadge() {
+  // Hide streak on home pages
+  var currentPage = null;
+  Object.keys(pageWraps).forEach(function(k){
+    if (pageWraps[k] && pageWraps[k].classList.contains('active')) currentPage = k;
+  });
+  var isHome = (currentPage === 'welcome' || currentPage === 'login' || currentPage === 'name' || currentPage === 'series');
+  if (isHome) { streakBadge.classList.remove('show'); return; }
+  
   if (currentStreak >= 2) { streakBadge.classList.add('show'); streakBadgeText.textContent = currentStreak; }
   else { streakBadge.classList.remove('show'); }
 }
@@ -3712,6 +4014,9 @@ submitConfirmBtn.addEventListener('click', function () { submitConfirmOverlay.cl
 /* ============ RESULTS ============ */
 function showResults() {
   stopTimer(); timerWrap.classList.remove('show');
+  // Hide palette flag when quiz ends
+  if (window._hidePaletteFlag) window._hidePaletteFlag();
+  document.body.classList.remove('palette-open');
   var mainStats = calcMarks('main'); var bonusStats = calcMarks('bonus');
   var totalCorrect = mainStats.correct + bonusStats.correct;
   var totalWrong = mainStats.wrong + bonusStats.wrong;
@@ -3954,6 +4259,9 @@ function beginQuiz() {
   progressText.textContent = 'Question 1 of ' + mainQuestions.length;
   timerWrap.classList.add('show');
   showPage('quiz'); render();
+  // Show palette flag on mobile
+  if (window._showPaletteFlag) setTimeout(window._showPaletteFlag, 500);
+}
 }
 
 /* ============ SUGGESTION FORM ============ */
