@@ -199,12 +199,23 @@ body::before {
 @keyframes containerIn { from { opacity:0; transform:translateY(20px) scale(.97); } to { opacity:1; transform:translateY(0) scale(1); } }
 
 .header {
-  background:linear-gradient(90deg,#2563eb,#1d4ed8,#2563eb);
-  background-size:200% 100%; animation:headerShift 6s ease infinite;
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e1b4b 100%);
+  background-size: 200% 100%; animation:headerShift 8s ease infinite;
   color:#fff; padding: 10px 18px;
   position:relative; overflow:hidden; text-align:center;
   display:flex; flex-direction:column; align-items:center; gap:3px; flex-shrink: 0;
+  border-bottom: 1px solid rgba(212,175,55,.15);
+  transition: background .5s ease;
 }
+[data-theme="light"] .header {
+  background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 50%, #dbeafe 100%);
+  color: #1e293b;
+  border-bottom: 1px solid rgba(37,99,235,.2);
+}
+[data-theme="light"] .header h1 { color: #1e293b; text-shadow: none; }
+[data-theme="light"] .header .sub { color: #475569; }
+[data-theme="light"] .header::after { color: rgba(37,99,235,.15); }
+[data-theme="light"] .header-logo-badge { background: rgba(37,99,235,.1); border-color: rgba(37,99,235,.4); color: #1e293b; }
 @keyframes headerShift { 0%,100% { background-position:0% 50%; } 50% { background-position:100% 50%; } }
 .header.bonus { background:linear-gradient(90deg,#d97706,#b45309,#d97706); background-size:200% 100%; }
 .header-logo-badge {
@@ -938,6 +949,88 @@ html {
   filter: brightness(0) invert(1) opacity(.9);
 }
 .welcome-contact-btn:hover .welcome-contact-icon { filter: brightness(0) invert(1); }
+
+/* BIG GET IN TOUCH CARDS */
+.welcome-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 620px;
+  margin: 0 auto 34px;
+}
+.welcome-contact-big {
+  background: rgba(255,255,255,.05);
+  border: 1.5px solid rgba(212,175,55,.35);
+  border-radius: 18px;
+  padding: 22px 12px 18px;
+  text-decoration: none;
+  color: #e8e6f0;
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  transition: all .35s cubic-bezier(.34,1.56,.64,1);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+.welcome-contact-big::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg,#60a5fa,#a855f7,#ec4899);
+  transition: all .4s ease;
+  transform: translateX(-50%);
+}
+.welcome-contact-big:hover {
+  transform: translateY(-8px) scale(1.04);
+  border-color: #d4af37;
+  background: rgba(212,175,55,.1);
+  box-shadow: 0 20px 40px rgba(0,0,0,.4), 0 0 30px rgba(212,175,55,.25);
+}
+.welcome-contact-big:hover::after { width: 80%; }
+.welcome-contact-big-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: #fff;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,.3);
+  transition: transform .4s ease;
+}
+.welcome-contact-big:hover .welcome-contact-big-icon { transform: scale(1.12) rotate(6deg); }
+.welcome-contact-big-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.welcome-contact-big-label {
+  font-size: .72rem;
+  letter-spacing: 2px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #d4af37;
+}
+@media (max-width: 899px) {
+  .welcome-contact-grid {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+    gap: 12px;
+  }
+  .welcome-contact-big {
+    flex-direction: row;
+    padding: 16px 20px;
+    gap: 14px;
+  }
+  .welcome-contact-big-icon { width: 44px; height: 44px; padding: 8px; }
+}
 
 /* NEXT BUTTON (Gold Outline) */
 .welcome-next-btn {
@@ -1981,9 +2074,11 @@ table.qtable td:first-child { font-weight: 600; color: #2563eb; }
     50% { transform: translateX(-50%) translateY(-6px); }
   }
 
-  /* When palette is open (slid up) */
+  /* Flag hides when palette open */
   body.palette-open .palette-flag {
-    transform: translateX(-50%) translateY(-45vh);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(20px);
   }
   
   .global-back-btn { top: 72px; left: 8px; padding: 6px 12px; font-size: .7rem; }
@@ -2000,8 +2095,22 @@ table.qtable td:first-child { font-weight: 600; color: #2563eb; }
   .streak-badge { right: 6px; top: 6px; font-size: .72rem; padding: 3px 9px; }
   .quiz-layout { grid-template-columns: 1fr; grid-template-rows: 1fr auto; height: 100%; }
   .quiz-main { grid-row: 1; padding: 12px 14px 12px; overflow-y: auto; }
-  .palette { grid-row: 2; height: auto; max-height: 38vh; min-height: 200px; border-right: none; border-top: 2px solid var(--palette-border); padding: 8px 12px 10px; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; position: relative; padding-bottom: 50px; transition: max-height .3s ease; }
-  body.palette-open .palette { max-height: 55vh; }  .palette-title, .palette-legend { display: none; }
+.palette { grid-row: 2; height: auto; max-height: 0; min-height: 0; border-right: none; border-top: 2px solid var(--palette-border); padding: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; position: relative; transition: max-height .35s ease, padding .35s ease, min-height .35s ease; }
+  body.palette-open .palette { max-height: 55vh; min-height: 240px; padding: 10px 12px 60px; }
+  body.palette-open .palette-grid {
+    grid-template-columns: repeat(5, 1fr) !important;
+  }
+  body.palette-open .palette-btn {
+    font-size: .75rem !important;
+    aspect-ratio: 1;
+  }
+  body.palette-open .palette-section-label {
+    display: block !important;
+  }
+  /* Make sure scroll works properly */
+  .palette::-webkit-scrollbar { width: 4px; }
+  .palette::-webkit-scrollbar-thumb { background: rgba(168,85,247,.4); border-radius: 2px; }
+  .palette-title, .palette-legend { display: none; }
   .palette-section-label { font-size: .66rem; margin: 4px 0 4px; }
   .palette-grid { grid-template-columns: repeat(auto-fill, minmax(30px, 1fr)); gap: 5px; margin-bottom: 5px; }
   .palette-btn { font-size: .68rem; }
@@ -2169,10 +2278,11 @@ table.qtable td:first-child { font-weight: 600; color: #2563eb; }
       <div class="welcome-content">
         
         <div class="welcome-topbar">
-          <button class="welcome-menu-btn" id="welcomeMenuBtn">
+           <button class="welcome-menu-btn" id="welcomeMenuBtn">
             <span class="welcome-menu-icon"><span></span><span></span><span></span></span>
             Menu
           </button>
+          <!-- sideMenuBtn is hidden on welcome (integrated with this Menu button) -->
           <div class="welcome-brand">
             <div class="welcome-brand-logo">RV</div>
             <div class="welcome-brand-sub">RV ZYLEN OFFICIAL</div>
@@ -2191,20 +2301,20 @@ table.qtable td:first-child { font-weight: 600; color: #2563eb; }
           <p class="welcome-sub">This is where creativity, strategy, and personal vision collide. Take a look around, explore our latest projects, and discover the world through our lens...</p>
         </div>
         
-        <div class="welcome-divider">— Featured Projects —</div>
+        <div class="welcome-divider">— Get in Touch —</div>
         
-        <div class="welcome-contacts">
-          <a href="mailto:lorenzo211207@gmail.com" class="welcome-contact-btn">
-            <img class="welcome-contact-icon" src="https://cdn.iconscout.com/icon/free/png-256/free-gmail-logo-icon-svg-download-png-9343749.png?f=webp&w=128" alt="Gmail" />
-            Gmail
+        <div class="welcome-contact-grid">
+          <a href="mailto:lorenzo211207@gmail.com" class="welcome-contact-big">
+            <div class="welcome-contact-big-icon"><img src="https://cdn.iconscout.com/icon/free/png-256/free-gmail-logo-icon-svg-download-png-9343749.png?f=webp&w=128" alt="Gmail" /></div>
+            <div class="welcome-contact-big-label">Gmail</div>
           </a>
-          <a href="https://t.me/rv_lorenzzo" target="_blank" rel="noopener" class="welcome-contact-btn">
-            <img class="welcome-contact-icon" src="https://cdn.iconscout.com/icon/free/png-256/free-telegram-icon-svg-download-png-11571086.png?f=webp&w=128" alt="Telegram" />
-            Telegram
+          <a href="https://t.me/rv_lorenzzo" target="_blank" rel="noopener" class="welcome-contact-big">
+            <div class="welcome-contact-big-icon"><img src="https://cdn.iconscout.com/icon/free/png-256/free-telegram-icon-svg-download-png-11571086.png?f=webp&w=128" alt="Telegram" /></div>
+            <div class="welcome-contact-big-label">Telegram</div>
           </a>
-          <a href="https://instagram.com/rv_lorenzzo" target="_blank" rel="noopener" class="welcome-contact-btn">
-            <img class="welcome-contact-icon" src="https://png.pngtree.com/png-clipart/20180626/ourmid/pngtree-instagram-icon-instagram-logo-png-image_3584853.png" alt="Instagram" />
-            Instagram
+          <a href="https://instagram.com/rv_lorenzzo" target="_blank" rel="noopener" class="welcome-contact-big">
+            <div class="welcome-contact-big-icon"><img src="https://png.pngtree.com/png-clipart/20180626/ourmid/pngtree-instagram-icon-instagram-logo-png-image_3584853.png" alt="Instagram" /></div>
+            <div class="welcome-contact-big-label">Instagram</div>
           </a>
         </div>
         
@@ -2539,6 +2649,16 @@ function showPage(name) {
   pageWraps[name].classList.add('active');
   if (name === 'quiz') pageWraps[name].classList.add('quiz-mode');
   pageWraps[name].scrollTop = 0;
+  
+  // Hide app header on welcome page (has own topbar)
+  var appHeader = document.querySelector('.container > .header');
+  var timerW = document.getElementById('timerWrap');
+  if (name === 'welcome') {
+    if (appHeader) appHeader.style.display = 'none';
+    if (timerW) timerW.style.display = 'none';
+  } else {
+    if (appHeader) appHeader.style.display = '';
+  }
   
   // Update streak badge visibility + history based on page
   if (typeof updateStreakBadge === 'function') updateStreakBadge();
@@ -3388,8 +3508,20 @@ document.getElementById('welcomeThemeSwitch').addEventListener('click', function
 });
 // Welcome page logout
 document.getElementById('welcomeLogoutBtn').addEventListener('click', doLogout);
-// Welcome page menu (opens side panel)
-document.getElementById('welcomeMenuBtn').addEventListener('click', openSidePanel);
+// Welcome page menu (opens side panel — slides in from left with smooth animation)
+document.getElementById('welcomeMenuBtn').addEventListener('click', function() {
+  openSidePanel();
+});
+// Hide side-menu-btn (floating ⋮) on welcome page
+var _origShowPage = showPage;
+showPage = function(name) {
+  _origShowPage(name);
+  var smb = document.getElementById('sideMenuBtn');
+  if (smb) {
+    if (name === 'welcome') smb.style.display = 'none';
+    else smb.style.display = '';
+  }
+};
 // Welcome page profile
 document.getElementById('welcomeProfileBtn').addEventListener('click', function() {
   var u = getLoggedInUser();
