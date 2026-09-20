@@ -395,14 +395,7 @@ body::before {
   transform: scale(.95) rotate(-15deg);
 }
 
-/* FLOATING ANIMATION ON LOGO BADGE */
-.header-logo-badge {
-  transition: all .4s cubic-bezier(.34,1.56,.64,1);
-}
-.header-logo-badge:hover {
-  transform: scale(1.15) rotate(10deg);
-  box-shadow: 0 8px 25px rgba(168,85,247,.6);
-}
+/* (removed duplicate — pehle wale rules hi use ho rahe hain) */
 
 /* INTERACTIVE SIDE MENU BUTTON */
 .side-menu-btn:active {
@@ -820,14 +813,21 @@ html {
 .welcome-page::before {
   content: "";
   position: absolute;
-  inset: -10%;
-  background:
-    radial-gradient(ellipse 50% 60% at 20% 30%, rgba(212,175,55,.18) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 60% at 80% 70%, rgba(96,165,250,.12) 0%, transparent 55%),
-    radial-gradient(ellipse 40% 50% at 50% 100%, rgba(168,85,247,.1) 0%, transparent 55%);
-  animation: meshFloat 20s ease-in-out infinite;
+  inset: 0;
+  background-image:
+    radial-gradient(1.5px 1.5px at 20px 30px, rgba(255,255,255,.9), transparent),
+    radial-gradient(1px 1px at 60px 70px, rgba(255,220,180,.7), transparent),
+    radial-gradient(2px 2px at 130px 40px, rgba(255,255,255,.8), transparent),
+    radial-gradient(1.5px 1.5px at 90px 120px, rgba(200,220,255,.7), transparent),
+    radial-gradient(1px 1px at 170px 160px, rgba(255,255,255,.6), transparent),
+    radial-gradient(2px 2px at 250px 50px, rgba(255,200,150,.7), transparent),
+    radial-gradient(1px 1px at 300px 200px, rgba(255,255,255,.8), transparent);
+  background-repeat: repeat;
+  background-size: 400px 280px;
+  animation: twinkle 5s ease-in-out infinite;
   pointer-events: none;
   z-index: 0;
+  opacity: .7;
 }
 @keyframes meshFloat {
   0%,100% { transform: translate(0,0) scale(1); }
@@ -855,45 +855,8 @@ html {
   100% { background-position: 60px 60px, 60px 60px; }
 }
 
-/* Star field */
-.welcome-page::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(1.5px 1.5px at 20px 30px, rgba(255,255,255,.9), transparent),
-    radial-gradient(1px 1px at 60px 70px, rgba(255,220,180,.7), transparent),
-    radial-gradient(2px 2px at 130px 40px, rgba(255,255,255,.8), transparent),
-    radial-gradient(1.5px 1.5px at 90px 120px, rgba(200,220,255,.7), transparent),
-    radial-gradient(1px 1px at 170px 160px, rgba(255,255,255,.6), transparent),
-    radial-gradient(2px 2px at 250px 50px, rgba(255,200,150,.7), transparent),
-    radial-gradient(1px 1px at 300px 200px, rgba(255,255,255,.8), transparent);
-  background-repeat: repeat;
-  background-size: 400px 280px;
-  animation: twinkle 5s ease-in-out infinite;
-  pointer-events: none;
-  opacity: .7;
-}
 @keyframes twinkle { 0%,100% { opacity:.5; } 50% { opacity:1; } }
 
-/* Golden particles */
-.welcome-page::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(2px 2px at 15% 20%, rgba(212,175,55,.6), transparent),
-    radial-gradient(1.5px 1.5px at 85% 35%, rgba(212,175,55,.5), transparent),
-    radial-gradient(2px 2px at 45% 80%, rgba(212,175,55,.4), transparent),
-    radial-gradient(1.5px 1.5px at 70% 65%, rgba(212,175,55,.5), transparent),
-    radial-gradient(2px 2px at 25% 90%, rgba(212,175,55,.4), transparent);
-  animation: particleFloat 12s ease-in-out infinite;
-  pointer-events: none;
-}
-@keyframes particleFloat {
-  0%, 100% { transform: translate(0, 0); opacity: .6; }
-  50% { transform: translate(8px, -12px); opacity: 1; }
-}
 
 .welcome-content {
   position: relative;
@@ -1724,26 +1687,6 @@ table.qtable td:first-child { font-weight: 600; color: #2563eb; }
   to { opacity: 1; transform: scale(1); }
 }
 
-/* SCORE RING */
-.score-ring-wrap {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0 24px;
-  animation: scoreRingPop .6s cubic-bezier(.34,1.56,.64,1);
-}
-.score-ring {
-  width: 200px;
-  height: 200px;
-  filter: drop-shadow(0 8px 24px rgba(37,99,235,.15));
-}
-@keyframes ringDraw {
-  from { stroke-dashoffset: 534; }
-}
-@keyframes scoreRingPop {
-  from { opacity: 0; transform: scale(.7); }
-  to { opacity: 1; transform: scale(1); }
-}
-
 .marks-big { font-size: 2.4rem; font-weight: 900; color: #2563eb; margin: 8px 0; }
 [data-theme="dark"] .marks-big { color: #60a5fa; }
 .marks-sub { color: var(--card-muted); font-size: .85rem; margin-bottom: 20px; }
@@ -2063,7 +2006,6 @@ table.qtable td:first-child { font-weight: 600; color: #2563eb; }
   position: relative;
   overflow: hidden;
 }
-.hidden { display: none !important; }
 
 /* ===== EMPTY STATES ===== */
 .hist-empty {
@@ -3749,9 +3691,9 @@ function guestStartFlow(){
 }
 function guestConfirm(){
   var name = document.getElementById('guestNameInput').value.trim();
-  if (name.length < 2) { showToast('Please enter a name (min 2 characters).', 'warning'); return; }  var guestId = 'guest_' + Date.now() + '_' + Math.random().toString(36).slice(2,7);
+  if (name.length < 2) { showToast('Please enter a name (min 2 characters).', 'warning'); return; }
+  var guestId = 'guest_' + Date.now() + '_' + Math.random().toString(36).slice(2,7);
   var user = { id: guestId, name: name, email: '', picture: '', mode: 'guest', loginTime: new Date().toISOString() };
-  saveLoggedInUser(user);
   saveLoggedInUser(user);
   userName = name;
   refreshHeaderChip(); renderSideHistory();
