@@ -3499,7 +3499,9 @@ function renderSideHistory(){
 
 /* ============ INIT ============ */
 // Loading screen particles handled by CSS now
-setTimeout(function() { document.getElementById('loadingScreen').classList.add('hide'); }, 2800);initFirebase();
+setTimeout(function() { document.getElementById('loadingScreen').classList.add('hide'); }, 2800);
+showPage('welcome');
+initFirebase();
 refreshHeaderChip();
 renderSideHistory();
 (function(){
