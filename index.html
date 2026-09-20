@@ -79,29 +79,6 @@ body::before {
 @keyframes loaderSlide { 0% { margin-left:-40%; } 100% { margin-left:100%; } }
 .loader-text { margin-top:14px; font-size:.8rem; letter-spacing:4px; text-transform:uppercase; color:rgba(255,255,255,.6); font-weight:600; }
 
-/* Mobile loading screen fix */
-@media (max-width: 899px) {
-  #loadingScreen {
-    padding: 20px;
-  }
-  .loader-logo-wrap {
-    width: 110px;
-    height: 110px;
-    margin-bottom: 20px;
-  }
-  .loader-logo {
-    font-size: 2.6rem;
-    letter-spacing: 3px;
-  }
-  .loader-bar {
-    width: 200px;
-  }
-  .loader-text {
-    font-size: .7rem;
-    letter-spacing: 3px;
-  }
-}
-
 .container {
   background:var(--card-bg);
   width:100%; max-width:100%; height: calc(100vh - 16px);
@@ -329,6 +306,154 @@ body::before {
 }
 .mp-volume::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 14px; height: 14px; border-radius: 50%; background: #a855f7; cursor: pointer; box-shadow: 0 0 8px rgba(168,85,247,.7); }
 .mp-volume::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: #a855f7; cursor: pointer; border: none; }
+/* MUSIC HEADER ROW */
+.mp-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+}
+.mp-header-title {
+  font-size: .68rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+  font-weight: 700;
+}
+.mp-gear-btn {
+  background: rgba(255,255,255,.12);
+  border: 1.5px solid rgba(255,255,255,.25);
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: .95rem;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .3s ease;
+  padding: 0;
+}
+.mp-gear-btn:hover {
+  background: rgba(168,85,247,.3);
+  border-color: rgba(168,85,247,.6);
+  transform: rotate(90deg);
+}
+.mp-gear-btn.active {
+  background: linear-gradient(135deg,#a855f7,#ec4899);
+  border-color: transparent;
+  transform: rotate(180deg);
+}
+
+/* MUSIC SETTINGS PANEL (Gear click) */
+.mp-settings-panel {
+  background: rgba(255,255,255,.06);
+  border: 1.5px solid rgba(168,85,247,.4);
+  border-radius: 14px;
+  padding: 14px;
+  margin-top: 12px;
+  display: none;
+}
+.mp-settings-panel.show {
+  display: block;
+  animation: fadeInSideTab .3s ease;
+}
+.mp-set-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed rgba(255,255,255,.15);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.mp-set-close {
+  background: rgba(255,255,255,.1);
+  border: none;
+  color: #fff;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: .8rem;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mp-set-close:hover { background: rgba(220,38,38,.5); }
+.mp-set-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(255,255,255,.08);
+}
+.mp-set-row:last-of-type {
+  border-bottom: none;
+}
+.mp-set-label {
+  flex: 1;
+  font-size: .74rem;
+  color: rgba(255,255,255,.9);
+  line-height: 1.4;
+  font-weight: 600;
+}
+.mp-set-label small {
+  display: block;
+  font-size: .62rem;
+  color: rgba(255,255,255,.5);
+  margin-top: 3px;
+  font-weight: 400;
+}
+.mp-toggle {
+  position: relative;
+  width: 42px;
+  height: 24px;
+  background: rgba(255,255,255,.2);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background .25s ease;
+  flex-shrink: 0;
+}
+.mp-toggle::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform .25s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,.3);
+}
+.mp-toggle.on {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+.mp-toggle.on::after {
+  transform: translateX(18px);
+}
+.mp-set-note {
+  margin-top: 10px;
+  padding: 8px 10px;
+  background: rgba(168,85,247,.15);
+  border-left: 3px solid #a855f7;
+  border-radius: 6px;
+  font-size: .65rem;
+  color: rgba(255,255,255,.75);
+  line-height: 1.5;
+}
+
 .mp-playlist { margin-top: 16px; }
 .mp-pl-title { font-size: .68rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.55); margin-bottom: 8px; font-weight: 700; }
 .mp-track {
@@ -802,7 +927,7 @@ table.qtable td:first-child { font-weight: 600; color: #2563eb; }
 </head>
 <body data-theme="light">
 
-<div id="loadingScreen" style="display:flex !important; opacity:1;">
+<div id="loadingScreen">
   <div class="loader-logo-wrap">
     <div class="loader-logo-ring"></div>
     <div class="loader-logo">LR</div>
@@ -828,28 +953,63 @@ table.qtable td:first-child { font-weight: 600; color: #2563eb; }
     <div class="side-tab-content active" id="tabHistory">
       <div class="hist-empty"><span class="big-emoji">🔒</span>Login to see your history</div>
     </div>
-    <div class="side-tab-content" id="tabMusic">
-      <div class="music-player">
-        <div class="mp-art" id="mpArt">🎧</div>
-        <div class="mp-title" id="mpTitle">Not Playing</div>
-        <div class="mp-artist" id="mpArtist">Select a track below</div>
-        <div class="mp-progress-wrap" id="mpProgressWrap"><div class="mp-progress" id="mpProgress"></div></div>
-        <div class="mp-time"><span id="mpCurrent">0:00</span><span id="mpDuration">0:00</span></div>
-        <div class="mp-controls">
-          <button class="mp-btn" id="mpPrev" title="Previous">⏮</button>
-          <button class="mp-btn play-btn" id="mpPlay" title="Play/Pause">▶</button>
-          <button class="mp-btn" id="mpNext" title="Next">⏭</button>
-        </div>
-        <div class="mp-volume-wrap">
-          <span>🔊</span>
-          <input type="range" class="mp-volume" id="mpVolume" min="0" max="1" step="0.05" value="0.7">
-        </div>
-      </div>
-      <div class="mp-playlist">
-        <div class="mp-pl-title">🎼 Luffy Vibes Playlist</div>
-        <div id="mpPlaylist"></div>
-      </div>
+  <div class="side-tab-content" id="tabMusic">
+  <div class="music-player">
+    <div class="mp-header-row">
+      <div class="mp-header-title">🎵 Now Playing</div>
+      <button class="mp-gear-btn" id="mpGearBtn" title="Music Settings">⚙️</button>
     </div>
+    <div class="mp-art" id="mpArt">🎧</div>
+    <div class="mp-title" id="mpTitle">Not Playing</div>
+    <div class="mp-artist" id="mpArtist">Select a track below</div>
+    <div class="mp-progress-wrap" id="mpProgressWrap"><div class="mp-progress" id="mpProgress"></div></div>
+    <div class="mp-time"><span id="mpCurrent">0:00</span><span id="mpDuration">0:00</span></div>
+    <div class="mp-controls">
+      <button class="mp-btn" id="mpPrev" title="Previous">⏮</button>
+      <button class="mp-btn play-btn" id="mpPlay" title="Play/Pause">▶</button>
+      <button class="mp-btn" id="mpNext" title="Next">⏭</button>
+    </div>
+    <div class="mp-volume-wrap">
+      <span>🔊</span>
+      <input type="range" class="mp-volume" id="mpVolume" min="0" max="1" step="0.05" value="0.7">
+    </div>
+  </div>
+
+  <!-- SETTINGS PANEL (Gear click par khulega) -->
+  <div class="mp-settings-panel" id="mpSettingsPanel">
+    <div class="mp-set-header">
+      <span>⚙️ Music Settings</span>
+      <button class="mp-set-close" id="mpSettingsClose">✕</button>
+    </div>
+    <div class="mp-set-row">
+      <div class="mp-set-label">
+        Tab Switch par chalta rahe
+        <small>Dusra tab kholne par bhi music bajta rahe</small>
+      </div>
+      <div class="mp-toggle" data-setting="tabSwitch"></div>
+    </div>
+    <div class="mp-set-row">
+      <div class="mp-set-label">
+        Minimize par chalta rahe
+        <small>Browser minimize karne par bhi music chale</small>
+      </div>
+      <div class="mp-toggle" data-setting="minimize"></div>
+    </div>
+    <div class="mp-set-row">
+      <div class="mp-set-label">
+        Phone Lock par chalta rahe
+        <small>Screen off / lock hone par bhi chale</small>
+      </div>
+      <div class="mp-toggle" data-setting="phoneLock"></div>
+    </div>
+    <div class="mp-set-note">💡 Agar OFF hai, toh us situation me music automatically pause ho jaayega.</div>
+  </div>
+
+  <div class="mp-playlist">
+    <div class="mp-pl-title">🎼 Calm Vibes Playlist</div>
+    <div id="mpPlaylist"></div>
+  </div>
+</div>
   </div>
 </div>
 
@@ -1267,10 +1427,16 @@ const mpVolume = document.getElementById('mpVolume');
 const mpPlaylist = document.getElementById('mpPlaylist');
 
 const PLAYLIST = [
-  { title: "Adventure Begins", artist: "One Piece Style — Royalty Free", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", emoji: "⚓" },
-  { title: "Sail the Grand Line", artist: "Ocean Breeze — Royalty Free", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3", emoji: "🌊" },
-  { title: "Pirate's Dream", artist: "Bounty Hunter — Royalty Free", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3", emoji: "🏴‍☠️" },
-  { title: "King of the Sea", artist: "Grand Fleet — Royalty Free", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3", emoji: "👑" }
+  { title: "Peaceful Morning", artist: "Calm Vibes", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3", emoji: "🌅" },
+  { title: "Soft Waves", artist: "Ocean Relax", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3", emoji: "🌊" },
+  { title: "Gentle Breeze", artist: "Nature Sounds", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3", emoji: "🍃" },
+  { title: "Silent Forest", artist: "Ambient Vibes", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3", emoji: "🌲" },
+  { title: "Moonlight", artist: "Night Calm", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3", emoji: "🌙" },
+  { title: "Deep Focus", artist: "Study Beats", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3", emoji: "🎧" },
+  { title: "Tranquil Rain", artist: "Rainy Days", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3", emoji: "🌧️" },
+  { title: "Cloud Drift", artist: "Sky Vibes", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3", emoji: "☁️" },
+  { title: "Ocean Depths", artist: "Deep Blue", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3", emoji: "🐋" },
+  { title: "Starlight", artist: "Cosmic Calm", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3", emoji: "✨" }
 ];
 let currentTrack = 0;
 let isPlaying = false;
@@ -1332,6 +1498,89 @@ mpProgressWrap.addEventListener('click', function(e){
 });
 musicAudio.volume = parseFloat(mpVolume.value);
 loadTrack(0);
+
+/* ===== MUSIC SETTINGS (Gear Button) ===== */
+const MP_SETTINGS_KEY = 'rv-zylen-music-settings-v2';
+let mpSettings = {
+  tabSwitch: false,
+  minimize: false,
+  phoneLock: false
+};
+try {
+  var savedMpSettings = localStorage.getItem(MP_SETTINGS_KEY);
+  if (savedMpSettings) {
+    var parsed = JSON.parse(savedMpSettings);
+    mpSettings.tabSwitch = !!parsed.tabSwitch;
+    mpSettings.minimize = !!parsed.minimize;
+    mpSettings.phoneLock = !!parsed.phoneLock;
+  }
+} catch(e) {}
+
+function saveMpSettings() {
+  try { localStorage.setItem(MP_SETTINGS_KEY, JSON.stringify(mpSettings)); } catch(e) {}
+}
+function updateMpToggles() {
+  document.querySelectorAll('.mp-toggle[data-setting]').forEach(function(t) {
+    var key = t.getAttribute('data-setting');
+    if (mpSettings[key]) t.classList.add('on');
+    else t.classList.remove('on');
+  });
+}
+document.querySelectorAll('.mp-toggle[data-setting]').forEach(function(t) {
+  t.addEventListener('click', function() {
+    var key = t.getAttribute('data-setting');
+    mpSettings[key] = !mpSettings[key];
+    saveMpSettings();
+    updateMpToggles();
+  });
+});
+updateMpToggles();
+
+/* Gear button toggle */
+var mpGearBtn = document.getElementById('mpGearBtn');
+var mpSettingsPanel = document.getElementById('mpSettingsPanel');
+var mpSettingsClose = document.getElementById('mpSettingsClose');
+if (mpGearBtn && mpSettingsPanel) {
+  mpGearBtn.addEventListener('click', function() {
+    mpSettingsPanel.classList.toggle('show');
+    mpGearBtn.classList.toggle('active');
+  });
+}
+if (mpSettingsClose && mpSettingsPanel) {
+  mpSettingsClose.addEventListener('click', function() {
+    mpSettingsPanel.classList.remove('show');
+    if (mpGearBtn) mpGearBtn.classList.remove('active');
+  });
+}
+
+/* ===== SMART MUSIC PAUSE/RESUME ===== */
+let musicAutoPaused = false;
+let lastBlurTime = 0;
+
+window.addEventListener('blur', function() {
+  lastBlurTime = Date.now();
+  if (isPlaying && !mpSettings.tabSwitch && !mpSettings.minimize) {
+    musicAutoPaused = true;
+    pauseMusic();
+  }
+});
+
+document.addEventListener('visibilitychange', function() {
+  if (document.hidden) {
+    if (isPlaying) {
+      var timeSinceBlur = Date.now() - lastBlurTime;
+      var isPhoneLock = timeSinceBlur > 500;
+      
+      if (isPhoneLock && !mpSettings.phoneLock) {
+        musicAutoPaused = true;
+        pauseMusic();
+      } else if (!isPhoneLock && !mpSettings.tabSwitch) {
+        musicAutoPaused = true;
+        pauseMusic();
+      }
+    }
+  }
+});
 
 /* ============ LOGIN SYSTEM ============ */
 
@@ -1601,7 +1850,7 @@ function renderSideHistory(){
 }
 
 /* ============ INIT ============ */
-setTimeout(function() { document.getElementById('loadingScreen').classList.add('hide'); }, 2500);
+setTimeout(function() { document.getElementById('loadingScreen').classList.add('hide'); }, 1500);
 initFirebase();
 refreshHeaderChip();
 renderSideHistory();
