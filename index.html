@@ -2423,11 +2423,13 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 
 /* ===== 1. ROOT REFINEMENT ===== */
 :root {
-  --gold-1: #faf6e2;
-  --gold-2: #f0dfa0;
-  --gold-3: #d4af37;
-  --gold-4: #a8821a;
-  --gold-5: #7a5c0e;
+  --gold-1: #ffffff;
+  --gold-2: #e0e7ff;
+  --gold-3: #60a5fa;
+  --gold-4: #a855f7;
+  --gold-5: #ec4899;
+  ...
+}
   --navy-1: #0a0618;
   --navy-2: #0f0a1f;
   --navy-3: #15102a;
@@ -2888,7 +2890,112 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 img, svg { display: block; max-width: 100%; }
 button, a { -webkit-tap-highlight-color: transparent; user-select: none; }
 input, textarea { user-select: text; }
+/* ================================================================
+   FORCE OVERRIDE — Kill Gold, Use Cyan/Purple
+   ================================================================ */
 
+/* Kill all gold gradients in heading */
+.welcome-page .welcome-heading,
+.welcome-page .welcome-heading .char,
+.motion-welcome .welcome-heading,
+.motion-welcome .welcome-heading .char,
+#heroHeading .char {
+  background: linear-gradient(180deg, #ffffff 0%, #e0e7ff 40%, #60a5fa 80%, #a855f7 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  filter: drop-shadow(0 4px 30px rgba(96,165,250,.4)) !important;
+}
+
+/* Force hover state also cyan/purple */
+.welcome-page .welcome-heading:hover .char,
+.motion-welcome .welcome-heading:hover .char,
+#heroHeading:hover .char {
+  filter: drop-shadow(0 6px 40px rgba(96,165,250,.6)) !important;
+}
+
+/* Kill gold on welcome-sub if any */
+.welcome-page .welcome-sub,
+.motion-welcome .welcome-sub {
+  color: rgba(226,232,240,.55) !important;
+}
+
+/* Force nav icons blue */
+.motion-welcome .welcome-icon-btn,
+.motion-welcome .welcome-theme-btn,
+.motion-welcome .welcome-logout-btn {
+  border-color: rgba(96,165,250,.35) !important;
+  color: rgba(226,232,240,.85) !important;
+}
+
+/* Enter button — kill gold */
+.welcome-page .welcome-next-btn,
+.motion-welcome .welcome-next-btn {
+  background: linear-gradient(135deg, rgba(96,165,250,.18), rgba(168,85,247,.1)) !important;
+  border-color: rgba(96,165,250,.65) !important;
+  color: #93c5fd !important;
+  box-shadow: 0 16px 44px rgba(96,165,250,.3), 0 0 0 1px rgba(96,165,250,.15), inset 0 1px 0 rgba(255,255,255,.12) !important;
+}
+.welcome-page .welcome-next-btn:hover,
+.motion-welcome .welcome-next-btn:hover {
+  background: linear-gradient(135deg, rgba(96,165,250,.35), rgba(168,85,247,.2)) !important;
+  color: #ffffff !important;
+  border-color: #60a5fa !important;
+  box-shadow: 0 30px 70px rgba(96,165,250,.5), 0 0 80px rgba(96,165,250,.4), inset 0 1px 0 rgba(255,255,255,.2) !important;
+}
+.welcome-page .welcome-next-btn::before,
+.motion-welcome .welcome-next-btn::before {
+  background: linear-gradient(135deg, rgba(96,165,250,.45), rgba(168,85,247,.25)) !important;
+}
+
+/* Logo orbit rings — kill gold */
+.welcome-page .welcome-logo-big::before,
+.motion-welcome .welcome-logo-big::before {
+  border-top-color: rgba(96,165,250,.9) !important;
+  border-right-color: rgba(96,165,250,.3) !important;
+  border-bottom-color: rgba(96,165,250,.15) !important;
+  border-left-color: rgba(96,165,250,.15) !important;
+}
+.welcome-page .welcome-logo-big::after,
+.motion-welcome .welcome-logo-big::after {
+  border-bottom-color: rgba(168,85,247,.7) !important;
+  border-left-color: rgba(168,85,247,.2) !important;
+  border-top-color: rgba(168,85,247,.15) !important;
+  border-right-color: rgba(168,85,247,.15) !important;
+}
+
+/* Contact buttons — kill gold */
+.welcome-page .welcome-contact-btn,
+.motion-welcome .welcome-contact-btn {
+  border-color: rgba(96,165,250,.3) !important;
+}
+.welcome-page .welcome-contact-btn:hover,
+.motion-welcome .welcome-contact-btn:hover {
+  border-color: rgba(96,165,250,.7) !important;
+  box-shadow: 0 24px 56px rgba(0,0,0,.5), 0 0 40px rgba(96,165,250,.3), inset 0 1px 0 rgba(255,255,255,.12) !important;
+}
+
+/* Marquee — kill gold */
+.welcome-page .marquee-item,
+.motion-welcome .marquee-item,
+.marquee-item {
+  color: rgba(96,165,250,.6) !important;
+}
+.welcome-page .marquee-item:hover,
+.motion-welcome .marquee-item:hover,
+.marquee-item:hover {
+  color: rgba(96,165,250,1) !important;
+}
+.marquee-star {
+  color: #a855f7 !important;
+}
+
+/* Footer — kill gold */
+.welcome-page .welcome-footer,
+.motion-welcome .welcome-footer {
+  color: rgba(226,232,240,.35) !important;
+}
 /* ================================================================
    RV ZYLEN — CONTINUOUS MOTION ENGINE
    ================================================================ */
