@@ -3246,24 +3246,74 @@ input, textarea { cursor: text !important; }
   transition: all .5s cubic-bezier(.34,1.56,.64,1);
   box-shadow: 0 6px 16px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.25);
 }
-/* Gmail — white circle, logo shows its colors */
-.welcome-contact-btn[data-brand="gmail"] .welcome-contact-icon {
+/* ===== CONTACT ICON CIRCLES — PREMIUM ===== */
+.welcome-contact-btn .welcome-contact-icon,
+.motion-welcome .welcome-contact-btn .welcome-contact-icon {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all .5s cubic-bezier(.34,1.56,.64,1);
+  box-shadow: 0 6px 16px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.25);
+  overflow: hidden;
+}
+
+/* === Gmail — White circle with subtle shadow === */
+.welcome-contact-btn[data-brand="gmail"] .welcome-contact-icon,
+.motion-welcome .welcome-contact-btn[data-brand="gmail"] .welcome-contact-icon {
+  background: linear-gradient(135deg, #ffffff, #f1f5f9);
+  padding: 9px;
+}
+
+/* === Telegram — Blue circle, white paper plane inside === */
+.welcome-contact-btn[data-brand="telegram"] .welcome-contact-icon,
+.motion-welcome .welcome-contact-btn[data-brand="telegram"] .welcome-contact-icon {
+  background: linear-gradient(135deg, #2AABEE, #229ED9);
+  padding: 9px;
+}
+
+/* === Instagram — Solid white circle, camera gradient inside SVG === */
+.welcome-contact-btn[data-brand="instagram"] .welcome-contact-icon,
+.motion-welcome .welcome-contact-btn[data-brand="instagram"] .welcome-contact-icon {
   background: linear-gradient(135deg, #ffffff, #f8fafc);
-  padding: 8px;
+  padding: 6px;
 }
 
-/* Telegram — blue circle + white plane */
-.welcome-contact-btn[data-brand="telegram"] .welcome-contact-icon {
-  background: transparent;
-  padding: 0;
+/* === SVG inside icon === */
+.welcome-contact-icon svg,
+.motion-welcome .welcome-contact-icon svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+  transition: transform .5s cubic-bezier(.34,1.56,.64,1);
 }
 
-/* Instagram — full gradient camera */
-.welcome-contact-btn[data-brand="instagram"] .welcome-contact-icon {
-  background: transparent;
-  padding: 0;
-}.motion-welcome .welcome-contact-icon svg { width: 22px; height: 22px; display: block; }
+/* === Hover — icon circle glows + scales === */
+.welcome-contact-btn:hover .welcome-contact-icon,
 .motion-welcome .welcome-contact-btn:hover .welcome-contact-icon {
+  transform: scale(1.2) rotate(-10deg) translateZ(30px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.3);
+}
+
+.welcome-contact-btn:hover .welcome-contact-icon svg,
+.motion-welcome .welcome-contact-btn:hover .welcome-contact-icon svg {
+  transform: scale(1.05);
+}
+
+/* === Brand-tinted hover glow === */
+.welcome-contact-btn[data-brand="gmail"]:hover .welcome-contact-icon {
+  box-shadow: 0 12px 28px rgba(234,67,53,.4), inset 0 1px 0 rgba(255,255,255,.3);
+}
+.welcome-contact-btn[data-brand="telegram"]:hover .welcome-contact-icon {
+  box-shadow: 0 12px 28px rgba(42,171,238,.5), inset 0 1px 0 rgba(255,255,255,.3);
+}
+.welcome-contact-btn[data-brand="instagram"]:hover .welcome-contact-icon {
+  box-shadow: 0 12px 28px rgba(221,42,123,.4), inset 0 1px 0 rgba(255,255,255,.3);
+}.motion-welcome .welcome-contact-btn:hover .welcome-contact-icon {
   transform: scale(1.2) rotate(-10deg) translateZ(30px);
   box-shadow: 0 12px 28px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.3);
 }
@@ -3962,54 +4012,26 @@ body { height: auto !important; min-height: 100vh; }
         </div>
         
       <div class="welcome-contacts">
-  <!-- Gmail — Real Logo -->
+  <!-- Gmail -->
   <a href="mailto:lorenzo211207@gmail.com" class="welcome-contact-btn" data-brand="gmail" aria-label="Contact via Gmail">
     <span class="welcome-contact-icon">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="22" height="22">
-        <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" fill="#EA4335"/>
-        <path d="M5.455 4.64L12 9.548l6.545-4.91-1.528-1.145C15.773 2.61 14.005 2.75 12 4.06 9.995 2.75 8.227 2.61 6.983 3.494L5.455 4.64z" fill="#FBBC04"/>
-        <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64V9.548l7.455-5.582V5.457z" fill="#34A853" opacity=".85"/>
-        <path d="M0 5.457v13.909c0 .904.732 1.636 1.636 1.636h3.819V11.73L12 16.64V9.548L4.545 3.966V5.457z" fill="#4285F4" opacity=".85"/>
-      </svg>
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Gmail" width="24" height="24" loading="lazy">
     </span>
     <span class="welcome-contact-label">Gmail</span>
   </a>
 
-  <!-- Telegram — Real Logo -->
+  <!-- Telegram -->
   <a href="https://t.me/rv_lorenzzo" target="_blank" rel="noopener" class="welcome-contact-btn" data-brand="telegram" aria-label="Contact via Telegram">
     <span class="welcome-contact-icon">
-      <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" width="22" height="22">
-        <defs>
-          <linearGradient id="tgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#2AABEE"/>
-            <stop offset="100%" stop-color="#229ED9"/>
-          </linearGradient>
-        </defs>
-        <circle cx="120" cy="120" r="120" fill="url(#tgGrad)"/>
-        <path d="M54.3 118.8l109.5-42.2c5.1-1.8 9.5 1.2 7.9 8.7l-18.6 87.9c-1.4 6.3-5.1 7.9-10.3 4.9l-28.5-21-13.7 13.2c-1.5 1.5-2.8 2.8-5.7 2.8l2-29.2 53.2-48c2.3-2.1-.5-3.2-3.6-1.2l-65.7 41.4-28.3-8.9c-6.2-1.9-6.3-6.2 1.8-9.4z" fill="#ffffff"/>
-      </svg>
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/telegram/telegram-original.svg" alt="Telegram" width="24" height="24" loading="lazy">
     </span>
     <span class="welcome-contact-label">Telegram</span>
   </a>
 
-  <!-- Instagram — Real Logo -->
+  <!-- Instagram -->
   <a href="https://instagram.com/rv_lorenzzo" target="_blank" rel="noopener" class="welcome-contact-btn" data-brand="instagram" aria-label="Contact via Instagram">
     <span class="welcome-contact-icon">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="22" height="22">
-        <defs>
-          <radialGradient id="igGrad1" cx="30%" cy="107%" r="150%">
-            <stop offset="0%" stop-color="#fdf497"/>
-            <stop offset="5%" stop-color="#fdf497"/>
-            <stop offset="45%" stop-color="#fd5949"/>
-            <stop offset="60%" stop-color="#d6249f"/>
-            <stop offset="90%" stop-color="#285AEB"/>
-          </radialGradient>
-        </defs>
-        <rect x="0" y="0" width="24" height="24" rx="5.5" fill="url(#igGrad1)"/>
-        <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="none" stroke="#ffffff" stroke-width="1.9"/>
-        <circle cx="12" cy="12" r="4.2" fill="none" stroke="#ffffff" stroke-width="1.9"/>
-        <circle cx="17.6" cy="6.4" r="1.25" fill="#ffffff"/>
-      </svg>
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/instagram/instagram-original.svg" alt="Instagram" width="24" height="24" loading="lazy">
     </span>
     <span class="welcome-contact-label">Instagram</span>
   </a>
