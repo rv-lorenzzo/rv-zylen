@@ -3881,6 +3881,165 @@ body[data-theme="dark"] .welcome-quote {
     font-size: .8rem !important;
   }
 }
+/* ============================================================
+   MOBILE — Quote between Explore & Growth + Heading gap
+   ============================================================ */
+@media (max-width: 899px) {
+  /* Flex order — Quote comes AFTER hero, BEFORE growth */
+  .welcome-single-screen {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 10px 14px 14px !important;
+  }
+
+  .welcome-hero {
+    order: 1 !important;
+    padding: 8px 0 6px !important;
+    margin: 0 !important;
+  }
+
+  .welcome-quote-wrap {
+    order: 2 !important;
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    left: auto !important;
+    max-width: 100% !important;
+    margin: 16px 0 20px !important;
+    padding: 0 4px !important;
+  }
+
+  .welcome-growth {
+    order: 3 !important;
+    padding: 4px 0 4px !important;
+    margin: 0 !important;
+  }
+
+  .welcome-footer {
+    order: 4 !important;
+    margin-top: 12px !important;
+  }
+
+  /* Extra gap after "Welcome to the Official Space" heading */
+  .welcome-hero-left .welcome-heading {
+    font-size: 1.55rem !important;
+    margin-bottom: 22px !important;
+    line-height: 1.15 !important;
+  }
+
+  /* Description (tagline) */
+  .welcome-hero-left .welcome-desc {
+    font-size: .76rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 14px !important;
+  }
+
+  /* Brand compact */
+  .welcome-brand-top {
+    margin-bottom: 2px !important;
+  }
+
+  .welcome-logo-big {
+    font-size: 2.8rem !important;
+    letter-spacing: 2px !important;
+  }
+
+  .welcome-oak-leaf {
+    width: 1.9rem !important;
+    height: 2.8rem !important;
+  }
+
+  .welcome-brand-name {
+    font-size: .58rem !important;
+    letter-spacing: 3px !important;
+    margin-top: 2px !important;
+    margin-bottom: 14px !important;
+  }
+
+  /* Button */
+  .welcome-cta-btn {
+    padding: 10px 22px !important;
+    font-size: .74rem !important;
+  }
+
+  /* Quote style */
+  .welcome-quote {
+    font-size: .85rem !important;
+    line-height: 1.4 !important;
+    padding-left: 14px !important;
+  }
+
+  /* Growth compact */
+  .growth-heading {
+    font-size: 1.2rem !important;
+    margin-bottom: 2px !important;
+  }
+
+  .growth-divider {
+    font-size: .8rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  .growth-divider::before,
+  .growth-divider::after {
+    width: 26px !important;
+    margin: 0 6px !important;
+  }
+
+  .growth-cards {
+    gap: 7px !important;
+  }
+
+  .growth-card {
+    padding: 10px 8px 9px !important;
+    border-radius: 11px !important;
+  }
+
+  .growth-icon {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: .85rem !important;
+    margin-bottom: 6px !important;
+  }
+
+  .growth-title {
+    font-size: .8rem !important;
+    margin-bottom: 2px !important;
+  }
+
+  .growth-desc {
+    font-size: .58rem !important;
+    line-height: 1.3 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-logo-big {
+    font-size: 2.4rem !important;
+  }
+
+  .welcome-oak-leaf {
+    width: 1.6rem !important;
+    height: 2.4rem !important;
+  }
+
+  .welcome-hero-left .welcome-heading {
+    font-size: 1.4rem !important;
+    margin-bottom: 18px !important;
+  }
+
+  .welcome-quote {
+    font-size: .8rem !important;
+  }
+
+  .growth-title {
+    font-size: .74rem !important;
+  }
+
+  .growth-desc {
+    font-size: .54rem !important;
+  }
+}
 </style>
 </head>
 <body data-theme="light">
