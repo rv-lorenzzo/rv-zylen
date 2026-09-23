@@ -3622,6 +3622,95 @@ body[data-theme="dark"] .welcome-brand-name {
     height: 6.2rem;
   }
 }
+      /* ============================================================
+   FINAL OVERRIDES — Brand position, Button, Quote
+   ============================================================ */
+
+/* 1️⃣ BRAND — Welcome ke just upar, nav ke parallel */
+.welcome-hero {
+  align-items: flex-start !important;
+  padding: 15px 0 10px !important;
+}
+
+.welcome-hero-left {
+  align-self: flex-start !important;
+  align-items: flex-start !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.welcome-brand-top {
+  margin-bottom: 4px !important;
+}
+
+.welcome-brand-name {
+  margin-bottom: 18px !important;
+}
+
+/* 2️⃣ EXPLORE NOW BUTTON — Normal width (stretch band karo) */
+.welcome-cta-btn,
+.welcome-hero-left .welcome-cta-btn {
+  align-self: flex-start !important;
+  width: auto !important;
+  max-width: fit-content !important;
+  flex: 0 0 auto !important;
+  display: inline-flex !important;
+}
+
+/* 3️⃣ QUOTE — No box, plain text, wall par (books ke upar nahi) */
+.welcome-quote-wrap {
+  position: absolute !important;
+  top: 16% !important;
+  right: 5.5% !important;
+  max-width: 115px !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  animation: heroIn 1s cubic-bezier(.4,0,.2,1) .3s backwards;
+}
+
+.welcome-quote-wrap *,
+.welcome-quote {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.welcome-quote {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-style: italic !important;
+  font-size: .78rem !important;
+  line-height: 1.35 !important;
+  color: #2A1E0A !important;
+  font-weight: 500 !important;
+  text-align: left !important;
+  text-shadow: 0 1px 8px rgba(250,246,238,.85), 0 0 2px rgba(250,246,238,.6) !important;
+}
+
+body[data-theme="dark"] .welcome-quote {
+  color: #F5EDD6 !important;
+  text-shadow: 0 1px 8px rgba(0,0,0,.85), 0 0 2px rgba(0,0,0,.6) !important;
+}
+
+/* Mobile — quote inline */
+@media (max-width: 899px) {
+  .welcome-quote-wrap {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    max-width: 100% !important;
+    margin: 14px 0 8px !important;
+  }
+}
 </style>
 </head>
 <body data-theme="light">
