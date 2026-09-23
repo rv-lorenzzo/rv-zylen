@@ -2778,6 +2778,142 @@ body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
     padding: 8px 12px;
   }
 }
+/* ============================================================
+   NAVBAR REDESIGN — All Links Visible on Mobile
+   ============================================================ */
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 24px 0;
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-light);
+  z-index: 100;
+  flex-shrink: 0;
+}
+
+.nav-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  padding: 10px 0 14px;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.nav-links::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-link {
+  font-family: 'Inter', sans-serif;
+  font-size: .85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  letter-spacing: .3px;
+  position: relative;
+  padding-bottom: 4px;
+  transition: all .25s ease;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ============ MOBILE ============ */
+@media (max-width: 899px) {
+  .navbar {
+    padding: 10px 16px 0;
+  }
+
+  .nav-top-row {
+    padding-bottom: 8px;
+  }
+
+  .nav-logo {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+  }
+
+  .nav-leaf {
+    font-size: 1rem;
+  }
+
+  .nav-sub {
+    display: none; /* "ZYLEN OFFICIAL" hide on mobile */
+  }
+
+  .nav-theme-btn {
+    width: 36px;
+    height: 36px;
+    font-size: .9rem;
+    margin-right: 0;
+  }
+
+  .nav-profile-btn {
+    padding: 7px 14px;
+    font-size: .75rem;
+  }
+
+  .nav-profile-btn .profile-label {
+    font-size: .75rem;
+  }
+
+  /* Links — smaller but visible */
+  .nav-links {
+    gap: 18px;
+    padding: 8px 0 12px;
+    justify-content: flex-start;
+  }
+
+  .nav-link {
+    font-size: .78rem;
+    letter-spacing: 0;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 420px) {
+  .nav-links {
+    gap: 14px;
+  }
+
+  .nav-link {
+    font-size: .72rem;
+  }
+
+  .nav-profile-btn {
+    padding: 6px 12px;
+    font-size: .7rem;
+  }
+}
 </style>
 </head>
 <body data-theme="light">
@@ -2802,11 +2938,20 @@ body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
     <!-- ==========================================================
          NAVIGATION BAR (hidden on welcome)
          ========================================================== -->
-            <nav class="navbar" id="mainNav">
-      <div class="nav-brand">
-        <span class="nav-logo">RV</span>
-        <span class="nav-leaf">🌿</span>
-        <span class="nav-sub">ZYLEN OFFICIAL</span>
+                <nav class="navbar" id="mainNav">
+      <div class="nav-top-row">
+        <div class="nav-brand">
+          <span class="nav-logo">RV</span>
+          <span class="nav-leaf">🌿</span>
+          <span class="nav-sub">ZYLEN OFFICIAL</span>
+        </div>
+        <div class="nav-actions">
+          <button class="nav-theme-btn" id="navThemeBtn" title="Toggle Theme">🌙</button>
+          <button class="nav-profile-btn" id="profileBtn">
+            <span class="profile-icon">👤</span>
+            <span class="profile-label">Login</span>
+          </button>
+        </div>
       </div>
       <div class="nav-links">
         <a href="#" class="nav-link active" data-page="welcome">Home</a>
@@ -2814,14 +2959,6 @@ body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
         <a href="#" class="nav-link" data-page="courses">Courses</a>
         <a href="#" class="nav-link" data-page="resources">Resources</a>
         <a href="#" class="nav-link" data-page="contact">Contact</a>
-      </div>
-      <div class="nav-actions">
-        <button class="nav-theme-btn" id="navThemeBtn" title="Toggle Theme">🌙</button>
-        <button class="nav-profile-btn" id="profileBtn">
-          <span class="profile-icon">👤</span>
-          <span class="profile-label">Login</span>
-        </button>
-        <button class="nav-hamburger" id="navHamburger" title="Menu">☰</button>
       </div>
     </nav>
 
@@ -3591,55 +3728,14 @@ function initEventListeners() {
     });
   }
   
-  // ============================================================
-  // MOBILE HAMBURGER MENU
-  // ============================================================
-  const navHamburger = document.getElementById('navHamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const mobileMenuClose = document.getElementById('mobileMenuClose');
-  const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-  
-  function openMobileMenu() {
-    if (mobileMenu) mobileMenu.classList.add('show');
-    if (mobileMenuOverlay) mobileMenuOverlay.classList.add('show');
-  }
-  
-  function closeMobileMenu() {
-    if (mobileMenu) mobileMenu.classList.remove('show');
-    if (mobileMenuOverlay) mobileMenuOverlay.classList.remove('show');
-  }
-  
-  if (navHamburger) navHamburger.addEventListener('click', openMobileMenu);
-  if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeMobileMenu);
-  if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', closeMobileMenu);
-  
-  // Mobile nav links
-  document.querySelectorAll('.mobile-nav-link').forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const page = link.dataset.page;
-      closeMobileMenu();
-      if (page === 'contact') {
-        document.getElementById('contactModal').classList.add('show');
-      } else {
-        showPage(page);
-      }
-      // Update active state
-      document.querySelectorAll('.mobile-nav-link').forEach(l => l.classList.remove('active'));
-      link.classList.add('active');
-      // Sync with desktop nav
-      document.querySelectorAll('.nav-link').forEach(l => {
-        l.classList.toggle('active', l.dataset.page === page);
-      });
-    });
-  });
+   // (Mobile menu removed — all links visible on mobile now)
   
   // ESC key closes panels/modals
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeProfilePanel();
       closeLogoutModal();
-      closeMobileMenu();
+     
       const cm = document.getElementById('contactModal');
       if (cm) cm.classList.remove('show');
     }
