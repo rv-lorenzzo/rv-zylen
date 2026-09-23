@@ -5367,14 +5367,43 @@ function updateUIForUser(user, profile) {
 // ============================================================
 // ZEN QUOTE ROTATION
 // ============================================================
+/* ============================================================
+   ZEN QUOTES — Rotate every 2 min from local array
+   ============================================================ */
+let currentQuoteIndex = Math.floor(Math.random() * FALLBACK_QUOTES.length);
+let quoteInterval = null;
+
+function displayQuote(quote) {
+  const quoteEl = document.getElementById('welcomeQuote');
+  if (!quoteEl) return;
+  
+  // Fade out
+  quoteEl.style.transition = 'opacity .5s ease';
+  quoteEl.style.opacity = '0';
+  
+  setTimeout(() => {
+    quoteEl.textContent = quote;
+    quoteEl.style.opacity = '1';
+  }, 500);
+}
+
 function initZenQuote() {
   const quoteEl = document.getElementById('welcomeQuote');
   if (!quoteEl) return;
   
-  const randomQuote = ZEN_QUOTES[Math.floor(Math.random() * ZEN_QUOTES.length)];
-  quoteEl.textContent = randomQuote;
+  // Initial random quote
+  const randomIndex = Math.floor(Math.random() * FALLBACK_QUOTES.length);
+  currentQuoteIndex = randomIndex;
+  quoteEl.textContent = FALLBACK_QUOTES[randomIndex];
+  quoteEl.style.opacity = '1';
+  
+  // Auto-rotate every 2 minutes
+  if (quoteInterval) clearInterval(quoteInterval);
+  quoteInterval = setInterval(() => {
+    currentQuoteIndex = (currentQuoteIndex + 1) % FALLBACK_QUOTES.length;
+    displayQuote(FALLBACK_QUOTES[currentQuoteIndex]);
+  }, 120000);
 }
-
 // ============================================================
 // LOADING SCREEN
 // ============================================================
