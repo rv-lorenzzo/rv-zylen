@@ -3137,6 +3137,145 @@ body[data-theme="dark"] .welcome-hero-left .welcome-heading em {
 .welcome-single-screen {
   padding-bottom: 20px !important;
 }
+/* ============================================================
+   NAVBAR — Single Row (Logo | Links Center | Actions)
+   ============================================================ */
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: grid !important;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 20px;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom: none !important;
+  z-index: 50;
+  padding: 18px 40px !important;
+  flex-direction: row !important;
+}
+
+body[data-theme="dark"] .navbar {
+  background: transparent !important;
+}
+
+/* Brand — left */
+.nav-brand {
+  justify-self: start;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  cursor: pointer;
+}
+
+/* Links — center */
+.nav-links {
+  justify-self: center;
+  display: flex !important;
+  align-items: center;
+  gap: 32px;
+  padding: 0 !important;
+  width: auto !important;
+  overflow: visible !important;
+}
+
+/* Actions — right */
+.nav-actions {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Hide the old top-row wrapper if it still exists */
+.nav-top-row {
+  display: contents !important;
+}
+
+/* ============ MOBILE — Same row but smaller ============ */
+@media (max-width: 899px) {
+  .navbar {
+    position: relative !important;
+    grid-template-columns: auto 1fr auto;
+    background: rgba(250,246,238,.95) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid rgba(184,147,74,.15) !important;
+    padding: 10px 12px !important;
+    gap: 8px;
+  }
+
+  body[data-theme="dark"] .navbar {
+    background: rgba(26,14,20,.92) !important;
+  }
+
+  .nav-logo {
+    font-size: 1.35rem;
+    letter-spacing: 1px;
+  }
+
+  .nav-leaf {
+    font-size: 1rem;
+  }
+
+  .nav-sub {
+    display: none;
+  }
+
+  .nav-links {
+    gap: 14px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 0 4px !important;
+  }
+
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-link {
+    font-size: .72rem;
+    white-space: nowrap;
+  }
+
+  .nav-theme-btn {
+    width: 34px;
+    height: 34px;
+    font-size: .85rem;
+    margin: 0;
+  }
+
+  .nav-profile-btn {
+    padding: 6px 10px;
+    font-size: .7rem;
+  }
+
+  .nav-profile-btn .profile-label {
+    font-size: .7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-link {
+    font-size: .66rem;
+  }
+
+  .nav-links {
+    gap: 10px;
+  }
+
+  .nav-profile-btn .profile-label {
+    display: none;
+  }
+
+  .nav-profile-btn {
+    padding: 6px 8px;
+  }
+}
 </style>
 </head>
 <body data-theme="light">
@@ -3161,20 +3300,11 @@ body[data-theme="dark"] .welcome-hero-left .welcome-heading em {
     <!-- ==========================================================
          NAVIGATION BAR (hidden on welcome)
          ========================================================== -->
-                <nav class="navbar" id="mainNav">
-      <div class="nav-top-row">
-        <div class="nav-brand">
-          <span class="nav-logo">RV</span>
-          <span class="nav-leaf">🌿</span>
-          <span class="nav-sub">ZYLEN OFFICIAL</span>
-        </div>
-        <div class="nav-actions">
-          <button class="nav-theme-btn" id="navThemeBtn" title="Toggle Theme">🌙</button>
-          <button class="nav-profile-btn" id="profileBtn">
-            <span class="profile-icon">👤</span>
-            <span class="profile-label">Login</span>
-          </button>
-        </div>
+                    <nav class="navbar" id="mainNav">
+      <div class="nav-brand">
+        <span class="nav-logo">RV</span>
+        <span class="nav-leaf">🌿</span>
+        <span class="nav-sub">ZYLEN OFFICIAL</span>
       </div>
       <div class="nav-links">
         <a href="#" class="nav-link active" data-page="welcome">Home</a>
@@ -3182,6 +3312,13 @@ body[data-theme="dark"] .welcome-hero-left .welcome-heading em {
         <a href="#" class="nav-link" data-page="courses">Courses</a>
         <a href="#" class="nav-link" data-page="resources">Resources</a>
         <a href="#" class="nav-link" data-page="contact">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="nav-theme-btn" id="navThemeBtn" title="Toggle Theme">🌙</button>
+        <button class="nav-profile-btn" id="profileBtn">
+          <span class="profile-icon">👤</span>
+          <span class="profile-label">Login</span>
+        </button>
       </div>
     </nav>
 
