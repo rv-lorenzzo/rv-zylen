@@ -2245,6 +2245,385 @@ body[data-theme="dark"] .question-text table tr:nth-child(even) td {
   color: var(--text-primary);
   font-weight: 700;
 }
+/* ============================================================
+   HOMEPAGE REDESIGN — Reference Image Match
+   ============================================================ */
+
+/* Nav theme button */
+.nav-theme-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-medium);
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .3s cubic-bezier(.34,1.56,.64,1);
+  font-family: inherit;
+  margin-right: 8px;
+}
+
+.nav-theme-btn:hover {
+  background: var(--accent-gold);
+  color: var(--text-inverse);
+  border-color: var(--accent-gold);
+  transform: rotate(20deg) scale(1.05);
+}
+
+/* Welcome single-screen — now allows scroll */
+.welcome-single-screen {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 40px 40px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* ============ HERO SECTION ============ */
+.welcome-hero {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 40px 0 30px;
+  animation: heroIn 1s cubic-bezier(.4,0,.2,1);
+}
+
+.welcome-hero-left {
+  flex: 1;
+  max-width: 620px;
+  text-align: left;
+}
+
+.welcome-hero-left .welcome-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: 5px;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.welcome-hero-left .welcome-heading {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1.05;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+  text-align: left;
+}
+
+.welcome-hero-left .welcome-heading em {
+  font-style: italic;
+  color: var(--accent-gold);
+  font-weight: 500;
+}
+
+.welcome-hero-left .welcome-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(.82rem, 1.4vw, .95rem);
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+  max-width: 520px;
+  text-align: left;
+}
+
+.welcome-hero-left .welcome-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 32px;
+  border-radius: 9999px;
+  border: none;
+  background: linear-gradient(135deg, #1F1B12, #3D3426);
+  color: #FAF6EE;
+  font-family: inherit;
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: .5px;
+  cursor: pointer;
+  transition: all .3s cubic-bezier(.34,1.56,.64,1);
+  box-shadow: 0 8px 24px rgba(31,27,18,.25);
+}
+
+body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
+  background: linear-gradient(135deg, #D4AF37, #B8934A);
+  color: #1A0E14;
+  box-shadow: 0 8px 24px rgba(212,175,55,.3);
+}
+
+.welcome-hero-left .welcome-cta-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 14px 32px rgba(184,147,74,.4);
+}
+
+.welcome-hero-left .welcome-cta-btn .arrow {
+  transition: transform .3s ease;
+}
+
+.welcome-hero-left .welcome-cta-btn:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* Right side — vertical quote */
+.welcome-hero-right {
+  flex-shrink: 0;
+  max-width: 200px;
+  margin-top: 20px;
+  padding-left: 20px;
+  border-left: 2px solid var(--accent-gold);
+  position: relative;
+  animation: heroIn 1s cubic-bezier(.4,0,.2,1) .2s backwards;
+}
+
+.welcome-quote {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+  font-weight: 500;
+  text-align: left;
+}
+
+/* ============ GROWTH SECTION ============ */
+.welcome-growth {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  padding: 30px 0 20px;
+  text-align: center;
+  animation: heroIn 1s cubic-bezier(.4,0,.2,1) .3s backwards;
+}
+
+.growth-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: 5px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.growth-heading {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.growth-heading em {
+  font-style: italic;
+  color: var(--accent-gold);
+}
+
+.growth-divider {
+  font-size: 1.2rem;
+  margin-bottom: 26px;
+  opacity: .7;
+  position: relative;
+}
+
+.growth-divider::before,
+.growth-divider::after {
+  content: "";
+  display: inline-block;
+  width: 60px;
+  height: 1px;
+  background: var(--accent-gold);
+  opacity: .4;
+  vertical-align: middle;
+  margin: 0 16px;
+}
+
+.growth-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding: 0 10px;
+}
+
+.growth-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 18px;
+  padding: 24px 18px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all .4s cubic-bezier(.34,1.56,.64,1);
+  box-shadow: var(--shadow-sm);
+}
+
+.growth-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-gold);
+  box-shadow: var(--shadow-lg);
+}
+
+.growth-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  transition: transform .4s cubic-bezier(.34,1.56,.64,1);
+}
+
+.growth-card:hover .growth-icon {
+  transform: scale(1.12) rotate(-6deg);
+}
+
+.growth-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.growth-desc {
+  font-size: .76rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+/* ============ FOOTER ============ */
+.welcome-footer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  width: 100%;
+  max-width: 500px;
+  margin: 30px auto 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: .65rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.footer-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+  opacity: .5;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 899px) {
+  .welcome-single-screen {
+    padding: 20px 18px 30px;
+  }
+
+  .welcome-hero {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0 20px;
+  }
+
+  .welcome-hero-left {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .welcome-hero-left .welcome-heading {
+    font-size: 2rem;
+  }
+
+  .welcome-hero-left .welcome-desc {
+    font-size: .82rem;
+  }
+
+  .welcome-hero-left .welcome-cta-btn {
+    padding: 12px 26px;
+    font-size: .8rem;
+  }
+
+  .welcome-hero-right {
+    max-width: 100%;
+    padding-left: 14px;
+    margin-top: 10px;
+  }
+
+  .welcome-quote {
+    font-size: .9rem;
+  }
+
+  .growth-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .growth-card {
+    padding: 18px 14px;
+  }
+
+  .growth-icon {
+    width: 46px;
+    height: 46px;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+
+  .growth-title {
+    font-size: 1.05rem;
+  }
+
+  .growth-desc {
+    font-size: .7rem;
+  }
+
+  .welcome-footer {
+    font-size: .55rem;
+    letter-spacing: 3px;
+    gap: 12px;
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .growth-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .nav-theme-btn {
+    width: 36px;
+    height: 36px;
+    font-size: .9rem;
+    margin-right: 6px;
+  }
+}
 </style>
 </head>
 <body data-theme="light">
@@ -2269,7 +2648,7 @@ body[data-theme="dark"] .question-text table tr:nth-child(even) td {
     <!-- ==========================================================
          NAVIGATION BAR (hidden on welcome)
          ========================================================== -->
-    <nav class="navbar" id="mainNav" style="display:none;">
+        <nav class="navbar" id="mainNav">
       <div class="nav-brand">
         <span class="nav-logo">RV</span>
         <span class="nav-leaf">🌿</span>
@@ -2283,6 +2662,7 @@ body[data-theme="dark"] .question-text table tr:nth-child(even) td {
         <a href="#" class="nav-link" data-page="contact">Contact</a>
       </div>
       <div class="nav-actions">
+        <button class="nav-theme-btn" id="navThemeBtn" title="Toggle Theme">🌙</button>
         <button class="nav-profile-btn" id="profileBtn">
           <span class="profile-icon">👤</span>
           <span class="profile-label">Login</span>
@@ -2377,54 +2757,70 @@ body[data-theme="dark"] .question-text table tr:nth-child(even) td {
       <!-- ========================================================
            WELCOME / HOMEPAGE
            ======================================================== -->
-      <div class="page active" id="page-welcome">
+            <div class="page active" id="page-welcome">
         <div class="welcome-single-screen">
-          <!-- Background Image (light mode only) -->
           <div class="welcome-bg"></div>
 
-          <!-- Top Right Controls (theme, profile) -->
-          <div class="welcome-controls">
-            <button class="welcome-ctrl-btn" id="welcomeThemeBtn">🌙</button>
-            <button class="welcome-ctrl-btn" id="welcomeProfileBtn">👤</button>
-          </div>
-
-          <!-- Hero Content -->
-          <div class="welcome-content">
-            <div class="welcome-brand">
-              <div class="welcome-logo">RV</div>
-              <div class="welcome-leaf">🌿</div>
-              <div class="welcome-sub">ZYLEN OFFICIAL</div>
+          <!-- HERO SECTION -->
+          <section class="welcome-hero">
+            <div class="welcome-hero-left">
+              <div class="welcome-tagline">LEARN · GROW · ACHIEVE</div>
+              <h1 class="welcome-heading">
+                Welcome to the<br>
+                <em>Official Space</em>
+              </h1>
+              <p class="welcome-desc">
+                The journey of a thousand miles begins with a single step.<br>
+                Here, knowledge meets purpose — your space to learn,<br>
+                improve and build the future you imagine.
+              </p>
+              <button class="welcome-cta-btn" id="exploreNowBtn">
+                <span>Explore Now</span>
+                <span class="arrow">→</span>
+              </button>
             </div>
-
-            <div class="welcome-tagline">LEARN · GROW · ACHIEVE</div>
-
-            <h1 class="welcome-heading">
-              Welcome to the<br>
-              <em>Official Space</em>
-            </h1>
-
-            <p class="welcome-desc">
-              The journey of a thousand miles begins with a single step.<br>
-              Here, knowledge meets purpose — your space to learn,<br>
-              improve and build the future you imagine.
-            </p>
-
-            <!-- Zen Quote (replaces "Better Than Yesterday") -->
-            <div class="welcome-quote" id="welcomeQuote">
-              "The journey of a thousand miles begins with a single step."
+            <div class="welcome-hero-right">
+              <div class="welcome-quote" id="welcomeQuote">
+                "Success is the sum of small efforts repeated day in and day out."
+              </div>
             </div>
+          </section>
 
-            <button class="welcome-cta-btn" id="exploreNowBtn">
-              Explore Now →
-            </button>
-          </div>
+          <!-- GROWTH SECTION -->
+          <section class="welcome-growth">
+            <div class="growth-tagline">STUDY · PRACTICE · EXCEL</div>
+            <h2 class="growth-heading">Your Growth, Our <em>Priority</em></h2>
+            <div class="growth-divider">🌿</div>
+            <div class="growth-cards">
+              <div class="growth-card">
+                <div class="growth-icon" style="background:linear-gradient(135deg,#F5D5D0,#E8B4B8);color:#8B4A52;">📖</div>
+                <div class="growth-title">Study Resources</div>
+                <div class="growth-desc">Curated notes, modules, and premium study material for deeper understanding.</div>
+              </div>
+              <div class="growth-card">
+                <div class="growth-icon" style="background:linear-gradient(135deg,#D4DDC0,#A8B896);color:#4A5D3A;">🎯</div>
+                <div class="growth-title">Track Progress</div>
+                <div class="growth-desc">Stay consistent, monitor your performance and reach your goals.</div>
+              </div>
+              <div class="growth-card">
+                <div class="growth-icon" style="background:linear-gradient(135deg,#D0DCE8,#9DB5CC);color:#3A5A78;">🎓</div>
+                <div class="growth-title">Expert Guidance</div>
+                <div class="growth-desc">Tips, strategies and insights to help you learn smarter, not harder.</div>
+              </div>
+              <div class="growth-card">
+                <div class="growth-icon" style="background:linear-gradient(135deg,#F0DDA0,#D4AF37);color:#6B4A10;">🌱</div>
+                <div class="growth-title">Build Your Future</div>
+                <div class="growth-desc">More than just studies — it's a journey of self-improvement, confidence and success.</div>
+              </div>
+            </div>
+          </section>
 
-
-
-          <!-- Footer -->
-          <div class="welcome-footer">
-            @RV-ZYLEN OFFICIAL · MADE BY LR
-          </div>
+          <!-- FOOTER -->
+          <footer class="welcome-footer">
+            <span class="footer-line"></span>
+            DREAM · PLAN · DO · SUCCEED
+            <span class="footer-line"></span>
+          </footer>
         </div>
       </div>
 
@@ -2705,11 +3101,11 @@ function setTheme(theme) {
   localStorage.setItem('rvz-theme', theme);
   
   // Update toggle buttons
-  const welcomeBtn = document.getElementById('welcomeThemeBtn');
+  const navBtn = document.getElementById('navThemeBtn');
   const panelBtn = document.getElementById('themeToggleBtn');
   
-  if (welcomeBtn) {
-    welcomeBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
+  if (navBtn) {
+    navBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
   }
   if (panelBtn) {
     panelBtn.innerHTML = theme === 'dark' 
@@ -2744,10 +3140,10 @@ function showPage(pageName) {
     APP_STATE.currentPage = pageName;
   }
   
-  // Show/hide navbar (hidden on welcome)
+   // Navbar always visible
   const navbar = document.getElementById('mainNav');
   if (navbar) {
-    navbar.style.display = pageName === 'welcome' ? 'none' : 'flex';
+    navbar.style.display = 'flex';
   }
   
   // Update nav links active state
@@ -2957,9 +3353,9 @@ function hideLoadingScreen() {
 // ============================================================
 function initEventListeners() {
   // Theme toggles
-  const welcomeThemeBtn = document.getElementById('welcomeThemeBtn');
+  const navThemeBtn = document.getElementById('navThemeBtn');
   const themeToggleBtn = document.getElementById('themeToggleBtn');
-  if (welcomeThemeBtn) welcomeThemeBtn.addEventListener('click', toggleTheme);
+  if (navThemeBtn) navThemeBtn.addEventListener('click', toggleTheme);
   if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
   
   // Profile buttons
