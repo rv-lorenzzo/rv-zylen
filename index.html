@@ -3113,6 +3113,30 @@ body[data-theme="dark"] .welcome-footer {
     font-size: .7rem;
   }
 }
+/* ============================================================
+   NON-WELCOME PAGES — Push content below navbar
+   ============================================================ */
+@media (min-width: 900px) {
+  .page:not(#page-welcome) {
+    padding-top: 80px;
+  }
+}
+/* ============================================================
+   WELCOME HEADING — Full Black (no gold on "Official Space")
+   ============================================================ */
+.welcome-hero-left .welcome-heading em {
+  color: #1A1410 !important;
+  font-style: italic;
+  font-weight: 500;
+}
+
+body[data-theme="dark"] .welcome-hero-left .welcome-heading em {
+  color: #F2EBE0 !important;
+}
+/* Remove footer space */
+.welcome-single-screen {
+  padding-bottom: 20px !important;
+}
 </style>
 </head>
 <body data-theme="light">
@@ -3281,7 +3305,7 @@ body[data-theme="dark"] .welcome-footer {
           <!-- HERO SECTION -->
           <section class="welcome-hero">
             <div class="welcome-hero-left">
-              <div class="welcome-tagline">LEARN · GROW · ACHIEVE</div>
+
               <h1 class="welcome-heading">
                 Welcome to the<br>
                 <em>Official Space</em>
@@ -3300,7 +3324,7 @@ body[data-theme="dark"] .welcome-footer {
 
           <!-- GROWTH SECTION -->
           <section class="welcome-growth">
-            <div class="growth-tagline">STUDY · PRACTICE · EXCEL</div>
+
             <h2 class="growth-heading">Your Growth, Our <em>Priority</em></h2>
             <div class="growth-divider">🌿</div>
             <div class="growth-cards">
@@ -3327,12 +3351,7 @@ body[data-theme="dark"] .welcome-footer {
             </div>
           </section>
 
-          <!-- FOOTER -->
-          <footer class="welcome-footer">
-            <span class="footer-line"></span>
-            DREAM · PLAN · DO · SUCCEED
-            <span class="footer-line"></span>
-          </footer>
+
         </div>
       </div>
 
