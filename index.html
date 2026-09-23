@@ -4457,6 +4457,41 @@ body[data-theme="dark"] .welcome-brand-name {
     padding-top: 100px !important;
   }
 }
+/* ============================================================
+   HERO — Move content up (parallel to nav)
+   ============================================================ */
+@media (min-width: 900px) {
+  .welcome-hero {
+    padding-top: 40px !important;
+    align-items: flex-start !important;
+  }
+
+  .welcome-hero-left {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  /* Reduce gap between brand and welcome heading */
+  .welcome-brand-name {
+    margin-bottom: 14px !important;
+  }
+
+  /* Tighten heading spacing */
+  .welcome-hero-left .welcome-heading {
+    margin-bottom: 14px !important;
+  }
+
+  .welcome-hero-left .welcome-desc {
+    margin-bottom: 18px !important;
+  }
+}
+
+/* Large screens — still compact */
+@media (min-width: 1400px) {
+  .welcome-hero {
+    padding-top: 45px !important;
+  }
+}
 </style>
 </head>
 <body data-theme="light">
