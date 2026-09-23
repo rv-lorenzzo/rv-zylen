@@ -4492,66 +4492,243 @@ body[data-theme="dark"] .welcome-brand-name {
     padding-top: 45px !important;
   }
 }
-      /* ============================================================
-   HERO — Higher + Tagline Prominent
+/* ============================================================
+   COURSE CTA + SERIES DETAIL PAGE
    ============================================================ */
-@media (min-width: 900px) {
-  .welcome-hero {
-    padding-top: 15px !important;
-    align-items: flex-start !important;
-  }
 
-  .welcome-hero-left {
-    padding-top: 0 !important;
-    margin-top: 0 !important;
-  }
-
-  /* Tagline (description) — prominent */
-  .welcome-hero-left .welcome-desc {
-    font-family: 'Inter', sans-serif !important;
-    font-size: 1rem !important;
-    font-weight: 500 !important;
-    line-height: 1.7 !important;
-    color: #2A1E0A !important;
-    text-shadow: 0 1px 6px rgba(250,246,238,.7) !important;
-    margin-bottom: 20px !important;
-    letter-spacing: -0.005em !important;
-  }
-
-  body[data-theme="dark"] .welcome-hero-left .welcome-desc {
-    color: #F0E8D8 !important;
-    text-shadow: 0 1px 6px rgba(0,0,0,.5) !important;
-  }
-
-  /* Heading — balanced */
-  .welcome-hero-left .welcome-heading {
-    margin-bottom: 12px !important;
-  }
-
-  /* Brand name — tight */
-  .welcome-brand-name {
-    margin-bottom: 12px !important;
-  }
+/* Course Card CTA */
+.course-card.clickable {
+  cursor: pointer;
 }
 
-@media (min-width: 1400px) {
-  .welcome-hero {
-    padding-top: 20px !important;
-  }
-
-  .welcome-hero-left .welcome-desc {
-    font-size: 1.05rem !important;
-  }
+.course-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: linear-gradient(135deg, #9A7530, #8A6D28);
+  color: #FAF6EE;
+  border-radius: 12px;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 20px;
+  transition: all .35s cubic-bezier(.34,1.56,.64,1);
 }
 
-/* Tablet */
-@media (max-width: 1024px) and (min-width: 900px) {
-  .welcome-hero {
-    padding-top: 15px !important;
+body[data-theme="dark"] .course-cta {
+  background: linear-gradient(135deg, #D4AF37, #B8934A);
+  color: #1A0E14;
+}
+
+.course-card.clickable:hover .course-cta {
+  box-shadow: 0 10px 24px rgba(184,147,74,.4);
+  transform: translateY(-2px);
+}
+
+.course-cta .arrow {
+  transition: transform .3s ease;
+  font-size: 1.1rem;
+}
+
+.course-card.clickable:hover .course-cta .arrow {
+  transform: translateX(6px);
+}
+
+/* ============ SERIES DETAIL PAGE ============ */
+.series-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 40px 24px;
+  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 8px;
+}
+
+.back-btn {
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border-medium);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: .82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .25s ease;
+  flex-shrink: 0;
+}
+
+.back-btn:hover {
+  background: var(--accent-gold);
+  color: var(--text-inverse);
+  border-color: var(--accent-gold);
+  transform: translateX(-3px);
+}
+
+.series-detail-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.series-detail-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.series-detail-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 2px;
+  margin: 0 0 2px 0;
+  line-height: 1;
+}
+
+.series-detail-sub {
+  font-size: .82rem;
+  color: var(--text-muted);
+  margin: 0;
+  letter-spacing: .5px;
+}
+
+/* Sheets List */
+.series-sheets-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+  padding: 30px 40px 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.series-sheet-card {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-light);
+  border-radius: 18px;
+  padding: 24px 22px;
+  cursor: pointer;
+  transition: all .35s cubic-bezier(.34,1.56,.64,1);
+  position: relative;
+  overflow: hidden;
+}
+
+.series-sheet-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #9A7530, #D4AF37, #9A7530);
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+
+.series-sheet-card:hover:not(.locked)::before {
+  opacity: 1;
+}
+
+.series-sheet-card:hover:not(.locked) {
+  transform: translateY(-6px);
+  border-color: var(--accent-gold);
+  box-shadow: var(--shadow-lg), 0 0 40px rgba(184,147,74,.15);
+}
+
+.series-sheet-card .sheet-number {
+  display: inline-block;
+  padding: 5px 14px;
+  background: rgba(154,117,48,.12);
+  color: var(--accent-gold);
+  border-radius: 9999px;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+body[data-theme="dark"] .series-sheet-card .sheet-number {
+  background: rgba(212,175,55,.15);
+}
+
+.series-sheet-card .sheet-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.series-sheet-card .sheet-meta {
+  font-size: .76rem;
+  color: var(--text-muted);
+  letter-spacing: .3px;
+}
+
+.series-sheet-card .sheet-cta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-light);
+  color: var(--accent-gold);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  transition: gap .3s ease;
+}
+
+.series-sheet-card:hover:not(.locked) .sheet-cta {
+  gap: 10px;
+}
+
+.series-sheet-card.locked {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.series-sheet-card.locked:hover {
+  transform: none;
+  border-color: var(--border-light);
+  box-shadow: none;
+}
+
+/* Mobile */
+@media (max-width: 899px) {
+  .series-detail-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 18px 20px;
+    gap: 14px;
   }
 
-  .welcome-hero-left .welcome-desc {
-    font-size: .9rem !important;
+  .series-detail-title {
+    font-size: 1.7rem;
+  }
+
+  .series-detail-icon {
+    font-size: 2rem;
+  }
+
+  .series-sheets-list {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 18px 16px 40px;
+  }
+
+  .series-sheet-card {
+    padding: 18px 16px;
+  }
+
+  .series-sheet-card .sheet-title {
+    font-size: 1.15rem;
   }
 }
 </style>
@@ -4813,20 +4990,24 @@ body[data-theme="dark"] .welcome-brand-name {
           <p>Choose your series</p>
         </div>
         <div class="courses-grid">
-          <!-- Apex 20 Card (interactive) -->
-          <div class="course-card apex-card" data-course="apex">
+                <div class="page" id="page-courses">
+        <div class="page-header">
+          <h2>Courses</h2>
+          <p>Choose your series</p>
+        </div>
+        <div class="courses-grid">
+          <!-- APEX 20 — Clickable -->
+          <div class="course-card apex-card clickable" data-course="apex">
             <div class="course-icon">⚡</div>
             <div class="course-name">APEX 20</div>
             <div class="course-desc">High-yield NCERT-strict quizzes</div>
-            <div class="course-sheets">
-              <div class="sheet-item" data-sheet="apex-sheet-3">Cell Structure — Part 1 (Sheet 3)</div>
-              <div class="sheet-item" data-sheet="apex-sheet-4">Cell Structure — Part 2 (Sheet 4)</div>
-              <div class="sheet-item disabled">Sheet 1 — Coming Soon</div>
-              <div class="sheet-item disabled">Sheet 2 — Coming Soon</div>
+            <div class="course-cta">
+              <span>View Sheets</span>
+              <span class="arrow">→</span>
             </div>
           </div>
 
-          <!-- Syntropy 30 (Coming Soon) -->
+          <!-- Syntropy 30 — Coming Soon -->
           <div class="course-card locked">
             <div class="course-icon">🌀</div>
             <div class="course-name">SYNTROPY 30</div>
@@ -4834,7 +5015,7 @@ body[data-theme="dark"] .welcome-brand-name {
             <div class="course-badge">Coming Soon</div>
           </div>
 
-          <!-- Zelith 50 (Coming Soon) -->
+          <!-- Zelith 50 — Coming Soon -->
           <div class="course-card locked">
             <div class="course-icon">🔮</div>
             <div class="course-name">ZELITH 50</div>
@@ -4847,6 +5028,24 @@ body[data-theme="dark"] .welcome-brand-name {
       <!-- ========================================================
            RULES PAGE
            ======================================================== -->
+                 <!-- ========================================================
+           SERIES DETAIL PAGE
+           ======================================================== -->
+      <div class="page" id="page-series-detail">
+        <div class="series-detail-header">
+          <button class="back-btn" id="seriesBackBtn">← Back</button>
+          <div class="series-detail-title-wrap">
+            <div class="series-detail-icon" id="seriesDetailIcon">⚡</div>
+            <div>
+              <h2 class="series-detail-title" id="seriesDetailTitle">APEX 20</h2>
+              <p class="series-detail-sub" id="seriesDetailSub">Choose a sheet to begin</p>
+            </div>
+          </div>
+        </div>
+        <div class="series-sheets-list" id="seriesSheetsList">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
       <div class="page" id="page-rules">
         <div class="rules-container">
           <h2 class="rules-title">📋 APEX 20 Quiz Rules & Guidelines</h2>
@@ -7540,6 +7739,127 @@ const QUIZ_DATA = {
     }
   ]
 };
+/* ============================================================
+   SERIES DETAIL PAGE — Interactive Course Cards
+   ============================================================ */
+
+// Series metadata
+const SERIES_DATA = {
+  apex: {
+    id: 'apex',
+    name: 'APEX 20',
+    icon: '⚡',
+    subtitle: 'High-yield NCERT-strict quizzes',
+    sheets: [
+      { id: 'apex-sheet-3', number: 3, title: 'Cell Structure — Part 1', meta: '21 Questions · +4/-1', status: 'available' },
+      { id: 'apex-sheet-4', number: 4, title: 'Cell Structure — Part 2', meta: '22 Questions · +4/-1', status: 'available' },
+      { id: 'apex-sheet-1', number: 1, title: 'Coming Soon', meta: '', status: 'locked' },
+      { id: 'apex-sheet-2', number: 2, title: 'Coming Soon', meta: '', status: 'locked' }
+    ]
+  },
+  syntropy: {
+    id: 'syntropy',
+    name: 'SYNTROPY 30',
+    icon: '🌀',
+    subtitle: 'Coming Soon',
+    sheets: []
+  },
+  zelith: {
+    id: 'zelith',
+    name: 'ZELITH 50',
+    icon: '🔮',
+    subtitle: 'Coming Soon',
+    sheets: []
+  }
+};
+
+function showSeriesDetail(seriesId) {
+  const series = SERIES_DATA[seriesId];
+  if (!series) {
+    showToast('❌ Series not found', 'error');
+    return;
+  }
+
+  // Update header
+  const iconEl = document.getElementById('seriesDetailIcon');
+  const titleEl = document.getElementById('seriesDetailTitle');
+  const subEl = document.getElementById('seriesDetailSub');
+
+  if (iconEl) iconEl.textContent = series.icon;
+  if (titleEl) titleEl.textContent = series.name;
+  if (subEl) subEl.textContent = series.subtitle;
+
+  // Build sheets list
+  const list = document.getElementById('seriesSheetsList');
+  if (!list) return;
+
+  if (series.sheets.length === 0) {
+    list.innerHTML = `
+      <div style="grid-column:1/-1;text-align:center;padding:80px 20px;color:var(--text-muted);">
+        <div style="font-size:4rem;margin-bottom:16px;">${series.icon}</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--text-primary);margin-bottom:8px;">Coming Soon</div>
+        <div style="font-size:.85rem;">This series is being prepared. Stay tuned!</div>
+      </div>
+    `;
+  } else {
+    list.innerHTML = series.sheets.map(sheet => {
+      const locked = sheet.status === 'locked';
+      return `
+        <div class="series-sheet-card ${locked ? 'locked' : ''}" data-sheet="${sheet.id}">
+          <span class="sheet-number">Sheet ${sheet.number}</span>
+          <div class="sheet-title">${sheet.title}</div>
+          <div class="sheet-meta">${sheet.meta}</div>
+          ${!locked ? `<div class="sheet-cta">Start Quiz →</div>` : ''}
+        </div>
+      `;
+    }).join('');
+
+    // Attach click listeners
+    list.querySelectorAll('.series-sheet-card:not(.locked)').forEach(card => {
+      card.addEventListener('click', () => {
+        const sheetId = card.dataset.sheet;
+        if (!APP_STATE.user) {
+          showToast('🔐 Please login first', 'error');
+          openProfilePanel();
+          return;
+        }
+        if (typeof showRulesPage === 'function') {
+          showRulesPage(sheetId);
+        } else {
+          showToast('⚠️ Rules loading...', 'info');
+        }
+      });
+    });
+  }
+
+  showPage('series-detail');
+}
+
+// Wire up course card clicks
+(function initSeriesCardClicks() {
+  const tryWire = () => {
+    document.querySelectorAll('.course-card.clickable').forEach(card => {
+      card.addEventListener('click', () => {
+        const seriesId = card.dataset.course;
+        showSeriesDetail(seriesId);
+      });
+    });
+
+    // Back button
+    const backBtn = document.getElementById('seriesBackBtn');
+    if (backBtn) {
+      backBtn.addEventListener('click', () => {
+        showPage('courses');
+      });
+    }
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', tryWire);
+  } else {
+    tryWire();
+  }
+})();
 </script>
 
 </body>
