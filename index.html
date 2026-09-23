@@ -2624,6 +2624,160 @@ body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
     margin-right: 6px;
   }
 }
+/* ============================================================
+   MOBILE HAMBURGER MENU
+   ============================================================ */
+
+.nav-hamburger {
+  display: none; /* Desktop pe hidden */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-medium);
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: all .25s ease;
+  font-family: inherit;
+  margin-left: 8px;
+}
+
+.nav-hamburger:hover {
+  background: var(--accent-gold);
+  color: var(--text-inverse);
+  border-color: var(--accent-gold);
+}
+
+/* Mobile Menu Panel */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  max-width: 85vw;
+  height: 100vh;
+  height: 100dvh;
+  background: var(--bg-card);
+  border-left: 1px solid var(--border-light);
+  z-index: 1001;
+  transform: translateX(100%);
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
+  display: flex;
+  flex-direction: column;
+  box-shadow: -10px 0 40px rgba(0,0,0,.15);
+}
+
+.mobile-menu.show {
+  transform: translateX(0);
+}
+
+.mobile-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 22px;
+  border-bottom: 1px solid var(--border-light);
+  background: linear-gradient(135deg, var(--bg-elevated), var(--bg-secondary));
+}
+
+.mobile-menu-header .nav-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.mobile-menu-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border-light);
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: .95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .2s ease;
+  font-family: inherit;
+}
+
+.mobile-menu-close:hover {
+  background: var(--accent-gold);
+  color: var(--text-inverse);
+  border-color: var(--accent-gold);
+  transform: rotate(90deg);
+}
+
+.mobile-menu-links {
+  flex: 1;
+  padding: 20px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow-y: auto;
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-size: .92rem;
+  font-weight: 500;
+  transition: all .25s ease;
+  border: 1px solid transparent;
+}
+
+.mobile-nav-link:hover {
+  background: var(--bg-elevated);
+  border-color: var(--border-light);
+  transform: translateX(4px);
+}
+
+.mobile-nav-link.active {
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+  color: var(--text-inverse);
+  font-weight: 600;
+}
+
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s ease;
+}
+
+.mobile-menu-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Show hamburger only on mobile */
+@media (max-width: 899px) {
+  .nav-hamburger {
+    display: flex;
+  }
+  
+  .nav-profile-btn .profile-label {
+    display: none; /* Sirf icon dikhao mobile pe */
+  }
+  
+  .nav-profile-btn {
+    padding: 8px 12px;
+  }
+}
 </style>
 </head>
 <body data-theme="light">
@@ -2648,7 +2802,7 @@ body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
     <!-- ==========================================================
          NAVIGATION BAR (hidden on welcome)
          ========================================================== -->
-        <nav class="navbar" id="mainNav">
+            <nav class="navbar" id="mainNav">
       <div class="nav-brand">
         <span class="nav-logo">RV</span>
         <span class="nav-leaf">🌿</span>
@@ -2667,8 +2821,28 @@ body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
           <span class="profile-icon">👤</span>
           <span class="profile-label">Login</span>
         </button>
+        <button class="nav-hamburger" id="navHamburger" title="Menu">☰</button>
       </div>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <div class="nav-brand">
+          <span class="nav-logo">RV</span>
+          <span class="nav-leaf">🌿</span>
+        </div>
+        <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+      </div>
+      <div class="mobile-menu-links">
+        <a href="#" class="mobile-nav-link active" data-page="welcome">🏠 Home</a>
+        <a href="#" class="mobile-nav-link" data-page="about">ℹ️ About</a>
+        <a href="#" class="mobile-nav-link" data-page="courses">📚 Courses</a>
+        <a href="#" class="mobile-nav-link" data-page="resources">🔗 Resources</a>
+        <a href="#" class="mobile-nav-link" data-page="contact">✉️ Contact</a>
+      </div>
+    </div>
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
 
     <!-- ==========================================================
          PROFILE SLIDE-OUT PANEL
@@ -3360,12 +3534,10 @@ function initEventListeners() {
   
   // Profile buttons
   const profileBtn = document.getElementById('profileBtn');
-  const welcomeProfileBtn = document.getElementById('welcomeProfileBtn');
   const profileClose = document.getElementById('profileClose');
   const profileOverlay = document.getElementById('profileOverlay');
   
   if (profileBtn) profileBtn.addEventListener('click', openProfilePanel);
-  if (welcomeProfileBtn) welcomeProfileBtn.addEventListener('click', openProfilePanel);
   if (profileClose) profileClose.addEventListener('click', closeProfilePanel);
   if (profileOverlay) profileOverlay.addEventListener('click', closeProfilePanel);
   
@@ -3384,7 +3556,7 @@ function initEventListeners() {
   if (logoutCancel) logoutCancel.addEventListener('click', closeLogoutModal);
   if (logoutConfirm) logoutConfirm.addEventListener('click', signOutUser);
   
-  // Navigation links
+  // Navigation links (desktop)
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
@@ -3419,11 +3591,55 @@ function initEventListeners() {
     });
   }
   
+  // ============================================================
+  // MOBILE HAMBURGER MENU
+  // ============================================================
+  const navHamburger = document.getElementById('navHamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileMenuClose = document.getElementById('mobileMenuClose');
+  const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+  
+  function openMobileMenu() {
+    if (mobileMenu) mobileMenu.classList.add('show');
+    if (mobileMenuOverlay) mobileMenuOverlay.classList.add('show');
+  }
+  
+  function closeMobileMenu() {
+    if (mobileMenu) mobileMenu.classList.remove('show');
+    if (mobileMenuOverlay) mobileMenuOverlay.classList.remove('show');
+  }
+  
+  if (navHamburger) navHamburger.addEventListener('click', openMobileMenu);
+  if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeMobileMenu);
+  if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+  
+  // Mobile nav links
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const page = link.dataset.page;
+      closeMobileMenu();
+      if (page === 'contact') {
+        document.getElementById('contactModal').classList.add('show');
+      } else {
+        showPage(page);
+      }
+      // Update active state
+      document.querySelectorAll('.mobile-nav-link').forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+      // Sync with desktop nav
+      document.querySelectorAll('.nav-link').forEach(l => {
+        l.classList.toggle('active', l.dataset.page === page);
+      });
+    });
+  });
+  
   // ESC key closes panels/modals
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeProfilePanel();
       closeLogoutModal();
+      closeMobileMenu();
       const cm = document.getElementById('contactModal');
       if (cm) cm.classList.remove('show');
     }
