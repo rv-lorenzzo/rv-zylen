@@ -3276,6 +3276,45 @@ body[data-theme="dark"] .navbar {
     padding: 6px 8px;
   }
 }
+/* ============================================================
+   NAV LINKS — Bigger font + Darker black
+   ============================================================ */
+.nav-link {
+  font-size: 1rem !important;
+  color: #0A0A0A !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.2px;
+}
+
+.nav-link:hover {
+  color: #8A6D28 !important;
+}
+
+.nav-link.active {
+  color: #000000 !important;
+  font-weight: 700 !important;
+}
+
+body[data-theme="dark"] .nav-link {
+  color: #F2EBE0 !important;
+}
+
+body[data-theme="dark"] .nav-link.active {
+  color: #FFFFFF !important;
+}
+
+/* Mobile — slightly bigger too */
+@media (max-width: 899px) {
+  .nav-link {
+    font-size: .85rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-link {
+    font-size: .78rem !important;
+  }
+}
 </style>
 </head>
 <body data-theme="light">
