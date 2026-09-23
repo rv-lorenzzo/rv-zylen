@@ -4390,6 +4390,111 @@ body[data-theme="dark"] .loader-sub {
     gap: 20px;
   }
 }
+/* ============================================================
+   4 CARDS — Bigger (desktop)
+   ============================================================ */
+.growth-cards {
+  gap: 20px !important;
+}
+
+.growth-card {
+  padding: 26px 22px 24px !important;
+  border-radius: 20px !important;
+  min-height: 220px !important;
+  justify-content: center !important;
+}
+
+.growth-icon {
+  width: 60px !important;
+  height: 60px !important;
+  font-size: 1.5rem !important;
+  margin-bottom: 16px !important;
+}
+
+.growth-title {
+  font-size: 1.25rem !important;
+  margin-bottom: 10px !important;
+}
+
+.growth-desc {
+  font-size: .8rem !important;
+  line-height: 1.55 !important;
+}
+
+/* Desktop large screens */
+@media (min-width: 1400px) {
+  .growth-cards {
+    gap: 24px !important;
+  }
+
+  .growth-card {
+    padding: 32px 26px 28px !important;
+    min-height: 250px !important;
+  }
+
+  .growth-icon {
+    width: 68px !important;
+    height: 68px !important;
+    font-size: 1.7rem !important;
+    margin-bottom: 18px !important;
+  }
+
+  .growth-title {
+    font-size: 1.4rem !important;
+  }
+
+  .growth-desc {
+    font-size: .86rem !important;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 900px) {
+  .growth-card {
+    padding: 20px 16px 18px !important;
+    min-height: 200px !important;
+  }
+
+  .growth-icon {
+    width: 52px !important;
+    height: 52px !important;
+    font-size: 1.3rem !important;
+  }
+
+  .growth-title {
+    font-size: 1.1rem !important;
+  }
+}
+
+/* Mobile — keep compact (override) */
+@media (max-width: 899px) {
+  .growth-cards {
+    gap: 10px !important;
+  }
+
+  .growth-card {
+    padding: 14px 12px 12px !important;
+    min-height: auto !important;
+    border-radius: 14px !important;
+  }
+
+  .growth-icon {
+    width: 42px !important;
+    height: 42px !important;
+    font-size: 1.1rem !important;
+    margin-bottom: 10px !important;
+  }
+
+  .growth-title {
+    font-size: .95rem !important;
+    margin-bottom: 5px !important;
+  }
+
+  .growth-desc {
+    font-size: .68rem !important;
+    line-height: 1.4 !important;
+  }
+}
 </style>
 </head>
 <body data-theme="light">
