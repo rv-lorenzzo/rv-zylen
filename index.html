@@ -3657,12 +3657,12 @@ body[data-theme="dark"] .welcome-brand-name {
   display: inline-flex !important;
 }
 
-/* 3️⃣ QUOTE — No box, plain text, wall par (books ke upar nahi) */
+/* 3️⃣ QUOTE — Vertical bar left, italic serif (like reference) */
 .welcome-quote-wrap {
   position: absolute !important;
-  top: 16% !important;
-  right: 5.5% !important;
-  max-width: 115px !important;
+  top: 22% !important;
+  right: 6% !important;
+  max-width: 165px !important;
   background: transparent !important;
   background-color: transparent !important;
   border: none !important;
@@ -3673,42 +3673,58 @@ body[data-theme="dark"] .welcome-brand-name {
   animation: heroIn 1s cubic-bezier(.4,0,.2,1) .3s backwards;
 }
 
-.welcome-quote-wrap *,
-.welcome-quote {
-  background: transparent !important;
-  background-color: transparent !important;
-  border: none !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  outline: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
 .welcome-quote {
   font-family: 'Cormorant Garamond', Georgia, serif !important;
   font-style: italic !important;
-  font-size: .78rem !important;
-  line-height: 1.35 !important;
+  font-size: 1.05rem !important;
+  line-height: 1.45 !important;
   color: #2A1E0A !important;
   font-weight: 500 !important;
   text-align: left !important;
-  text-shadow: 0 1px 8px rgba(250,246,238,.85), 0 0 2px rgba(250,246,238,.6) !important;
+  padding-left: 18px !important;
+  border-left: 1.5px solid #2A1E0A !important;
+  background: transparent !important;
+  text-shadow: 0 1px 10px rgba(250,246,238,.9), 0 0 3px rgba(250,246,238,.7) !important;
+  quotes: none;
 }
 
 body[data-theme="dark"] .welcome-quote {
   color: #F5EDD6 !important;
-  text-shadow: 0 1px 8px rgba(0,0,0,.85), 0 0 2px rgba(0,0,0,.6) !important;
+  border-left-color: #F5EDD6 !important;
+  text-shadow: 0 1px 10px rgba(0,0,0,.85), 0 0 3px rgba(0,0,0,.7) !important;
 }
 
-/* Mobile — quote inline */
+/* Mobile — quote inline, same vertical-bar look */
 @media (max-width: 899px) {
   .welcome-quote-wrap {
     position: relative !important;
     top: auto !important;
     right: auto !important;
     max-width: 100% !important;
-    margin: 14px 0 8px !important;
+    margin: 16px 0 10px !important;
+    padding-left: 4px !important;
+  }
+
+  .welcome-quote {
+    font-size: .95rem !important;
+    padding-left: 14px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-quote {
+    font-size: .88rem !important;
+  }
+}
+
+@media (min-width: 1400px) {
+  .welcome-quote-wrap {
+    max-width: 185px !important;
+    top: 24% !important;
+  }
+
+  .welcome-quote {
+    font-size: 1.15rem !important;
   }
 }
 </style>
@@ -4455,7 +4471,7 @@ function initZenQuote() {
   if (!quoteEl) return;
   
   const randomQuote = ZEN_QUOTES[Math.floor(Math.random() * ZEN_QUOTES.length)];
-  quoteEl.textContent = '"' + randomQuote + '"';
+  quoteEl.textContent = randomQuote;
 }
 
 // ============================================================
