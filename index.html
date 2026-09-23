@@ -5152,28 +5152,46 @@ function hideLoadingScreen() {
   const loader = document.getElementById('loadingScreen');
   if (!loader) return;
   
-  // Preload background image FIRST
+  // Preload background image
   const bgUrl = 'https://i.ibb.co/h1ZL9yG3/8dd1b3d3-1071-4c5f-a175-ccc53ccbb426.png';
   const img = new Image();
+  img.src = bgUrl;
   
-  let done = false;
+  // MINIMUM 3 seconds loading screen (let animations play fully)
+  const MIN_LOADING_TIME = 3000;
+  const startTime = Date.now();
+  
   const finish = () => {
-    if (done) return;
-    done = true;
+    const elapsed = Date.now() - startTime;
+    const remaining = Math.max(0, MIN_LOADING_TIME - elapsed);
     
-    // Give a minimum loading time for aesthetics
     setTimeout(() => {
       loader.classList.add('hide');
       document.body.classList.add('app-ready');
-    }, 800);
+    }, remaining);
   };
   
-  img.onload = finish;
-  img.onerror = finish; // Even if fails, proceed
-  img.src = bgUrl;
+  // Wait for both: image load AND 3 sec minimum
+  let imageReady = false;
+  let timerReady = false;
   
-  // Fallback — max 3.5 sec wait
-  setTimeout(finish, 3500);
+  const tryFinish = () => {
+    if (imageReady && timerReady) finish();
+  };
+  
+  img.onload = () => { imageReady = true; tryFinish(); };
+  img.onerror = () => { imageReady = true; tryFinish(); };
+  
+  // Timer — 3 seconds minimum
+  setTimeout(() => { timerReady = true; tryFinish(); }, MIN_LOADING_TIME);
+  
+  // Safety fallback — 6 seconds max
+  setTimeout(() => {
+    if (!loader.classList.contains('hide')) {
+      loader.classList.add('hide');
+      document.body.classList.add('app-ready');
+    }
+  }, 6000);
 }
 
 // ============================================================
