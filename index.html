@@ -4040,6 +4040,103 @@ body[data-theme="dark"] .welcome-quote {
     font-size: .54rem !important;
   }
 }
+/* ============================================================
+   DESKTOP — Quote below Login, above books
+   ============================================================ */
+@media (min-width: 900px) {
+  .welcome-quote-wrap {
+    position: absolute !important;
+    top: 65px !important;
+    right: 40px !important;
+    max-width: 175px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    z-index: 3 !important;
+  }
+
+  .welcome-quote {
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-style: italic !important;
+    font-size: 1.1rem !important;
+    line-height: 1.45 !important;
+    color: #1A1410 !important;
+    font-weight: 600 !important;
+    text-align: left !important;
+    padding-left: 16px !important;
+    border-left: 2px solid #1A1410 !important;
+    background: transparent !important;
+    text-shadow: 
+      0 1px 12px rgba(250,246,238,.95),
+      0 0 4px rgba(250,246,238,.9),
+      0 0 8px rgba(250,246,238,.7) !important;
+  }
+
+  body[data-theme="dark"] .welcome-quote {
+    color: #F5EDD6 !important;
+    border-left-color: #F5EDD6 !important;
+    text-shadow: 
+      0 1px 12px rgba(0,0,0,.9),
+      0 0 4px rgba(0,0,0,.85) !important;
+  }
+}
+
+/* Larger screens — bigger quote */
+@media (min-width: 1400px) {
+  .welcome-quote-wrap {
+    top: 70px !important;
+    right: 60px !important;
+    max-width: 195px !important;
+  }
+
+  .welcome-quote {
+    font-size: 1.2rem !important;
+    padding-left: 18px !important;
+  }
+}
+
+/* ============================================================
+   MOBILE — Bigger, darker, more prominent quote
+   ============================================================ */
+@media (max-width: 899px) {
+  .welcome-quote-wrap {
+    margin: 22px 0 24px !important;
+    padding: 0 6px !important;
+  }
+
+  .welcome-quote {
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-style: italic !important;
+    font-size: 1.15rem !important;
+    line-height: 1.4 !important;
+    color: #000000 !important;
+    font-weight: 700 !important;
+    text-align: left !important;
+    padding-left: 18px !important;
+    border-left: 2.5px solid #000000 !important;
+    text-shadow: 
+      0 1px 6px rgba(250,246,238,.85),
+      0 0 2px rgba(250,246,238,.6) !important;
+  }
+
+  body[data-theme="dark"] .welcome-quote {
+    color: #FFFFFF !important;
+    border-left-color: #FFFFFF !important;
+    text-shadow: 
+      0 1px 8px rgba(0,0,0,.9),
+      0 0 3px rgba(0,0,0,.7) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-quote {
+    font-size: 1.05rem !important;
+    padding-left: 16px !important;
+    border-left-width: 2px !important;
+  }
+}
 </style>
 </head>
 <body data-theme="light">
