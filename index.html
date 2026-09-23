@@ -3490,25 +3490,32 @@ body[data-theme="dark"] .welcome-cta-btn {
   color: #1A0E14 !important;
 }
 /* ============================================================
-   HERO BRAND — RV + Oak Leaf (Black, aligned with nav)
+   NAV BRAND — RV + Oak Leaf (in nav, aligned with links)
    ============================================================ */
 
-.welcome-brand-top {
+.nav-brand {
+  display: flex !important;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  cursor: pointer;
+  justify-self: start;
+}
+
+.nav-brand-row {
   display: flex;
   align-items: flex-end;
-  gap: 14px;
-  margin-bottom: 6px;
-  position: relative;
-  z-index: 2;
+  gap: 6px;
+  line-height: 1;
 }
 
 .welcome-logo-big {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-style: italic;
-  font-size: 4.5rem;
+  font-size: 3.4rem;
   font-weight: 700;
-  letter-spacing: 4px;
-  line-height: 1;
+  letter-spacing: 3px;
+  line-height: .9;
   color: #0A0A0A;
   display: inline-block;
   padding-bottom: 4px;
@@ -3522,8 +3529,8 @@ body[data-theme="dark"] .welcome-logo-big {
   display: inline-flex;
   align-items: flex-end;
   justify-content: center;
-  width: 3.4rem;
-  height: 4.5rem;
+  width: 2.4rem;
+  height: 3.6rem;
   color: #0A0A0A;
   flex-shrink: 0;
   padding-bottom: 4px;
@@ -3541,68 +3548,62 @@ body[data-theme="dark"] .welcome-oak-leaf {
 
 .welcome-brand-name {
   font-family: 'Inter', sans-serif;
-  font-size: .78rem;
+  font-size: .58rem;
   font-weight: 700;
-  letter-spacing: 5.5px;
+  letter-spacing: 4px;
   color: #0A0A0A;
   text-transform: uppercase;
-  margin-bottom: 22px;
-  margin-top: 6px;
-  position: relative;
-  z-index: 2;
-  text-shadow: 0 1px 4px rgba(250,246,238,.5);
-  padding-left: 6px;
+  margin-top: 2px;
+  padding-left: 4px;
+  line-height: 1;
 }
 
 body[data-theme="dark"] .welcome-brand-name {
   color: #F5EDD6;
-  text-shadow: 0 1px 6px rgba(0,0,0,.5);
 }
 
 /* ============ RESPONSIVE ============ */
 @media (max-width: 899px) {
   .welcome-logo-big {
-    font-size: 3.2rem;
-    letter-spacing: 3px;
+    font-size: 2.4rem;
+    letter-spacing: 2px;
   }
 
   .welcome-oak-leaf {
-    width: 2.4rem;
-    height: 3.2rem;
+    width: 1.7rem;
+    height: 2.6rem;
   }
 
   .welcome-brand-name {
-    font-size: .68rem;
-    letter-spacing: 4px;
-    margin-bottom: 16px;
-    padding-left: 4px;
+    font-size: .5rem;
+    letter-spacing: 3px;
   }
 }
 
 @media (max-width: 480px) {
   .welcome-logo-big {
-    font-size: 2.8rem;
+    font-size: 2rem;
   }
 
   .welcome-oak-leaf {
-    width: 2rem;
-    height: 2.8rem;
+    width: 1.4rem;
+    height: 2.2rem;
   }
 
   .welcome-brand-name {
-    font-size: .62rem;
-    letter-spacing: 3px;
+    font-size: .45rem;
+    letter-spacing: 2.5px;
   }
 }
 
-@media (min-width: 1400px) {
-  .welcome-logo-big {
-    font-size: 5.2rem;
-  }
+/* ============ HERO — Extra top padding for nav ============ */
+.welcome-hero {
+  padding-top: 130px !important;
+}
 
-  .welcome-oak-leaf {
-    width: 3.8rem;
-    height: 5.2rem;
+@media (max-width: 899px) {
+  .welcome-hero {
+    padding-top: 20px !important;
   }
 }
 </style>
@@ -3630,7 +3631,31 @@ body[data-theme="dark"] .welcome-brand-name {
          NAVIGATION BAR (hidden on welcome)
          ========================================================== -->
                     <nav class="navbar" id="mainNav">
-      <div></div>
+      <div class="nav-brand">
+        <div class="nav-brand-row">
+          <span class="welcome-logo-big">RV</span>
+          <span class="welcome-oak-leaf">
+            <svg viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M 20 58 Q 20 40 20 20 Q 20 10 20 2" />
+              <path d="M 20 52 Q 12 50 8 44 Q 14 42 20 46" />
+              <path d="M 20 46 Q 12 44 8 38 Q 14 36 20 40" />
+              <path d="M 20 40 Q 11 38 7 32 Q 13 30 20 34" />
+              <path d="M 20 34 Q 11 32 7 26 Q 13 24 20 28" />
+              <path d="M 20 28 Q 12 26 9 20 Q 14 18 20 22" />
+              <path d="M 20 22 Q 13 20 11 14 Q 15 12 20 16" />
+              <path d="M 20 16 Q 15 14 13 8 Q 17 7 20 11" />
+              <path d="M 20 52 Q 28 50 32 44 Q 26 42 20 46" />
+              <path d="M 20 46 Q 28 44 32 38 Q 26 36 20 40" />
+              <path d="M 20 40 Q 29 38 33 32 Q 27 30 20 34" />
+              <path d="M 20 34 Q 29 32 33 26 Q 27 24 20 28" />
+              <path d="M 20 28 Q 28 26 31 20 Q 26 18 20 22" />
+              <path d="M 20 22 Q 27 20 29 14 Q 25 12 20 16" />
+              <path d="M 20 16 Q 25 14 27 8 Q 23 7 20 11" />
+            </svg>
+          </span>
+        </div>
+        <div class="welcome-brand-name">RV-ZYLEN OFFICIAL</div>
+      </div>
       <div class="nav-links">
         <a href="#" class="nav-link active" data-page="welcome">Home</a>
         <a href="#" class="nav-link" data-page="about">About</a>
@@ -3766,26 +3791,7 @@ body[data-theme="dark"] .welcome-brand-name {
 
           <!-- HERO SECTION -->
           <section class="welcome-hero">
-                        <div class="welcome-hero-left">
-              <div class="welcome-brand-top">
-                <span class="welcome-logo-big">RV</span>
-                <span class="welcome-oak-leaf">
-                  <svg viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M 20 58 Q 18 40 20 20 Q 21 10 22 2" />
-                    <path d="M 20 50 Q 12 48 8 42 Q 14 40 20 44" />
-                    <path d="M 20 44 Q 11 42 7 35 Q 13 33 20 38" />
-                    <path d="M 20 36 Q 11 34 8 27 Q 14 25 20 30" />
-                    <path d="M 20 28 Q 12 26 10 19 Q 15 17 20 22" />
-                    <path d="M 20 20 Q 14 18 13 12 Q 17 11 20 15" />
-                    <path d="M 21 52 Q 29 50 33 44 Q 27 42 21 46" />
-                    <path d="M 21 45 Q 30 43 34 36 Q 28 34 21 39" />
-                    <path d="M 21 37 Q 30 35 33 28 Q 27 26 21 31" />
-                    <path d="M 21 29 Q 29 27 31 20 Q 26 18 21 23" />
-                    <path d="M 21 21 Q 27 19 28 13 Q 24 12 21 16" />
-                  </svg>
-                </span>
-              </div>
-              <div class="welcome-brand-name">RV-ZYLEN OFFICIAL</div>
+                                    <div class="welcome-hero-left">
               <h1 class="welcome-heading">
                 Welcome to the<br>
                 <em>Official Space</em>
