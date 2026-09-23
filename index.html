@@ -4731,6 +4731,184 @@ body[data-theme="dark"] .series-sheet-card .sheet-number {
     font-size: 1.15rem;
   }
 }
+/* ============================================================
+   COURSES PAGE — CLEAN FORCE
+   ============================================================ */
+#page-courses {
+  display: none;
+  padding: 80px 0 40px;
+  overflow-y: auto;
+}
+
+#page-courses.active {
+  display: block !important;
+}
+
+#page-courses .page-header {
+  padding: 20px 40px 30px;
+  text-align: center;
+}
+
+#page-courses .page-header h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+#page-courses .page-header p {
+  font-size: .85rem;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+.courses-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 20px !important;
+  padding: 0 40px 40px !important;
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+}
+
+.course-card {
+  display: flex !important;
+  flex-direction: column !important;
+  background: var(--bg-card) !important;
+  border: 1.5px solid var(--border-light) !important;
+  border-radius: 18px !important;
+  padding: 28px 24px !important;
+  transition: all .35s cubic-bezier(.34,1.56,.64,1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.course-card.clickable {
+  cursor: pointer;
+}
+
+.course-card.clickable:hover:not(.locked) {
+  transform: translateY(-6px) !important;
+  border-color: var(--accent-gold) !important;
+  box-shadow: var(--shadow-lg), 0 0 40px rgba(184,147,74,.15) !important;
+}
+
+.course-icon {
+  font-size: 2.5rem !important;
+  margin-bottom: 14px !important;
+  line-height: 1 !important;
+}
+
+.course-name {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: 1.6rem !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+  margin-bottom: 6px !important;
+  letter-spacing: 1px !important;
+}
+
+.course-desc {
+  font-size: .8rem !important;
+  color: var(--text-muted) !important;
+  margin-bottom: 18px !important;
+  flex: 1 !important;
+}
+
+.course-cta {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 12px 18px !important;
+  background: linear-gradient(135deg, #9A7530, #8A6D28) !important;
+  color: #FAF6EE !important;
+  border-radius: 12px !important;
+  font-size: .78rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  margin-top: auto !important;
+  transition: all .35s cubic-bezier(.34,1.56,.64,1) !important;
+}
+
+body[data-theme="dark"] .course-cta {
+  background: linear-gradient(135deg, #D4AF37, #B8934A) !important;
+  color: #1A0E14 !important;
+}
+
+.course-card.clickable:hover .course-cta {
+  box-shadow: 0 10px 24px rgba(184,147,74,.4) !important;
+}
+
+.course-cta .arrow {
+  font-size: 1.1rem !important;
+  transition: transform .3s ease !important;
+}
+
+.course-card.clickable:hover .course-cta .arrow {
+  transform: translateX(6px) !important;
+}
+
+.course-card.locked {
+  opacity: .55 !important;
+  cursor: not-allowed !important;
+}
+
+.course-badge {
+  display: inline-block !important;
+  padding: 5px 14px !important;
+  background: var(--accent-silver) !important;
+  color: var(--text-inverse) !important;
+  border-radius: 9999px !important;
+  font-size: .62rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.2px !important;
+  text-transform: uppercase !important;
+  margin-top: auto !important;
+  align-self: flex-start !important;
+}
+
+/* Mobile — 1 column */
+@media (max-width: 899px) {
+  #page-courses {
+    padding: 20px 0 30px;
+  }
+
+  #page-courses .page-header {
+    padding: 16px 20px 20px;
+  }
+
+  #page-courses .page-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    padding: 0 18px 30px !important;
+  }
+
+  .course-card {
+    padding: 22px 18px !important;
+  }
+
+  .course-icon {
+    font-size: 2rem !important;
+    margin-bottom: 10px !important;
+  }
+
+  .course-name {
+    font-size: 1.35rem !important;
+  }
+
+  .course-desc {
+    font-size: .76rem !important;
+    margin-bottom: 14px !important;
+  }
+}
 </style>
 </head>
 <body data-theme="light">
@@ -4984,20 +5162,13 @@ body[data-theme="dark"] .series-sheet-card .sheet-number {
       <!-- ========================================================
            COURSES PAGE
            ======================================================== -->
-      <div class="page" id="page-courses">
+      <            <div class="page" id="page-courses">
         <div class="page-header">
           <h2>Courses</h2>
           <p>Choose your series</p>
         </div>
         <div class="courses-grid">
-                <div class="page" id="page-courses">
-        <div class="page-header">
-          <h2>Courses</h2>
-          <p>Choose your series</p>
-        </div>
-        <div class="courses-grid">
-          <!-- APEX 20 — Clickable -->
-          <div class="course-card apex-card clickable" data-course="apex">
+          <div class="course-card clickable" data-course="apex">
             <div class="course-icon">⚡</div>
             <div class="course-name">APEX 20</div>
             <div class="course-desc">High-yield NCERT-strict quizzes</div>
@@ -5007,7 +5178,6 @@ body[data-theme="dark"] .series-sheet-card .sheet-number {
             </div>
           </div>
 
-          <!-- Syntropy 30 — Coming Soon -->
           <div class="course-card locked">
             <div class="course-icon">🌀</div>
             <div class="course-name">SYNTROPY 30</div>
@@ -5015,7 +5185,6 @@ body[data-theme="dark"] .series-sheet-card .sheet-number {
             <div class="course-badge">Coming Soon</div>
           </div>
 
-          <!-- Zelith 50 — Coming Soon -->
           <div class="course-card locked">
             <div class="course-icon">🔮</div>
             <div class="course-name">ZELITH 50</div>
@@ -5024,7 +5193,6 @@ body[data-theme="dark"] .series-sheet-card .sheet-number {
           </div>
         </div>
       </div>
-
       <!-- ========================================================
            RULES PAGE
            ======================================================== -->
