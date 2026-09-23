@@ -4396,6 +4396,67 @@ body[data-theme="dark"] .loader-sub {
 .navbar .nav-brand {
   display: none !important;
 }
+/* ============================================================
+   NUCLEAR FIX — Remove all duplicates + blur
+   ============================================================ */
+
+/* 1. Kill watermark RV (body::before) */
+body::before,
+body::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* 2. Kill nav-brand completely */
+.nav-brand,
+.navbar > .nav-brand,
+#mainNav .nav-brand {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* 3. Remove backdrop-filter from navbar (this was causing blur) */
+.navbar,
+body[data-theme="dark"] .navbar {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* 4. Ensure only ONE hero brand */
+.welcome-brand-top ~ .welcome-brand-top {
+  display: none !important;
+}
+
+/* 5. No filters on brand elements */
+.welcome-logo-big,
+.welcome-oak-leaf,
+.welcome-brand-top,
+.welcome-brand-name {
+  filter: none !important;
+  text-shadow: none !important;
+  mix-blend-mode: normal !important;
+  -webkit-text-fill-color: initial !important;
+}
+
+/* 6. Hero brand dark mode */
+body[data-theme="dark"] .welcome-logo-big {
+  color: #F5EDD6 !important;
+}
+
+body[data-theme="dark"] .welcome-oak-leaf {
+  color: #F5EDD6 !important;
+}
+
+body[data-theme="dark"] .welcome-brand-name {
+  color: #F5EDD6 !important;
+}
+
+/* 7. Laptop only — expand hero top padding so brand is below nav */
+@media (min-width: 900px) {
+  .welcome-hero {
+    padding-top: 100px !important;
+  }
+}
 </style>
 </head>
 <body data-theme="light">
