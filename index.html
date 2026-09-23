@@ -4492,6 +4492,68 @@ body[data-theme="dark"] .welcome-brand-name {
     padding-top: 45px !important;
   }
 }
+      /* ============================================================
+   HERO — Higher + Tagline Prominent
+   ============================================================ */
+@media (min-width: 900px) {
+  .welcome-hero {
+    padding-top: 15px !important;
+    align-items: flex-start !important;
+  }
+
+  .welcome-hero-left {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  /* Tagline (description) — prominent */
+  .welcome-hero-left .welcome-desc {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    line-height: 1.7 !important;
+    color: #2A1E0A !important;
+    text-shadow: 0 1px 6px rgba(250,246,238,.7) !important;
+    margin-bottom: 20px !important;
+    letter-spacing: -0.005em !important;
+  }
+
+  body[data-theme="dark"] .welcome-hero-left .welcome-desc {
+    color: #F0E8D8 !important;
+    text-shadow: 0 1px 6px rgba(0,0,0,.5) !important;
+  }
+
+  /* Heading — balanced */
+  .welcome-hero-left .welcome-heading {
+    margin-bottom: 12px !important;
+  }
+
+  /* Brand name — tight */
+  .welcome-brand-name {
+    margin-bottom: 12px !important;
+  }
+}
+
+@media (min-width: 1400px) {
+  .welcome-hero {
+    padding-top: 20px !important;
+  }
+
+  .welcome-hero-left .welcome-desc {
+    font-size: 1.05rem !important;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 900px) {
+  .welcome-hero {
+    padding-top: 15px !important;
+  }
+
+  .welcome-hero-left .welcome-desc {
+    font-size: .9rem !important;
+  }
+}
 </style>
 </head>
 <body data-theme="light">
