@@ -3660,8 +3660,8 @@ body[data-theme="dark"] .welcome-brand-name {
 /* 3️⃣ QUOTE — Vertical bar left, italic serif (like reference) */
 .welcome-quote-wrap {
   position: absolute !important;
-  top: 22% !important;
-  right: 6% !important;
+  top: 72px !important;
+  right: 40px !important;
   max-width: 165px !important;
   background: transparent !important;
   background-color: transparent !important;
@@ -3725,6 +3725,160 @@ body[data-theme="dark"] .welcome-quote {
 
   .welcome-quote {
     font-size: 1.15rem !important;
+  }
+}
+/* ============================================================
+   MOBILE — Quote below "Your Growth", everything compact up
+   ============================================================ */
+@media (max-width: 899px) {
+  /* Reorder: Hero → Growth → Quote → Footer */
+  .welcome-hero {
+    order: 1 !important;
+    padding: 8px 0 6px !important;
+    margin: 0 !important;
+  }
+
+  .welcome-growth {
+    order: 2 !important;
+    padding: 4px 0 4px !important;
+    margin: 0 !important;
+  }
+
+  .welcome-quote-wrap {
+    order: 3 !important;
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    left: auto !important;
+    max-width: 100% !important;
+    margin: 18px 0 10px !important;
+    padding: 0 4px !important;
+  }
+
+  .welcome-footer {
+    order: 4 !important;
+    margin-top: 12px !important;
+  }
+
+  /* Make hero content tight */
+  .welcome-brand-top {
+    margin-bottom: 2px !important;
+  }
+
+  .welcome-logo-big {
+    font-size: 2.8rem !important;
+    letter-spacing: 2px !important;
+  }
+
+  .welcome-oak-leaf {
+    width: 1.9rem !important;
+    height: 2.8rem !important;
+  }
+
+  .welcome-brand-name {
+    font-size: .58rem !important;
+    letter-spacing: 3px !important;
+    margin-top: 2px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .welcome-hero-left .welcome-heading {
+    font-size: 1.55rem !important;
+    margin-bottom: 8px !important;
+    line-height: 1.1 !important;
+  }
+
+  .welcome-hero-left .welcome-desc {
+    font-size: .74rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .welcome-cta-btn {
+    padding: 9px 20px !important;
+    font-size: .72rem !important;
+  }
+
+  /* Growth section compact */
+  .growth-heading {
+    font-size: 1.2rem !important;
+    margin-bottom: 2px !important;
+  }
+
+  .growth-divider {
+    font-size: .8rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  .growth-divider::before,
+  .growth-divider::after {
+    width: 26px !important;
+    margin: 0 6px !important;
+  }
+
+  .growth-cards {
+    gap: 7px !important;
+  }
+
+  .growth-card {
+    padding: 10px 8px 9px !important;
+    border-radius: 11px !important;
+  }
+
+  .growth-icon {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: .85rem !important;
+    margin-bottom: 6px !important;
+  }
+
+  .growth-title {
+    font-size: .8rem !important;
+    margin-bottom: 2px !important;
+  }
+
+  .growth-desc {
+    font-size: .58rem !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Quote compact on mobile */
+  .welcome-quote {
+    font-size: .85rem !important;
+    line-height: 1.4 !important;
+    padding-left: 14px !important;
+  }
+
+  /* Overall screen padding */
+  .welcome-single-screen {
+    padding: 10px 14px 14px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-logo-big {
+    font-size: 2.4rem !important;
+  }
+
+  .welcome-oak-leaf {
+    width: 1.6rem !important;
+    height: 2.4rem !important;
+  }
+
+  .welcome-hero-left .welcome-heading {
+    font-size: 1.4rem !important;
+  }
+
+  .growth-title {
+    font-size: .74rem !important;
+  }
+
+  .growth-desc {
+    font-size: .54rem !important;
+  }
+
+  .welcome-quote {
+    font-size: .8rem !important;
   }
 }
 </style>
