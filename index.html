@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!-- Preconnect for faster image loading -->
-  <link rel="preconnect" href="https://i.ibb.co" crossorigin>
-  <link rel="dns-prefetch" href="https://i.ibb.co">
+    <link rel="preload" as="image" href="https://i.ibb.co/Kz7ynYRZ/hero-bg.png">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -2288,7 +2286,7 @@ body[data-theme="dark"] .navbar {
 body[data-theme="light"] .welcome-bg {
   position: absolute;
   inset: 0;
-  background-image: url('https://i.ibb.co/h1ZL9yG3/8dd1b3d3-1071-4c5f-a175-ccc53ccbb426.png');
+  background-image: url('https://i.ibb.co/Kz7ynYRZ/hero-bg.png');
   background-size: cover;
   background-position: center right;
   background-repeat: no-repeat;
@@ -5412,7 +5410,7 @@ function hideLoadingScreen() {
   if (!loader) return;
   
   // Preload background image
-  const bgUrl = 'https://i.ibb.co/h1ZL9yG3/8dd1b3d3-1071-4c5f-a175-ccc53ccbb426.png';
+const bgUrl = 'https://i.ibb.co/Kz7ynYRZ/hero-bg.png';
   const img = new Image();
   img.src = bgUrl;
   
