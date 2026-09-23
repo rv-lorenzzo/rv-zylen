@@ -2246,7 +2246,7 @@ body[data-theme="dark"] .question-text table tr:nth-child(even) td {
   font-weight: 700;
 }
 /* ============================================================
-   HOMEPAGE — SINGLE SCREEN (No Scroll)
+   HOMEPAGE — REFERENCE MATCH (Single Screen)
    ============================================================ */
 
 .welcome-single-screen {
@@ -2257,21 +2257,21 @@ body[data-theme="dark"] .question-text table tr:nth-child(even) td {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 40px 16px;
+  padding: 16px 40px 14px;
   overflow: hidden;
 }
 
-/* Light mode background image */
+/* Light mode — background image with elegant cream filter */
 body[data-theme="light"] .welcome-bg {
   position: absolute;
   inset: 0;
-  background-image: url('https://i.ibb.co/YKBPwC2/Whats-App-Image-2026-09-23-at-2-14-21-PM.jpg');
+  background-image: url('https://i.ibb.co/h1ZL9yG3/8dd1b3d3-1071-4c5f-a175-ccc53ccbb426.png');
   background-size: cover;
   background-position: center right;
   background-repeat: no-repeat;
-  opacity: .55;
   z-index: 0;
   pointer-events: none;
+  filter: saturate(.85) brightness(1.05) contrast(.95);
 }
 
 body[data-theme="light"] .welcome-single-screen::before {
@@ -2279,15 +2279,15 @@ body[data-theme="light"] .welcome-single-screen::before {
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg,
-    rgba(250,246,238,.85) 0%,
-    rgba(245,239,227,.6) 40%,
-    rgba(237,228,210,.3) 70%,
+    rgba(250,246,238,.55) 0%,
+    rgba(245,239,227,.25) 35%,
+    rgba(237,228,210,.05) 60%,
     rgba(237,228,210,0) 100%);
   z-index: 1;
   pointer-events: none;
 }
 
-/* Dark mode */
+/* Dark mode — burgundy + olive */
 body[data-theme="dark"] .welcome-bg {
   position: absolute;
   inset: 0;
@@ -2296,6 +2296,37 @@ body[data-theme="dark"] .welcome-bg {
     radial-gradient(ellipse at 80% 100%, rgba(106,120,74,.10) 0%, transparent 50%),
     linear-gradient(135deg, #1A0E14 0%, #241318 40%, #2E1A20 100%);
   z-index: 0;
+}
+
+/* ============ QUOTE — Top Right (like "Better Than Yesterday") ============ */
+.welcome-quote-wrap {
+  position: absolute;
+  top: 26%;
+  right: 5%;
+  max-width: 170px;
+  padding-left: 14px;
+  border-left: 1.5px solid var(--accent-gold);
+  z-index: 3;
+  animation: heroIn 1s cubic-bezier(.4,0,.2,1) .3s backwards;
+}
+
+.welcome-quote {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: .9rem;
+  line-height: 1.4;
+  color: var(--text-primary);
+  font-weight: 500;
+  text-align: left;
+}
+
+body[data-theme="light"] .welcome-quote {
+  color: #2A1E0A;
+  text-shadow: 0 1px 4px rgba(250,246,238,.6);
+}
+
+body[data-theme="dark"] .welcome-quote {
+  color: #F2EBE0;
 }
 
 /* ============ HERO SECTION ============ */
@@ -2307,8 +2338,6 @@ body[data-theme="dark"] .welcome-bg {
   flex: 1;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 40px;
   padding: 10px 0;
   min-height: 0;
   animation: heroIn 1s cubic-bezier(.4,0,.2,1);
@@ -2318,9 +2347,6 @@ body[data-theme="dark"] .welcome-bg {
   flex: 1;
   max-width: 620px;
   text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .welcome-hero-left .welcome-tagline {
@@ -2335,13 +2361,17 @@ body[data-theme="dark"] .welcome-bg {
 
 .welcome-hero-left .welcome-heading {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2rem, 4.2vw, 3.2rem);
+  font-size: clamp(2rem, 4.2vw, 3.4rem);
   font-weight: 500;
   line-height: 1.05;
   color: var(--text-primary);
   margin-bottom: 16px;
   letter-spacing: -0.02em;
   text-align: left;
+}
+
+body[data-theme="light"] .welcome-hero-left .welcome-heading {
+  color: #1A1410;
 }
 
 .welcome-hero-left .welcome-heading em {
@@ -2352,12 +2382,16 @@ body[data-theme="dark"] .welcome-bg {
 
 .welcome-hero-left .welcome-desc {
   font-family: 'Inter', sans-serif;
-  font-size: clamp(.8rem, 1.2vw, .9rem);
+  font-size: clamp(.82rem, 1.2vw, .92rem);
   line-height: 1.65;
   color: var(--text-secondary);
   margin-bottom: 22px;
   max-width: 480px;
   text-align: left;
+}
+
+body[data-theme="light"] .welcome-hero-left .welcome-desc {
+  color: #3D3426;
 }
 
 .welcome-hero-left .welcome-cta-btn {
@@ -2376,7 +2410,6 @@ body[data-theme="dark"] .welcome-bg {
   cursor: pointer;
   transition: all .3s cubic-bezier(.34,1.56,.64,1);
   box-shadow: 0 8px 24px rgba(31,27,18,.25);
-  align-self: flex-start;
 }
 
 body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
@@ -2397,26 +2430,6 @@ body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
   transform: translateX(4px);
 }
 
-/* Right side — vertical quote */
-.welcome-hero-right {
-  flex-shrink: 0;
-  max-width: 180px;
-  align-self: center;
-  padding-left: 16px;
-  border-left: 2px solid var(--accent-gold);
-  animation: heroIn 1s cubic-bezier(.4,0,.2,1) .2s backwards;
-}
-
-.welcome-quote {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
-  font-size: .95rem;
-  line-height: 1.45;
-  color: var(--text-primary);
-  font-weight: 500;
-  text-align: left;
-}
-
 /* ============ GROWTH SECTION ============ */
 .welcome-growth {
   position: relative;
@@ -2425,8 +2438,8 @@ body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
   max-width: 1200px;
   flex-shrink: 0;
   text-align: center;
-  padding: 10px 0 6px;
-  animation: heroIn 1s cubic-bezier(.4,0,.2,1) .3s backwards;
+  padding: 8px 0 6px;
+  animation: heroIn 1s cubic-bezier(.4,0,.2,1) .4s backwards;
 }
 
 .growth-tagline {
@@ -2448,6 +2461,10 @@ body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
   letter-spacing: -0.01em;
 }
 
+body[data-theme="light"] .growth-heading {
+  color: #1A1410;
+}
+
 .growth-heading em {
   font-style: italic;
   color: var(--accent-gold);
@@ -2456,7 +2473,7 @@ body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
 .growth-divider {
   font-size: 1rem;
   margin-bottom: 14px;
-  opacity: .7;
+  opacity: .75;
   position: relative;
 }
 
@@ -2467,7 +2484,7 @@ body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
   width: 50px;
   height: 1px;
   background: var(--accent-gold);
-  opacity: .4;
+  opacity: .45;
   vertical-align: middle;
   margin: 0 12px;
 }
@@ -2476,7 +2493,6 @@ body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 14px;
-  padding: 0;
 }
 
 .growth-card {
@@ -2490,6 +2506,12 @@ body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
   text-align: center;
   transition: all .4s cubic-bezier(.34,1.56,.64,1);
   box-shadow: var(--shadow-sm);
+}
+
+body[data-theme="light"] .growth-card {
+  background: rgba(255,253,248,.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .growth-card:hover {
@@ -2522,10 +2544,18 @@ body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
   margin-bottom: 5px;
 }
 
+body[data-theme="light"] .growth-title {
+  color: #1A1410;
+}
+
 .growth-desc {
   font-size: .7rem;
   line-height: 1.45;
   color: var(--text-muted);
+}
+
+body[data-theme="light"] .growth-desc {
+  color: #6B5F4A;
 }
 
 /* ============ FOOTER ============ */
@@ -2550,17 +2580,31 @@ body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
   text-align: center;
 }
 
+body[data-theme="light"] .welcome-footer {
+  color: #6B5F4A;
+}
+
 .footer-line {
   flex: 1;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
-  opacity: .5;
+  opacity: .55;
 }
 
 /* ============ RESPONSIVE — TABLET ============ */
 @media (max-width: 1024px) {
   .welcome-single-screen {
-    padding: 16px 24px 12px;
+    padding: 14px 24px 12px;
+  }
+
+  .welcome-quote-wrap {
+    top: 22%;
+    right: 4%;
+    max-width: 150px;
+  }
+
+  .welcome-quote {
+    font-size: .82rem;
   }
 
   .welcome-hero-left .welcome-heading {
@@ -2583,10 +2627,40 @@ body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
     overflow-y: auto;
   }
 
+  /* Mobile background — reposition to show nice part */
+  body[data-theme="light"] .welcome-bg {
+    background-position: 70% center;
+    background-size: cover;
+    filter: saturate(.9) brightness(1.08) contrast(.95);
+  }
+
+  body[data-theme="light"] .welcome-single-screen::before {
+    background: linear-gradient(180deg,
+      rgba(250,246,238,.75) 0%,
+      rgba(250,246,238,.45) 50%,
+      rgba(237,228,210,.65) 100%);
+  }
+
+  /* Quote on mobile — inline, below button */
+  .welcome-quote-wrap {
+    position: relative;
+    top: auto;
+    right: auto;
+    max-width: 100%;
+    margin: 14px 0 8px;
+    padding-left: 12px;
+    animation: heroIn 1s cubic-bezier(.4,0,.2,1) .3s backwards;
+  }
+
+  .welcome-quote {
+    font-size: .82rem;
+    line-height: 1.4;
+  }
+
   .welcome-hero {
     flex-direction: column;
-    gap: 14px;
-    padding: 8px 0;
+    gap: 10px;
+    padding: 6px 0;
     align-items: flex-start;
   }
 
@@ -2614,16 +2688,6 @@ body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
   .welcome-hero-left .welcome-cta-btn {
     padding: 10px 22px;
     font-size: .75rem;
-  }
-
-  .welcome-hero-right {
-    max-width: 100%;
-    padding-left: 12px;
-    margin-top: 6px;
-  }
-
-  .welcome-quote {
-    font-size: .82rem;
   }
 
   .growth-tagline {
@@ -2693,6 +2757,10 @@ body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
     font-size: .72rem;
   }
 
+  .welcome-quote {
+    font-size: .76rem;
+  }
+
   .growth-title {
     font-size: .8rem;
   }
@@ -2705,11 +2773,21 @@ body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
 /* Large desktop */
 @media (min-width: 1400px) {
   .welcome-single-screen {
-    padding: 30px 60px 20px;
+    padding: 24px 60px 18px;
   }
 
   .welcome-hero-left .welcome-heading {
     font-size: 3.6rem;
+  }
+
+  .welcome-quote-wrap {
+    top: 28%;
+    right: 6%;
+    max-width: 180px;
+  }
+
+  .welcome-quote {
+    font-size: 1rem;
   }
 
   .growth-card {
@@ -3166,9 +3244,16 @@ body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
       <!-- ========================================================
            WELCOME / HOMEPAGE
            ======================================================== -->
-            <div class="page active" id="page-welcome">
+                  <div class="page active" id="page-welcome">
         <div class="welcome-single-screen">
           <div class="welcome-bg"></div>
+
+          <!-- Quote (Top-Right, like "Better Than Yesterday" in reference) -->
+          <div class="welcome-quote-wrap">
+            <div class="welcome-quote" id="welcomeQuote">
+              "Discipline is the bridge between goals and accomplishment."
+            </div>
+          </div>
 
           <!-- HERO SECTION -->
           <section class="welcome-hero">
@@ -3187,11 +3272,6 @@ body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
                 <span>Explore Now</span>
                 <span class="arrow">→</span>
               </button>
-            </div>
-            <div class="welcome-hero-right">
-              <div class="welcome-quote" id="welcomeQuote">
-                "Success is the sum of small efforts repeated day in and day out."
-              </div>
             </div>
           </section>
 
