@@ -2246,46 +2246,56 @@ body[data-theme="dark"] .question-text table tr:nth-child(even) td {
   font-weight: 700;
 }
 /* ============================================================
-   HOMEPAGE REDESIGN — Reference Image Match
+   HOMEPAGE — SINGLE SCREEN (No Scroll)
    ============================================================ */
 
-/* Nav theme button */
-.nav-theme-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1.5px solid var(--border-medium);
-  background: var(--bg-elevated);
-  color: var(--text-primary);
-  font-size: 1rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all .3s cubic-bezier(.34,1.56,.64,1);
-  font-family: inherit;
-  margin-right: 8px;
-}
-
-.nav-theme-btn:hover {
-  background: var(--accent-gold);
-  color: var(--text-inverse);
-  border-color: var(--accent-gold);
-  transform: rotate(20deg) scale(1.05);
-}
-
-/* Welcome single-screen — now allows scroll */
 .welcome-single-screen {
   position: relative;
   width: 100%;
-  min-height: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  padding: 24px 40px 40px;
-  overflow-y: auto;
-  overflow-x: hidden;
+  justify-content: space-between;
+  padding: 20px 40px 16px;
+  overflow: hidden;
+}
+
+/* Light mode background image */
+body[data-theme="light"] .welcome-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://i.ibb.co/YKBPwC2/Whats-App-Image-2026-09-23-at-2-14-21-PM.jpg');
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+  opacity: .55;
+  z-index: 0;
+  pointer-events: none;
+}
+
+body[data-theme="light"] .welcome-single-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+    rgba(250,246,238,.85) 0%,
+    rgba(245,239,227,.6) 40%,
+    rgba(237,228,210,.3) 70%,
+    rgba(237,228,210,0) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Dark mode */
+body[data-theme="dark"] .welcome-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(212,185,106,.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 100%, rgba(106,120,74,.10) 0%, transparent 50%),
+    linear-gradient(135deg, #1A0E14 0%, #241318 40%, #2E1A20 100%);
+  z-index: 0;
 }
 
 /* ============ HERO SECTION ============ */
@@ -2294,11 +2304,13 @@ body[data-theme="dark"] .question-text table tr:nth-child(even) td {
   z-index: 2;
   width: 100%;
   max-width: 1200px;
+  flex: 1;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 40px;
-  padding: 40px 0 30px;
+  padding: 10px 0;
+  min-height: 0;
   animation: heroIn 1s cubic-bezier(.4,0,.2,1);
 }
 
@@ -2306,25 +2318,28 @@ body[data-theme="dark"] .question-text table tr:nth-child(even) td {
   flex: 1;
   max-width: 620px;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .welcome-hero-left .welcome-tagline {
   font-family: 'Inter', sans-serif;
-  font-size: .68rem;
+  font-size: .65rem;
   font-weight: 700;
   letter-spacing: 5px;
   color: var(--accent-gold);
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 
 .welcome-hero-left .welcome-heading {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-size: clamp(2rem, 4.2vw, 3.2rem);
   font-weight: 500;
   line-height: 1.05;
   color: var(--text-primary);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   letter-spacing: -0.02em;
   text-align: left;
 }
@@ -2337,36 +2352,36 @@ body[data-theme="dark"] .question-text table tr:nth-child(even) td {
 
 .welcome-hero-left .welcome-desc {
   font-family: 'Inter', sans-serif;
-  font-size: clamp(.82rem, 1.4vw, .95rem);
-  line-height: 1.75;
+  font-size: clamp(.8rem, 1.2vw, .9rem);
+  line-height: 1.65;
   color: var(--text-secondary);
-  margin-bottom: 28px;
-  max-width: 520px;
+  margin-bottom: 22px;
+  max-width: 480px;
   text-align: left;
 }
 
 .welcome-hero-left .welcome-cta-btn {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 14px 32px;
+  gap: 10px;
+  padding: 12px 28px;
   border-radius: 9999px;
   border: none;
   background: linear-gradient(135deg, #1F1B12, #3D3426);
   color: #FAF6EE;
   font-family: inherit;
-  font-size: .85rem;
+  font-size: .82rem;
   font-weight: 600;
   letter-spacing: .5px;
   cursor: pointer;
   transition: all .3s cubic-bezier(.34,1.56,.64,1);
   box-shadow: 0 8px 24px rgba(31,27,18,.25);
+  align-self: flex-start;
 }
 
 body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
   background: linear-gradient(135deg, #D4AF37, #B8934A);
   color: #1A0E14;
-  box-shadow: 0 8px 24px rgba(212,175,55,.3);
 }
 
 .welcome-hero-left .welcome-cta-btn:hover {
@@ -2385,19 +2400,18 @@ body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
 /* Right side — vertical quote */
 .welcome-hero-right {
   flex-shrink: 0;
-  max-width: 200px;
-  margin-top: 20px;
-  padding-left: 20px;
+  max-width: 180px;
+  align-self: center;
+  padding-left: 16px;
   border-left: 2px solid var(--accent-gold);
-  position: relative;
   animation: heroIn 1s cubic-bezier(.4,0,.2,1) .2s backwards;
 }
 
 .welcome-quote {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-style: italic;
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: .95rem;
+  line-height: 1.45;
   color: var(--text-primary);
   font-weight: 500;
   text-align: left;
@@ -2409,27 +2423,28 @@ body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
   z-index: 2;
   width: 100%;
   max-width: 1200px;
-  padding: 30px 0 20px;
+  flex-shrink: 0;
   text-align: center;
+  padding: 10px 0 6px;
   animation: heroIn 1s cubic-bezier(.4,0,.2,1) .3s backwards;
 }
 
 .growth-tagline {
   font-family: 'Inter', sans-serif;
-  font-size: .68rem;
+  font-size: .62rem;
   font-weight: 700;
-  letter-spacing: 5px;
+  letter-spacing: 4px;
   color: var(--text-muted);
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
 }
 
 .growth-heading {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
   font-weight: 500;
   color: var(--text-primary);
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   letter-spacing: -0.01em;
 }
 
@@ -2439,8 +2454,8 @@ body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
 }
 
 .growth-divider {
-  font-size: 1.2rem;
-  margin-bottom: 26px;
+  font-size: 1rem;
+  margin-bottom: 14px;
   opacity: .7;
   position: relative;
 }
@@ -2449,26 +2464,26 @@ body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
 .growth-divider::after {
   content: "";
   display: inline-block;
-  width: 60px;
+  width: 50px;
   height: 1px;
   background: var(--accent-gold);
   opacity: .4;
   vertical-align: middle;
-  margin: 0 16px;
+  margin: 0 12px;
 }
 
 .growth-cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  padding: 0 10px;
+  gap: 14px;
+  padding: 0;
 }
 
 .growth-card {
   background: var(--bg-card);
   border: 1px solid var(--border-light);
-  border-radius: 18px;
-  padding: 24px 18px 22px;
+  border-radius: 16px;
+  padding: 16px 14px 14px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2478,38 +2493,38 @@ body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
 }
 
 .growth-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
   border-color: var(--accent-gold);
   box-shadow: var(--shadow-lg);
 }
 
 .growth-icon {
-  width: 56px;
-  height: 56px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
-  margin-bottom: 16px;
+  font-size: 1.15rem;
+  margin-bottom: 10px;
   transition: transform .4s cubic-bezier(.34,1.56,.64,1);
 }
 
 .growth-card:hover .growth-icon {
-  transform: scale(1.12) rotate(-6deg);
+  transform: scale(1.1) rotate(-5deg);
 }
 
 .growth-title {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.25rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 8px;
+  margin-bottom: 5px;
 }
 
 .growth-desc {
-  font-size: .76rem;
-  line-height: 1.55;
+  font-size: .7rem;
+  line-height: 1.45;
   color: var(--text-muted);
 }
 
@@ -2520,12 +2535,14 @@ body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 18px;
+  gap: 16px;
   width: 100%;
-  max-width: 500px;
-  margin: 30px auto 10px;
+  max-width: 460px;
+  margin: 0 auto;
+  flex-shrink: 0;
+  padding-top: 8px;
   font-family: 'Inter', sans-serif;
-  font-size: .65rem;
+  font-size: .58rem;
   font-weight: 600;
   letter-spacing: 4px;
   color: var(--text-muted);
@@ -2540,88 +2557,169 @@ body[data-theme="dark"] .welcome-hero-left .welcome-cta-btn {
   opacity: .5;
 }
 
-/* ============ RESPONSIVE ============ */
+/* ============ RESPONSIVE — TABLET ============ */
+@media (max-width: 1024px) {
+  .welcome-single-screen {
+    padding: 16px 24px 12px;
+  }
+
+  .welcome-hero-left .welcome-heading {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+  }
+
+  .growth-cards {
+    gap: 10px;
+  }
+
+  .growth-card {
+    padding: 14px 10px;
+  }
+}
+
+/* ============ RESPONSIVE — MOBILE ============ */
 @media (max-width: 899px) {
   .welcome-single-screen {
-    padding: 20px 18px 30px;
+    padding: 12px 14px 10px;
+    overflow-y: auto;
   }
 
   .welcome-hero {
     flex-direction: column;
-    gap: 20px;
-    padding: 20px 0 20px;
+    gap: 14px;
+    padding: 8px 0;
+    align-items: flex-start;
   }
 
   .welcome-hero-left {
     max-width: 100%;
-    text-align: left;
+  }
+
+  .welcome-hero-left .welcome-tagline {
+    font-size: .58rem;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
   }
 
   .welcome-hero-left .welcome-heading {
-    font-size: 2rem;
+    font-size: 1.65rem;
+    margin-bottom: 10px;
   }
 
   .welcome-hero-left .welcome-desc {
-    font-size: .82rem;
+    font-size: .76rem;
+    line-height: 1.55;
+    margin-bottom: 14px;
   }
 
   .welcome-hero-left .welcome-cta-btn {
-    padding: 12px 26px;
-    font-size: .8rem;
+    padding: 10px 22px;
+    font-size: .75rem;
   }
 
   .welcome-hero-right {
     max-width: 100%;
-    padding-left: 14px;
-    margin-top: 10px;
+    padding-left: 12px;
+    margin-top: 6px;
   }
 
   .welcome-quote {
-    font-size: .9rem;
+    font-size: .82rem;
+  }
+
+  .growth-tagline {
+    font-size: .55rem;
+    letter-spacing: 3px;
+  }
+
+  .growth-heading {
+    font-size: 1.25rem;
+    margin-bottom: 2px;
+  }
+
+  .growth-divider {
+    font-size: .85rem;
+    margin-bottom: 10px;
+  }
+
+  .growth-divider::before,
+  .growth-divider::after {
+    width: 30px;
+    margin: 0 8px;
   }
 
   .growth-cards {
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    gap: 8px;
   }
 
   .growth-card {
-    padding: 18px 14px;
+    padding: 12px 10px 10px;
+    border-radius: 12px;
   }
 
   .growth-icon {
-    width: 46px;
-    height: 46px;
-    font-size: 1.2rem;
-    margin-bottom: 12px;
+    width: 36px;
+    height: 36px;
+    font-size: .95rem;
+    margin-bottom: 8px;
   }
 
   .growth-title {
-    font-size: 1.05rem;
+    font-size: .88rem;
+    margin-bottom: 3px;
   }
 
   .growth-desc {
-    font-size: .7rem;
+    font-size: .62rem;
+    line-height: 1.35;
   }
 
   .welcome-footer {
-    font-size: .55rem;
-    letter-spacing: 3px;
-    gap: 12px;
-    margin-top: 24px;
+    font-size: .5rem;
+    letter-spacing: 2.5px;
+    gap: 10px;
+    padding-top: 6px;
+    margin-top: 8px;
   }
 }
 
-@media (max-width: 480px) {
-  .growth-cards {
-    grid-template-columns: 1fr 1fr;
+/* Very small phones */
+@media (max-width: 420px) {
+  .welcome-hero-left .welcome-heading {
+    font-size: 1.45rem;
   }
 
-  .nav-theme-btn {
-    width: 36px;
-    height: 36px;
-    font-size: .9rem;
-    margin-right: 6px;
+  .welcome-hero-left .welcome-desc {
+    font-size: .72rem;
+  }
+
+  .growth-title {
+    font-size: .8rem;
+  }
+
+  .growth-desc {
+    font-size: .58rem;
+  }
+}
+
+/* Large desktop */
+@media (min-width: 1400px) {
+  .welcome-single-screen {
+    padding: 30px 60px 20px;
+  }
+
+  .welcome-hero-left .welcome-heading {
+    font-size: 3.6rem;
+  }
+
+  .growth-card {
+    padding: 20px 16px;
+  }
+
+  .growth-icon {
+    width: 52px;
+    height: 52px;
+    font-size: 1.4rem;
   }
 }
 /* ============================================================
