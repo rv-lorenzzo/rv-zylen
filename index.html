@@ -4390,7 +4390,12 @@ body[data-theme="dark"] .loader-sub {
     gap: 20px;
   }
 }
-
+/* ============================================================
+   FIX: Hide duplicate nav-brand (only hero brand should show)
+   ============================================================ */
+.navbar .nav-brand {
+  display: none !important;
+}
 </style>
 </head>
 <body data-theme="light">
