@@ -3490,35 +3490,28 @@ body[data-theme="dark"] .welcome-cta-btn {
   color: #1A0E14 !important;
 }
 /* ============================================================
-   NAV BRAND — RV + Oak Leaf (in nav, aligned with links)
+   HERO BRAND — Big RV + Oak Leaf (Welcome ke upar, nav ke parallel)
    ============================================================ */
 
-.nav-brand {
-  display: flex !important;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2px;
-  cursor: pointer;
-  justify-self: start;
-}
-
-.nav-brand-row {
+.welcome-brand-top {
   display: flex;
   align-items: flex-end;
-  gap: 6px;
-  line-height: 1;
+  gap: 14px;
+  margin-bottom: 6px;
+  position: relative;
+  z-index: 2;
 }
 
 .welcome-logo-big {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-style: italic;
-  font-size: 3.4rem;
+  font-size: 5.5rem;
   font-weight: 700;
-  letter-spacing: 3px;
+  letter-spacing: 5px;
   line-height: .9;
   color: #0A0A0A;
   display: inline-block;
-  padding-bottom: 4px;
+  padding-bottom: 6px;
 }
 
 body[data-theme="dark"] .welcome-logo-big {
@@ -3529,11 +3522,11 @@ body[data-theme="dark"] .welcome-logo-big {
   display: inline-flex;
   align-items: flex-end;
   justify-content: center;
-  width: 2.4rem;
-  height: 3.6rem;
+  width: 3.8rem;
+  height: 5.5rem;
   color: #0A0A0A;
   flex-shrink: 0;
-  padding-bottom: 4px;
+  padding-bottom: 6px;
 }
 
 body[data-theme="dark"] .welcome-oak-leaf {
@@ -3548,62 +3541,85 @@ body[data-theme="dark"] .welcome-oak-leaf {
 
 .welcome-brand-name {
   font-family: 'Inter', sans-serif;
-  font-size: .58rem;
+  font-size: .82rem;
   font-weight: 700;
-  letter-spacing: 4px;
+  letter-spacing: 6px;
   color: #0A0A0A;
   text-transform: uppercase;
-  margin-top: 2px;
-  padding-left: 4px;
+  margin-top: 4px;
+  margin-bottom: 22px;
+  padding-left: 8px;
   line-height: 1;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 1px 4px rgba(250,246,238,.5);
 }
 
 body[data-theme="dark"] .welcome-brand-name {
   color: #F5EDD6;
+  text-shadow: 0 1px 6px rgba(0,0,0,.5);
+}
+
+/* ============ HERO — Move content up to align with nav ============ */
+.welcome-hero {
+  align-items: flex-start !important;
+  padding: 60px 0 10px !important;
+}
+
+.welcome-hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 /* ============ RESPONSIVE ============ */
 @media (max-width: 899px) {
   .welcome-logo-big {
-    font-size: 2.4rem;
-    letter-spacing: 2px;
+    font-size: 3.4rem;
+    letter-spacing: 3px;
   }
 
   .welcome-oak-leaf {
-    width: 1.7rem;
-    height: 2.6rem;
+    width: 2.4rem;
+    height: 3.4rem;
   }
 
   .welcome-brand-name {
-    font-size: .5rem;
-    letter-spacing: 3px;
+    font-size: .68rem;
+    letter-spacing: 4px;
+    margin-bottom: 16px;
+    padding-left: 6px;
+  }
+
+  .welcome-hero {
+    padding: 10px 0 10px !important;
   }
 }
 
 @media (max-width: 480px) {
   .welcome-logo-big {
-    font-size: 2rem;
+    font-size: 3rem;
   }
 
   .welcome-oak-leaf {
-    width: 1.4rem;
-    height: 2.2rem;
+    width: 2.1rem;
+    height: 3rem;
   }
 
   .welcome-brand-name {
-    font-size: .45rem;
-    letter-spacing: 2.5px;
+    font-size: .62rem;
+    letter-spacing: 3px;
   }
 }
 
-/* ============ HERO — Extra top padding for nav ============ */
-.welcome-hero {
-  padding-top: 130px !important;
-}
+@media (min-width: 1400px) {
+  .welcome-logo-big {
+    font-size: 6.2rem;
+  }
 
-@media (max-width: 899px) {
-  .welcome-hero {
-    padding-top: 20px !important;
+  .welcome-oak-leaf {
+    width: 4.3rem;
+    height: 6.2rem;
   }
 }
 </style>
@@ -3630,32 +3646,8 @@ body[data-theme="dark"] .welcome-brand-name {
     <!-- ==========================================================
          NAVIGATION BAR (hidden on welcome)
          ========================================================== -->
-                    <nav class="navbar" id="mainNav">
-      <div class="nav-brand">
-        <div class="nav-brand-row">
-          <span class="welcome-logo-big">RV</span>
-          <span class="welcome-oak-leaf">
-            <svg viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M 20 58 Q 20 40 20 20 Q 20 10 20 2" />
-              <path d="M 20 52 Q 12 50 8 44 Q 14 42 20 46" />
-              <path d="M 20 46 Q 12 44 8 38 Q 14 36 20 40" />
-              <path d="M 20 40 Q 11 38 7 32 Q 13 30 20 34" />
-              <path d="M 20 34 Q 11 32 7 26 Q 13 24 20 28" />
-              <path d="M 20 28 Q 12 26 9 20 Q 14 18 20 22" />
-              <path d="M 20 22 Q 13 20 11 14 Q 15 12 20 16" />
-              <path d="M 20 16 Q 15 14 13 8 Q 17 7 20 11" />
-              <path d="M 20 52 Q 28 50 32 44 Q 26 42 20 46" />
-              <path d="M 20 46 Q 28 44 32 38 Q 26 36 20 40" />
-              <path d="M 20 40 Q 29 38 33 32 Q 27 30 20 34" />
-              <path d="M 20 34 Q 29 32 33 26 Q 27 24 20 28" />
-              <path d="M 20 28 Q 28 26 31 20 Q 26 18 20 22" />
-              <path d="M 20 22 Q 27 20 29 14 Q 25 12 20 16" />
-              <path d="M 20 16 Q 25 14 27 8 Q 23 7 20 11" />
-            </svg>
-          </span>
-        </div>
-        <div class="welcome-brand-name">RV-ZYLEN OFFICIAL</div>
-      </div>
+                        <nav class="navbar" id="mainNav">
+      <div></div>
       <div class="nav-links">
         <a href="#" class="nav-link active" data-page="welcome">Home</a>
         <a href="#" class="nav-link" data-page="about">About</a>
@@ -3792,6 +3784,29 @@ body[data-theme="dark"] .welcome-brand-name {
           <!-- HERO SECTION -->
           <section class="welcome-hero">
                                     <div class="welcome-hero-left">
+              <div class="welcome-brand-top">
+                <span class="welcome-logo-big">RV</span>
+                <span class="welcome-oak-leaf">
+                  <svg viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M 20 58 Q 20 40 20 20 Q 20 10 20 2" />
+                    <path d="M 20 52 Q 12 50 8 44 Q 14 42 20 46" />
+                    <path d="M 20 46 Q 12 44 8 38 Q 14 36 20 40" />
+                    <path d="M 20 40 Q 11 38 7 32 Q 13 30 20 34" />
+                    <path d="M 20 34 Q 11 32 7 26 Q 13 24 20 28" />
+                    <path d="M 20 28 Q 12 26 9 20 Q 14 18 20 22" />
+                    <path d="M 20 22 Q 13 20 11 14 Q 15 12 20 16" />
+                    <path d="M 20 16 Q 15 14 13 8 Q 17 7 20 11" />
+                    <path d="M 20 52 Q 28 50 32 44 Q 26 42 20 46" />
+                    <path d="M 20 46 Q 28 44 32 38 Q 26 36 20 40" />
+                    <path d="M 20 40 Q 29 38 33 32 Q 27 30 20 34" />
+                    <path d="M 20 34 Q 29 32 33 26 Q 27 24 20 28" />
+                    <path d="M 20 28 Q 28 26 31 20 Q 26 18 20 22" />
+                    <path d="M 20 22 Q 27 20 29 14 Q 25 12 20 16" />
+                    <path d="M 20 16 Q 25 14 27 8 Q 23 7 20 11" />
+                  </svg>
+                </span>
+              </div>
+              <div class="welcome-brand-name">RV-ZYLEN OFFICIAL</div>
               <h1 class="welcome-heading">
                 Welcome to the<br>
                 <em>Official Space</em>
