@@ -6169,6 +6169,69 @@ html::before,
 html::after {
   content: none !important;
   display: none !important;
+}/* ============================================================
+   COMPLETE SCROLLBAR HIDE (kills ALL arrows everywhere)
+   ============================================================ */
+
+/* Chrome / Safari / Edge — hide scrollbar entirely */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+.app-container::-webkit-scrollbar,
+.page-wrapper::-webkit-scrollbar,
+.page::-webkit-scrollbar,
+.profile-panel-body::-webkit-scrollbar,
+.quiz-question-area::-webkit-scrollbar,
+.quiz-palette::-webkit-scrollbar,
+.modal-box::-webkit-scrollbar,
+.quiz-main::-webkit-scrollbar,
+.series-sheets-list::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+/* Kill the arrow buttons */
+html::-webkit-scrollbar-button,
+body::-webkit-scrollbar-button,
+.page::-webkit-scrollbar-button,
+.page-wrapper::-webkit-scrollbar-button,
+.app-container::-webkit-scrollbar-button,
+.quiz-question-area::-webkit-scrollbar-button,
+.quiz-palette::-webkit-scrollbar-button,
+.modal-box::-webkit-scrollbar-button,
+.quiz-main::-webkit-scrollbar-button {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+  -webkit-appearance: none !important;
+}
+
+/* Firefox */
+html,
+body,
+.page,
+.page-wrapper,
+.app-container,
+.profile-panel-body,
+.quiz-question-area,
+.quiz-palette,
+.modal-box,
+.quiz-main {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+/* Still allow scrolling (touch/wheel works even with hidden scrollbar) */
+.page,
+.quiz-question-area,
+.quiz-palette,
+.profile-panel-body,
+.modal-box,
+.series-sheets-list {
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
 }
 </style>
 </head>
