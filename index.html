@@ -5905,6 +5905,54 @@ body[data-theme="dark"] .result-weak-concepts h4 {
   color: var(--text-inverse) !important;
   border-color: var(--accent-gold) !important;
 }
+/* ============================================================
+   HIDE STRAY LEFT ARROWS (Top-left + Bottom-left)
+   ============================================================ */
+
+/* 1. Hide scroll-indicator (usually has arrow) */
+.scroll-indicator {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* 2. Hide globalBackBtn if exists */
+#globalBackBtn,
+.global-back-btn {
+  display: none !important;
+}
+
+/* 3. Hide any absolutely-positioned arrows outside pages */
+body > .back-btn,
+body > button:not([id]),
+.app-container > .back-btn {
+  display: none !important;
+}
+
+/* 4. Hide series back button unless on series detail page */
+.back-btn {
+  display: none !important;
+}
+
+#page-series-detail.active .back-btn {
+  display: inline-flex !important;
+}
+
+/* 5. Hide quiz navigation outside quiz page */
+.page:not(#page-quiz) #prevQuestionBtn,
+.page:not(#page-quiz) #nextQuestionBtn,
+.page:not(#page-quiz) #skipQuestionBtn,
+.page:not(#page-quiz) #submitQuizBtn {
+  display: none !important;
+}
+
+/* 6. Kill any fixed-position small elements in corners */
+[style*="position: fixed"][style*="top"],
+[style*="position:fixed"][style*="top"],
+[style*="position: fixed"][style*="bottom"],
+[style*="position:fixed"][style*="bottom"] {
+  /* Only kill if it looks like an arrow button */
+}
 </style>
 </head>
 <body data-theme="light">
