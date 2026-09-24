@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!-- Preconnect for faster image loading -->
-  <link rel="preconnect" href="https://i.ibb.co" crossorigin>
-  <link rel="dns-prefetch" href="https://i.ibb.co">
 <head>
+    <link rel="preconnect" href="https://i.ibb.co" crossorigin>
+  <link rel="dns-prefetch" href="https://i.ibb.co">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#faf8f5">
@@ -877,6 +876,8 @@ body[data-theme="dark"] .welcome-bg {
   transition: opacity .4s ease;
 }
 
+
+
 .welcome-cta-btn {
   display: inline-flex;
   align-items: center;
@@ -1714,23 +1715,25 @@ body[data-theme="dark"] .welcome-cta-btn {
   max-width: 380px;
 }
 
+/* Modal close button */
 .modal-close {
   position: absolute;
   top: 16px;
   right: 16px;
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   border: 1px solid var(--border-light);
   background: var(--bg-elevated);
   color: var(--text-muted);
   cursor: pointer;
-  font-size: .9rem;
+  font-size: .95rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all .2s ease;
+  transition: all .25s ease;
   font-family: inherit;
+  z-index: 10;
 }
 
 .modal-close:hover {
@@ -2288,7 +2291,7 @@ body[data-theme="dark"] .navbar {
 body[data-theme="light"] .welcome-bg {
   position: absolute;
   inset: 0;
-  background-image: url('https://i.ibb.co/h1ZL9yG3/8dd1b3d3-1071-4c5f-a175-ccc53ccbb426.png');
+  background-image: url('https://i.ibb.co/Kz7ynYRZ/hero-bg.png');
   background-size: cover;
   background-position: center right;
   background-repeat: no-repeat;
@@ -3622,18 +3625,2633 @@ body[data-theme="dark"] .welcome-brand-name {
     height: 6.2rem;
   }
 }
+      /* ============================================================
+   FINAL OVERRIDES — Brand position, Button, Quote
+   ============================================================ */
+
+/* 1️⃣ BRAND — Welcome ke just upar, nav ke parallel */
+.welcome-hero {
+  align-items: flex-start !important;
+  padding: 15px 0 10px !important;
+}
+
+.welcome-hero-left {
+  align-self: flex-start !important;
+  align-items: flex-start !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.welcome-brand-top {
+  margin-bottom: 4px !important;
+}
+
+.welcome-brand-name {
+  margin-bottom: 18px !important;
+}
+
+/* 2️⃣ EXPLORE NOW BUTTON — Normal width (stretch band karo) */
+.welcome-cta-btn,
+.welcome-hero-left .welcome-cta-btn {
+  align-self: flex-start !important;
+  width: auto !important;
+  max-width: fit-content !important;
+  flex: 0 0 auto !important;
+  display: inline-flex !important;
+}
+
+/* 3️⃣ QUOTE — Vertical bar left, italic serif (like reference) */
+.welcome-quote-wrap {
+  position: absolute !important;
+  top: 72px !important;
+  right: 40px !important;
+  max-width: 165px !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  animation: heroIn 1s cubic-bezier(.4,0,.2,1) .3s backwards;
+}
+
+.welcome-quote {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-style: italic !important;
+  font-size: 1.05rem !important;
+  line-height: 1.45 !important;
+  color: #2A1E0A !important;
+  font-weight: 500 !important;
+  text-align: left !important;
+  padding-left: 18px !important;
+  border-left: 1.5px solid #2A1E0A !important;
+  background: transparent !important;
+  text-shadow: 0 1px 10px rgba(250,246,238,.9), 0 0 3px rgba(250,246,238,.7) !important;
+  quotes: none;
+}
+
+body[data-theme="dark"] .welcome-quote {
+  color: #F5EDD6 !important;
+  border-left-color: #F5EDD6 !important;
+  text-shadow: 0 1px 10px rgba(0,0,0,.85), 0 0 3px rgba(0,0,0,.7) !important;
+}
+
+/* Mobile — quote inline, same vertical-bar look */
+@media (max-width: 899px) {
+  .welcome-quote-wrap {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    max-width: 100% !important;
+    margin: 16px 0 10px !important;
+    padding-left: 4px !important;
+  }
+
+  .welcome-quote {
+    font-size: .95rem !important;
+    padding-left: 14px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-quote {
+    font-size: .88rem !important;
+  }
+}
+
+@media (min-width: 1400px) {
+  .welcome-quote-wrap {
+    max-width: 185px !important;
+    top: 24% !important;
+  }
+
+  .welcome-quote {
+    font-size: 1.15rem !important;
+  }
+}
+/* ============================================================
+   MOBILE — Quote below "Your Growth", everything compact up
+   ============================================================ */
+@media (max-width: 899px) {
+  /* Reorder: Hero → Growth → Quote → Footer */
+  .welcome-hero {
+    order: 1 !important;
+    padding: 8px 0 6px !important;
+    margin: 0 !important;
+  }
+
+  .welcome-growth {
+    order: 2 !important;
+    padding: 4px 0 4px !important;
+    margin: 0 !important;
+  }
+
+  .welcome-quote-wrap {
+    order: 3 !important;
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    left: auto !important;
+    max-width: 100% !important;
+    margin: 18px 0 10px !important;
+    padding: 0 4px !important;
+  }
+
+  .welcome-footer {
+    order: 4 !important;
+    margin-top: 12px !important;
+  }
+
+  /* Make hero content tight */
+  .welcome-brand-top {
+    margin-bottom: 2px !important;
+  }
+
+  .welcome-logo-big {
+    font-size: 2.8rem !important;
+    letter-spacing: 2px !important;
+  }
+
+  .welcome-oak-leaf {
+    width: 1.9rem !important;
+    height: 2.8rem !important;
+  }
+
+  .welcome-brand-name {
+    font-size: .58rem !important;
+    letter-spacing: 3px !important;
+    margin-top: 2px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .welcome-hero-left .welcome-heading {
+    font-size: 1.55rem !important;
+    margin-bottom: 8px !important;
+    line-height: 1.1 !important;
+  }
+
+  .welcome-hero-left .welcome-desc {
+    font-size: .74rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .welcome-cta-btn {
+    padding: 9px 20px !important;
+    font-size: .72rem !important;
+  }
+
+  /* Growth section compact */
+  .growth-heading {
+    font-size: 1.2rem !important;
+    margin-bottom: 2px !important;
+  }
+
+  .growth-divider {
+    font-size: .8rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  .growth-divider::before,
+  .growth-divider::after {
+    width: 26px !important;
+    margin: 0 6px !important;
+  }
+
+  .growth-cards {
+    gap: 7px !important;
+  }
+
+  .growth-card {
+    padding: 10px 8px 9px !important;
+    border-radius: 11px !important;
+  }
+
+  .growth-icon {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: .85rem !important;
+    margin-bottom: 6px !important;
+  }
+
+  .growth-title {
+    font-size: .8rem !important;
+    margin-bottom: 2px !important;
+  }
+
+  .growth-desc {
+    font-size: .58rem !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Quote compact on mobile */
+  .welcome-quote {
+    font-size: .85rem !important;
+    line-height: 1.4 !important;
+    padding-left: 14px !important;
+  }
+
+  /* Overall screen padding */
+  .welcome-single-screen {
+    padding: 10px 14px 14px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-logo-big {
+    font-size: 2.4rem !important;
+  }
+
+  .welcome-oak-leaf {
+    width: 1.6rem !important;
+    height: 2.4rem !important;
+  }
+
+  .welcome-hero-left .welcome-heading {
+    font-size: 1.4rem !important;
+  }
+
+  .growth-title {
+    font-size: .74rem !important;
+  }
+
+  .growth-desc {
+    font-size: .54rem !important;
+  }
+
+  .welcome-quote {
+    font-size: .8rem !important;
+  }
+}
+/* ============================================================
+   MOBILE — Quote between Explore & Growth + Heading gap
+   ============================================================ */
+@media (max-width: 899px) {
+  /* Flex order — Quote comes AFTER hero, BEFORE growth */
+  .welcome-single-screen {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 10px 14px 14px !important;
+  }
+
+  .welcome-hero {
+    order: 1 !important;
+    padding: 8px 0 6px !important;
+    margin: 0 !important;
+  }
+
+  .welcome-quote-wrap {
+    order: 2 !important;
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    left: auto !important;
+    max-width: 100% !important;
+    margin: 16px 0 20px !important;
+    padding: 0 4px !important;
+  }
+
+  .welcome-growth {
+    order: 3 !important;
+    padding: 4px 0 4px !important;
+    margin: 0 !important;
+  }
+
+  .welcome-footer {
+    order: 4 !important;
+    margin-top: 12px !important;
+  }
+
+  /* Extra gap after "Welcome to the Official Space" heading */
+  .welcome-hero-left .welcome-heading {
+    font-size: 1.55rem !important;
+    margin-bottom: 22px !important;
+    line-height: 1.15 !important;
+  }
+
+  /* Description (tagline) */
+  .welcome-hero-left .welcome-desc {
+    font-size: .76rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 14px !important;
+  }
+
+  /* Brand compact */
+  .welcome-brand-top {
+    margin-bottom: 2px !important;
+  }
+
+  .welcome-logo-big {
+    font-size: 2.8rem !important;
+    letter-spacing: 2px !important;
+  }
+
+  .welcome-oak-leaf {
+    width: 1.9rem !important;
+    height: 2.8rem !important;
+  }
+
+  .welcome-brand-name {
+    font-size: .58rem !important;
+    letter-spacing: 3px !important;
+    margin-top: 2px !important;
+    margin-bottom: 14px !important;
+  }
+
+  /* Button */
+  .welcome-cta-btn {
+    padding: 10px 22px !important;
+    font-size: .74rem !important;
+  }
+
+  /* Quote style */
+  .welcome-quote {
+    font-size: .85rem !important;
+    line-height: 1.4 !important;
+    padding-left: 14px !important;
+  }
+
+  /* Growth compact */
+  .growth-heading {
+    font-size: 1.2rem !important;
+    margin-bottom: 2px !important;
+  }
+
+  .growth-divider {
+    font-size: .8rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  .growth-divider::before,
+  .growth-divider::after {
+    width: 26px !important;
+    margin: 0 6px !important;
+  }
+
+  .growth-cards {
+    gap: 7px !important;
+  }
+
+  .growth-card {
+    padding: 10px 8px 9px !important;
+    border-radius: 11px !important;
+  }
+
+  .growth-icon {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: .85rem !important;
+    margin-bottom: 6px !important;
+  }
+
+  .growth-title {
+    font-size: .8rem !important;
+    margin-bottom: 2px !important;
+  }
+
+  .growth-desc {
+    font-size: .58rem !important;
+    line-height: 1.3 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-logo-big {
+    font-size: 2.4rem !important;
+  }
+
+  .welcome-oak-leaf {
+    width: 1.6rem !important;
+    height: 2.4rem !important;
+  }
+
+  .welcome-hero-left .welcome-heading {
+    font-size: 1.4rem !important;
+    margin-bottom: 18px !important;
+  }
+
+  .welcome-quote {
+    font-size: .8rem !important;
+  }
+
+  .growth-title {
+    font-size: .74rem !important;
+  }
+
+  .growth-desc {
+    font-size: .54rem !important;
+  }
+}
+/* ============================================================
+   DESKTOP — Quote below Login, above books
+   ============================================================ */
+@media (min-width: 900px) {
+  .welcome-quote-wrap {
+    position: absolute !important;
+    top: 65px !important;
+    right: 40px !important;
+    max-width: 175px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    z-index: 3 !important;
+  }
+
+  .welcome-quote {
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-style: italic !important;
+    font-size: 1.1rem !important;
+    line-height: 1.45 !important;
+    color: #1A1410 !important;
+    font-weight: 600 !important;
+    text-align: left !important;
+    padding-left: 16px !important;
+    border-left: 2px solid #1A1410 !important;
+    background: transparent !important;
+    text-shadow: 
+      0 1px 12px rgba(250,246,238,.95),
+      0 0 4px rgba(250,246,238,.9),
+      0 0 8px rgba(250,246,238,.7) !important;
+  }
+
+  body[data-theme="dark"] .welcome-quote {
+    color: #F5EDD6 !important;
+    border-left-color: #F5EDD6 !important;
+    text-shadow: 
+      0 1px 12px rgba(0,0,0,.9),
+      0 0 4px rgba(0,0,0,.85) !important;
+  }
+}
+
+/* Larger screens — bigger quote */
+@media (min-width: 1400px) {
+  .welcome-quote-wrap {
+    top: 70px !important;
+    right: 60px !important;
+    max-width: 195px !important;
+  }
+
+  .welcome-quote {
+    font-size: 1.2rem !important;
+    padding-left: 18px !important;
+  }
+}
+
+/* ============================================================
+   MOBILE — Bigger, darker, more prominent quote
+   ============================================================ */
+@media (max-width: 899px) {
+  .welcome-quote-wrap {
+    margin: 22px 0 24px !important;
+    padding: 0 6px !important;
+  }
+
+  .welcome-quote {
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-style: italic !important;
+    font-size: 1.15rem !important;
+    line-height: 1.4 !important;
+    color: #000000 !important;
+    font-weight: 700 !important;
+    text-align: left !important;
+    padding-left: 18px !important;
+    border-left: 2.5px solid #000000 !important;
+    text-shadow: 
+      0 1px 6px rgba(250,246,238,.85),
+      0 0 2px rgba(250,246,238,.6) !important;
+  }
+
+  body[data-theme="dark"] .welcome-quote {
+    color: #FFFFFF !important;
+    border-left-color: #FFFFFF !important;
+    text-shadow: 
+      0 1px 8px rgba(0,0,0,.9),
+      0 0 3px rgba(0,0,0,.7) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-quote {
+    font-size: 1.05rem !important;
+    padding-left: 16px !important;
+    border-left-width: 2px !important;
+  }
+}
+/* ============================================================
+   LOADING SCREEN — Dual Rings (Olive + Burgundy) on Bisque
+   ============================================================ */
+#loadingScreen {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #FFE4C4;
+  background-image: 
+    radial-gradient(circle at 30% 20%, rgba(107,122,58,.08) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(128,0,32,.06) 0%, transparent 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity .8s ease, visibility .8s ease;
+  overflow: hidden;
+}
+
+body[data-theme="dark"] #loadingScreen {
+  background: #1A0E14;
+  background-image: 
+    radial-gradient(circle at 30% 20%, rgba(107,122,58,.12) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(212,185,106,.08) 0%, transparent 50%);
+}
+
+#loadingScreen.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Floating orbs */
+#loadingScreen::before,
+#loadingScreen::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+#loadingScreen::before {
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  left: -100px;
+  background: radial-gradient(circle, rgba(107,122,58,.18) 0%, transparent 70%);
+  animation: floatOrb 8s ease-in-out infinite;
+}
+
+#loadingScreen::after {
+  width: 350px;
+  height: 350px;
+  bottom: -100px;
+  right: -100px;
+  background: radial-gradient(circle, rgba(128,0,32,.14) 0%, transparent 70%);
+  animation: floatOrb 10s ease-in-out infinite reverse;
+}
+
+@keyframes floatOrb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -40px) scale(1.15); }
+}
+
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  animation: fadeIn 1s ease both;
+  position: relative;
+  z-index: 2;
+}
+
+/* Ring wrap — fixed size, relative for absolute children */
+.loader-circle-wrap {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.svg-outer {
+  transform: rotate(-90deg);
+}
+
+.svg-inner {
+  transform: rotate(90deg);
+}
+
+/* OUTER RING — Olive */
+.track-outer {
+  fill: none;
+  stroke: rgba(107,122,58,.18);
+  stroke-width: 2;
+}
+
+.progress-outer {
+  fill: none;
+  stroke: #6B7A3A;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 289;
+  stroke-dashoffset: 289;
+  animation: 
+    drawOuter 2s cubic-bezier(.4,0,.2,1) forwards,
+    rotateOuter 4s linear 2s infinite;
+  filter: drop-shadow(0 0 8px rgba(107,122,58,.5));
+}
+
+@keyframes drawOuter {
+  0% { stroke-dashoffset: 289; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes rotateOuter {
+  to { transform: rotate(360deg); }
+}
+
+/* INNER RING — Burgundy */
+.track-inner {
+  fill: none;
+  stroke: rgba(128,0,32,.18);
+  stroke-width: 2;
+}
+
+.progress-inner {
+  fill: none;
+  stroke: #800020;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 220;
+  stroke-dashoffset: 220;
+  animation: 
+    drawInner 2s cubic-bezier(.4,0,.2,1) .2s forwards,
+    rotateInner 4s linear 2.2s infinite;
+  filter: drop-shadow(0 0 8px rgba(128,0,32,.5));
+}
+
+@keyframes drawInner {
+  0% { stroke-dashoffset: 220; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes rotateInner {
+  to { transform: rotate(-360deg); }
+}
+
+/* LOGO — Perfectly centered */
+.loader-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #6B7A3A;
+  letter-spacing: 4px;
+  line-height: 1;
+  z-index: 3;
+  animation: logoBreath 2.5s ease-in-out infinite;
+  text-shadow: 0 2px 12px rgba(107,122,58,.25);
+}
+
+body[data-theme="dark"] .loader-logo {
+  color: #D4AF37;
+  text-shadow: 0 2px 12px rgba(212,175,55,.4);
+}
+
+@keyframes logoBreath {
+  0%, 100% { 
+    transform: translate(-50%, -50%) scale(1);
+    filter: drop-shadow(0 0 8px rgba(107,122,58,.3));
+  }
+  50% { 
+    transform: translate(-50%, -50%) scale(1.08);
+    filter: drop-shadow(0 0 22px rgba(107,122,58,.7));
+  }
+}
+
+/* TEXT */
+.loader-text {
+  font-family: 'Inter', sans-serif;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: 6px;
+  color: #2A1E0A;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: textFadeIn .8s ease 1.2s both;
+}
+
+body[data-theme="dark"] .loader-text {
+  color: #F5EDD6;
+}
+
+.loader-sub {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: #800020;
+  letter-spacing: 1.5px;
+  opacity: 0;
+  animation: textFadeIn .8s ease 1.6s both;
+}
+
+body[data-theme="dark"] .loader-sub {
+  color: #D4AF37;
+}
+
+@keyframes textFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* MOBILE */
+@media (max-width: 640px) {
+  .loader-circle-wrap {
+    width: 160px;
+    height: 160px;
+  }
+
+  .loader-logo {
+    font-size: 2.5rem;
+    letter-spacing: 3px;
+  }
+
+  .loader-text {
+    font-size: .6rem;
+    letter-spacing: 4px;
+  }
+
+  .loader-sub {
+    font-size: .9rem;
+  }
+
+  .loader-container {
+    gap: 20px;
+  }
+}
+/* ============================================================
+   FIX: Hide duplicate nav-brand (only hero brand should show)
+   ============================================================ */
+.navbar .nav-brand {
+  display: none !important;
+}
+/* ============================================================
+   NUCLEAR FIX — Remove all duplicates + blur
+   ============================================================ */
+
+/* 1. Kill watermark RV (body::before) */
+body::before,
+body::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* 2. Kill nav-brand completely */
+.nav-brand,
+.navbar > .nav-brand,
+#mainNav .nav-brand {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* 3. Remove backdrop-filter from navbar (this was causing blur) */
+.navbar,
+body[data-theme="dark"] .navbar {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* 4. Ensure only ONE hero brand */
+.welcome-brand-top ~ .welcome-brand-top {
+  display: none !important;
+}
+
+/* 5. No filters on brand elements */
+.welcome-logo-big,
+.welcome-oak-leaf,
+.welcome-brand-top,
+.welcome-brand-name {
+  filter: none !important;
+  text-shadow: none !important;
+  mix-blend-mode: normal !important;
+  -webkit-text-fill-color: initial !important;
+}
+
+/* 6. Hero brand dark mode */
+body[data-theme="dark"] .welcome-logo-big {
+  color: #F5EDD6 !important;
+}
+
+body[data-theme="dark"] .welcome-oak-leaf {
+  color: #F5EDD6 !important;
+}
+
+body[data-theme="dark"] .welcome-brand-name {
+  color: #F5EDD6 !important;
+}
+
+/* 7. Laptop only — expand hero top padding so brand is below nav */
+@media (min-width: 900px) {
+  .welcome-hero {
+    padding-top: 100px !important;
+  }
+}
+/* ============================================================
+   HERO — Move content up (parallel to nav)
+   ============================================================ */
+@media (min-width: 900px) {
+  .welcome-hero {
+    padding-top: 40px !important;
+    align-items: flex-start !important;
+  }
+
+  .welcome-hero-left {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  /* Reduce gap between brand and welcome heading */
+  .welcome-brand-name {
+    margin-bottom: 14px !important;
+  }
+
+  /* Tighten heading spacing */
+  .welcome-hero-left .welcome-heading {
+    margin-bottom: 14px !important;
+  }
+
+  .welcome-hero-left .welcome-desc {
+    margin-bottom: 18px !important;
+  }
+}
+
+/* Large screens — still compact */
+@media (min-width: 1400px) {
+  .welcome-hero {
+    padding-top: 45px !important;
+  }
+}
+/* ============================================================
+   COURSE CTA + SERIES DETAIL PAGE
+   ============================================================ */
+
+/* Course Card CTA */
+.course-card.clickable {
+  cursor: pointer;
+}
+
+.course-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: linear-gradient(135deg, #9A7530, #8A6D28);
+  color: #FAF6EE;
+  border-radius: 12px;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 20px;
+  transition: all .35s cubic-bezier(.34,1.56,.64,1);
+}
+
+body[data-theme="dark"] .course-cta {
+  background: linear-gradient(135deg, #D4AF37, #B8934A);
+  color: #1A0E14;
+}
+
+.course-card.clickable:hover .course-cta {
+  box-shadow: 0 10px 24px rgba(184,147,74,.4);
+  transform: translateY(-2px);
+}
+
+.course-cta .arrow {
+  transition: transform .3s ease;
+  font-size: 1.1rem;
+}
+
+.course-card.clickable:hover .course-cta .arrow {
+  transform: translateX(6px);
+}
+
+/* ============ SERIES DETAIL PAGE ============ */
+.series-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 40px 24px;
+  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 8px;
+}
+
+.back-btn {
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border-medium);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: .82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .25s ease;
+  flex-shrink: 0;
+}
+
+.back-btn:hover {
+  background: var(--accent-gold);
+  color: var(--text-inverse);
+  border-color: var(--accent-gold);
+  transform: translateX(-3px);
+}
+
+.series-detail-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.series-detail-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.series-detail-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 2px;
+  margin: 0 0 2px 0;
+  line-height: 1;
+}
+
+.series-detail-sub {
+  font-size: .82rem;
+  color: var(--text-muted);
+  margin: 0;
+  letter-spacing: .5px;
+}
+
+/* Sheets List */
+.series-sheets-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+  padding: 30px 40px 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.series-sheet-card {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-light);
+  border-radius: 18px;
+  padding: 24px 22px;
+  cursor: pointer;
+  transition: all .35s cubic-bezier(.34,1.56,.64,1);
+  position: relative;
+  overflow: hidden;
+}
+
+.series-sheet-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #9A7530, #D4AF37, #9A7530);
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+
+.series-sheet-card:hover:not(.locked)::before {
+  opacity: 1;
+}
+
+.series-sheet-card:hover:not(.locked) {
+  transform: translateY(-6px);
+  border-color: var(--accent-gold);
+  box-shadow: var(--shadow-lg), 0 0 40px rgba(184,147,74,.15);
+}
+
+.series-sheet-card .sheet-number {
+  display: inline-block;
+  padding: 5px 14px;
+  background: rgba(154,117,48,.12);
+  color: var(--accent-gold);
+  border-radius: 9999px;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+body[data-theme="dark"] .series-sheet-card .sheet-number {
+  background: rgba(212,175,55,.15);
+}
+
+.series-sheet-card .sheet-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.series-sheet-card .sheet-meta {
+  font-size: .76rem;
+  color: var(--text-muted);
+  letter-spacing: .3px;
+}
+
+.series-sheet-card .sheet-cta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-light);
+  color: var(--accent-gold);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  transition: gap .3s ease;
+}
+
+.series-sheet-card:hover:not(.locked) .sheet-cta {
+  gap: 10px;
+}
+
+.series-sheet-card.locked {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.series-sheet-card.locked:hover {
+  transform: none;
+  border-color: var(--border-light);
+  box-shadow: none;
+}
+
+/* Mobile */
+@media (max-width: 899px) {
+  .series-detail-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 18px 20px;
+    gap: 14px;
+  }
+
+  .series-detail-title {
+    font-size: 1.7rem;
+  }
+
+  .series-detail-icon {
+    font-size: 2rem;
+  }
+
+  .series-sheets-list {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 18px 16px 40px;
+  }
+
+  .series-sheet-card {
+    padding: 18px 16px;
+  }
+
+  .series-sheet-card .sheet-title {
+    font-size: 1.15rem;
+  }
+}
+/* ============================================================
+   COURSES PAGE — CLEAN FORCE
+   ============================================================ */
+#page-courses {
+  display: none;
+  padding: 80px 0 40px;
+  overflow-y: auto;
+}
+
+#page-courses.active {
+  display: block !important;
+}
+
+#page-courses .page-header {
+  padding: 20px 40px 30px;
+  text-align: center;
+}
+
+#page-courses .page-header h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+#page-courses .page-header p {
+  font-size: .85rem;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+.courses-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 20px !important;
+  padding: 0 40px 40px !important;
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+}
+
+.course-card {
+  display: flex !important;
+  flex-direction: column !important;
+  background: var(--bg-card) !important;
+  border: 1.5px solid var(--border-light) !important;
+  border-radius: 18px !important;
+  padding: 28px 24px !important;
+  transition: all .35s cubic-bezier(.34,1.56,.64,1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.course-card.clickable {
+  cursor: pointer;
+}
+
+.course-card.clickable:hover:not(.locked) {
+  transform: translateY(-6px) !important;
+  border-color: var(--accent-gold) !important;
+  box-shadow: var(--shadow-lg), 0 0 40px rgba(184,147,74,.15) !important;
+}
+
+.course-icon {
+  font-size: 2.5rem !important;
+  margin-bottom: 14px !important;
+  line-height: 1 !important;
+}
+
+.course-name {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: 1.6rem !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+  margin-bottom: 6px !important;
+  letter-spacing: 1px !important;
+}
+
+.course-desc {
+  font-size: .8rem !important;
+  color: var(--text-muted) !important;
+  margin-bottom: 18px !important;
+  flex: 1 !important;
+}
+
+.course-cta {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 12px 18px !important;
+  background: linear-gradient(135deg, #9A7530, #8A6D28) !important;
+  color: #FAF6EE !important;
+  border-radius: 12px !important;
+  font-size: .78rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  margin-top: auto !important;
+  transition: all .35s cubic-bezier(.34,1.56,.64,1) !important;
+}
+
+body[data-theme="dark"] .course-cta {
+  background: linear-gradient(135deg, #D4AF37, #B8934A) !important;
+  color: #1A0E14 !important;
+}
+
+.course-card.clickable:hover .course-cta {
+  box-shadow: 0 10px 24px rgba(184,147,74,.4) !important;
+}
+
+.course-cta .arrow {
+  font-size: 1.1rem !important;
+  transition: transform .3s ease !important;
+}
+
+.course-card.clickable:hover .course-cta .arrow {
+  transform: translateX(6px) !important;
+}
+
+.course-card.locked {
+  opacity: .55 !important;
+  cursor: not-allowed !important;
+}
+
+.course-badge {
+  display: inline-block !important;
+  padding: 5px 14px !important;
+  background: var(--accent-silver) !important;
+  color: var(--text-inverse) !important;
+  border-radius: 9999px !important;
+  font-size: .62rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.2px !important;
+  text-transform: uppercase !important;
+  margin-top: auto !important;
+  align-self: flex-start !important;
+}
+
+/* Mobile — 1 column */
+@media (max-width: 899px) {
+  #page-courses {
+    padding: 20px 0 30px;
+  }
+
+  #page-courses .page-header {
+    padding: 16px 20px 20px;
+  }
+
+  #page-courses .page-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    padding: 0 18px 30px !important;
+  }
+
+  .course-card {
+    padding: 22px 18px !important;
+  }
+
+  .course-icon {
+    font-size: 2rem !important;
+    margin-bottom: 10px !important;
+  }
+
+  .course-name {
+    font-size: 1.35rem !important;
+  }
+
+  .course-desc {
+    font-size: .76rem !important;
+    margin-bottom: 14px !important;
+  }
+}
+/* ============================================================
+   COURSES PAGE — 10X INTERACTIVE UI
+   ============================================================ */
+
+#page-courses {
+  display: none;
+  padding: 80px 0 60px;
+  overflow-y: auto;
+  position: relative;
+  background: 
+    radial-gradient(circle at 20% 10%, rgba(212,175,55,.08) 0%, transparent 45%),
+    radial-gradient(circle at 80% 90%, rgba(128,0,32,.06) 0%, transparent 45%);
+}
+
+body[data-theme="dark"] #page-courses {
+  background:
+    radial-gradient(circle at 20% 10%, rgba(212,175,55,.1) 0%, transparent 45%),
+    radial-gradient(circle at 80% 90%, rgba(106,120,74,.08) 0%, transparent 45%);
+}
+
+#page-courses.active {
+  display: block !important;
+}
+
+/* ============ HEADER ============ */
+#page-courses .page-header {
+  padding: 20px 40px 50px;
+  text-align: center;
+  position: relative;
+}
+
+#page-courses .page-header::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+  border-radius: 2px;
+}
+
+#page-courses .page-header h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #1A1410 0%, #6B5F4A 50%, #1A1410 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+body[data-theme="dark"] #page-courses .page-header h2 {
+  background: linear-gradient(135deg, #F5EDD6 0%, #D4AF37 50%, #F5EDD6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#page-courses .page-header p {
+  font-size: .82rem;
+  color: var(--text-muted);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* ============ GRID ============ */
+.courses-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 24px !important;
+  padding: 0 40px 40px !important;
+  max-width: 1150px !important;
+  margin: 0 auto !important;
+  perspective: 1500px;
+}
+
+/* ============ CARD ============ */
+.course-card {
+  display: flex !important;
+  flex-direction: column !important;
+  background: linear-gradient(145deg, 
+    rgba(255,253,248,.95) 0%, 
+    rgba(250,246,238,.85) 100%) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(184,147,74,.25) !important;
+  border-radius: 24px !important;
+  padding: 32px 26px 26px !important;
+  transition: all .5s cubic-bezier(.34,1.56,.64,1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform-style: preserve-3d;
+  box-shadow: 
+    0 4px 24px rgba(31,27,18,.06),
+    inset 0 1px 0 rgba(255,255,255,.7);
+}
+
+body[data-theme="dark"] .course-card {
+  background: linear-gradient(145deg, 
+    rgba(46,26,32,.9) 0%, 
+    rgba(36,19,24,.85) 100%) !important;
+  border: 1.5px solid rgba(212,185,106,.2) !important;
+  box-shadow: 
+    0 4px 24px rgba(0,0,0,.4),
+    inset 0 1px 0 rgba(212,185,106,.1);
+}
+
+/* Animated gradient border on hover */
+.course-card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 26px;
+  padding: 2px;
+  background: linear-gradient(135deg, 
+    #D4AF37 0%, 
+    #800020 25%, 
+    #6B7A3A 50%, 
+    #D4AF37 75%, 
+    #800020 100%);
+  background-size: 300% 300%;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity .5s ease;
+  animation: gradientShift 4s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* Shimmer effect */
+.course-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255,255,255,.4) 50%,
+    transparent 100%);
+  transition: left .8s ease;
+  pointer-events: none;
+}
+
+.course-card.clickable:hover::before {
+  opacity: 1;
+}
+
+.course-card.clickable:hover::after {
+  left: 100%;
+}
+
+.course-card.clickable {
+  cursor: pointer;
+}
+
+.course-card.clickable:hover {
+  transform: translateY(-10px) scale(1.02) rotateX(2deg);
+  box-shadow: 
+    0 30px 60px rgba(31,27,18,.15),
+    0 0 60px rgba(184,147,74,.2),
+    inset 0 1px 0 rgba(255,255,255,.9);
+}
+
+body[data-theme="dark"] .course-card.clickable:hover {
+  box-shadow: 
+    0 30px 60px rgba(0,0,0,.6),
+    0 0 60px rgba(212,175,55,.25),
+    inset 0 1px 0 rgba(212,175,55,.2);
+}
+
+/* ============ ICON ============ */
+.course-icon {
+  font-size: 3rem !important;
+  margin-bottom: 20px !important;
+  line-height: 1 !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, 
+    rgba(212,175,55,.15), 
+    rgba(128,0,32,.08));
+  border: 1px solid rgba(184,147,74,.25);
+  transition: all .5s cubic-bezier(.34,1.56,.64,1);
+  position: relative;
+  z-index: 1;
+}
+
+body[data-theme="dark"] .course-icon {
+  background: linear-gradient(135deg, 
+    rgba(212,175,55,.2), 
+    rgba(128,0,32,.15));
+}
+
+.course-card.clickable:hover .course-icon {
+  transform: scale(1.15) rotate(-8deg);
+  box-shadow: 
+    0 12px 32px rgba(184,147,74,.4),
+    0 0 40px rgba(212,175,55,.3);
+}
+
+/* Icon pulse on hover */
+.course-card.clickable:hover .course-icon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  border: 2px solid rgba(212,175,55,.6);
+  animation: iconPulse 1.5s ease-out infinite;
+}
+
+@keyframes iconPulse {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+/* ============ NAME ============ */
+.course-name {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: 1.85rem !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+  margin-bottom: 8px !important;
+  letter-spacing: 1.5px !important;
+  line-height: 1 !important;
+  position: relative;
+  z-index: 1;
+  transition: all .4s ease;
+}
+
+.course-card.clickable:hover .course-name {
+  letter-spacing: 2.5px;
+  color: #9A7530 !important;
+}
+
+body[data-theme="dark"] .course-card.clickable:hover .course-name {
+  color: #D4AF37 !important;
+}
+
+/* ============ DESC ============ */
+.course-desc {
+  font-size: .82rem !important;
+  color: var(--text-muted) !important;
+  margin-bottom: 22px !important;
+  flex: 1 !important;
+  line-height: 1.55 !important;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============ CTA BUTTON ============ */
+.course-cta {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 14px 20px !important;
+  background: linear-gradient(135deg, #9A7530 0%, #8A6D28 100%) !important;
+  color: #FAF6EE !important;
+  border-radius: 14px !important;
+  font-size: .78rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.8px !important;
+  text-transform: uppercase !important;
+  margin-top: auto !important;
+  transition: all .4s cubic-bezier(.34,1.56,.64,1) !important;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 4px 16px rgba(154,117,48,.3);
+}
+
+.course-cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255,255,255,.3), 
+    transparent);
+  transition: left .6s ease;
+}
+
+body[data-theme="dark"] .course-cta {
+  background: linear-gradient(135deg, #D4AF37 0%, #B8934A 100%) !important;
+  color: #1A0E14 !important;
+  box-shadow: 0 4px 16px rgba(212,175,55,.4);
+}
+
+.course-card.clickable:hover .course-cta {
+  box-shadow: 
+    0 10px 28px rgba(154,117,48,.5),
+    0 0 30px rgba(212,175,55,.3);
+  letter-spacing: 2.2px;
+}
+
+.course-card.clickable:hover .course-cta::before {
+  left: 100%;
+}
+
+.course-cta .arrow {
+  font-size: 1.15rem !important;
+  transition: transform .4s cubic-bezier(.34,1.56,.64,1) !important;
+  display: inline-block;
+}
+
+.course-card.clickable:hover .course-cta .arrow {
+  transform: translateX(8px) scale(1.1);
+}
+
+/* ============ LOCKED CARD ============ */
+.course-card.locked {
+  opacity: .65 !important;
+  cursor: not-allowed !important;
+  filter: grayscale(.3);
+}
+
+.course-card.locked .course-icon {
+  background: linear-gradient(135deg, 
+    rgba(168,162,154,.2), 
+    rgba(168,162,154,.1));
+}
+
+.course-badge {
+  display: inline-block !important;
+  padding: 7px 18px !important;
+  background: linear-gradient(135deg, #A8A29A, #8E8278) !important;
+  color: #FAF6EE !important;
+  border-radius: 9999px !important;
+  font-size: .62rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  margin-top: auto !important;
+  align-self: flex-start !important;
+  box-shadow: 0 4px 12px rgba(168,162,154,.3);
+}
+
+/* ============ ENTRANCE ANIMATION ============ */
+.course-card {
+  animation: cardFloatIn .8s cubic-bezier(.34,1.56,.64,1) backwards;
+}
+
+.course-card:nth-child(1) { animation-delay: .1s; }
+.course-card:nth-child(2) { animation-delay: .2s; }
+.course-card:nth-child(3) { animation-delay: .3s; }
+
+@keyframes cardFloatIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ============ FLOATING DECORATIONS ============ */
+#page-courses::before,
+#page-courses::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#page-courses::before {
+  width: 400px;
+  height: 400px;
+  top: 100px;
+  right: -150px;
+  background: radial-gradient(circle, rgba(212,175,55,.15) 0%, transparent 70%);
+  animation: floatCourse 8s ease-in-out infinite;
+}
+
+#page-courses::after {
+  width: 350px;
+  height: 350px;
+  bottom: 50px;
+  left: -150px;
+  background: radial-gradient(circle, rgba(128,0,32,.12) 0%, transparent 70%);
+  animation: floatCourse 10s ease-in-out infinite reverse;
+}
+
+@keyframes floatCourse {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -40px) scale(1.15); }
+}
+
+/* ============ MOBILE ============ */
+@media (max-width: 899px) {
+  #page-courses {
+    padding: 20px 0 30px;
+  }
+
+  #page-courses .page-header {
+    padding: 16px 20px 30px;
+  }
+
+  #page-courses .page-header h2 {
+    font-size: 2.2rem;
+  }
+
+  #page-courses .page-header p {
+    font-size: .7rem;
+    letter-spacing: 3px;
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    padding: 0 18px 30px !important;
+  }
+
+  .course-card {
+    padding: 24px 20px 20px !important;
+    border-radius: 20px !important;
+  }
+
+  .course-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 2.2rem !important;
+    margin-bottom: 14px !important;
+    border-radius: 16px;
+  }
+
+  .course-name {
+    font-size: 1.5rem !important;
+  }
+
+  .course-desc {
+    font-size: .76rem !important;
+    margin-bottom: 16px !important;
+  }
+
+  .course-cta {
+    padding: 12px 18px !important;
+    font-size: .72rem !important;
+  }
+
+  /* Reduce effects on mobile for performance */
+  .course-card.clickable:hover {
+    transform: translateY(-4px) !important;
+  }
+
+  #page-courses::before,
+  #page-courses::after {
+    display: none;
+  }
+}
+
+/* Small phone */
+@media (max-width: 480px) {
+  #page-courses .page-header h2 {
+    font-size: 1.9rem;
+  }
+
+  .course-name {
+    font-size: 1.35rem !important;
+  }
+}
+/* ============================================================
+   COURSE CARDS — BIGGER SIZE
+   ============================================================ */
+
+.courses-grid {
+  max-width: 1300px !important;
+  gap: 30px !important;
+  padding: 0 50px 50px !important;
+}
+
+.course-card {
+  padding: 44px 34px 34px !important;
+  min-height: 360px !important;
+  border-radius: 28px !important;
+}
+
+.course-icon {
+  width: 90px !important;
+  height: 90px !important;
+  font-size: 3.8rem !important;
+  margin-bottom: 26px !important;
+  border-radius: 24px !important;
+}
+
+.course-name {
+  font-size: 2.3rem !important;
+  margin-bottom: 12px !important;
+  letter-spacing: 2px !important;
+}
+
+.course-desc {
+  font-size: .95rem !important;
+  line-height: 1.6 !important;
+  margin-bottom: 28px !important;
+}
+
+.course-cta {
+  padding: 18px 24px !important;
+  font-size: .88rem !important;
+  letter-spacing: 2px !important;
+  border-radius: 16px !important;
+}
+
+.course-cta .arrow {
+  font-size: 1.35rem !important;
+}
+
+.course-badge {
+  padding: 9px 22px !important;
+  font-size: .72rem !important;
+}
+
+/* Large desktop — even bigger */
+@media (min-width: 1400px) {
+  .courses-grid {
+    max-width: 1450px !important;
+    gap: 36px !important;
+  }
+
+  .course-card {
+    padding: 52px 40px 40px !important;
+    min-height: 420px !important;
+  }
+
+  .course-icon {
+    width: 105px !important;
+    height: 105px !important;
+    font-size: 4.4rem !important;
+  }
+
+  .course-name {
+    font-size: 2.7rem !important;
+  }
+
+  .course-desc {
+    font-size: 1.05rem !important;
+  }
+
+  .course-cta {
+    padding: 20px 28px !important;
+    font-size: .95rem !important;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 900px) {
+  .courses-grid {
+    gap: 20px !important;
+    padding: 0 30px 40px !important;
+  }
+
+  .course-card {
+    padding: 32px 24px 24px !important;
+    min-height: 300px !important;
+  }
+
+  .course-icon {
+    width: 72px !important;
+    height: 72px !important;
+    font-size: 3rem !important;
+    margin-bottom: 18px !important;
+  }
+
+  .course-name {
+    font-size: 1.8rem !important;
+  }
+
+  .course-desc {
+    font-size: .85rem !important;
+  }
+
+  .course-cta {
+    padding: 14px 20px !important;
+    font-size: .78rem !important;
+  }
+}
+
+/* Mobile — bigger but fits screen */
+@media (max-width: 899px) {
+  .courses-grid {
+    gap: 20px !important;
+    padding: 0 18px 30px !important;
+  }
+
+  .course-card {
+    padding: 32px 24px 26px !important;
+    min-height: 280px !important;
+    border-radius: 24px !important;
+  }
+
+  .course-icon {
+    width: 76px !important;
+    height: 76px !important;
+    font-size: 3rem !important;
+    margin-bottom: 20px !important;
+    border-radius: 20px !important;
+  }
+
+  .course-name {
+    font-size: 1.9rem !important;
+    margin-bottom: 10px !important;
+  }
+
+  .course-desc {
+    font-size: .85rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 20px !important;
+  }
+
+  .course-cta {
+    padding: 15px 22px !important;
+    font-size: .8rem !important;
+    letter-spacing: 1.5px !important;
+  }
+
+  .course-cta .arrow {
+    font-size: 1.2rem !important;
+  }
+
+  .course-badge {
+    padding: 8px 18px !important;
+    font-size: .68rem !important;
+  }
+}
+
+/* Small phone */
+@media (max-width: 480px) {
+  .course-card {
+    padding: 28px 20px 22px !important;
+    min-height: 260px !important;
+  }
+
+  .course-icon {
+    width: 68px !important;
+    height: 68px !important;
+    font-size: 2.7rem !important;
+    margin-bottom: 16px !important;
+  }
+
+  .course-name {
+    font-size: 1.7rem !important;
+  }
+
+  .course-desc {
+    font-size: .8rem !important;
+  }
+}
+/* ============================================================
+   QUIZ MODE SELECTION MODAL
+   ============================================================ */
+.quiz-mode-box {
+  max-width: 560px;
+}
+
+.quiz-mode-box h3 {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.quiz-mode-box > p {
+  text-align: center;
+  margin-bottom: 26px;
+  color: var(--text-muted);
+}
+
+.mode-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.mode-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 26px 18px;
+  background: var(--bg-elevated);
+  border: 2px solid var(--border-light);
+  border-radius: 16px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all .35s cubic-bezier(.34,1.56,.64,1);
+  position: relative;
+  overflow: hidden;
+}
+
+.mode-option::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #9A7530, #D4AF37);
+  transition: all .4s ease;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.mode-option:hover::before {
+  width: 80%;
+}
+
+.mode-option:hover {
+  border-color: var(--accent-gold);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(184,147,74,.25);
+}
+
+.mode-option[data-mode="quiz"]:hover {
+  background: linear-gradient(145deg, rgba(212,175,55,.08), rgba(212,175,55,.02));
+}
+
+.mode-option[data-mode="test"]:hover {
+  background: linear-gradient(145deg, rgba(128,0,32,.08), rgba(128,0,32,.02));
+}
+
+.mode-option[data-mode="test"]:hover::before {
+  background: linear-gradient(90deg, #800020, #C04040);
+}
+
+.mode-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.mode-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  letter-spacing: .5px;
+}
+
+.mode-desc {
+  font-size: .72rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+@media (max-width: 600px) {
+  .mode-options {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .mode-option {
+    padding: 20px 16px;
+  }
+
+  .mode-icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
+  }
+
+  .mode-title {
+    font-size: 1.15rem;
+  }
+}
+
+/* ============================================================
+   PALETTE — FIXED COLORS
+   ============================================================ */
+.palette-btn {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 10px !important;
+  border: 1.5px solid var(--border-medium) !important;
+  background: #FFFFFF !important;
+  color: #1A1410 !important;
+  font-family: inherit;
+  font-size: .8rem !important;
+  font-weight: 700 !important;
+  cursor: pointer;
+  transition: all .25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+body[data-theme="dark"] .palette-btn {
+  background: #2A161C !important;
+  color: #F5EDD6 !important;
+  border-color: rgba(212,185,106,.3) !important;
+}
+
+.palette-btn:hover {
+  transform: scale(1.08);
+}
+
+/* Current question — GOLD ring */
+.palette-btn.current {
+  border: 2.5px solid #D4AF37 !important;
+  box-shadow: 0 0 0 3px rgba(212,175,55,.3), 0 0 20px rgba(212,175,55,.4) !important;
+  font-weight: 800 !important;
+}
+
+/* Correct — GREEN */
+.palette-btn.correct {
+  background: #16A34A !important;
+  color: #FFFFFF !important;
+  border-color: #16A34A !important;
+}
+
+/* Wrong — RED */
+.palette-btn.wrong {
+  background: #DC2626 !important;
+  color: #FFFFFF !important;
+  border-color: #DC2626 !important;
+}
+
+/* Skipped — GRAY */
+.palette-btn.skipped {
+  background: #9CA3AF !important;
+  color: #FFFFFF !important;
+  border-color: #9CA3AF !important;
+}
+
+/* Visited — Purple */
+.palette-btn.visited {
+  background: #9333EA !important;
+  color: #FFFFFF !important;
+  border-color: #9333EA !important;
+}
+
+/* Review — Orange */
+.palette-btn.review {
+  background: #F59E0B !important;
+  color: #1A1410 !important;
+  border-color: #F59E0B !important;
+}
+
+/* Test mode — answered (blue-ish) */
+.palette-btn.answered-test {
+  background: #3B82F6 !important;
+  color: #FFFFFF !important;
+  border-color: #3B82F6 !important;
+}
+
+/* ============================================================
+   COURSES PAGE — MOBILE SCROLL FIX
+   ============================================================ */
+@media (max-width: 899px) {
+  #page-courses.active {
+    display: flex !important;
+    flex-direction: column !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding-bottom: 80px !important;
+  }
+
+  #page-courses .courses-grid {
+    padding: 0 18px 40px !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Ensure the page wrapper allows scroll */
+  .page-wrapper {
+    overflow: visible !important;
+  }
+}
+
+/* Also fix desktop courses scroll if content overflows */
+#page-courses {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ============================================================
+   QUESTION FEEDBACK — Time-based messages
+   ============================================================ */
+.question-feedback.time-slow-correct {
+  background: rgba(212,175,55,.12);
+  border: 1px solid rgba(212,175,55,.4);
+  color: #8A6D28;
+}
+
+.question-feedback.time-slow-wrong {
+  background: rgba(220,38,38,.1);
+  border: 1px solid rgba(220,38,38,.35);
+  color: #DC2626;
+}
+
+body[data-theme="dark"] .question-feedback.time-slow-correct {
+  color: #D4AF37;
+}
+
+/* ============================================================
+   PER-QUESTION TIME IN RESULT
+   ============================================================ */
+.result-q-time {
+  display: inline-block;
+  padding: 2px 10px;
+  background: rgba(154,117,48,.12);
+  color: var(--accent-gold);
+  border-radius: 9999px;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .5px;
+  margin-left: 8px;
+}
+
+body[data-theme="dark"] .result-q-time {
+  background: rgba(212,175,55,.15);
+}
+
+.result-weak-concepts {
+  margin: 24px 0;
+  padding: 20px 24px;
+  background: linear-gradient(145deg, rgba(128,0,32,.06), rgba(128,0,32,.02));
+  border-left: 4px solid #800020;
+  border-radius: 0 14px 14px 0;
+}
+
+.result-weak-concepts h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #800020;
+  margin-bottom: 12px;
+}
+
+body[data-theme="dark"] .result-weak-concepts h4 {
+  color: #E8A8B8;
+}
+
+.weak-concept-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: .82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.weak-concept-item::before {
+  content: "→";
+  color: #800020;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* Test mode - no answer shown during quiz */
+.test-mode .question-feedback {
+  display: none !important;
+}
+
+.test-mode .option-btn.correct,
+.test-mode .option-btn.wrong {
+  /* In test mode, don't reveal correct/wrong */
+  border-color: var(--accent-gold) !important;
+  background: rgba(212,175,55,.1) !important;
+  color: var(--text-primary) !important;
+}
+
+.test-mode .option-btn.correct .option-letter,
+.test-mode .option-btn.wrong .option-letter {
+  background: var(--accent-gold) !important;
+  color: var(--text-inverse) !important;
+  border-color: var(--accent-gold) !important;
+}
+/* ============================================================
+   HIDE STRAY LEFT ARROWS (Top-left + Bottom-left)
+   ============================================================ */
+
+/* 1. Hide scroll-indicator (usually has arrow) */
+.scroll-indicator {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* 2. Hide globalBackBtn if exists */
+#globalBackBtn,
+.global-back-btn {
+  display: none !important;
+}
+
+/* 3. Hide any absolutely-positioned arrows outside pages */
+body > .back-btn,
+body > button:not([id]),
+.app-container > .back-btn {
+  display: none !important;
+}
+
+/* 4. Hide series back button unless on series detail page */
+.back-btn {
+  display: none !important;
+}
+
+#page-series-detail.active .back-btn {
+  display: inline-flex !important;
+}
+
+/* 5. Hide quiz navigation outside quiz page */
+.page:not(#page-quiz) #prevQuestionBtn,
+.page:not(#page-quiz) #nextQuestionBtn,
+.page:not(#page-quiz) #skipQuestionBtn,
+.page:not(#page-quiz) #submitQuizBtn {
+  display: none !important;
+}
+
+/* 6. Kill any fixed-position small elements in corners */
+[style*="position: fixed"][style*="top"],
+[style*="position:fixed"][style*="top"],
+[style*="position: fixed"][style*="bottom"],
+[style*="position:fixed"][style*="bottom"] {
+  /* Only kill if it looks like an arrow button */
+}
+/* ============================================================
+   AGGRESSIVE ARROW KILL
+   ============================================================ */
+
+/* Hide all scroll indicators */
+.scroll-indicator,
+.scroll-arrow,
+.scroll-down,
+.scroll-btn,
+.scroll-hint {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Hide slider arrows if any leftover */
+.zen-arrow,
+.zen-prev,
+.zen-next,
+.slider-arrow,
+.slider-prev,
+.slider-next {
+  display: none !important;
+}
+
+/* Hide global back buttons */
+#globalBackBtn,
+.global-back,
+.back-arrow {
+  display: none !important;
+}
+
+/* Hide any absolutely-positioned element at far left edge (0-50px) */
+body > div[style*="position: absolute"],
+body > div[style*="position:absolute"] {
+  /* only if positioned at edges */
+}
+
+/* Hide series back button unless on series detail */
+.back-btn {
+  display: none !important;
+}
+
+#page-series-detail.active .back-btn {
+  display: inline-flex !important;
+}
+
+/* Navbar — extra safety */
+.navbar {
+  overflow: hidden !important;
+}
+/* ============================================================
+   KILL EVERYTHING AT LEFT EDGE
+   ============================================================ */
+@media (min-width: 900px) {
+  /* Hide any absolutely positioned element at far left */
+  body > *,
+  .app-container > *,
+  .page-wrapper > * {
+    /* Only targets direct children, not nested */
+  }
+
+  /* Hide all buttons/spans positioned fixed at edge */
+  [style*="position:fixed"],
+  [style*="position: fixed"] {
+    /* pass */
+  }
+}
+
+/* Extra aggressive */
+body > .back-btn,
+body > button.back-btn,
+.global-back,
+.global-back-btn,
+#globalBackBtn,
+.scroll-indicator,
+.scroll-arrow,
+.zen-arrow,
+.slider-arrow {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+/* ============================================================
+   HIDE SCROLLBAR BUTTONS (Windows 11 scrollbar arrows)
+   ============================================================ */
+
+/* Hide scrollbar arrow buttons globally */
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment,
+::-webkit-scrollbar-button:vertical:start:decrement,
+::-webkit-scrollbar-button:vertical:end:increment {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Make scrollbars clean */
+::-webkit-scrollbar {
+  width: 6px !important;
+  height: 6px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium) !important;
+  border-radius: 3px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-gold) !important;
+}
+
+/* For the specific page element */
+.page::-webkit-scrollbar-button,
+.page-wrapper::-webkit-scrollbar-button,
+.page-wrap::-webkit-scrollbar-button {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-medium) transparent;
+}
+/* ============================================================
+   ULTRA KILL — HTML/Body scroll + scrollbar arrows
+   ============================================================ */
+html {
+  overflow: hidden !important;
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
+  height: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body {
+  overflow: hidden !important;
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
+  height: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Kill ALL scrollbar arrows in every container */
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment,
+::-webkit-scrollbar-button:vertical:start:decrement,
+::-webkit-scrollbar-button:vertical:end:increment,
+::-webkit-scrollbar-button:horizontal:start:decrement,
+::-webkit-scrollbar-button:horizontal:end:increment {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  max-width: 0 !important;
+  max-height: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  -webkit-appearance: none !important;
+}
+
+/* Kill scrollbar corner */
+::-webkit-scrollbar-corner {
+  display: none !important;
+  background: transparent !important;
+}
+
+/* Force scrollbars to be overlay only */
+::-webkit-scrollbar {
+  width: 6px !important;
+  height: 6px !important;
+  background: transparent !important;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent !important;
+  border: none !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium) !important;
+  border-radius: 3px !important;
+  border: none !important;
+}
+
+/* Firefox */
+html, body {
+  scrollbar-width: none !important;
+}
+
+.page, .page-wrapper, .profile-panel-body {
+  scrollbar-width: thin !important;
+}
+
+/* Kill any absolutely positioned arrows */
+body::before,
+body::after,
+html::before,
+html::after {
+  content: none !important;
+  display: none !important;
+}/* ============================================================
+   COMPLETE SCROLLBAR HIDE (kills ALL arrows everywhere)
+   ============================================================ */
+
+/* Chrome / Safari / Edge — hide scrollbar entirely */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+.app-container::-webkit-scrollbar,
+.page-wrapper::-webkit-scrollbar,
+.page::-webkit-scrollbar,
+.profile-panel-body::-webkit-scrollbar,
+.quiz-question-area::-webkit-scrollbar,
+.quiz-palette::-webkit-scrollbar,
+.modal-box::-webkit-scrollbar,
+.quiz-main::-webkit-scrollbar,
+.series-sheets-list::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+/* Kill the arrow buttons */
+html::-webkit-scrollbar-button,
+body::-webkit-scrollbar-button,
+.page::-webkit-scrollbar-button,
+.page-wrapper::-webkit-scrollbar-button,
+.app-container::-webkit-scrollbar-button,
+.quiz-question-area::-webkit-scrollbar-button,
+.quiz-palette::-webkit-scrollbar-button,
+.modal-box::-webkit-scrollbar-button,
+.quiz-main::-webkit-scrollbar-button {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+  -webkit-appearance: none !important;
+}
+
+/* Firefox */
+html,
+body,
+.page,
+.page-wrapper,
+.app-container,
+.profile-panel-body,
+.quiz-question-area,
+.quiz-palette,
+.modal-box,
+.quiz-main {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+/* Still allow scrolling (touch/wheel works even with hidden scrollbar) */
+.page,
+.quiz-question-area,
+.quiz-palette,
+.profile-panel-body,
+.modal-box,
+.series-sheets-list {
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+}
 </style>
 </head>
 <body data-theme="light">
 
-  <!-- ============================================================
-       LOADING SCREEN
-       ============================================================ -->
-  <div id="loadingScreen">
+    <div id="loadingScreen">
     <div class="loader-container">
-      <div class="loader-ring"></div>
-      <div class="loader-logo">RV</div>
-      <div class="loader-text">RV ZYLEN OFFICIAL</div>
+      <div class="loader-circle-wrap">
+        <svg class="loader-svg svg-outer" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="46" class="track-outer" />
+          <circle cx="50" cy="50" r="46" class="progress-outer" />
+        </svg>
+        <svg class="loader-svg svg-inner" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="35" class="track-inner" />
+          <circle cx="50" cy="50" r="35" class="progress-inner" />
+        </svg>
+        <div class="loader-logo">RV</div>
+      </div>
+      <div class="loader-text">RV-ZYLEN OFFICIAL</div>
       <div class="loader-sub">Loading Experience...</div>
     </div>
   </div>
@@ -3817,9 +6435,9 @@ body[data-theme="dark"] .welcome-brand-name {
                 improve and build the future you imagine.
               </p>
               <button class="welcome-cta-btn" id="exploreNowBtn">
-                <span>Explore Now</span>
-                <span class="arrow">→</span>
-              </button>
+  <span>Explore Now</span>
+  <span class="arrow">→</span>
+</button>
             </div>
           </section>
 
@@ -3869,26 +6487,22 @@ body[data-theme="dark"] .welcome-brand-name {
       <!-- ========================================================
            COURSES PAGE
            ======================================================== -->
-      <div class="page" id="page-courses">
+      <            <div class="page" id="page-courses">
         <div class="page-header">
           <h2>Courses</h2>
           <p>Choose your series</p>
         </div>
         <div class="courses-grid">
-          <!-- Apex 20 Card (interactive) -->
-          <div class="course-card apex-card" data-course="apex">
+          <div class="course-card clickable" data-course="apex">
             <div class="course-icon">⚡</div>
             <div class="course-name">APEX 20</div>
             <div class="course-desc">High-yield NCERT-strict quizzes</div>
-            <div class="course-sheets">
-              <div class="sheet-item" data-sheet="apex-sheet-3">Cell Structure — Part 1 (Sheet 3)</div>
-              <div class="sheet-item" data-sheet="apex-sheet-4">Cell Structure — Part 2 (Sheet 4)</div>
-              <div class="sheet-item disabled">Sheet 1 — Coming Soon</div>
-              <div class="sheet-item disabled">Sheet 2 — Coming Soon</div>
+            <div class="course-cta">
+              <span>View Sheets</span>
+              <span class="arrow">→</span>
             </div>
           </div>
 
-          <!-- Syntropy 30 (Coming Soon) -->
           <div class="course-card locked">
             <div class="course-icon">🌀</div>
             <div class="course-name">SYNTROPY 30</div>
@@ -3896,7 +6510,6 @@ body[data-theme="dark"] .welcome-brand-name {
             <div class="course-badge">Coming Soon</div>
           </div>
 
-          <!-- Zelith 50 (Coming Soon) -->
           <div class="course-card locked">
             <div class="course-icon">🔮</div>
             <div class="course-name">ZELITH 50</div>
@@ -3905,10 +6518,27 @@ body[data-theme="dark"] .welcome-brand-name {
           </div>
         </div>
       </div>
-
       <!-- ========================================================
            RULES PAGE
            ======================================================== -->
+                 <!-- ========================================================
+           SERIES DETAIL PAGE
+           ======================================================== -->
+      <div class="page" id="page-series-detail">
+        <div class="series-detail-header">
+          <button class="back-btn" id="seriesBackBtn">← Back</button>
+          <div class="series-detail-title-wrap">
+            <div class="series-detail-icon" id="seriesDetailIcon">⚡</div>
+            <div>
+              <h2 class="series-detail-title" id="seriesDetailTitle">APEX 20</h2>
+              <p class="series-detail-sub" id="seriesDetailSub">Choose a sheet to begin</p>
+            </div>
+          </div>
+        </div>
+        <div class="series-sheets-list" id="seriesSheetsList">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
       <div class="page" id="page-rules">
         <div class="rules-container">
           <h2 class="rules-title">📋 APEX 20 Quiz Rules & Guidelines</h2>
@@ -4017,6 +6647,28 @@ body[data-theme="dark"] .welcome-brand-name {
         <div id="suggestionStatusModal" class="suggestion-status"></div>
       </div>
     </div>
+        <!-- ==========================================================
+         QUIZ MODE SELECTION MODAL
+         ========================================================== -->
+    <    <div class="modal" id="quizModeModal">
+      <div class="modal-box quiz-mode-box">
+        <button class="modal-close" id="quizModeClose">✕</button>
+        <h3>Choose Mode</h3>
+        <p>How do you want to attempt this quiz?</p>
+        <div class="mode-options">
+          <button class="mode-option" data-mode="quiz">
+            <div class="mode-icon">⚡</div>
+            <div class="mode-title">Quiz Mode</div>
+            <div class="mode-desc">Instant answers + explanations. Streak tracking enabled.</div>
+          </button>
+          <button class="mode-option" data-mode="test">
+            <div class="mode-icon">📝</div>
+            <div class="mode-title">Test Mode</div>
+            <div class="mode-desc">Attempt all questions first. Review answers at the end. 25 minutes.</div>
+          </button>
+        </div>
+      </div>
+    </div>
 
     <!-- ==========================================================
          CONFIRM LOGOUT MODAL
@@ -4090,17 +6742,247 @@ const APP_STATE = {
 // ============================================================
 // ZEN QUOTES (Random on refresh)
 // ============================================================
-const ZEN_QUOTES = [
-  "The journey of a thousand miles begins with a single step.",
-  "Peace comes from within. Do not seek it without.",
-  "Your only limit is the one you set yourself.",
-  "The past is gone. The future is not yet here. Live in the present moment.",
-  "Discipline is the bridge between goals and accomplishment.",
-  "Small daily improvements are the key to staggering long-term results.",
-  "The mind is everything. What you think you become.",
-  "Do not wait to strike till the iron is hot; but make it hot by striking.",
-  "Success is the sum of small efforts repeated day in and day out.",
-  "What you do today can improve all your tomorrows."
+ const FALLBACK_QUOTES = [
+  "The distance between insanity and genius is measured only by success. — Bruce Feirstein",
+  "Greatness is not a function of circumstance. Greatness, it turns out, is largely a matter of conscious choice, and discipline. — Jim Collins",
+  "Inaction breeds doubt and fear. Action breeds confidence and courage. — Dale Carnegie",
+  "If you want to conquer the anxiety of life, live in the moment, live in the breath. — Amit Ray",
+  "The only person you are destined to become is the person you decide to be. — Ralph Waldo Emerson",
+  "Discipline is the bridge between thought and accomplishment. — John C. Maxwell",
+  "Set your goals high, and don't stop till you get there. — Bo Jackson",
+  "A creative man is motivated by the desire to achieve, not by the desire to beat others. — Ayn Rand",
+  "Believe in your infinite potential. Your only limitations are those you set upon yourself. — Roy T. Bennett",
+  "With self-discipline and self-control, you can develop greatness of character. — Grenville Kleiser",
+  "Doubt turns off the engine; confidence steps on the gas. — Unknown",
+  "You cannot change your destination overnight, but you can change your direction overnight. — Jim Rohn",
+  "Look in the mirror. That's your competition. — John Assaraf",
+  "To be disciplined is to follow in a way that agrees with your goals. — Bob Proctor",
+  "He who has conquered his own cowardice has conquered the world. — Thomas Carlyle",
+  "The success of your life depends on the quality of your thoughts. — Marcus Aurelius",
+  "If you lack discipline, you will always be a slave to your moods. — Unknown",
+  "Self-belief and hard work will always earn you success. — Virat Kohli",
+  "Work hard in silence, let your success be your noise. — Frank Ocean",
+  "Your life changes the moment you make a new, congruent, and committed decision. — Tony Robbins",
+  "Success isn't always about greatness. It's about consistency. Consistent hard work leads to success. — Dwayne Johnson",
+  "A champion is defined by how they recover when they fall. — Serena Williams",
+  "What you get by achieving your goals is not as important as what you become by achieving your goals. — Zig Ziglar",
+  "If you do not master your rage, your rage will master you. — Ancient Proverb",
+  "Confidence is not 'they will like me'. Confidence is 'I'll be fine if they don't'. — Christina Grimmie",
+  "The key to success is to focus on goals, not obstacles. — Unknown",
+  "You don't need a clear path to take a step forward. — Unknown",
+  "Discipline is doing what needs to be done, even if you don't want to do it. — Lou Holtz",
+  "Stand up straight with your shoulders back. — Jordan Peterson",
+  "Doubt is the enemy of progress. — Unknown",
+  "The struggle you're in today is developing the strength you need for tomorrow. — Robert Tew",
+  "Don't compromise yourself. You are all you've got. — Janis Joplin",
+  "Make each day your masterpiece. — John Wooden",
+  "Self-discipline is the golden key to sovereignty over self. — Unknown",
+  "If you want to change the world, start off by making your bed. — William H. McRaven",
+  "Small daily improvements over time lead to stunning results. — Robin Sharma",
+  "You were born to win, but to be a winner, you must plan to win, prepare to win, and expect to win. — Zig Ziglar",
+  "Don't let yesterday take up too much of today. — Will Rogers",
+  "Self-respect is the fruit of discipline; the sense of dignity grows with the ability to say no to oneself. — Abraham Joshua Heschel",
+  "The greatest victory is that which requires no battle. — Sun Tzu",
+  "No pressure, no diamonds. — Thomas Carlyle",
+  "Confidence comes from hours and days and weeks and years of constant work and dedication. — Roger Staubach",
+  "Doubt kills more dreams than failure ever will. — Suzy Kassem",
+  "Turn your wounds into wisdom. — Oprah Winfrey",
+  "Great things are done by a series of small things brought together. — Vincent van Gogh",
+  "Control your emotions or they will control your destiny. — Unknown",
+  "Discipline is the foundational key upon which all successes are built. — Gary Keller",
+  "He who moves mountains begins by carrying away small stones. — Chinese Proverb",
+  "A lion doesn't lose sleep over the opinion of sheep. — Unknown",
+  "Your boundaries define your strength. — Unknown",
+  "Focus on the journey, not the destination. Joy is found not in finishing an activity but in doing it. — Greg Anderson",
+  "Do it with passion or not at all. — Rosa Nouchette Carey",
+  "Mastering others is force. Mastering yourself is true strength. — Lao Tzu",
+  "Be so good they can't ignore you. — Steve Martin",
+  "Action speaks louder than intention. — Unknown",
+  "Success is sustained by the discipline of daily choices. — Unknown",
+  "Never let your fear decide your future. — Unknown",
+  "The energy you put out is the energy you get back. — Unknown",
+  "It's not about perfect. It's about effort. — Jillian Michaels",
+  "If it doesn't challenge you, it won't change you. — Fred DeVito",
+  "Wisdom begins with self-discipline. — Unknown",
+  "Believe you deserve it and the universe will serve it. — Unknown",
+  "Fall down seven times, stand up eight. — Proverb",
+  "Self-discipline is the quiet force that turns dreams into reality. — Unknown",
+  "You can suffer the pain of change or suffer the pain of staying the same. — Unknown",
+  "Hustle until your haters ask if you're hiring. — Unknown",
+  "Doubt is a trap; action is the key. — Unknown",
+  "To lead yourself, use your head; to lead others, use your heart. — Eleanor Roosevelt",
+  "Winners focus on winning, losers focus on winners. — Eric Thomas",
+  "Be disciplined, be fearless, be relentless. — Unknown",
+  "Courage doesn't always roar. Sometimes courage is the quiet voice at the end of the day saying, 'I will try again tomorrow.' — Mary Anne Radmacher",
+  "If you want to achieve greatness, stop asking for permission. — Unknown",
+  "Character is the willingness to accept responsibility for one's own life. — Joan Didion",
+  "Success is doing ordinary things extraordinarily well. — Jim Rohn",
+  "Your mindset dictates your reality. — Unknown",
+  "Discipline builds habits, habits build character, character builds destiny. — Unknown",
+  "Confidence is knowing who you are and not apologizing for it. — Unknown",
+  "Everything you need is already inside you. — Unknown",
+  "Hard work compounds like interest. — Unknown",
+  "Don't stop when you're tired. Stop when you're done. — David Goggins",
+  "The secret of discipline is finding a reason big enough to endure the pain. — Unknown",
+  "To be the best, you must handle the worst. — Unknown",
+  "Silent moves lead to loud results. — Unknown",
+  "Confidence is a muscle; the more you use it, the stronger it gets. — Unknown",
+  "Do the hard work, especially when you don't feel like it. — Hamza Ahmed",
+  "Success is not owned, it's rented. And rent is due every day. — J.J. Watt",
+  "The only bad workout is the one that didn't happen. — Unknown",
+  "Stop waiting for the right moment. Create it. — Unknown",
+  "When you feel like quitting, remember why you started. — Unknown",
+  "Discipline is the weapon against chaos. — Jordan Peterson",
+  "Fear is temporary. Regret is eternal. — Unknown",
+  "Build a life you don't need a vacation from. — Seth Godin",
+  "Trust the process, respect the grind. — Unknown",
+  "Self-control is the supreme test of human character. — Unknown",
+  "You don't get what you wish for; you get what you work for. — Unknown",
+  "Your power lies in your discipline. — Unknown",
+  "Make your ambition bigger than your excuses. — Unknown",
+  "The standard you walk past is the standard you accept. — David Hurley",
+  "A quiet mind is a powerful mind. — Unknown",
+  "Be the master of your fate, the captain of your soul. — William Ernest Henley",
+  "The vision that you glorify in your mind will build your life. — James Allen",
+  "Discipline is the glue that binds your intentions to your actions. — John C. Maxwell",
+  "Do not fear going forward slowly; fear only standing still. — Chinese Proverb",
+  "If you do not conquer self, you will be conquered by self. — Napoleon Hill",
+  "Confidence is not optimism; it is the knowledge that you can handle the outcome. — Mel Robbins",
+  "The willingness to show up changes us. It makes us much braver each time. — Brené Brown",
+  "Small choices lead to giant leaps over time. — Darren Hardy",
+  "A river cuts through rock, not because of its power, but because of its persistence. — Jim Watkins",
+  "He who reigns within himself and rules his passions is more than a king. — John Milton",
+  "Your life does not get better by chance, it gets better by change. — Jim Rohn",
+  "Doubt is the thief of confidence. — Unknown",
+  "Mastering self-control is the ultimate form of personal freedom. — Unknown",
+  "Do what is right, not what is easy nor what is popular. — Roy T. Bennett",
+  "You cannot beat the person who never gives up. — Babe Ruth",
+  "Your mind will answer most questions if you learn to relax and wait for the answer. — William S. Burroughs",
+  "Self-discipline is the capacity to set a boundary for yourself and respect it. — Unknown",
+  "When you master your mindset, you master your life. — Unknown",
+  "Don't limit your challenges. Challenge your limits. — Jerry Dunn",
+  "Focus on the process, and the outcome will take care of itself. — Habit Proverb",
+  "If you want peace, prepare for discipline. — Unknown",
+  "Courage is grace under pressure. — Ernest Hemingway",
+  "Greatness is forged in silence when no one is watching. — Unknown",
+  "Believe in your capability long before the world recognizes it. — Unknown",
+  "Effort only fully releases its reward after a person refuses to quit. — Napoleon Hill",
+  "The test of character is not how we act on our best days, but how we act on our worst. — Unknown",
+  "Control your impulses today so you can command your destiny tomorrow. — Unknown",
+  "Confidence grows in proportion to the challenges you overcome. — Unknown",
+  "To improve is to change; to be perfect is to change often. — Winston Churchill",
+  "Don't let the noise of others' opinions drown out your own inner voice. — Steve Jobs",
+  "Discipline turns intention into execution. — Unknown",
+  "You don't need a crowd to validate your purpose. — Unknown",
+  "What you resist, persists; what you master, transforms. — Carl Jung",
+  "The height of your accomplishments will equal the depth of your conviction. — William F. Lawrence",
+  "Comfort is the enemy of progress. — P.T. Barnum",
+  "Stand firm in your principles, flexible in your methods. — Unknown",
+  "True confidence is calm; insecurity is loud. — Unknown",
+  "Your energy flows where your focus goes. — Tony Robbins",
+  "The pain of self-control is light compared to the heavy weight of regret. — Unknown",
+  "Show up for yourself every single day. — Unknown",
+  "A wise man rules his mind, a fool obeys it. — Publilius Syrus",
+  "The key to freedom is discipline. — Jocko Willink",
+  "Don't trade long-term fulfillment for short-term comfort. — Unknown",
+  "You grow when you step out of your safety zone. — Unknown",
+  "Strength is built through resistance. — Unknown",
+  "Your habits shape your identity, and your identity shapes your habits. — James Clear",
+  "Where there is no struggle, there is no strength. — Frederick Douglass",
+  "Self-worth comes from self-mastery. — Unknown",
+  "Focus on consistency over intensity. — Unknown",
+  "Your speed doesn't matter if you're heading in the wrong direction. — Proverb",
+  "Believe in your vision even when nobody else can see it. — Unknown",
+  "A disciplined mind brings happiness and stability. — Dhammapada",
+  "Doubt is a shadow that disappears under the light of action. — Unknown",
+  "The only wall in your way is the one you built in your head. — Unknown",
+  "Never confuse movement with action. — Ernest Hemingway",
+  "Victory belongs to the most persevering. — Napoleon Bonaparte",
+  "Respect your time, and the world will respect your presence. — Unknown",
+  "The best revenge is massive success. — Frank Sinatra",
+  "Disciplined thinking leads to fearless living. — Unknown",
+  "Confidence is earned through self-honesty and hard work. — Unknown",
+  "Be willing to be uncomfortable in pursuit of your dreams. — Unknown",
+  "Mastering yourself requires no audience. — Unknown",
+  "Stop asking 'Why me?' and start saying 'Try me.' — Unknown",
+  "Focus is the art of knowing what to ignore. — Unknown",
+  "Success demands sacrifice, discipline, and endurance. — Unknown",
+  "Believe you are capable of achieving what you set your mind to. — Unknown",
+  "Small daily victories create an unbeatable fortress of confidence. — Unknown",
+  "Character is built when nobody is looking. — Unknown",
+  "The struggle is part of the story, not the end of it. — Unknown",
+  "Train your mind to remain steady in both praise and criticism. — Unknown",
+  "Action cures fear. — David J. Schwartz",
+  "Self-discipline is love for your future self. — Unknown",
+  "Do not wait for extraordinary opportunities. Seize common occasions and make them great. — Orison Swett Marden",
+  "Confidence is trusting your ability to figure things out as you go. — Unknown",
+  "Work until your doubts turn into respect. — Unknown",
+  "Your standards define your reality. — Unknown",
+  "True strength is controlling your emotions when pushed to the limit. — Unknown",
+  "A quiet focus produces powerful outcomes. — Unknown",
+  "Never sacrifice your goals for temporary ease. — Unknown",
+  "The fire inside you must burn brighter than the obstacles around you. — Unknown",
+  "Consistency turns the impossible into routine. — Unknown",
+  "Doubt loses its power when you keep moving forward. — Unknown",
+  "Be the architect of your own character. — Unknown",
+  "To control your life, first control your daily routine. — Unknown",
+  "Courage is not the absence of fear, but the triumph over it. — Nelson Mandela",
+  "Your focus determines your reality. — George Lucas",
+  "Discipline converts raw talent into quiet authority. — Unknown",
+  "Confidence is developed through repeated small wins. — Unknown",
+  "Don't promise when you're happy, don't reply when you're angry, don't decide when you're sad. — Proverb",
+  "Success is built on a foundation of daily, unglamorous work. — Unknown",
+  "Trust your preparation more than your fear. — Unknown",
+  "A mind disciplined by principle is invincible. — Unknown",
+  "Your potential expands the moment you stop making excuses. — Unknown",
+  "The secret of change is to focus all your energy not on fighting the old, but on building the new. — Socrates",
+  "Silent determination speaks louder than spoken grand plans. — Unknown",
+  "Confidence is walking in knowing you have done the required work. — Unknown",
+  "Push yourself, because no one else is going to do it for you. — Unknown",
+  "Discipline is keeping a promise you made to yourself long after the mood has left you. — Unknown",
+  "Great results require relentless focus. — Unknown",
+  "Believe in your growth even when it feels invisible. — Unknown",
+  "Mastering your days is mastering your life. — Unknown",
+  "Discipline is the bridge between goals and accomplishment. — Jim Rohn",
+  "Self-discipline is that which, next to virtue, truly and essentially raises one man above another. — Joseph Addison",
+  "With self-discipline most anything is possible. — Theodore Roosevelt",
+  "We must all suffer one of two things: the pain of discipline or the pain of regret. — Jim Rohn",
+  "Discipline is wisdom and vice versa. — M. Scott Peck",
+  "Freedom is born of discipline. — Barbara De Angelis",
+  "Small disciplines repeated with consistency every day lead to great achievements gained slowly over time. — John C. Maxwell",
+  "He who controls himself controls the world. — Haile Selassie",
+  "Discipline is choosing between what you want now and what you want most. — Abraham Lincoln",
+  "Rule your mind or it will rule you. — Horace",
+  "Believe you can and you're halfway there. — Theodore Roosevelt",
+  "No one can make you feel inferior without your consent. — Eleanor Roosevelt",
+  "Self-confidence is the first requisite to great undertakings. — Samuel Johnson",
+  "If you have no confidence in self, you are twice defeated in the race of life. — Marcus Garvey",
+  "With confidence, you have won before you have started. — Marcus Garvey",
+  "Low self-esteem is like driving through life with your hand-brake on. — Maxwell Maltz",
+  "Confidence comes not from always being right but from not fearing to be wrong. — Peter T. McIntyre",
+  "Trust yourself. You know more than you think you do. — Benjamin Spock",
+  "To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment. — Ralph Waldo Emerson",
+  "Your power comes from your self-confidence. — Swami Vivekananda",
+  "It always seems impossible until it's done. — Nelson Mandela",
+  "The only way to do great work is to love what you do. — Steve Jobs",
+  "Do what you can, with what you have, where you are. — Theodore Roosevelt",
+  "Action is the foundational key to all success. — Pablo Picasso",
+  "Don't watch the clock; do what it does. Keep going. — Sam Levenson",
+  "Success is not final, failure is not fatal: it is the courage to continue that counts. — Winston Churchill",
+  "Hard work beats talent when talent fails to work hard. — Tim Notke",
+  "You miss 100% of the shots you don't take. — Wayne Gretzky",
+  "Everything you've ever wanted is on the other side of fear. — George Addair",
+  "The secret of getting ahead is getting started. — Mark Twain",
+  "You have power over your mind - not outside events. Realize this, and you will find strength. — Marcus Aurelius",
+  "Tough times never last, but tough people do. — Robert H. Schuller",
+  "In the middle of every difficulty lies opportunity. — Albert Einstein",
+  "Great minds discuss ideas; average minds discuss events; small minds discuss people. — Eleanor Roosevelt",
+  "The only limit to our realization of tomorrow will be our doubts of today. — Franklin D. Roosevelt",
+  "It is during our darkest moments that we must focus to see the light. — Aristotle",
+  "What lies behind us and what lies before us are tiny matters compared to what lies within us. — Ralph Waldo Emerson",
+  "Fall seven times and stand up eight. — Japanese Proverb",
+  "Amateurs sit and wait for inspiration, the rest of us just get up and go to work. — Stephen King",
+  "The mind is everything. What you think you become. — Buddha"
 ];
 
 // ============================================================
@@ -4361,14 +7243,43 @@ function updateUIForUser(user, profile) {
 // ============================================================
 // ZEN QUOTE ROTATION
 // ============================================================
+/* ============================================================
+   ZEN QUOTES — Rotate every 2 min from local array
+   ============================================================ */
+let currentQuoteIndex = Math.floor(Math.random() * FALLBACK_QUOTES.length);
+let quoteInterval = null;
+
+function displayQuote(quote) {
+  const quoteEl = document.getElementById('welcomeQuote');
+  if (!quoteEl) return;
+  
+  // Fade out
+  quoteEl.style.transition = 'opacity .5s ease';
+  quoteEl.style.opacity = '0';
+  
+  setTimeout(() => {
+    quoteEl.textContent = quote;
+    quoteEl.style.opacity = '1';
+  }, 500);
+}
+
 function initZenQuote() {
   const quoteEl = document.getElementById('welcomeQuote');
   if (!quoteEl) return;
   
-  const randomQuote = ZEN_QUOTES[Math.floor(Math.random() * ZEN_QUOTES.length)];
-  quoteEl.textContent = '"' + randomQuote + '"';
+  // Initial random quote
+  const randomIndex = Math.floor(Math.random() * FALLBACK_QUOTES.length);
+  currentQuoteIndex = randomIndex;
+  quoteEl.textContent = FALLBACK_QUOTES[randomIndex];
+  quoteEl.style.opacity = '1';
+  
+  // Auto-rotate every 2 minutes
+  if (quoteInterval) clearInterval(quoteInterval);
+  quoteInterval = setInterval(() => {
+    currentQuoteIndex = (currentQuoteIndex + 1) % FALLBACK_QUOTES.length;
+    displayQuote(FALLBACK_QUOTES[currentQuoteIndex]);
+  }, 120000);
 }
-
 // ============================================================
 // LOADING SCREEN
 // ============================================================
@@ -4376,28 +7287,46 @@ function hideLoadingScreen() {
   const loader = document.getElementById('loadingScreen');
   if (!loader) return;
   
-  // Preload background image FIRST
-  const bgUrl = 'https://i.ibb.co/h1ZL9yG3/8dd1b3d3-1071-4c5f-a175-ccc53ccbb426.png';
+  // Preload background image
+const bgUrl = 'https://i.ibb.co/Kz7ynYRZ/hero-bg.png';
   const img = new Image();
+  img.src = bgUrl;
   
-  let done = false;
+  // MINIMUM 3 seconds loading screen (let animations play fully)
+  const MIN_LOADING_TIME = 3000;
+  const startTime = Date.now();
+  
   const finish = () => {
-    if (done) return;
-    done = true;
+    const elapsed = Date.now() - startTime;
+    const remaining = Math.max(0, MIN_LOADING_TIME - elapsed);
     
-    // Give a minimum loading time for aesthetics
     setTimeout(() => {
       loader.classList.add('hide');
       document.body.classList.add('app-ready');
-    }, 800);
+    }, remaining);
   };
   
-  img.onload = finish;
-  img.onerror = finish; // Even if fails, proceed
-  img.src = bgUrl;
+  // Wait for both: image load AND 3 sec minimum
+  let imageReady = false;
+  let timerReady = false;
   
-  // Fallback — max 3.5 sec wait
-  setTimeout(finish, 3500);
+  const tryFinish = () => {
+    if (imageReady && timerReady) finish();
+  };
+  
+  img.onload = () => { imageReady = true; tryFinish(); };
+  img.onerror = () => { imageReady = true; tryFinish(); };
+  
+  // Timer — 3 seconds minimum
+  setTimeout(() => { timerReady = true; tryFinish(); }, MIN_LOADING_TIME);
+  
+  // Safety fallback — 6 seconds max
+  setTimeout(() => {
+    if (!loader.classList.contains('hide')) {
+      loader.classList.add('hide');
+      document.body.classList.add('app-ready');
+    }
+  }, 6000);
 }
 
 // ============================================================
@@ -4447,10 +7376,17 @@ function initEventListeners() {
     });
   });
   
-  // Explore Now button (Homepage → Courses)
+    // Explore Now button (Homepage → Courses)
   const exploreBtn = document.getElementById('exploreNowBtn');
   if (exploreBtn) {
-    exploreBtn.addEventListener('click', () => {
+    // Remove old listeners by cloning
+    const newExplore = exploreBtn.cloneNode(true);
+    exploreBtn.parentNode.replaceChild(newExplore, exploreBtn);
+    
+    newExplore.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      console.log('🔘 Explore clicked');
       showPage('courses');
     });
   }
@@ -6325,6 +9261,1506 @@ const QUIZ_DATA = {
     }
   ]
 };
+/* ============================================================
+   SERIES DETAIL PAGE — Interactive Course Cards
+   ============================================================ */
+
+// Series metadata
+const SERIES_DATA = {
+  apex: {
+    id: 'apex',
+    name: 'APEX 20',
+    icon: '⚡',
+    subtitle: 'High-yield NCERT-strict quizzes',
+    sheets: [
+      { id: 'apex-sheet-3', number: 3, title: 'Cell Structure — Part 1', meta: '21 Questions · +4/-1', status: 'available' },
+      { id: 'apex-sheet-4', number: 4, title: 'Cell Structure — Part 2', meta: '22 Questions · +4/-1', status: 'available' },
+      { id: 'apex-sheet-1', number: 1, title: 'Coming Soon', meta: '', status: 'locked' },
+      { id: 'apex-sheet-2', number: 2, title: 'Coming Soon', meta: '', status: 'locked' }
+    ]
+  },
+  syntropy: {
+    id: 'syntropy',
+    name: 'SYNTROPY 30',
+    icon: '🌀',
+    subtitle: 'Coming Soon',
+    sheets: []
+  },
+  zelith: {
+    id: 'zelith',
+    name: 'ZELITH 50',
+    icon: '🔮',
+    subtitle: 'Coming Soon',
+    sheets: []
+  }
+};
+
+function showSeriesDetail(seriesId) {
+  const series = SERIES_DATA[seriesId];
+  if (!series) {
+    showToast('❌ Series not found', 'error');
+    return;
+  }
+
+  // Update header
+  const iconEl = document.getElementById('seriesDetailIcon');
+  const titleEl = document.getElementById('seriesDetailTitle');
+  const subEl = document.getElementById('seriesDetailSub');
+
+  if (iconEl) iconEl.textContent = series.icon;
+  if (titleEl) titleEl.textContent = series.name;
+  if (subEl) subEl.textContent = series.subtitle;
+
+  // Build sheets list
+  const list = document.getElementById('seriesSheetsList');
+  if (!list) return;
+
+  if (series.sheets.length === 0) {
+    list.innerHTML = `
+      <div style="grid-column:1/-1;text-align:center;padding:80px 20px;color:var(--text-muted);">
+        <div style="font-size:4rem;margin-bottom:16px;">${series.icon}</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--text-primary);margin-bottom:8px;">Coming Soon</div>
+        <div style="font-size:.85rem;">This series is being prepared. Stay tuned!</div>
+      </div>
+    `;
+  } else {
+    list.innerHTML = series.sheets.map(sheet => {
+      const locked = sheet.status === 'locked';
+      return `
+        <div class="series-sheet-card ${locked ? 'locked' : ''}" data-sheet="${sheet.id}">
+          <span class="sheet-number">Sheet ${sheet.number}</span>
+          <div class="sheet-title">${sheet.title}</div>
+          <div class="sheet-meta">${sheet.meta}</div>
+          ${!locked ? `<div class="sheet-cta">Start Quiz →</div>` : ''}
+        </div>
+      `;
+    }).join('');
+
+    // Attach click listeners
+    list.querySelectorAll('.series-sheet-card:not(.locked)').forEach(card => {
+      card.addEventListener('click', () => {
+        const sheetId = card.dataset.sheet;
+        if (!APP_STATE.user) {
+          showToast('🔐 Please login first', 'error');
+          openProfilePanel();
+          return;
+        }
+        if (typeof showRulesPage === 'function') {
+          showRulesPage(sheetId);
+        } else {
+          showToast('⚠️ Rules loading...', 'info');
+        }
+      });
+    });
+  }
+
+  showPage('series-detail');
+}
+
+// Wire up course card clicks
+(function initSeriesCardClicks() {
+  const tryWire = () => {
+    document.querySelectorAll('.course-card.clickable').forEach(card => {
+      card.addEventListener('click', () => {
+        const seriesId = card.dataset.course;
+        showSeriesDetail(seriesId);
+      });
+    });
+
+    // Back button
+    const backBtn = document.getElementById('seriesBackBtn');
+    if (backBtn) {
+      backBtn.addEventListener('click', () => {
+        showPage('courses');
+      });
+    }
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', tryWire);
+  } else {
+    tryWire();
+  }
+})();
+/* ============================================================
+   PART 2 — QUIZ ENGINE REWRITE
+   Mode selection + Timer + Retry + Palette + Test mode
+   ============================================================ */
+
+const QUIZ_ENGINE = {
+  mode: 'quiz',           // 'quiz' or 'test'
+  sheetId: null,
+  meta: null,
+  questions: [],
+  currentIndex: 0,
+  answers: {},            // { qIdx: { selected, status, attempts } }
+  attempts: {},           // { qIdx: number }
+  streak: 0,
+  bestStreak: 0,
+  startTime: null,
+  questionStartTime: null,
+  questionTimes: [],      // per question seconds
+  totalTime: 0,
+  timer: null,
+  timerMode: null,        // 'per-question' or 'total'
+  timeLeft: 60,           // for quiz mode
+  totalTimeLeft: 1500,    // 25 min for test mode
+  skipSuggestShown: false,
+  active: false,
+  autoSubmitted: false,
+  tabSwitchTimestamps: [],
+  warnings: 0,
+  tabBlurredAt: null
+};
+
+/* ============================================================
+   START QUIZ (called from rules page)
+   ============================================================ */
+function startQuiz(sheetId) {
+  const meta = QUIZ_METADATA[sheetId];
+  if (!meta) { showToast('❌ Quiz not found', 'error'); return; }
+
+  const questions = (typeof QUIZ_DATA !== 'undefined' && QUIZ_DATA[sheetId]) ? QUIZ_DATA[sheetId] : null;
+  if (!questions || questions.length === 0) {
+    showToast('⚠️ Questions loading... try again', 'info');
+    return;
+  }
+
+  // Show mode selection modal
+  QUIZ_ENGINE.sheetId = sheetId;
+  QUIZ_ENGINE.meta = meta;
+  QUIZ_ENGINE.questions = questions;
+
+  const modal = document.getElementById('quizModeModal');
+  if (modal) modal.classList.add('show');
+}
+
+/* ============================================================
+   MODE SELECTION HANDLERS
+   ============================================================ */
+function initModeSelection() {
+  document.querySelectorAll('.mode-option').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const mode = btn.dataset.mode;
+      const modal = document.getElementById('quizModeModal');
+      if (modal) modal.classList.remove('show');
+      beginQuizWithMode(mode);
+    });
+  });
+}
+
+function beginQuizWithMode(mode) {
+  QUIZ_ENGINE.mode = mode;
+  QUIZ_ENGINE.active = true;
+  QUIZ_ENGINE.currentIndex = 0;
+  QUIZ_ENGINE.answers = {};
+  QUIZ_ENGINE.attempts = {};
+  QUIZ_ENGINE.streak = 0;
+  QUIZ_ENGINE.bestStreak = 0;
+  QUIZ_ENGINE.startTime = Date.now();
+  QUIZ_ENGINE.questionStartTime = Date.now();
+  QUIZ_ENGINE.questionTimes = new Array(QUIZ_ENGINE.questions.length).fill(0);
+  QUIZ_ENGINE.totalTime = 0;
+  QUIZ_ENGINE.skipSuggestShown = false;
+  QUIZ_ENGINE.autoSubmitted = false;
+  QUIZ_ENGINE.tabSwitchTimestamps = [];
+  QUIZ_ENGINE.warnings = 0;
+  QUIZ_ENGINE.tabBlurredAt = null;
+
+  if (mode === 'test') {
+    QUIZ_ENGINE.totalTimeLeft = 25 * 60; // 25 minutes
+    QUIZ_ENGINE.timerMode = 'total';
+    document.body.classList.add('test-mode');
+  } else {
+    QUIZ_ENGINE.timeLeft = 60;
+    QUIZ_ENGINE.timerMode = 'per-question';
+    document.body.classList.remove('test-mode');
+  }
+
+  // Update sheet name
+  const sheetNameEl = document.getElementById('quizSheetName');
+  if (sheetNameEl) {
+    const modeLabel = mode === 'test' ? ' · TEST' : ' · QUIZ';
+    sheetNameEl.textContent = meta.series + ' — Sheet ' + meta.sheetNumber + modeLabel;
+  }
+
+  showPage('quiz');
+  buildPalette();
+  loadQuestion(0);
+  startTimer();
+  startAntiCheat();
+
+  logActivity('Started ' + meta.title + ' (' + mode + ')', '🎯');
+}
+
+/* ============================================================
+   BUILD PALETTE
+   ============================================================ */
+function buildPalette() {
+  const palette = document.getElementById('quizPalette');
+  if (!palette) return;
+
+  palette.innerHTML = QUIZ_ENGINE.questions.map((q, i) => {
+    const isBonus = q.bonus ? ' (B)' : '';
+    return `<button class="palette-btn" data-idx="${i}" title="Q${i+1}${isBonus}">${i+1}</button>`;
+  }).join('');
+
+  palette.querySelectorAll('.palette-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const idx = parseInt(btn.dataset.idx);
+      loadQuestion(idx);
+    });
+  });
+
+  updatePalette();
+}
+
+function updatePalette() {
+  const palette = document.getElementById('quizPalette');
+  if (!palette) return;
+
+  palette.querySelectorAll('.palette-btn').forEach((btn, i) => {
+    btn.classList.remove('current', 'visited', 'correct', 'wrong', 'review', 'skipped', 'answered-test');
+
+    if (i === QUIZ_ENGINE.currentIndex) btn.classList.add('current');
+
+    const ans = QUIZ_ENGINE.answers[i];
+    if (!ans) return;
+
+    if (QUIZ_ENGINE.mode === 'test') {
+      // Test mode — just show answered
+      if (ans.selected !== null && ans.selected !== undefined) {
+        btn.classList.add('answered-test');
+      }
+    } else {
+      // Quiz mode — show status
+      if (ans.status === 'correct') btn.classList.add('correct');
+      else if (ans.status === 'wrong') btn.classList.add('wrong');
+      else if (ans.status === 'skipped') btn.classList.add('skipped');
+      else if (ans.status === 'retry') btn.classList.add('visited'); // first wrong, retry allowed
+      else if (ans.status === 'review') btn.classList.add('review');
+    }
+  });
+}
+
+/* ============================================================
+   LOAD QUESTION
+   ============================================================ */
+function loadQuestion(index) {
+  if (index < 0 || index >= QUIZ_ENGINE.questions.length) return;
+
+  // Save time for previous question
+  if (QUIZ_ENGINE.currentIndex !== index && QUIZ_ENGINE.active) {
+    saveQuestionTime();
+  }
+
+  QUIZ_ENGINE.currentIndex = index;
+  QUIZ_ENGINE.questionStartTime = Date.now();
+  QUIZ_ENGINE.skipSuggestShown = false;
+
+  const q = QUIZ_ENGINE.questions[index];
+  const meta = QUIZ_ENGINE.meta;
+
+  // Sheet name
+  const sheetNameEl = document.getElementById('quizSheetName');
+  if (sheetNameEl) {
+    const modeLabel = QUIZ_ENGINE.mode === 'test' ? ' · TEST' : ' · QUIZ';
+    sheetNameEl.textContent = `${meta.series} — Sheet ${meta.sheetNumber}${modeLabel} — Q${index+1}/${QUIZ_ENGINE.questions.length}`;
+  }
+
+  // Image
+  const imgContainer = document.getElementById('questionImageContainer');
+  const imgEl = document.getElementById('questionImage');
+  if (q.image) {
+    if (imgContainer) imgContainer.style.display = 'block';
+    if (imgEl) imgEl.src = q.image;
+  } else {
+    if (imgContainer) imgContainer.style.display = 'none';
+  }
+
+  // Question text
+  const qText = document.getElementById('questionText');
+  if (qText) {
+    const bonusTag = q.bonus ? ' <span style="color:var(--accent-gold);font-size:.8rem;">[BONUS]</span>' : '';
+    qText.innerHTML = `Q${index+1}. ${q.question}${bonusTag}`;
+  }
+
+  // Options
+  const optContainer = document.getElementById('questionOptions');
+  if (optContainer) {
+    const letters = ['A', 'B', 'C', 'D'];
+    const existing = QUIZ_ENGINE.answers[index];
+    const isTestMode = QUIZ_ENGINE.mode === 'test';
+
+    optContainer.innerHTML = q.options.map((opt, i) => {
+      let extraClass = '';
+      let disabled = '';
+
+      if (existing) {
+        if (isTestMode) {
+          // Test mode — just show selected, no correct/wrong
+          if (existing.selected === i) extraClass = 'selected';
+        } else {
+          // Quiz mode — show correct/wrong/retry state
+          if (existing.status === 'correct' && existing.selected === i) {
+            extraClass = 'correct';
+          } else if (existing.status === 'wrong') {
+            if (existing.selected === i) extraClass = 'wrong';
+            if (i === q.answer) extraClass = 'correct';
+            disabled = 'disabled';
+          } else if (existing.status === 'retry') {
+            // First wrong — allow retry, but the wrong option is disabled
+            if (existing.selected === i) {
+              extraClass = 'wrong';
+              disabled = 'disabled';
+            }
+          }
+        }
+      }
+
+      return `
+        <button class="option-btn ${extraClass}" data-idx="${i}" ${disabled}>
+          <span class="option-letter">${letters[i]}</span>
+          <span class="option-text">${opt}</span>
+        </button>
+      `;
+    }).join('');
+
+    // Attach listeners
+    optContainer.querySelectorAll('.option-btn:not([disabled])').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const optIdx = parseInt(btn.dataset.idx);
+        selectOption(index, optIdx);
+      });
+    });
+  }
+
+  // Feedback (quiz mode only)
+  const feedback = document.getElementById('questionFeedback');
+  if (feedback) {
+    if (QUIZ_ENGINE.mode === 'test') {
+      feedback.className = 'question-feedback';
+      feedback.innerHTML = '';
+    } else if (existing) {
+      if (existing.status === 'correct') {
+        feedback.className = 'question-feedback show correct';
+        feedback.innerHTML = `✅ <strong>Correct!</strong><br>${q.explanation || ''}`;
+      } else if (existing.status === 'wrong') {
+        feedback.className = 'question-feedback show wrong';
+        feedback.innerHTML = `❌ <strong>Wrong.</strong> Correct answer: ${q.options[q.answer]}<br>${q.explanation || ''}`;
+      } else if (existing.status === 'retry') {
+        feedback.className = 'question-feedback show wrong';
+        feedback.innerHTML = `❌ Wrong. <strong>Try Again</strong> — you have one more chance.`;
+      } else {
+        feedback.className = 'question-feedback';
+        feedback.innerHTML = '';
+      }
+    } else {
+      feedback.className = 'question-feedback';
+      feedback.innerHTML = '';
+    }
+  }
+
+  updateNavigationButtons();
+  resetQuestionTimer();
+  updatePalette();
+}
+
+/* ============================================================
+   SELECT OPTION
+   ============================================================ */
+function selectOption(qIndex, optIdx) {
+  const q = QUIZ_ENGINE.questions[qIndex];
+  const isCorrect = (optIdx === q.answer);
+  const existing = QUIZ_ENGINE.answers[qIndex];
+
+  // ============ TEST MODE ============
+  if (QUIZ_ENGINE.mode === 'test') {
+    // Can change answers anytime
+    QUIZ_ENGINE.answers[qIndex] = {
+      selected: optIdx,
+      status: isCorrect ? 'correct' : 'wrong',  // stored but hidden
+      attempts: 1
+    };
+    updatePalette();
+    // Re-render to show selection
+    const optButtons = document.querySelectorAll('#questionOptions .option-btn');
+    optButtons.forEach((btn, i) => {
+      btn.classList.toggle('selected', i === optIdx);
+    });
+    return;
+  }
+
+  // ============ QUIZ MODE ============
+  const attemptNum = (QUIZ_ENGINE.attempts[qIndex] || 0) + 1;
+  QUIZ_ENGINE.attempts[qIndex] = attemptNum;
+
+  const timeTaken = Math.floor((Date.now() - QUIZ_ENGINE.questionStartTime) / 1000);
+
+  if (isCorrect) {
+    QUIZ_ENGINE.answers[qIndex] = {
+      selected: optIdx,
+      status: 'correct',
+      attempts: attemptNum,
+      timeTaken: timeTaken
+    };
+    QUIZ_ENGINE.streak++;
+    if (QUIZ_ENGINE.streak > QUIZ_ENGINE.bestStreak) {
+      QUIZ_ENGINE.bestStreak = QUIZ_ENGINE.streak;
+    }
+
+    // Check time-based message
+    if (timeTaken > 60) {
+      showToast('✅ Correct! But try to improve your speed.', 'success', 2500);
+    } else {
+      showToast('✅ Correct!', 'success', 1500);
+    }
+
+    checkStreakMilestone();
+
+  } else {
+    // Wrong answer
+    if (attemptNum === 1) {
+      // First wrong — allow retry
+      QUIZ_ENGINE.answers[qIndex] = {
+        selected: optIdx,
+        status: 'retry',
+        attempts: 1
+      };
+      showToast('❌ Wrong. Try again!', 'error', 1800);
+    } else {
+      // Second wrong — final
+      QUIZ_ENGINE.answers[qIndex] = {
+        selected: optIdx,
+        status: 'wrong',
+        attempts: 2,
+        timeTaken: timeTaken
+      };
+      QUIZ_ENGINE.streak = 0;
+
+      if (timeTaken > 60) {
+        showToast('❌ Focus on accuracy as well as speed.', 'error', 3000);
+      } else {
+        showToast('❌ Wrong.', 'error', 1800);
+      }
+    }
+  }
+
+  loadQuestion(qIndex);
+}
+
+/* ============================================================
+   STREAK MILESTONE
+   ============================================================ */
+function checkStreakMilestone() {
+  const s = QUIZ_ENGINE.streak;
+  const milestones = {
+    3: "You're on fire! 🔥",
+    5: "Unstoppable! 5 in a row! 🔥🔥",
+    7: "Legendary! 7 streak! 🔥🔥🔥",
+    10: "GOD MODE! 10 in a row! 🏆",
+    15: "Perfection! 15 streak! 👑",
+    20: "LEGENDARY! 20 in a row! 🌟"
+  };
+
+  if (milestones[s]) {
+    showStreakPopup(milestones[s], 'streak');
+  }
+
+  const streakEl = document.getElementById('quizStreak');
+  if (streakEl) {
+    if (s >= 2) streakEl.textContent = `🔥 Streak: ${s}`;
+    else streakEl.textContent = '';
+  }
+}
+
+function showStreakPopup(text, type) {
+  const popup = document.getElementById('streakPopup');
+  const textEl = document.getElementById('streakText');
+  const iconEl = popup?.querySelector('.streak-icon');
+  if (!popup || !textEl) return;
+  textEl.textContent = text;
+  if (iconEl) iconEl.textContent = '🔥';
+  popup.classList.add('show');
+  setTimeout(() => popup.classList.remove('show'), 1500);
+}
+
+/* ============================================================
+   TIMER
+   ============================================================ */
+function startTimer() {
+  stopTimer();
+
+  if (QUIZ_ENGINE.timerMode === 'total') {
+    // TEST MODE — 25 min total
+    QUIZ_ENGINE.timer = setInterval(() => {
+      QUIZ_ENGINE.totalTimeLeft--;
+      QUIZ_ENGINE.totalTime++;
+      updateTotalTimerDisplay();
+
+      if (QUIZ_ENGINE.totalTimeLeft <= 0) {
+        stopTimer();
+        showToast('⏰ Time up! Auto-submitting...', 'error', 3000);
+        setTimeout(() => submitQuiz(false), 1000);
+      }
+    }, 1000);
+  } else {
+    // QUIZ MODE — per question 60 sec
+    QUIZ_ENGINE.timeLeft = 60;
+    updateTimerDisplay();
+
+    QUIZ_ENGINE.timer = setInterval(() => {
+      QUIZ_ENGINE.timeLeft--;
+      QUIZ_ENGINE.totalTime++;
+      updateTimerDisplay();
+
+      // Skip suggestion at 60 sec
+      if (QUIZ_ENGINE.timeLeft <= 0 && !QUIZ_ENGINE.skipSuggestShown) {
+        QUIZ_ENGINE.skipSuggestShown = true;
+        showToast('⏰ You\'re taking too long. Consider skipping.', 'info', 4000);
+      }
+    }, 1000);
+  }
+}
+
+function resetQuestionTimer() {
+  if (QUIZ_ENGINE.mode === 'test') return; // test has total timer only
+  stopTimer();
+  QUIZ_ENGINE.timeLeft = 60;
+  QUIZ_ENGINE.skipSuggestShown = false;
+  updateTimerDisplay();
+  startTimer();
+}
+
+function stopTimer() {
+  if (QUIZ_ENGINE.timer) {
+    clearInterval(QUIZ_ENGINE.timer);
+    QUIZ_ENGINE.timer = null;
+  }
+}
+
+function updateTimerDisplay() {
+  const timerEl = document.getElementById('quizTimer');
+  if (!timerEl) return;
+
+  const t = QUIZ_ENGINE.timeLeft;
+  timerEl.textContent = t >= 0 ? t : '0';
+  timerEl.classList.remove('warning', 'danger');
+
+  if (t <= 5) timerEl.classList.add('danger');
+  else if (t <= 20) timerEl.classList.add('warning');
+}
+
+function updateTotalTimerDisplay() {
+  const timerEl = document.getElementById('quizTimer');
+  if (!timerEl) return;
+
+  const t = QUIZ_ENGINE.totalTimeLeft;
+  const min = Math.floor(t / 60);
+  const sec = t % 60;
+  timerEl.textContent = `${min}:${sec.toString().padStart(2, '0')}`;
+  timerEl.classList.remove('warning', 'danger');
+
+  if (t <= 60) timerEl.classList.add('danger');
+  else if (t <= 300) timerEl.classList.add('warning');
+}
+
+function saveQuestionTime() {
+  if (QUIZ_ENGINE.questionStartTime) {
+    const sec = Math.floor((Date.now() - QUIZ_ENGINE.questionStartTime) / 1000);
+    QUIZ_ENGINE.questionTimes[QUIZ_ENGINE.currentIndex] = sec;
+    QUIZ_ENGINE.questionStartTime = Date.now();
+  }
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+function updateNavigationButtons() {
+  const prev = document.getElementById('prevQuestionBtn');
+  const next = document.getElementById('nextQuestionBtn');
+  const skip = document.getElementById('skipQuestionBtn');
+
+  // Hide previous on 1st question
+  if (prev) {
+    if (QUIZ_ENGINE.currentIndex === 0) {
+      prev.style.display = 'none';
+    } else {
+      prev.style.display = '';
+      prev.disabled = false;
+    }
+  }
+
+  if (next) {
+    const isLast = QUIZ_ENGINE.currentIndex === QUIZ_ENGINE.questions.length - 1;
+    next.textContent = isLast ? 'Finish →' : 'Next →';
+  }
+
+  if (skip) {
+    skip.style.display = QUIZ_ENGINE.mode === 'test' ? 'none' : '';
+    const answered = QUIZ_ENGINE.answers[QUIZ_ENGINE.currentIndex];
+    skip.disabled = answered && answered.status === 'correct';
+  }
+}
+
+function nextQuestion() {
+  if (QUIZ_ENGINE.currentIndex < QUIZ_ENGINE.questions.length - 1) {
+    loadQuestion(QUIZ_ENGINE.currentIndex + 1);
+  } else {
+    if (confirm('This is the last question. Submit the quiz?')) {
+      submitQuiz(false);
+    }
+  }
+}
+
+function prevQuestion() {
+  if (QUIZ_ENGINE.currentIndex > 0) {
+    loadQuestion(QUIZ_ENGINE.currentIndex - 1);
+  }
+}
+
+function skipQuestion() {
+  if (QUIZ_ENGINE.mode === 'test') return;
+  const idx = QUIZ_ENGINE.currentIndex;
+  const existing = QUIZ_ENGINE.answers[idx];
+  if (existing && existing.status === 'correct') {
+    showToast('Cannot skip a correct answer', 'info');
+    return;
+  }
+  QUIZ_ENGINE.answers[idx] = { selected: null, status: 'skipped', attempts: 0 };
+  nextQuestion();
+}
+
+/* ============================================================
+   ANTI-CHEAT
+   ============================================================ */
+function startAntiCheat() {
+  document.addEventListener('visibilitychange', handleVisibilityChange);
+}
+
+function stopAntiCheat() {
+  document.removeEventListener('visibilitychange', handleVisibilityChange);
+}
+
+function handleVisibilityChange() {
+  if (!QUIZ_ENGINE.active) return;
+  if (document.hidden) {
+    onTabSwitchAway();
+  } else {
+    onTabReturn();
+  }
+}
+
+function onTabSwitchAway() {
+  QUIZ_ENGINE.tabBlurredAt = Date.now();
+  stopTimer();
+  const now = Date.now();
+  QUIZ_ENGINE.tabSwitchTimestamps = QUIZ_ENGINE.tabSwitchTimestamps.filter(t => now - t < 10000);
+  QUIZ_ENGINE.tabSwitchTimestamps.push(now);
+}
+
+function onTabReturn() {
+  if (!QUIZ_ENGINE.tabBlurredAt) return;
+  QUIZ_ENGINE.tabBlurredAt = null;
+
+  // Resume timer
+  startTimer();
+
+  const now = Date.now();
+  const recent = QUIZ_ENGINE.tabSwitchTimestamps.filter(t => now - t < 5000);
+
+  if (recent.length >= 2) {
+    QUIZ_ENGINE.warnings++;
+    if (QUIZ_ENGINE.warnings >= 2) {
+      if (!QUIZ_ENGINE.autoSubmitted) {
+        QUIZ_ENGINE.autoSubmitted = true;
+        showToast('🚨 Auto-submitting — multiple tab switches', 'error', 5000);
+        setTimeout(() => submitQuiz(true), 2000);
+      }
+    } else {
+      showToast('⚠️ Warning: Tab switching detected.', 'error', 4000);
+    }
+  }
+}
+
+/* ============================================================
+   WIRE UP QUIZ BUTTONS
+   ============================================================ */
+(function initQuizButtonsV2() {
+  const wire = () => {
+    const prev = document.getElementById('prevQuestionBtn');
+    const next = document.getElementById('nextQuestionBtn');
+    const skip = document.getElementById('skipQuestionBtn');
+    const submit = document.getElementById('submitQuizBtn');
+
+    if (prev) prev.addEventListener('click', prevQuestion);
+    if (next) next.addEventListener('click', nextQuestion);
+    if (skip) skip.addEventListener('click', skipQuestion);
+    if (submit) submit.addEventListener('click', () => {
+      if (confirm('Submit the quiz now?')) submitQuiz(false);
+    });
+
+    initModeSelection();
+
+    document.addEventListener('keydown', (e) => {
+      if (!QUIZ_ENGINE.active) return;
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+      if (['1','2','3','4'].includes(e.key)) {
+        const idx = parseInt(e.key) - 1;
+        const currentAns = QUIZ_ENGINE.answers[QUIZ_ENGINE.currentIndex];
+        if (!currentAns || currentAns.status === 'retry') {
+          selectOption(QUIZ_ENGINE.currentIndex, idx);
+        }
+      } else if (e.key === 'ArrowRight') nextQuestion();
+      else if (e.key === 'ArrowLeft') prevQuestion();
+      else if (e.key.toLowerCase() === 's') skipQuestion();
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', wire);
+  } else {
+    wire();
+  }
+})();
+
+// Wire Start Quiz button on Rules page → opens mode modal
+(function wireStartQuizBtn() {
+  const wire = () => {
+    const btn = document.getElementById('startQuizBtn');
+    if (btn) {
+      btn.addEventListener('click', () => {
+        if (!QUIZ_ENGINE.sheetId && APP_STATE.currentSheet) {
+          startQuiz(APP_STATE.currentSheet);
+        } else if (QUIZ_ENGINE.sheetId) {
+          const modal = document.getElementById('quizModeModal');
+          if (modal) modal.classList.add('show');
+        }
+      });
+    }
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', wire);
+  else wire();
+})();
+/* ============================================================
+   PART 3 — RESULT PAGE REWRITE
+   Submit, calculate, save, display
+   ============================================================ */
+
+/* ============================================================
+   SUBMIT QUIZ
+   ============================================================ */
+async function submitQuiz(autoSubmit = false) {
+  if (!QUIZ_ENGINE.active) return;
+  QUIZ_ENGINE.active = false;
+
+  stopTimer();
+  stopAntiCheat();
+  saveQuestionTime();
+
+  // Calculate result
+  const result = calculateResult(autoSubmit);
+
+  // Save to Firestore
+  await saveQuizHistory(result, autoSubmit);
+
+  // Show result page
+  showResultPage(result, autoSubmit);
+
+  // Log activity
+  logActivity(
+    `Completed ${QUIZ_ENGINE.meta.title} — ${result.score}/${result.maxMarks} (${QUIZ_ENGINE.mode})`,
+    '🏆',
+    { score: result.score, mode: QUIZ_ENGINE.mode }
+  );
+}
+
+/* ============================================================
+   CALCULATE RESULT
+   ============================================================ */
+function calculateResult(autoSubmit) {
+  const meta = QUIZ_ENGINE.meta;
+  const isTestMode = QUIZ_ENGINE.mode === 'test';
+
+  let correct = 0, wrong = 0, skipped = 0, unattempted = 0;
+  let score = 0;
+  const maxMarks = meta.marking.totalMarks;
+
+  // Per-question data
+  const perQuestion = [];
+
+  QUIZ_ENGINE.questions.forEach((q, i) => {
+    const ans = QUIZ_ENGINE.answers[i];
+    const timeSpent = QUIZ_ENGINE.questionTimes[i] || 0;
+
+    let status = 'unattempted';
+    let selected = null;
+
+    if (ans) {
+      selected = ans.selected;
+      if (ans.selected !== null && ans.selected !== undefined) {
+        const isCorrect = (ans.selected === q.answer);
+        if (isCorrect) {
+          status = 'correct';
+          correct++;
+          score += meta.marking.correct;
+        } else {
+          status = 'wrong';
+          wrong++;
+          score += meta.marking.wrong;
+        }
+      } else {
+        status = 'skipped';
+        skipped++;
+      }
+    } else {
+      unattempted++;
+    }
+
+    perQuestion.push({
+      index: i,
+      question: q.question,
+      options: q.options,
+      answer: q.answer,
+      explanation: q.explanation,
+      bonus: q.bonus || false,
+      selected: selected,
+      status: status,
+      timeSpent: timeSpent
+    });
+  });
+
+  // Projected score (if wrong were blank)
+  const projectedScore = score + (wrong * Math.abs(meta.marking.wrong));
+
+  // Time stats
+  const totalTimeSpent = isTestMode ? (25 * 60 - QUIZ_ENGINE.totalTimeLeft) : QUIZ_ENGINE.totalTime;
+  const attempted = correct + wrong;
+  const avgTime = attempted > 0 ? Math.round(totalTimeSpent / attempted) : 0;
+
+  // Weak concepts (questions where wrong or time > 60)
+  const weakConcepts = [];
+  perQuestion.forEach(pq => {
+    if (pq.status === 'wrong') {
+      weakConcepts.push({ type: 'wrong', index: pq.index, time: pq.timeSpent });
+    } else if (pq.status === 'skipped') {
+      weakConcepts.push({ type: 'skipped', index: pq.index, time: pq.timeSpent });
+    } else if (pq.timeSpent > 60 && pq.status === 'correct') {
+      weakConcepts.push({ type: 'slow', index: pq.index, time: pq.timeSpent });
+    }
+  });
+
+  return {
+    score: score,
+    maxMarks: maxMarks,
+    correct: correct,
+    wrong: wrong,
+    skipped: skipped,
+    unattempted: unattempted,
+    totalAttempted: attempted,
+    totalTimeSpent: totalTimeSpent,
+    avgTime: avgTime,
+    bestStreak: QUIZ_ENGINE.bestStreak,
+    projectedScore: projectedScore,
+    perQuestion: perQuestion,
+    weakConcepts: weakConcepts,
+    meta: meta,
+    mode: QUIZ_ENGINE.mode,
+    autoSubmit: autoSubmit
+  };
+}
+
+/* ============================================================
+   SAVE QUIZ HISTORY
+   ============================================================ */
+async function saveQuizHistory(result, autoSubmit) {
+  if (!APP_STATE.user) return;
+
+  try {
+    await db.collection('users').doc(APP_STATE.user.uid)
+      .collection('history')
+      .add({
+        quizId: QUIZ_ENGINE.sheetId,
+        series: result.meta.series,
+        sheetNumber: result.meta.sheetNumber,
+        title: result.meta.title,
+        mode: result.mode,
+        score: result.score,
+        maxMarks: result.maxMarks,
+        correct: result.correct,
+        wrong: result.wrong,
+        skipped: result.skipped,
+        unattempted: result.unattempted,
+        bestStreak: result.bestStreak,
+        totalTimeSpent: result.totalTimeSpent,
+        avgTime: result.avgTime,
+        autoSubmit: autoSubmit,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      });
+
+    await checkAndAwardAchievements(result);
+  } catch (err) {
+    console.warn('Save history error:', err);
+  }
+}
+
+/* ============================================================
+   ACHIEVEMENTS
+   ============================================================ */
+async function checkAndAwardAchievements(result) {
+  if (!APP_STATE.user) return;
+  const uid = APP_STATE.user.uid;
+  const achRef = db.collection('users').doc(uid).collection('achievements');
+
+  const percentage = (result.score / result.maxMarks) * 100;
+  const toAward = [];
+
+  // Perfect score
+  if (result.wrong === 0 && result.skipped === 0 && result.unattempted === 0 && result.correct > 0) {
+    toAward.push({
+      id: 'perfect-' + QUIZ_ENGINE.sheetId,
+      title: '💯 Perfect Score',
+      description: `${result.score}/${result.maxMarks} on ${result.meta.title}`
+    });
+  }
+
+  // 80%+
+  if (percentage >= 80) {
+    toAward.push({
+      id: 'excellent-' + QUIZ_ENGINE.sheetId,
+      title: '🌟 Excellent Performance',
+      description: `${percentage.toFixed(0)}% on ${result.meta.title}`
+    });
+  }
+
+  // 20-streak
+  if (result.bestStreak >= 20) {
+    toAward.push({
+      id: 'streak-20',
+      title: '👑 20-Streak Legend',
+      description: `Achieved a ${result.bestStreak} answer streak`
+    });
+  } else if (result.bestStreak >= 10) {
+    toAward.push({
+      id: 'streak-10',
+      title: '🔥 10-Streak Master',
+      description: `Achieved a ${result.bestStreak} answer streak`
+    });
+  }
+
+  for (const ach of toAward) {
+    const existing = await achRef.doc(ach.id).get();
+    if (!existing.exists) {
+      await achRef.doc(ach.id).set({
+        title: ach.title,
+        description: ach.description,
+        earnedAt: firebase.firestore.FieldValue.serverTimestamp()
+      });
+    }
+  }
+}
+
+/* ============================================================
+   SHOW RESULT PAGE
+   ============================================================ */
+function showResultPage(result, autoSubmit) {
+  const scoreEl = document.getElementById('resultScore');
+  const statsEl = document.getElementById('resultStats');
+  const msgEl = document.getElementById('resultMessage');
+  const expEl = document.getElementById('resultExplanations');
+
+  // Score
+  if (scoreEl) scoreEl.textContent = `${result.score} / ${result.maxMarks}`;
+
+  // Stats grid
+  if (statsEl) {
+    const minutes = Math.floor(result.totalTimeSpent / 60);
+    const seconds = result.totalTimeSpent % 60;
+    const timeStr = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+
+    statsEl.innerHTML = `
+      <div class="result-stat">
+        <div class="result-stat-value">${result.correct}</div>
+        <div class="result-stat-label">Correct</div>
+      </div>
+      <div class="result-stat">
+        <div class="result-stat-value">${result.wrong}</div>
+        <div class="result-stat-label">Wrong</div>
+      </div>
+      <div class="result-stat">
+        <div class="result-stat-value">${result.skipped + result.unattempted}</div>
+        <div class="result-stat-label">Skipped</div>
+      </div>
+      <div class="result-stat">
+        <div class="result-stat-value">${result.bestStreak}</div>
+        <div class="result-stat-label">Best Streak</div>
+      </div>
+      <div class="result-stat">
+        <div class="result-stat-value">${timeStr}</div>
+        <div class="result-stat-label">Total Time</div>
+      </div>
+      <div class="result-stat">
+        <div class="result-stat-value">${result.avgTime}s</div>
+        <div class="result-stat-label">Avg / Question</div>
+      </div>
+    `;
+  }
+
+  // Message
+  if (msgEl) {
+    let msg = '';
+    if (autoSubmit) {
+      msg = '🚨 <strong>Auto-submitted</strong> due to multiple tab switches.<br><br>';
+    }
+
+    if (result.mode === 'test') {
+      msg += `<strong>📝 Test Mode Analysis:</strong> `;
+    }
+
+    if (result.totalAttempted === 0) {
+      msg += '📝 No questions attempted. Try attempting some next time!';
+    } else if (result.wrong === 0 && result.correct > 0) {
+      msg += '🌟 Perfect! Every single attempt was correct.';
+    } else if (result.wrong > 0) {
+      const bonus = result.wrong * Math.abs(result.meta.marking.wrong);
+      msg += `💡 If wrong answers were left blank, you'd have scored <strong>${result.projectedScore}/${result.maxMarks}</strong> (${bonus} marks saved).`;
+    } else {
+      msg += '👍 Good attempt!';
+    }
+
+    msgEl.innerHTML = msg;
+  }
+
+  // Weak concepts
+  renderWeakConcepts(result);
+
+  // Explanations
+  if (expEl) {
+    expEl.innerHTML = result.perQuestion.map((pq, i) => {
+      const isCorrect = pq.status === 'correct';
+      const isWrong = pq.status === 'wrong';
+      const isSkipped = pq.status === 'skipped';
+      const isUnattempted = pq.status === 'unattempted';
+
+      let icon = '⏭️';
+      if (isCorrect) icon = '✅';
+      else if (isWrong) icon = '❌';
+      else if (isSkipped || isUnattempted) icon = '⏭️';
+
+      const yourAns = pq.selected !== null && pq.selected !== undefined ? pq.options[pq.selected] : 'Not attempted';
+
+      // Time badge color
+      let timeClass = '';
+      if (pq.timeSpent > 60) timeClass = 'style="color:#DC2626;"';
+
+      return `
+        <div class="explanation-item">
+          <div class="explanation-q">
+            ${icon} Q${i+1}. ${pq.question}
+            <span class="result-q-time">⏱ ${pq.timeSpent}s</span>
+          </div>
+          <div class="explanation-text">
+            <strong>Your answer:</strong> ${yourAns}<br>
+            <strong>Correct answer:</strong> ${pq.options[pq.answer]}<br>
+            <em>${pq.explanation || ''}</em>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // Store last result for retry
+  window._lastResult = result;
+
+  showPage('result');
+}
+
+/* ============================================================
+   WEAK CONCEPTS RENDER
+   ============================================================ */
+function renderWeakConcepts(result) {
+  // Remove existing section
+  const existing = document.getElementById('weakConceptsSection');
+  if (existing) existing.remove();
+
+  const expEl = document.getElementById('resultExplanations');
+  if (!expEl) return;
+
+  const container = document.createElement('div');
+  container.id = 'weakConceptsSection';
+
+  if (result.weakConcepts.length === 0) {
+    container.innerHTML = `
+      <div class="result-weak-concepts" style="border-left-color:#16A34A;background:linear-gradient(145deg,rgba(22,163,74,.06),rgba(22,163,74,.02));">
+        <h4 style="color:#16A34A;">✅ No Weak Areas Detected</h4>
+        <div class="weak-concept-item" style="color:var(--text-secondary);">
+          Excellent work! Every question was answered correctly and within time.
+        </div>
+      </div>
+    `;
+  } else {
+    const wrongCount = result.weakConcepts.filter(w => w.type === 'wrong').length;
+    const skippedCount = result.weakConcepts.filter(w => w.type === 'skipped').length;
+    const slowCount = result.weakConcepts.filter(w => w.type === 'slow').length;
+
+    let items = [];
+    if (wrongCount > 0) {
+      const qs = result.weakConcepts.filter(w => w.type === 'wrong').map(w => 'Q' + (w.index+1)).join(', ');
+      items.push(`<strong>Weak concepts</strong> — Review ${qs} carefully. These were answered incorrectly.`);
+    }
+    if (skippedCount > 0) {
+      const qs = result.weakConcepts.filter(w => w.type === 'skipped').map(w => 'Q' + (w.index+1)).join(', ');
+      items.push(`<strong>Skipped questions</strong> — ${qs}. Attempt these next time.`);
+    }
+    if (slowCount > 0) {
+      const qs = result.weakConcepts.filter(w => w.type === 'slow').map(w => 'Q' + (w.index+1)).join(', ');
+      items.push(`<strong>Speed to improve</strong> — ${qs}. Took more than 60 seconds.`);
+    }
+
+    container.innerHTML = `
+      <div class="result-weak-concepts">
+        <h4>🎯 Focus Areas</h4>
+        ${items.map(i => `<div class="weak-concept-item">${i}</div>`).join('')}
+      </div>
+    `;
+  }
+
+  // Insert before explanations
+  expEl.parentNode.insertBefore(container, expEl);
+}
+
+/* ============================================================
+   RESULT BUTTONS
+   ============================================================ */
+(function initResultButtonsV2() {
+  const wire = () => {
+    const homeBtn = document.getElementById('resultHomeBtn');
+    if (homeBtn) {
+      homeBtn.addEventListener('click', () => {
+        document.body.classList.remove('test-mode');
+        showPage('courses');
+      });
+    }
+
+    const retryBtn = document.getElementById('retryWrongBtn');
+    if (retryBtn) {
+      retryBtn.addEventListener('click', () => {
+        const result = window._lastResult;
+        if (!result) {
+          showToast('No result to retry', 'error');
+          return;
+        }
+
+        // Only wrong questions
+        const wrongQs = result.perQuestion.filter(pq => pq.status === 'wrong');
+        if (wrongQs.length === 0) {
+          showToast('🎉 No wrong questions to retry!', 'success');
+          return;
+        }
+
+        // Setup retry quiz
+        QUIZ_ENGINE.active = true;
+        QUIZ_ENGINE.mode = 'quiz'; // retry is always quiz mode
+        QUIZ_ENGINE.sheetId = result.meta.id + '-retry';
+        QUIZ_ENGINE.meta = { ...result.meta, title: result.meta.title + ' (Retry)' };
+        QUIZ_ENGINE.questions = wrongQs.map(pq => ({
+          question: pq.question,
+          options: pq.options,
+          answer: pq.answer,
+          explanation: pq.explanation,
+          bonus: pq.bonus
+        }));
+        QUIZ_ENGINE.currentIndex = 0;
+        QUIZ_ENGINE.answers = {};
+        QUIZ_ENGINE.attempts = {};
+        QUIZ_ENGINE.streak = 0;
+        QUIZ_ENGINE.bestStreak = 0;
+        QUIZ_ENGINE.startTime = Date.now();
+        QUIZ_ENGINE.questionStartTime = Date.now();
+        QUIZ_ENGINE.questionTimes = new Array(QUIZ_ENGINE.questions.length).fill(0);
+        QUIZ_ENGINE.totalTime = 0;
+        QUIZ_ENGINE.skipSuggestShown = false;
+        QUIZ_ENGINE.autoSubmitted = false;
+        QUIZ_ENGINE.tabSwitchTimestamps = [];
+        QUIZ_ENGINE.warnings = 0;
+        QUIZ_ENGINE.timeLeft = 60;
+        QUIZ_ENGINE.timerMode = 'per-question';
+
+        document.body.classList.remove('test-mode');
+
+        showPage('quiz');
+        buildPalette();
+        loadQuestion(0);
+        startTimer();
+        startAntiCheat();
+
+        showToast(`🔁 Retrying ${wrongQs.length} wrong questions`, 'info', 2500);
+      });
+    }
+
+    // Download buttons
+    const dlQ = document.getElementById('downloadQuestionsBtn');
+    const dlA = document.getElementById('downloadAnswersBtn');
+    if (dlQ) {
+      dlQ.addEventListener('click', async () => {
+        const meta = QUIZ_ENGINE.meta;
+        if (!meta) return;
+        window.open(meta.downloadQuestions || 'https://t.me/Apex20LR/57', '_blank');
+        if (typeof logDownload === 'function') {
+          await logDownload('Questions PDF — ' + meta.title, meta.downloadQuestions);
+        }
+        showToast('📄 Opening Questions PDF...', 'success');
+      });
+    }
+    if (dlA) {
+      dlA.addEventListener('click', async () => {
+        const meta = QUIZ_ENGINE.meta;
+        if (!meta) return;
+        window.open(meta.downloadAnswers || 'https://t.me/Apex20LR/58', '_blank');
+        if (typeof logDownload === 'function') {
+          await logDownload('Answers PDF — ' + meta.title, meta.downloadAnswers);
+        }
+        showToast('📄 Opening Answers PDF...', 'success');
+      });
+    }
+  };
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', wire);
+  else wire();
+})();
+/* ============================================================
+   PART 4 — CLEANUP + GUARDS
+   1. Debounce selectOption (prevents double-fire)
+   2. Clone + rewire all critical buttons (removes duplicate listeners)
+   3. Named retry function
+   ============================================================ */
+
+(function part4Cleanup() {
+  if (window.__PART4_DONE__) return;
+  window.__PART4_DONE__ = true;
+
+  /* ---------- 1. Debounce selectOption wrapper ---------- */
+  let __selOptLock = 0;
+  const _origSelectOption = selectOption;
+  selectOption = function(qIdx, optIdx) {
+    const now = Date.now();
+    if (now - __selOptLock < 60) return; // 60ms window for same-tick double-calls
+    __selOptLock = now;
+    return _origSelectOption(qIdx, optIdx);
+  };
+
+  /* ---------- 2. Named retry function ---------- */
+  window.retryWrongQuestionsV2 = function() {
+    const result = window._lastResult;
+    if (!result) { showToast('No result to retry', 'error'); return; }
+
+    const wrongQs = result.perQuestion.filter(pq => pq.status === 'wrong');
+    if (wrongQs.length === 0) { showToast('🎉 No wrong questions to retry!', 'success'); return; }
+
+    QUIZ_ENGINE.active = true;
+    QUIZ_ENGINE.mode = 'quiz';
+    QUIZ_ENGINE.sheetId = (result.meta.id || 'apex') + '-retry';
+    QUIZ_ENGINE.meta = { ...result.meta, title: result.meta.title + ' (Retry)' };
+    QUIZ_ENGINE.questions = wrongQs.map(pq => ({
+      question: pq.question,
+      options: pq.options,
+      answer: pq.answer,
+      explanation: pq.explanation,
+      bonus: pq.bonus
+    }));
+    QUIZ_ENGINE.currentIndex = 0;
+    QUIZ_ENGINE.answers = {};
+    QUIZ_ENGINE.attempts = {};
+    QUIZ_ENGINE.streak = 0;
+    QUIZ_ENGINE.bestStreak = 0;
+    QUIZ_ENGINE.startTime = Date.now();
+    QUIZ_ENGINE.questionStartTime = Date.now();
+    QUIZ_ENGINE.questionTimes = new Array(QUIZ_ENGINE.questions.length).fill(0);
+    QUIZ_ENGINE.totalTime = 0;
+    QUIZ_ENGINE.skipSuggestShown = false;
+    QUIZ_ENGINE.autoSubmitted = false;
+    QUIZ_ENGINE.tabSwitchTimestamps = [];
+    QUIZ_ENGINE.warnings = 0;
+    QUIZ_ENGINE.timeLeft = 60;
+    QUIZ_ENGINE.timerMode = 'per-question';
+
+    document.body.classList.remove('test-mode');
+    showPage('quiz');
+    buildPalette();
+    loadQuestion(0);
+    startTimer();
+    startAntiCheat();
+    showToast(`🔁 Retrying ${wrongQs.length} wrong questions`, 'info', 2500);
+  };
+
+  /* ---------- 3. Clone + Rewire ---------- */
+  function strip(el) {
+    if (!el || !el.parentNode) return null;
+    const clone = el.cloneNode(true);
+    el.parentNode.replaceChild(clone, el);
+    return clone;
+  }
+
+  function rewire() {
+    // Quiz buttons
+    const prev = strip(document.getElementById('prevQuestionBtn'));
+    const next = strip(document.getElementById('nextQuestionBtn'));
+    const skip = strip(document.getElementById('skipQuestionBtn'));
+    const submit = strip(document.getElementById('submitQuizBtn'));
+    const startBtn = strip(document.getElementById('startQuizBtn'));
+
+    if (prev) prev.addEventListener('click', () => prevQuestion());
+    if (next) next.addEventListener('click', () => nextQuestion());
+    if (skip) skip.addEventListener('click', () => skipQuestion());
+    if (submit) submit.addEventListener('click', () => {
+      if (confirm('Submit the quiz now?')) submitQuiz(false);
+    });
+    if (startBtn) startBtn.addEventListener('click', () => {
+      if (APP_STATE.currentSheet) startQuiz(APP_STATE.currentSheet);
+    });
+
+    // Mode options
+    document.querySelectorAll('.mode-option').forEach(btn => {
+      const fresh = strip(btn);
+      if (fresh) fresh.addEventListener('click', () => {
+        const mode = fresh.dataset.mode;
+        const modal = document.getElementById('quizModeModal');
+        if (modal) modal.classList.remove('show');
+        beginQuizWithMode(mode);
+      });
+    });
+
+    // Result buttons
+    const home = strip(document.getElementById('resultHomeBtn'));
+    const retry = strip(document.getElementById('retryWrongBtn'));
+    const dlQ = strip(document.getElementById('downloadQuestionsBtn'));
+    const dlA = strip(document.getElementById('downloadAnswersBtn'));
+
+    if (home) home.addEventListener('click', () => {
+      document.body.classList.remove('test-mode');
+      showPage('courses');
+    });
+    if (retry) retry.addEventListener('click', window.retryWrongQuestionsV2);
+    if (dlQ) dlQ.addEventListener('click', () => {
+      const meta = QUIZ_ENGINE.meta;
+      if (meta) {
+        window.open(meta.downloadQuestions || 'https://t.me/Apex20LR/57', '_blank');
+        showToast('📄 Opening Questions PDF...', 'success');
+      }
+    });
+    if (dlA) dlA.addEventListener('click', () => {
+      const meta = QUIZ_ENGINE.meta;
+      if (meta) {
+        window.open(meta.downloadAnswers || 'https://t.me/Apex20LR/58', '_blank');
+        showToast('📄 Opening Answers PDF...', 'success');
+      }
+    });
+
+    // Nav links
+    document.querySelectorAll('.nav-link').forEach(link => {
+      const fresh = strip(link);
+      if (fresh) fresh.addEventListener('click', (e) => {
+        e.preventDefault();
+        const page = fresh.dataset.page;
+        if (page === 'contact') {
+          const cm = document.getElementById('contactModal');
+          if (cm) cm.classList.add('show');
+        } else {
+          showPage(page);
+        }
+      });
+    });
+
+    
+
+    // Course cards
+    document.querySelectorAll('.course-card.clickable').forEach(card => {
+      const fresh = strip(card);
+      if (fresh) fresh.addEventListener('click', () => {
+        const seriesId = fresh.dataset.course;
+        if (typeof showSeriesDetail === 'function') showSeriesDetail(seriesId);
+      });
+    });
+
+    // Back button on series detail
+    const seriesBack = strip(document.getElementById('seriesBackBtn'));
+    if (seriesBack) seriesBack.addEventListener('click', () => showPage('courses'));
+
+    console.log('%c✅ Part 4 — Cleanup done. No double-listeners.', 'color:#16A34A;font-weight:bold;font-size:13px;');
+  }
+
+  // Run after DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => setTimeout(rewire, 250));
+  } else {
+    setTimeout(rewire, 250);
+  }
+})();
+/* ============================================================
+   QUIZ MODE MODAL — Close button + ESC key + backdrop click
+   ============================================================ */
+(function initQuizModeClose() {
+  function wire() {
+    const closeBtn = document.getElementById('quizModeClose');
+    const modal = document.getElementById('quizModeModal');
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        if (modal) modal.classList.remove('show');
+        // Reset quiz state since user cancelled
+        QUIZ_ENGINE.active = false;
+        QUIZ_ENGINE.sheetId = null;
+        QUIZ_ENGINE.meta = null;
+        QUIZ_ENGINE.questions = [];
+      });
+    }
+
+    // Backdrop click closes modal
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('show');
+          QUIZ_ENGINE.active = false;
+          QUIZ_ENGINE.sheetId = null;
+          QUIZ_ENGINE.meta = null;
+          QUIZ_ENGINE.questions = [];
+        }
+      });
+    }
+
+    // ESC key closes modal
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal && modal.classList.contains('show')) {
+        modal.classList.remove('show');
+        QUIZ_ENGINE.active = false;
+        QUIZ_ENGINE.sheetId = null;
+        QUIZ_ENGINE.meta = null;
+        QUIZ_ENGINE.questions = [];
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => setTimeout(wire, 300));
+  } else {
+    setTimeout(wire, 300);
+  }
+})();
+/* ============================================================
+   EXPLORE NOW — Document-level event delegation (bulletproof)
+   ============================================================ */
+document.addEventListener('click', function(e) {
+  const btn = e.target.closest('#exploreNowBtn');
+  if (btn) {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('🔘 Explore Now clicked');
+    if (typeof showPage === 'function') {
+      showPage('courses');
+    }
+  }
+}, true);
 </script>
 
 </body>
