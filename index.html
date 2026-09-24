@@ -6036,6 +6036,56 @@ body > button.back-btn,
   opacity: 0 !important;
   pointer-events: none !important;
 }
+/* ============================================================
+   HIDE SCROLLBAR BUTTONS (Windows 11 scrollbar arrows)
+   ============================================================ */
+
+/* Hide scrollbar arrow buttons globally */
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment,
+::-webkit-scrollbar-button:vertical:start:decrement,
+::-webkit-scrollbar-button:vertical:end:increment {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Make scrollbars clean */
+::-webkit-scrollbar {
+  width: 6px !important;
+  height: 6px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium) !important;
+  border-radius: 3px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-gold) !important;
+}
+
+/* For the specific page element */
+.page::-webkit-scrollbar-button,
+.page-wrapper::-webkit-scrollbar-button,
+.page-wrap::-webkit-scrollbar-button {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-medium) transparent;
+}
 </style>
 </head>
 <body data-theme="light">
