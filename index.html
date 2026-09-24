@@ -6036,6 +6036,69 @@ body > button.back-btn,
   opacity: 0 !important;
   pointer-events: none !important;
 }
+      /* ============================================================
+   KILL EVERYTHING ON EDGES
+   ============================================================ */
+html, body {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  max-width: 100vw !important;
+  width: 100vw !important;
+  position: relative !important;
+}
+
+/* Remove ALL scrollbars visually */
+* {
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--border-light);
+  border-radius: 3px;
+}
+
+/* Remove scroll arrows (browser's arrow buttons) */
+::-webkit-scrollbar-button {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment,
+::-webkit-scrollbar-button:vertical:start:decrement,
+::-webkit-scrollbar-button:vertical:end:increment,
+::-webkit-scrollbar-button:horizontal:start:decrement,
+::-webkit-scrollbar-button:horizontal:end:increment {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+/* Hide any element that could be an arrow at edge */
+.back-btn,
+.global-back,
+#globalBackBtn,
+.scroll-indicator,
+.scroll-arrow,
+.zen-arrow,
+.slider-arrow,
+.nav-arrow,
+.left-arrow,
+.right-arrow {
+  display: none !important;
+}
 </style>
 </head>
 <body data-theme="light">
@@ -10547,6 +10610,38 @@ function renderWeakConcepts(result) {
     document.addEventListener('DOMContentLoaded', () => setTimeout(wire, 300));
   } else {
     setTimeout(wire, 300);
+  }
+})();
+      /* ============================================================
+   EXPLORE NOW — Robust click handler
+   ============================================================ */
+(function fixExploreNow() {
+  function wire() {
+    const btn = document.getElementById('exploreNowBtn');
+    if (!btn) {
+      console.warn('Explore Now button not found');
+      return;
+    }
+
+    // Remove all listeners by cloning
+    const freshBtn = btn.cloneNode(true);
+    btn.parentNode.replaceChild(freshBtn, btn);
+
+    // Attach fresh listener
+    freshBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      console.log('🔘 Explore Now clicked');
+      showPage('courses');
+    });
+
+    console.log('✅ Explore Now wired');
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => setTimeout(wire, 500));
+  } else {
+    setTimeout(wire, 500);
   }
 })();
 </script>
