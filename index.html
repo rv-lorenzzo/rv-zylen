@@ -1712,23 +1712,25 @@ body[data-theme="dark"] .welcome-cta-btn {
   max-width: 380px;
 }
 
+/* Modal close button */
 .modal-close {
   position: absolute;
   top: 16px;
   right: 16px;
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   border: 1px solid var(--border-light);
   background: var(--bg-elevated);
   color: var(--text-muted);
   cursor: pointer;
-  font-size: .9rem;
+  font-size: .95rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all .2s ease;
+  transition: all .25s ease;
   font-family: inherit;
+  z-index: 10;
 }
 
 .modal-close:hover {
@@ -6319,9 +6321,10 @@ body[data-theme="dark"] .result-weak-concepts h4 {
         <!-- ==========================================================
          QUIZ MODE SELECTION MODAL
          ========================================================== -->
-    <div class="modal" id="quizModeModal">
+    <    <div class="modal" id="quizModeModal">
       <div class="modal-box quiz-mode-box">
-        <h3>Choose Quiz Mode</h3>
+        <button class="modal-close" id="quizModeClose">✕</button>
+        <h3>Choose Mode</h3>
         <p>How do you want to attempt this quiz?</p>
         <div class="mode-options">
           <button class="mode-option" data-mode="quiz">
@@ -10358,6 +10361,56 @@ function renderWeakConcepts(result) {
     document.addEventListener('DOMContentLoaded', () => setTimeout(rewire, 250));
   } else {
     setTimeout(rewire, 250);
+  }
+})();
+/* ============================================================
+   QUIZ MODE MODAL — Close button + ESC key + backdrop click
+   ============================================================ */
+(function initQuizModeClose() {
+  function wire() {
+    const closeBtn = document.getElementById('quizModeClose');
+    const modal = document.getElementById('quizModeModal');
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        if (modal) modal.classList.remove('show');
+        // Reset quiz state since user cancelled
+        QUIZ_ENGINE.active = false;
+        QUIZ_ENGINE.sheetId = null;
+        QUIZ_ENGINE.meta = null;
+        QUIZ_ENGINE.questions = [];
+      });
+    }
+
+    // Backdrop click closes modal
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('show');
+          QUIZ_ENGINE.active = false;
+          QUIZ_ENGINE.sheetId = null;
+          QUIZ_ENGINE.meta = null;
+          QUIZ_ENGINE.questions = [];
+        }
+      });
+    }
+
+    // ESC key closes modal
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal && modal.classList.contains('show')) {
+        modal.classList.remove('show');
+        QUIZ_ENGINE.active = false;
+        QUIZ_ENGINE.sheetId = null;
+        QUIZ_ENGINE.meta = null;
+        QUIZ_ENGINE.questions = [];
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => setTimeout(wire, 300));
+  } else {
+    setTimeout(wire, 300);
   }
 })();
 </script>
