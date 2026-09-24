@@ -5582,6 +5582,327 @@ body[data-theme="dark"] .course-cta {
     font-size: .8rem !important;
   }
 }
+/* ============================================================
+   QUIZ MODE SELECTION MODAL
+   ============================================================ */
+.quiz-mode-box {
+  max-width: 560px;
+}
+
+.quiz-mode-box h3 {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.quiz-mode-box > p {
+  text-align: center;
+  margin-bottom: 26px;
+  color: var(--text-muted);
+}
+
+.mode-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.mode-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 26px 18px;
+  background: var(--bg-elevated);
+  border: 2px solid var(--border-light);
+  border-radius: 16px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all .35s cubic-bezier(.34,1.56,.64,1);
+  position: relative;
+  overflow: hidden;
+}
+
+.mode-option::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #9A7530, #D4AF37);
+  transition: all .4s ease;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.mode-option:hover::before {
+  width: 80%;
+}
+
+.mode-option:hover {
+  border-color: var(--accent-gold);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(184,147,74,.25);
+}
+
+.mode-option[data-mode="quiz"]:hover {
+  background: linear-gradient(145deg, rgba(212,175,55,.08), rgba(212,175,55,.02));
+}
+
+.mode-option[data-mode="test"]:hover {
+  background: linear-gradient(145deg, rgba(128,0,32,.08), rgba(128,0,32,.02));
+}
+
+.mode-option[data-mode="test"]:hover::before {
+  background: linear-gradient(90deg, #800020, #C04040);
+}
+
+.mode-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.mode-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  letter-spacing: .5px;
+}
+
+.mode-desc {
+  font-size: .72rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+@media (max-width: 600px) {
+  .mode-options {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .mode-option {
+    padding: 20px 16px;
+  }
+
+  .mode-icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
+  }
+
+  .mode-title {
+    font-size: 1.15rem;
+  }
+}
+
+/* ============================================================
+   PALETTE — FIXED COLORS
+   ============================================================ */
+.palette-btn {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 10px !important;
+  border: 1.5px solid var(--border-medium) !important;
+  background: #FFFFFF !important;
+  color: #1A1410 !important;
+  font-family: inherit;
+  font-size: .8rem !important;
+  font-weight: 700 !important;
+  cursor: pointer;
+  transition: all .25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+body[data-theme="dark"] .palette-btn {
+  background: #2A161C !important;
+  color: #F5EDD6 !important;
+  border-color: rgba(212,185,106,.3) !important;
+}
+
+.palette-btn:hover {
+  transform: scale(1.08);
+}
+
+/* Current question — GOLD ring */
+.palette-btn.current {
+  border: 2.5px solid #D4AF37 !important;
+  box-shadow: 0 0 0 3px rgba(212,175,55,.3), 0 0 20px rgba(212,175,55,.4) !important;
+  font-weight: 800 !important;
+}
+
+/* Correct — GREEN */
+.palette-btn.correct {
+  background: #16A34A !important;
+  color: #FFFFFF !important;
+  border-color: #16A34A !important;
+}
+
+/* Wrong — RED */
+.palette-btn.wrong {
+  background: #DC2626 !important;
+  color: #FFFFFF !important;
+  border-color: #DC2626 !important;
+}
+
+/* Skipped — GRAY */
+.palette-btn.skipped {
+  background: #9CA3AF !important;
+  color: #FFFFFF !important;
+  border-color: #9CA3AF !important;
+}
+
+/* Visited — Purple */
+.palette-btn.visited {
+  background: #9333EA !important;
+  color: #FFFFFF !important;
+  border-color: #9333EA !important;
+}
+
+/* Review — Orange */
+.palette-btn.review {
+  background: #F59E0B !important;
+  color: #1A1410 !important;
+  border-color: #F59E0B !important;
+}
+
+/* Test mode — answered (blue-ish) */
+.palette-btn.answered-test {
+  background: #3B82F6 !important;
+  color: #FFFFFF !important;
+  border-color: #3B82F6 !important;
+}
+
+/* ============================================================
+   COURSES PAGE — MOBILE SCROLL FIX
+   ============================================================ */
+@media (max-width: 899px) {
+  #page-courses.active {
+    display: flex !important;
+    flex-direction: column !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding-bottom: 80px !important;
+  }
+
+  #page-courses .courses-grid {
+    padding: 0 18px 40px !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Ensure the page wrapper allows scroll */
+  .page-wrapper {
+    overflow: visible !important;
+  }
+}
+
+/* Also fix desktop courses scroll if content overflows */
+#page-courses {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ============================================================
+   QUESTION FEEDBACK — Time-based messages
+   ============================================================ */
+.question-feedback.time-slow-correct {
+  background: rgba(212,175,55,.12);
+  border: 1px solid rgba(212,175,55,.4);
+  color: #8A6D28;
+}
+
+.question-feedback.time-slow-wrong {
+  background: rgba(220,38,38,.1);
+  border: 1px solid rgba(220,38,38,.35);
+  color: #DC2626;
+}
+
+body[data-theme="dark"] .question-feedback.time-slow-correct {
+  color: #D4AF37;
+}
+
+/* ============================================================
+   PER-QUESTION TIME IN RESULT
+   ============================================================ */
+.result-q-time {
+  display: inline-block;
+  padding: 2px 10px;
+  background: rgba(154,117,48,.12);
+  color: var(--accent-gold);
+  border-radius: 9999px;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .5px;
+  margin-left: 8px;
+}
+
+body[data-theme="dark"] .result-q-time {
+  background: rgba(212,175,55,.15);
+}
+
+.result-weak-concepts {
+  margin: 24px 0;
+  padding: 20px 24px;
+  background: linear-gradient(145deg, rgba(128,0,32,.06), rgba(128,0,32,.02));
+  border-left: 4px solid #800020;
+  border-radius: 0 14px 14px 0;
+}
+
+.result-weak-concepts h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #800020;
+  margin-bottom: 12px;
+}
+
+body[data-theme="dark"] .result-weak-concepts h4 {
+  color: #E8A8B8;
+}
+
+.weak-concept-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: .82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.weak-concept-item::before {
+  content: "→";
+  color: #800020;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* Test mode - no answer shown during quiz */
+.test-mode .question-feedback {
+  display: none !important;
+}
+
+.test-mode .option-btn.correct,
+.test-mode .option-btn.wrong {
+  /* In test mode, don't reveal correct/wrong */
+  border-color: var(--accent-gold) !important;
+  background: rgba(212,175,55,.1) !important;
+  color: var(--text-primary) !important;
+}
+
+.test-mode .option-btn.correct .option-letter,
+.test-mode .option-btn.wrong .option-letter {
+  background: var(--accent-gold) !important;
+  color: var(--text-inverse) !important;
+  border-color: var(--accent-gold) !important;
+}
 </style>
 </head>
 <body data-theme="light">
@@ -5993,6 +6314,27 @@ body[data-theme="dark"] .course-cta {
           <button type="submit">Send</button>
         </form>
         <div id="suggestionStatusModal" class="suggestion-status"></div>
+      </div>
+    </div>
+        <!-- ==========================================================
+         QUIZ MODE SELECTION MODAL
+         ========================================================== -->
+    <div class="modal" id="quizModeModal">
+      <div class="modal-box quiz-mode-box">
+        <h3>Choose Quiz Mode</h3>
+        <p>How do you want to attempt this quiz?</p>
+        <div class="mode-options">
+          <button class="mode-option" data-mode="quiz">
+            <div class="mode-icon">⚡</div>
+            <div class="mode-title">Quiz Mode</div>
+            <div class="mode-desc">Instant answers + explanations. Streak tracking enabled.</div>
+          </button>
+          <button class="mode-option" data-mode="test">
+            <div class="mode-icon">📝</div>
+            <div class="mode-title">Test Mode</div>
+            <div class="mode-desc">Attempt all questions first. Review answers at the end. 25 minutes.</div>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -8699,6 +9041,1323 @@ function showSeriesDetail(seriesId) {
     document.addEventListener('DOMContentLoaded', tryWire);
   } else {
     tryWire();
+  }
+})();
+/* ============================================================
+   PART 2 — QUIZ ENGINE REWRITE
+   Mode selection + Timer + Retry + Palette + Test mode
+   ============================================================ */
+
+const QUIZ_ENGINE = {
+  mode: 'quiz',           // 'quiz' or 'test'
+  sheetId: null,
+  meta: null,
+  questions: [],
+  currentIndex: 0,
+  answers: {},            // { qIdx: { selected, status, attempts } }
+  attempts: {},           // { qIdx: number }
+  streak: 0,
+  bestStreak: 0,
+  startTime: null,
+  questionStartTime: null,
+  questionTimes: [],      // per question seconds
+  totalTime: 0,
+  timer: null,
+  timerMode: null,        // 'per-question' or 'total'
+  timeLeft: 60,           // for quiz mode
+  totalTimeLeft: 1500,    // 25 min for test mode
+  skipSuggestShown: false,
+  active: false,
+  autoSubmitted: false,
+  tabSwitchTimestamps: [],
+  warnings: 0,
+  tabBlurredAt: null
+};
+
+/* ============================================================
+   START QUIZ (called from rules page)
+   ============================================================ */
+function startQuiz(sheetId) {
+  const meta = QUIZ_METADATA[sheetId];
+  if (!meta) { showToast('❌ Quiz not found', 'error'); return; }
+
+  const questions = (typeof QUIZ_DATA !== 'undefined' && QUIZ_DATA[sheetId]) ? QUIZ_DATA[sheetId] : null;
+  if (!questions || questions.length === 0) {
+    showToast('⚠️ Questions loading... try again', 'info');
+    return;
+  }
+
+  // Show mode selection modal
+  QUIZ_ENGINE.sheetId = sheetId;
+  QUIZ_ENGINE.meta = meta;
+  QUIZ_ENGINE.questions = questions;
+
+  const modal = document.getElementById('quizModeModal');
+  if (modal) modal.classList.add('show');
+}
+
+/* ============================================================
+   MODE SELECTION HANDLERS
+   ============================================================ */
+function initModeSelection() {
+  document.querySelectorAll('.mode-option').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const mode = btn.dataset.mode;
+      const modal = document.getElementById('quizModeModal');
+      if (modal) modal.classList.remove('show');
+      beginQuizWithMode(mode);
+    });
+  });
+}
+
+function beginQuizWithMode(mode) {
+  QUIZ_ENGINE.mode = mode;
+  QUIZ_ENGINE.active = true;
+  QUIZ_ENGINE.currentIndex = 0;
+  QUIZ_ENGINE.answers = {};
+  QUIZ_ENGINE.attempts = {};
+  QUIZ_ENGINE.streak = 0;
+  QUIZ_ENGINE.bestStreak = 0;
+  QUIZ_ENGINE.startTime = Date.now();
+  QUIZ_ENGINE.questionStartTime = Date.now();
+  QUIZ_ENGINE.questionTimes = new Array(QUIZ_ENGINE.questions.length).fill(0);
+  QUIZ_ENGINE.totalTime = 0;
+  QUIZ_ENGINE.skipSuggestShown = false;
+  QUIZ_ENGINE.autoSubmitted = false;
+  QUIZ_ENGINE.tabSwitchTimestamps = [];
+  QUIZ_ENGINE.warnings = 0;
+  QUIZ_ENGINE.tabBlurredAt = null;
+
+  if (mode === 'test') {
+    QUIZ_ENGINE.totalTimeLeft = 25 * 60; // 25 minutes
+    QUIZ_ENGINE.timerMode = 'total';
+    document.body.classList.add('test-mode');
+  } else {
+    QUIZ_ENGINE.timeLeft = 60;
+    QUIZ_ENGINE.timerMode = 'per-question';
+    document.body.classList.remove('test-mode');
+  }
+
+  // Update sheet name
+  const sheetNameEl = document.getElementById('quizSheetName');
+  if (sheetNameEl) {
+    const modeLabel = mode === 'test' ? ' · TEST' : ' · QUIZ';
+    sheetNameEl.textContent = meta.series + ' — Sheet ' + meta.sheetNumber + modeLabel;
+  }
+
+  showPage('quiz');
+  buildPalette();
+  loadQuestion(0);
+  startTimer();
+  startAntiCheat();
+
+  logActivity('Started ' + meta.title + ' (' + mode + ')', '🎯');
+}
+
+/* ============================================================
+   BUILD PALETTE
+   ============================================================ */
+function buildPalette() {
+  const palette = document.getElementById('quizPalette');
+  if (!palette) return;
+
+  palette.innerHTML = QUIZ_ENGINE.questions.map((q, i) => {
+    const isBonus = q.bonus ? ' (B)' : '';
+    return `<button class="palette-btn" data-idx="${i}" title="Q${i+1}${isBonus}">${i+1}</button>`;
+  }).join('');
+
+  palette.querySelectorAll('.palette-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const idx = parseInt(btn.dataset.idx);
+      loadQuestion(idx);
+    });
+  });
+
+  updatePalette();
+}
+
+function updatePalette() {
+  const palette = document.getElementById('quizPalette');
+  if (!palette) return;
+
+  palette.querySelectorAll('.palette-btn').forEach((btn, i) => {
+    btn.classList.remove('current', 'visited', 'correct', 'wrong', 'review', 'skipped', 'answered-test');
+
+    if (i === QUIZ_ENGINE.currentIndex) btn.classList.add('current');
+
+    const ans = QUIZ_ENGINE.answers[i];
+    if (!ans) return;
+
+    if (QUIZ_ENGINE.mode === 'test') {
+      // Test mode — just show answered
+      if (ans.selected !== null && ans.selected !== undefined) {
+        btn.classList.add('answered-test');
+      }
+    } else {
+      // Quiz mode — show status
+      if (ans.status === 'correct') btn.classList.add('correct');
+      else if (ans.status === 'wrong') btn.classList.add('wrong');
+      else if (ans.status === 'skipped') btn.classList.add('skipped');
+      else if (ans.status === 'retry') btn.classList.add('visited'); // first wrong, retry allowed
+      else if (ans.status === 'review') btn.classList.add('review');
+    }
+  });
+}
+
+/* ============================================================
+   LOAD QUESTION
+   ============================================================ */
+function loadQuestion(index) {
+  if (index < 0 || index >= QUIZ_ENGINE.questions.length) return;
+
+  // Save time for previous question
+  if (QUIZ_ENGINE.currentIndex !== index && QUIZ_ENGINE.active) {
+    saveQuestionTime();
+  }
+
+  QUIZ_ENGINE.currentIndex = index;
+  QUIZ_ENGINE.questionStartTime = Date.now();
+  QUIZ_ENGINE.skipSuggestShown = false;
+
+  const q = QUIZ_ENGINE.questions[index];
+  const meta = QUIZ_ENGINE.meta;
+
+  // Sheet name
+  const sheetNameEl = document.getElementById('quizSheetName');
+  if (sheetNameEl) {
+    const modeLabel = QUIZ_ENGINE.mode === 'test' ? ' · TEST' : ' · QUIZ';
+    sheetNameEl.textContent = `${meta.series} — Sheet ${meta.sheetNumber}${modeLabel} — Q${index+1}/${QUIZ_ENGINE.questions.length}`;
+  }
+
+  // Image
+  const imgContainer = document.getElementById('questionImageContainer');
+  const imgEl = document.getElementById('questionImage');
+  if (q.image) {
+    if (imgContainer) imgContainer.style.display = 'block';
+    if (imgEl) imgEl.src = q.image;
+  } else {
+    if (imgContainer) imgContainer.style.display = 'none';
+  }
+
+  // Question text
+  const qText = document.getElementById('questionText');
+  if (qText) {
+    const bonusTag = q.bonus ? ' <span style="color:var(--accent-gold);font-size:.8rem;">[BONUS]</span>' : '';
+    qText.innerHTML = `Q${index+1}. ${q.question}${bonusTag}`;
+  }
+
+  // Options
+  const optContainer = document.getElementById('questionOptions');
+  if (optContainer) {
+    const letters = ['A', 'B', 'C', 'D'];
+    const existing = QUIZ_ENGINE.answers[index];
+    const isTestMode = QUIZ_ENGINE.mode === 'test';
+
+    optContainer.innerHTML = q.options.map((opt, i) => {
+      let extraClass = '';
+      let disabled = '';
+
+      if (existing) {
+        if (isTestMode) {
+          // Test mode — just show selected, no correct/wrong
+          if (existing.selected === i) extraClass = 'selected';
+        } else {
+          // Quiz mode — show correct/wrong/retry state
+          if (existing.status === 'correct' && existing.selected === i) {
+            extraClass = 'correct';
+          } else if (existing.status === 'wrong') {
+            if (existing.selected === i) extraClass = 'wrong';
+            if (i === q.answer) extraClass = 'correct';
+            disabled = 'disabled';
+          } else if (existing.status === 'retry') {
+            // First wrong — allow retry, but the wrong option is disabled
+            if (existing.selected === i) {
+              extraClass = 'wrong';
+              disabled = 'disabled';
+            }
+          }
+        }
+      }
+
+      return `
+        <button class="option-btn ${extraClass}" data-idx="${i}" ${disabled}>
+          <span class="option-letter">${letters[i]}</span>
+          <span class="option-text">${opt}</span>
+        </button>
+      `;
+    }).join('');
+
+    // Attach listeners
+    optContainer.querySelectorAll('.option-btn:not([disabled])').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const optIdx = parseInt(btn.dataset.idx);
+        selectOption(index, optIdx);
+      });
+    });
+  }
+
+  // Feedback (quiz mode only)
+  const feedback = document.getElementById('questionFeedback');
+  if (feedback) {
+    if (QUIZ_ENGINE.mode === 'test') {
+      feedback.className = 'question-feedback';
+      feedback.innerHTML = '';
+    } else if (existing) {
+      if (existing.status === 'correct') {
+        feedback.className = 'question-feedback show correct';
+        feedback.innerHTML = `✅ <strong>Correct!</strong><br>${q.explanation || ''}`;
+      } else if (existing.status === 'wrong') {
+        feedback.className = 'question-feedback show wrong';
+        feedback.innerHTML = `❌ <strong>Wrong.</strong> Correct answer: ${q.options[q.answer]}<br>${q.explanation || ''}`;
+      } else if (existing.status === 'retry') {
+        feedback.className = 'question-feedback show wrong';
+        feedback.innerHTML = `❌ Wrong. <strong>Try Again</strong> — you have one more chance.`;
+      } else {
+        feedback.className = 'question-feedback';
+        feedback.innerHTML = '';
+      }
+    } else {
+      feedback.className = 'question-feedback';
+      feedback.innerHTML = '';
+    }
+  }
+
+  updateNavigationButtons();
+  resetQuestionTimer();
+  updatePalette();
+}
+
+/* ============================================================
+   SELECT OPTION
+   ============================================================ */
+function selectOption(qIndex, optIdx) {
+  const q = QUIZ_ENGINE.questions[qIndex];
+  const isCorrect = (optIdx === q.answer);
+  const existing = QUIZ_ENGINE.answers[qIndex];
+
+  // ============ TEST MODE ============
+  if (QUIZ_ENGINE.mode === 'test') {
+    // Can change answers anytime
+    QUIZ_ENGINE.answers[qIndex] = {
+      selected: optIdx,
+      status: isCorrect ? 'correct' : 'wrong',  // stored but hidden
+      attempts: 1
+    };
+    updatePalette();
+    // Re-render to show selection
+    const optButtons = document.querySelectorAll('#questionOptions .option-btn');
+    optButtons.forEach((btn, i) => {
+      btn.classList.toggle('selected', i === optIdx);
+    });
+    return;
+  }
+
+  // ============ QUIZ MODE ============
+  const attemptNum = (QUIZ_ENGINE.attempts[qIndex] || 0) + 1;
+  QUIZ_ENGINE.attempts[qIndex] = attemptNum;
+
+  const timeTaken = Math.floor((Date.now() - QUIZ_ENGINE.questionStartTime) / 1000);
+
+  if (isCorrect) {
+    QUIZ_ENGINE.answers[qIndex] = {
+      selected: optIdx,
+      status: 'correct',
+      attempts: attemptNum,
+      timeTaken: timeTaken
+    };
+    QUIZ_ENGINE.streak++;
+    if (QUIZ_ENGINE.streak > QUIZ_ENGINE.bestStreak) {
+      QUIZ_ENGINE.bestStreak = QUIZ_ENGINE.streak;
+    }
+
+    // Check time-based message
+    if (timeTaken > 60) {
+      showToast('✅ Correct! But try to improve your speed.', 'success', 2500);
+    } else {
+      showToast('✅ Correct!', 'success', 1500);
+    }
+
+    checkStreakMilestone();
+
+  } else {
+    // Wrong answer
+    if (attemptNum === 1) {
+      // First wrong — allow retry
+      QUIZ_ENGINE.answers[qIndex] = {
+        selected: optIdx,
+        status: 'retry',
+        attempts: 1
+      };
+      showToast('❌ Wrong. Try again!', 'error', 1800);
+    } else {
+      // Second wrong — final
+      QUIZ_ENGINE.answers[qIndex] = {
+        selected: optIdx,
+        status: 'wrong',
+        attempts: 2,
+        timeTaken: timeTaken
+      };
+      QUIZ_ENGINE.streak = 0;
+
+      if (timeTaken > 60) {
+        showToast('❌ Focus on accuracy as well as speed.', 'error', 3000);
+      } else {
+        showToast('❌ Wrong.', 'error', 1800);
+      }
+    }
+  }
+
+  loadQuestion(qIndex);
+}
+
+/* ============================================================
+   STREAK MILESTONE
+   ============================================================ */
+function checkStreakMilestone() {
+  const s = QUIZ_ENGINE.streak;
+  const milestones = {
+    3: "You're on fire! 🔥",
+    5: "Unstoppable! 5 in a row! 🔥🔥",
+    7: "Legendary! 7 streak! 🔥🔥🔥",
+    10: "GOD MODE! 10 in a row! 🏆",
+    15: "Perfection! 15 streak! 👑",
+    20: "LEGENDARY! 20 in a row! 🌟"
+  };
+
+  if (milestones[s]) {
+    showStreakPopup(milestones[s], 'streak');
+  }
+
+  const streakEl = document.getElementById('quizStreak');
+  if (streakEl) {
+    if (s >= 2) streakEl.textContent = `🔥 Streak: ${s}`;
+    else streakEl.textContent = '';
+  }
+}
+
+function showStreakPopup(text, type) {
+  const popup = document.getElementById('streakPopup');
+  const textEl = document.getElementById('streakText');
+  const iconEl = popup?.querySelector('.streak-icon');
+  if (!popup || !textEl) return;
+  textEl.textContent = text;
+  if (iconEl) iconEl.textContent = '🔥';
+  popup.classList.add('show');
+  setTimeout(() => popup.classList.remove('show'), 1500);
+}
+
+/* ============================================================
+   TIMER
+   ============================================================ */
+function startTimer() {
+  stopTimer();
+
+  if (QUIZ_ENGINE.timerMode === 'total') {
+    // TEST MODE — 25 min total
+    QUIZ_ENGINE.timer = setInterval(() => {
+      QUIZ_ENGINE.totalTimeLeft--;
+      QUIZ_ENGINE.totalTime++;
+      updateTotalTimerDisplay();
+
+      if (QUIZ_ENGINE.totalTimeLeft <= 0) {
+        stopTimer();
+        showToast('⏰ Time up! Auto-submitting...', 'error', 3000);
+        setTimeout(() => submitQuiz(false), 1000);
+      }
+    }, 1000);
+  } else {
+    // QUIZ MODE — per question 60 sec
+    QUIZ_ENGINE.timeLeft = 60;
+    updateTimerDisplay();
+
+    QUIZ_ENGINE.timer = setInterval(() => {
+      QUIZ_ENGINE.timeLeft--;
+      QUIZ_ENGINE.totalTime++;
+      updateTimerDisplay();
+
+      // Skip suggestion at 60 sec
+      if (QUIZ_ENGINE.timeLeft <= 0 && !QUIZ_ENGINE.skipSuggestShown) {
+        QUIZ_ENGINE.skipSuggestShown = true;
+        showToast('⏰ You\'re taking too long. Consider skipping.', 'info', 4000);
+      }
+    }, 1000);
+  }
+}
+
+function resetQuestionTimer() {
+  if (QUIZ_ENGINE.mode === 'test') return; // test has total timer only
+  stopTimer();
+  QUIZ_ENGINE.timeLeft = 60;
+  QUIZ_ENGINE.skipSuggestShown = false;
+  updateTimerDisplay();
+  startTimer();
+}
+
+function stopTimer() {
+  if (QUIZ_ENGINE.timer) {
+    clearInterval(QUIZ_ENGINE.timer);
+    QUIZ_ENGINE.timer = null;
+  }
+}
+
+function updateTimerDisplay() {
+  const timerEl = document.getElementById('quizTimer');
+  if (!timerEl) return;
+
+  const t = QUIZ_ENGINE.timeLeft;
+  timerEl.textContent = t >= 0 ? t : '0';
+  timerEl.classList.remove('warning', 'danger');
+
+  if (t <= 5) timerEl.classList.add('danger');
+  else if (t <= 20) timerEl.classList.add('warning');
+}
+
+function updateTotalTimerDisplay() {
+  const timerEl = document.getElementById('quizTimer');
+  if (!timerEl) return;
+
+  const t = QUIZ_ENGINE.totalTimeLeft;
+  const min = Math.floor(t / 60);
+  const sec = t % 60;
+  timerEl.textContent = `${min}:${sec.toString().padStart(2, '0')}`;
+  timerEl.classList.remove('warning', 'danger');
+
+  if (t <= 60) timerEl.classList.add('danger');
+  else if (t <= 300) timerEl.classList.add('warning');
+}
+
+function saveQuestionTime() {
+  if (QUIZ_ENGINE.questionStartTime) {
+    const sec = Math.floor((Date.now() - QUIZ_ENGINE.questionStartTime) / 1000);
+    QUIZ_ENGINE.questionTimes[QUIZ_ENGINE.currentIndex] = sec;
+    QUIZ_ENGINE.questionStartTime = Date.now();
+  }
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+function updateNavigationButtons() {
+  const prev = document.getElementById('prevQuestionBtn');
+  const next = document.getElementById('nextQuestionBtn');
+  const skip = document.getElementById('skipQuestionBtn');
+
+  // Hide previous on 1st question
+  if (prev) {
+    if (QUIZ_ENGINE.currentIndex === 0) {
+      prev.style.display = 'none';
+    } else {
+      prev.style.display = '';
+      prev.disabled = false;
+    }
+  }
+
+  if (next) {
+    const isLast = QUIZ_ENGINE.currentIndex === QUIZ_ENGINE.questions.length - 1;
+    next.textContent = isLast ? 'Finish →' : 'Next →';
+  }
+
+  if (skip) {
+    skip.style.display = QUIZ_ENGINE.mode === 'test' ? 'none' : '';
+    const answered = QUIZ_ENGINE.answers[QUIZ_ENGINE.currentIndex];
+    skip.disabled = answered && answered.status === 'correct';
+  }
+}
+
+function nextQuestion() {
+  if (QUIZ_ENGINE.currentIndex < QUIZ_ENGINE.questions.length - 1) {
+    loadQuestion(QUIZ_ENGINE.currentIndex + 1);
+  } else {
+    if (confirm('This is the last question. Submit the quiz?')) {
+      submitQuiz(false);
+    }
+  }
+}
+
+function prevQuestion() {
+  if (QUIZ_ENGINE.currentIndex > 0) {
+    loadQuestion(QUIZ_ENGINE.currentIndex - 1);
+  }
+}
+
+function skipQuestion() {
+  if (QUIZ_ENGINE.mode === 'test') return;
+  const idx = QUIZ_ENGINE.currentIndex;
+  const existing = QUIZ_ENGINE.answers[idx];
+  if (existing && existing.status === 'correct') {
+    showToast('Cannot skip a correct answer', 'info');
+    return;
+  }
+  QUIZ_ENGINE.answers[idx] = { selected: null, status: 'skipped', attempts: 0 };
+  nextQuestion();
+}
+
+/* ============================================================
+   ANTI-CHEAT
+   ============================================================ */
+function startAntiCheat() {
+  document.addEventListener('visibilitychange', handleVisibilityChange);
+}
+
+function stopAntiCheat() {
+  document.removeEventListener('visibilitychange', handleVisibilityChange);
+}
+
+function handleVisibilityChange() {
+  if (!QUIZ_ENGINE.active) return;
+  if (document.hidden) {
+    onTabSwitchAway();
+  } else {
+    onTabReturn();
+  }
+}
+
+function onTabSwitchAway() {
+  QUIZ_ENGINE.tabBlurredAt = Date.now();
+  stopTimer();
+  const now = Date.now();
+  QUIZ_ENGINE.tabSwitchTimestamps = QUIZ_ENGINE.tabSwitchTimestamps.filter(t => now - t < 10000);
+  QUIZ_ENGINE.tabSwitchTimestamps.push(now);
+}
+
+function onTabReturn() {
+  if (!QUIZ_ENGINE.tabBlurredAt) return;
+  QUIZ_ENGINE.tabBlurredAt = null;
+
+  // Resume timer
+  startTimer();
+
+  const now = Date.now();
+  const recent = QUIZ_ENGINE.tabSwitchTimestamps.filter(t => now - t < 5000);
+
+  if (recent.length >= 2) {
+    QUIZ_ENGINE.warnings++;
+    if (QUIZ_ENGINE.warnings >= 2) {
+      if (!QUIZ_ENGINE.autoSubmitted) {
+        QUIZ_ENGINE.autoSubmitted = true;
+        showToast('🚨 Auto-submitting — multiple tab switches', 'error', 5000);
+        setTimeout(() => submitQuiz(true), 2000);
+      }
+    } else {
+      showToast('⚠️ Warning: Tab switching detected.', 'error', 4000);
+    }
+  }
+}
+
+/* ============================================================
+   WIRE UP QUIZ BUTTONS
+   ============================================================ */
+(function initQuizButtonsV2() {
+  const wire = () => {
+    const prev = document.getElementById('prevQuestionBtn');
+    const next = document.getElementById('nextQuestionBtn');
+    const skip = document.getElementById('skipQuestionBtn');
+    const submit = document.getElementById('submitQuizBtn');
+
+    if (prev) prev.addEventListener('click', prevQuestion);
+    if (next) next.addEventListener('click', nextQuestion);
+    if (skip) skip.addEventListener('click', skipQuestion);
+    if (submit) submit.addEventListener('click', () => {
+      if (confirm('Submit the quiz now?')) submitQuiz(false);
+    });
+
+    initModeSelection();
+
+    document.addEventListener('keydown', (e) => {
+      if (!QUIZ_ENGINE.active) return;
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+      if (['1','2','3','4'].includes(e.key)) {
+        const idx = parseInt(e.key) - 1;
+        const currentAns = QUIZ_ENGINE.answers[QUIZ_ENGINE.currentIndex];
+        if (!currentAns || currentAns.status === 'retry') {
+          selectOption(QUIZ_ENGINE.currentIndex, idx);
+        }
+      } else if (e.key === 'ArrowRight') nextQuestion();
+      else if (e.key === 'ArrowLeft') prevQuestion();
+      else if (e.key.toLowerCase() === 's') skipQuestion();
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', wire);
+  } else {
+    wire();
+  }
+})();
+
+// Wire Start Quiz button on Rules page → opens mode modal
+(function wireStartQuizBtn() {
+  const wire = () => {
+    const btn = document.getElementById('startQuizBtn');
+    if (btn) {
+      btn.addEventListener('click', () => {
+        if (!QUIZ_ENGINE.sheetId && APP_STATE.currentSheet) {
+          startQuiz(APP_STATE.currentSheet);
+        } else if (QUIZ_ENGINE.sheetId) {
+          const modal = document.getElementById('quizModeModal');
+          if (modal) modal.classList.add('show');
+        }
+      });
+    }
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', wire);
+  else wire();
+})();
+/* ============================================================
+   PART 3 — RESULT PAGE REWRITE
+   Submit, calculate, save, display
+   ============================================================ */
+
+/* ============================================================
+   SUBMIT QUIZ
+   ============================================================ */
+async function submitQuiz(autoSubmit = false) {
+  if (!QUIZ_ENGINE.active) return;
+  QUIZ_ENGINE.active = false;
+
+  stopTimer();
+  stopAntiCheat();
+  saveQuestionTime();
+
+  // Calculate result
+  const result = calculateResult(autoSubmit);
+
+  // Save to Firestore
+  await saveQuizHistory(result, autoSubmit);
+
+  // Show result page
+  showResultPage(result, autoSubmit);
+
+  // Log activity
+  logActivity(
+    `Completed ${QUIZ_ENGINE.meta.title} — ${result.score}/${result.maxMarks} (${QUIZ_ENGINE.mode})`,
+    '🏆',
+    { score: result.score, mode: QUIZ_ENGINE.mode }
+  );
+}
+
+/* ============================================================
+   CALCULATE RESULT
+   ============================================================ */
+function calculateResult(autoSubmit) {
+  const meta = QUIZ_ENGINE.meta;
+  const isTestMode = QUIZ_ENGINE.mode === 'test';
+
+  let correct = 0, wrong = 0, skipped = 0, unattempted = 0;
+  let score = 0;
+  const maxMarks = meta.marking.totalMarks;
+
+  // Per-question data
+  const perQuestion = [];
+
+  QUIZ_ENGINE.questions.forEach((q, i) => {
+    const ans = QUIZ_ENGINE.answers[i];
+    const timeSpent = QUIZ_ENGINE.questionTimes[i] || 0;
+
+    let status = 'unattempted';
+    let selected = null;
+
+    if (ans) {
+      selected = ans.selected;
+      if (ans.selected !== null && ans.selected !== undefined) {
+        const isCorrect = (ans.selected === q.answer);
+        if (isCorrect) {
+          status = 'correct';
+          correct++;
+          score += meta.marking.correct;
+        } else {
+          status = 'wrong';
+          wrong++;
+          score += meta.marking.wrong;
+        }
+      } else {
+        status = 'skipped';
+        skipped++;
+      }
+    } else {
+      unattempted++;
+    }
+
+    perQuestion.push({
+      index: i,
+      question: q.question,
+      options: q.options,
+      answer: q.answer,
+      explanation: q.explanation,
+      bonus: q.bonus || false,
+      selected: selected,
+      status: status,
+      timeSpent: timeSpent
+    });
+  });
+
+  // Projected score (if wrong were blank)
+  const projectedScore = score + (wrong * Math.abs(meta.marking.wrong));
+
+  // Time stats
+  const totalTimeSpent = isTestMode ? (25 * 60 - QUIZ_ENGINE.totalTimeLeft) : QUIZ_ENGINE.totalTime;
+  const attempted = correct + wrong;
+  const avgTime = attempted > 0 ? Math.round(totalTimeSpent / attempted) : 0;
+
+  // Weak concepts (questions where wrong or time > 60)
+  const weakConcepts = [];
+  perQuestion.forEach(pq => {
+    if (pq.status === 'wrong') {
+      weakConcepts.push({ type: 'wrong', index: pq.index, time: pq.timeSpent });
+    } else if (pq.status === 'skipped') {
+      weakConcepts.push({ type: 'skipped', index: pq.index, time: pq.timeSpent });
+    } else if (pq.timeSpent > 60 && pq.status === 'correct') {
+      weakConcepts.push({ type: 'slow', index: pq.index, time: pq.timeSpent });
+    }
+  });
+
+  return {
+    score: score,
+    maxMarks: maxMarks,
+    correct: correct,
+    wrong: wrong,
+    skipped: skipped,
+    unattempted: unattempted,
+    totalAttempted: attempted,
+    totalTimeSpent: totalTimeSpent,
+    avgTime: avgTime,
+    bestStreak: QUIZ_ENGINE.bestStreak,
+    projectedScore: projectedScore,
+    perQuestion: perQuestion,
+    weakConcepts: weakConcepts,
+    meta: meta,
+    mode: QUIZ_ENGINE.mode,
+    autoSubmit: autoSubmit
+  };
+}
+
+/* ============================================================
+   SAVE QUIZ HISTORY
+   ============================================================ */
+async function saveQuizHistory(result, autoSubmit) {
+  if (!APP_STATE.user) return;
+
+  try {
+    await db.collection('users').doc(APP_STATE.user.uid)
+      .collection('history')
+      .add({
+        quizId: QUIZ_ENGINE.sheetId,
+        series: result.meta.series,
+        sheetNumber: result.meta.sheetNumber,
+        title: result.meta.title,
+        mode: result.mode,
+        score: result.score,
+        maxMarks: result.maxMarks,
+        correct: result.correct,
+        wrong: result.wrong,
+        skipped: result.skipped,
+        unattempted: result.unattempted,
+        bestStreak: result.bestStreak,
+        totalTimeSpent: result.totalTimeSpent,
+        avgTime: result.avgTime,
+        autoSubmit: autoSubmit,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      });
+
+    await checkAndAwardAchievements(result);
+  } catch (err) {
+    console.warn('Save history error:', err);
+  }
+}
+
+/* ============================================================
+   ACHIEVEMENTS
+   ============================================================ */
+async function checkAndAwardAchievements(result) {
+  if (!APP_STATE.user) return;
+  const uid = APP_STATE.user.uid;
+  const achRef = db.collection('users').doc(uid).collection('achievements');
+
+  const percentage = (result.score / result.maxMarks) * 100;
+  const toAward = [];
+
+  // Perfect score
+  if (result.wrong === 0 && result.skipped === 0 && result.unattempted === 0 && result.correct > 0) {
+    toAward.push({
+      id: 'perfect-' + QUIZ_ENGINE.sheetId,
+      title: '💯 Perfect Score',
+      description: `${result.score}/${result.maxMarks} on ${result.meta.title}`
+    });
+  }
+
+  // 80%+
+  if (percentage >= 80) {
+    toAward.push({
+      id: 'excellent-' + QUIZ_ENGINE.sheetId,
+      title: '🌟 Excellent Performance',
+      description: `${percentage.toFixed(0)}% on ${result.meta.title}`
+    });
+  }
+
+  // 20-streak
+  if (result.bestStreak >= 20) {
+    toAward.push({
+      id: 'streak-20',
+      title: '👑 20-Streak Legend',
+      description: `Achieved a ${result.bestStreak} answer streak`
+    });
+  } else if (result.bestStreak >= 10) {
+    toAward.push({
+      id: 'streak-10',
+      title: '🔥 10-Streak Master',
+      description: `Achieved a ${result.bestStreak} answer streak`
+    });
+  }
+
+  for (const ach of toAward) {
+    const existing = await achRef.doc(ach.id).get();
+    if (!existing.exists) {
+      await achRef.doc(ach.id).set({
+        title: ach.title,
+        description: ach.description,
+        earnedAt: firebase.firestore.FieldValue.serverTimestamp()
+      });
+    }
+  }
+}
+
+/* ============================================================
+   SHOW RESULT PAGE
+   ============================================================ */
+function showResultPage(result, autoSubmit) {
+  const scoreEl = document.getElementById('resultScore');
+  const statsEl = document.getElementById('resultStats');
+  const msgEl = document.getElementById('resultMessage');
+  const expEl = document.getElementById('resultExplanations');
+
+  // Score
+  if (scoreEl) scoreEl.textContent = `${result.score} / ${result.maxMarks}`;
+
+  // Stats grid
+  if (statsEl) {
+    const minutes = Math.floor(result.totalTimeSpent / 60);
+    const seconds = result.totalTimeSpent % 60;
+    const timeStr = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+
+    statsEl.innerHTML = `
+      <div class="result-stat">
+        <div class="result-stat-value">${result.correct}</div>
+        <div class="result-stat-label">Correct</div>
+      </div>
+      <div class="result-stat">
+        <div class="result-stat-value">${result.wrong}</div>
+        <div class="result-stat-label">Wrong</div>
+      </div>
+      <div class="result-stat">
+        <div class="result-stat-value">${result.skipped + result.unattempted}</div>
+        <div class="result-stat-label">Skipped</div>
+      </div>
+      <div class="result-stat">
+        <div class="result-stat-value">${result.bestStreak}</div>
+        <div class="result-stat-label">Best Streak</div>
+      </div>
+      <div class="result-stat">
+        <div class="result-stat-value">${timeStr}</div>
+        <div class="result-stat-label">Total Time</div>
+      </div>
+      <div class="result-stat">
+        <div class="result-stat-value">${result.avgTime}s</div>
+        <div class="result-stat-label">Avg / Question</div>
+      </div>
+    `;
+  }
+
+  // Message
+  if (msgEl) {
+    let msg = '';
+    if (autoSubmit) {
+      msg = '🚨 <strong>Auto-submitted</strong> due to multiple tab switches.<br><br>';
+    }
+
+    if (result.mode === 'test') {
+      msg += `<strong>📝 Test Mode Analysis:</strong> `;
+    }
+
+    if (result.totalAttempted === 0) {
+      msg += '📝 No questions attempted. Try attempting some next time!';
+    } else if (result.wrong === 0 && result.correct > 0) {
+      msg += '🌟 Perfect! Every single attempt was correct.';
+    } else if (result.wrong > 0) {
+      const bonus = result.wrong * Math.abs(result.meta.marking.wrong);
+      msg += `💡 If wrong answers were left blank, you'd have scored <strong>${result.projectedScore}/${result.maxMarks}</strong> (${bonus} marks saved).`;
+    } else {
+      msg += '👍 Good attempt!';
+    }
+
+    msgEl.innerHTML = msg;
+  }
+
+  // Weak concepts
+  renderWeakConcepts(result);
+
+  // Explanations
+  if (expEl) {
+    expEl.innerHTML = result.perQuestion.map((pq, i) => {
+      const isCorrect = pq.status === 'correct';
+      const isWrong = pq.status === 'wrong';
+      const isSkipped = pq.status === 'skipped';
+      const isUnattempted = pq.status === 'unattempted';
+
+      let icon = '⏭️';
+      if (isCorrect) icon = '✅';
+      else if (isWrong) icon = '❌';
+      else if (isSkipped || isUnattempted) icon = '⏭️';
+
+      const yourAns = pq.selected !== null && pq.selected !== undefined ? pq.options[pq.selected] : 'Not attempted';
+
+      // Time badge color
+      let timeClass = '';
+      if (pq.timeSpent > 60) timeClass = 'style="color:#DC2626;"';
+
+      return `
+        <div class="explanation-item">
+          <div class="explanation-q">
+            ${icon} Q${i+1}. ${pq.question}
+            <span class="result-q-time">⏱ ${pq.timeSpent}s</span>
+          </div>
+          <div class="explanation-text">
+            <strong>Your answer:</strong> ${yourAns}<br>
+            <strong>Correct answer:</strong> ${pq.options[pq.answer]}<br>
+            <em>${pq.explanation || ''}</em>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // Store last result for retry
+  window._lastResult = result;
+
+  showPage('result');
+}
+
+/* ============================================================
+   WEAK CONCEPTS RENDER
+   ============================================================ */
+function renderWeakConcepts(result) {
+  // Remove existing section
+  const existing = document.getElementById('weakConceptsSection');
+  if (existing) existing.remove();
+
+  const expEl = document.getElementById('resultExplanations');
+  if (!expEl) return;
+
+  const container = document.createElement('div');
+  container.id = 'weakConceptsSection';
+
+  if (result.weakConcepts.length === 0) {
+    container.innerHTML = `
+      <div class="result-weak-concepts" style="border-left-color:#16A34A;background:linear-gradient(145deg,rgba(22,163,74,.06),rgba(22,163,74,.02));">
+        <h4 style="color:#16A34A;">✅ No Weak Areas Detected</h4>
+        <div class="weak-concept-item" style="color:var(--text-secondary);">
+          Excellent work! Every question was answered correctly and within time.
+        </div>
+      </div>
+    `;
+  } else {
+    const wrongCount = result.weakConcepts.filter(w => w.type === 'wrong').length;
+    const skippedCount = result.weakConcepts.filter(w => w.type === 'skipped').length;
+    const slowCount = result.weakConcepts.filter(w => w.type === 'slow').length;
+
+    let items = [];
+    if (wrongCount > 0) {
+      const qs = result.weakConcepts.filter(w => w.type === 'wrong').map(w => 'Q' + (w.index+1)).join(', ');
+      items.push(`<strong>Weak concepts</strong> — Review ${qs} carefully. These were answered incorrectly.`);
+    }
+    if (skippedCount > 0) {
+      const qs = result.weakConcepts.filter(w => w.type === 'skipped').map(w => 'Q' + (w.index+1)).join(', ');
+      items.push(`<strong>Skipped questions</strong> — ${qs}. Attempt these next time.`);
+    }
+    if (slowCount > 0) {
+      const qs = result.weakConcepts.filter(w => w.type === 'slow').map(w => 'Q' + (w.index+1)).join(', ');
+      items.push(`<strong>Speed to improve</strong> — ${qs}. Took more than 60 seconds.`);
+    }
+
+    container.innerHTML = `
+      <div class="result-weak-concepts">
+        <h4>🎯 Focus Areas</h4>
+        ${items.map(i => `<div class="weak-concept-item">${i}</div>`).join('')}
+      </div>
+    `;
+  }
+
+  // Insert before explanations
+  expEl.parentNode.insertBefore(container, expEl);
+}
+
+/* ============================================================
+   RESULT BUTTONS
+   ============================================================ */
+(function initResultButtonsV2() {
+  const wire = () => {
+    const homeBtn = document.getElementById('resultHomeBtn');
+    if (homeBtn) {
+      homeBtn.addEventListener('click', () => {
+        document.body.classList.remove('test-mode');
+        showPage('courses');
+      });
+    }
+
+    const retryBtn = document.getElementById('retryWrongBtn');
+    if (retryBtn) {
+      retryBtn.addEventListener('click', () => {
+        const result = window._lastResult;
+        if (!result) {
+          showToast('No result to retry', 'error');
+          return;
+        }
+
+        // Only wrong questions
+        const wrongQs = result.perQuestion.filter(pq => pq.status === 'wrong');
+        if (wrongQs.length === 0) {
+          showToast('🎉 No wrong questions to retry!', 'success');
+          return;
+        }
+
+        // Setup retry quiz
+        QUIZ_ENGINE.active = true;
+        QUIZ_ENGINE.mode = 'quiz'; // retry is always quiz mode
+        QUIZ_ENGINE.sheetId = result.meta.id + '-retry';
+        QUIZ_ENGINE.meta = { ...result.meta, title: result.meta.title + ' (Retry)' };
+        QUIZ_ENGINE.questions = wrongQs.map(pq => ({
+          question: pq.question,
+          options: pq.options,
+          answer: pq.answer,
+          explanation: pq.explanation,
+          bonus: pq.bonus
+        }));
+        QUIZ_ENGINE.currentIndex = 0;
+        QUIZ_ENGINE.answers = {};
+        QUIZ_ENGINE.attempts = {};
+        QUIZ_ENGINE.streak = 0;
+        QUIZ_ENGINE.bestStreak = 0;
+        QUIZ_ENGINE.startTime = Date.now();
+        QUIZ_ENGINE.questionStartTime = Date.now();
+        QUIZ_ENGINE.questionTimes = new Array(QUIZ_ENGINE.questions.length).fill(0);
+        QUIZ_ENGINE.totalTime = 0;
+        QUIZ_ENGINE.skipSuggestShown = false;
+        QUIZ_ENGINE.autoSubmitted = false;
+        QUIZ_ENGINE.tabSwitchTimestamps = [];
+        QUIZ_ENGINE.warnings = 0;
+        QUIZ_ENGINE.timeLeft = 60;
+        QUIZ_ENGINE.timerMode = 'per-question';
+
+        document.body.classList.remove('test-mode');
+
+        showPage('quiz');
+        buildPalette();
+        loadQuestion(0);
+        startTimer();
+        startAntiCheat();
+
+        showToast(`🔁 Retrying ${wrongQs.length} wrong questions`, 'info', 2500);
+      });
+    }
+
+    // Download buttons
+    const dlQ = document.getElementById('downloadQuestionsBtn');
+    const dlA = document.getElementById('downloadAnswersBtn');
+    if (dlQ) {
+      dlQ.addEventListener('click', async () => {
+        const meta = QUIZ_ENGINE.meta;
+        if (!meta) return;
+        window.open(meta.downloadQuestions || 'https://t.me/Apex20LR/57', '_blank');
+        if (typeof logDownload === 'function') {
+          await logDownload('Questions PDF — ' + meta.title, meta.downloadQuestions);
+        }
+        showToast('📄 Opening Questions PDF...', 'success');
+      });
+    }
+    if (dlA) {
+      dlA.addEventListener('click', async () => {
+        const meta = QUIZ_ENGINE.meta;
+        if (!meta) return;
+        window.open(meta.downloadAnswers || 'https://t.me/Apex20LR/58', '_blank');
+        if (typeof logDownload === 'function') {
+          await logDownload('Answers PDF — ' + meta.title, meta.downloadAnswers);
+        }
+        showToast('📄 Opening Answers PDF...', 'success');
+      });
+    }
+  };
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', wire);
+  else wire();
+})();
+/* ============================================================
+   PART 4 — CLEANUP + GUARDS
+   1. Debounce selectOption (prevents double-fire)
+   2. Clone + rewire all critical buttons (removes duplicate listeners)
+   3. Named retry function
+   ============================================================ */
+
+(function part4Cleanup() {
+  if (window.__PART4_DONE__) return;
+  window.__PART4_DONE__ = true;
+
+  /* ---------- 1. Debounce selectOption wrapper ---------- */
+  let __selOptLock = 0;
+  const _origSelectOption = selectOption;
+  selectOption = function(qIdx, optIdx) {
+    const now = Date.now();
+    if (now - __selOptLock < 60) return; // 60ms window for same-tick double-calls
+    __selOptLock = now;
+    return _origSelectOption(qIdx, optIdx);
+  };
+
+  /* ---------- 2. Named retry function ---------- */
+  window.retryWrongQuestionsV2 = function() {
+    const result = window._lastResult;
+    if (!result) { showToast('No result to retry', 'error'); return; }
+
+    const wrongQs = result.perQuestion.filter(pq => pq.status === 'wrong');
+    if (wrongQs.length === 0) { showToast('🎉 No wrong questions to retry!', 'success'); return; }
+
+    QUIZ_ENGINE.active = true;
+    QUIZ_ENGINE.mode = 'quiz';
+    QUIZ_ENGINE.sheetId = (result.meta.id || 'apex') + '-retry';
+    QUIZ_ENGINE.meta = { ...result.meta, title: result.meta.title + ' (Retry)' };
+    QUIZ_ENGINE.questions = wrongQs.map(pq => ({
+      question: pq.question,
+      options: pq.options,
+      answer: pq.answer,
+      explanation: pq.explanation,
+      bonus: pq.bonus
+    }));
+    QUIZ_ENGINE.currentIndex = 0;
+    QUIZ_ENGINE.answers = {};
+    QUIZ_ENGINE.attempts = {};
+    QUIZ_ENGINE.streak = 0;
+    QUIZ_ENGINE.bestStreak = 0;
+    QUIZ_ENGINE.startTime = Date.now();
+    QUIZ_ENGINE.questionStartTime = Date.now();
+    QUIZ_ENGINE.questionTimes = new Array(QUIZ_ENGINE.questions.length).fill(0);
+    QUIZ_ENGINE.totalTime = 0;
+    QUIZ_ENGINE.skipSuggestShown = false;
+    QUIZ_ENGINE.autoSubmitted = false;
+    QUIZ_ENGINE.tabSwitchTimestamps = [];
+    QUIZ_ENGINE.warnings = 0;
+    QUIZ_ENGINE.timeLeft = 60;
+    QUIZ_ENGINE.timerMode = 'per-question';
+
+    document.body.classList.remove('test-mode');
+    showPage('quiz');
+    buildPalette();
+    loadQuestion(0);
+    startTimer();
+    startAntiCheat();
+    showToast(`🔁 Retrying ${wrongQs.length} wrong questions`, 'info', 2500);
+  };
+
+  /* ---------- 3. Clone + Rewire ---------- */
+  function strip(el) {
+    if (!el || !el.parentNode) return null;
+    const clone = el.cloneNode(true);
+    el.parentNode.replaceChild(clone, el);
+    return clone;
+  }
+
+  function rewire() {
+    // Quiz buttons
+    const prev = strip(document.getElementById('prevQuestionBtn'));
+    const next = strip(document.getElementById('nextQuestionBtn'));
+    const skip = strip(document.getElementById('skipQuestionBtn'));
+    const submit = strip(document.getElementById('submitQuizBtn'));
+    const startBtn = strip(document.getElementById('startQuizBtn'));
+
+    if (prev) prev.addEventListener('click', () => prevQuestion());
+    if (next) next.addEventListener('click', () => nextQuestion());
+    if (skip) skip.addEventListener('click', () => skipQuestion());
+    if (submit) submit.addEventListener('click', () => {
+      if (confirm('Submit the quiz now?')) submitQuiz(false);
+    });
+    if (startBtn) startBtn.addEventListener('click', () => {
+      if (APP_STATE.currentSheet) startQuiz(APP_STATE.currentSheet);
+    });
+
+    // Mode options
+    document.querySelectorAll('.mode-option').forEach(btn => {
+      const fresh = strip(btn);
+      if (fresh) fresh.addEventListener('click', () => {
+        const mode = fresh.dataset.mode;
+        const modal = document.getElementById('quizModeModal');
+        if (modal) modal.classList.remove('show');
+        beginQuizWithMode(mode);
+      });
+    });
+
+    // Result buttons
+    const home = strip(document.getElementById('resultHomeBtn'));
+    const retry = strip(document.getElementById('retryWrongBtn'));
+    const dlQ = strip(document.getElementById('downloadQuestionsBtn'));
+    const dlA = strip(document.getElementById('downloadAnswersBtn'));
+
+    if (home) home.addEventListener('click', () => {
+      document.body.classList.remove('test-mode');
+      showPage('courses');
+    });
+    if (retry) retry.addEventListener('click', window.retryWrongQuestionsV2);
+    if (dlQ) dlQ.addEventListener('click', () => {
+      const meta = QUIZ_ENGINE.meta;
+      if (meta) {
+        window.open(meta.downloadQuestions || 'https://t.me/Apex20LR/57', '_blank');
+        showToast('📄 Opening Questions PDF...', 'success');
+      }
+    });
+    if (dlA) dlA.addEventListener('click', () => {
+      const meta = QUIZ_ENGINE.meta;
+      if (meta) {
+        window.open(meta.downloadAnswers || 'https://t.me/Apex20LR/58', '_blank');
+        showToast('📄 Opening Answers PDF...', 'success');
+      }
+    });
+
+    // Nav links
+    document.querySelectorAll('.nav-link').forEach(link => {
+      const fresh = strip(link);
+      if (fresh) fresh.addEventListener('click', (e) => {
+        e.preventDefault();
+        const page = fresh.dataset.page;
+        if (page === 'contact') {
+          const cm = document.getElementById('contactModal');
+          if (cm) cm.classList.add('show');
+        } else {
+          showPage(page);
+        }
+      });
+    });
+
+    // Explore Now
+    const explore = strip(document.getElementById('exploreNowBtn'));
+    if (explore) explore.addEventListener('click', () => showPage('courses'));
+
+    // Course cards
+    document.querySelectorAll('.course-card.clickable').forEach(card => {
+      const fresh = strip(card);
+      if (fresh) fresh.addEventListener('click', () => {
+        const seriesId = fresh.dataset.course;
+        if (typeof showSeriesDetail === 'function') showSeriesDetail(seriesId);
+      });
+    });
+
+    // Back button on series detail
+    const seriesBack = strip(document.getElementById('seriesBackBtn'));
+    if (seriesBack) seriesBack.addEventListener('click', () => showPage('courses'));
+
+    console.log('%c✅ Part 4 — Cleanup done. No double-listeners.', 'color:#16A34A;font-weight:bold;font-size:13px;');
+  }
+
+  // Run after DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => setTimeout(rewire, 250));
+  } else {
+    setTimeout(rewire, 250);
   }
 })();
 </script>
