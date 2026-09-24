@@ -6111,255 +6111,15 @@ body[data-theme="dark"] .welcome-quote {
     padding-bottom: 80px !important;
   }
 }
-/* ========== PALETTE LEGEND ========== */
-#paletteLegend {
-  width: 240px;
-  flex-shrink: 0;
-  background: var(--bg-tertiary);
-  border-right: 1px solid var(--border-light);
-  border-bottom: 2px solid var(--border-medium);
-  padding: 16px;
-  overflow-y: auto;
-  max-height: 45vh;
-}
-
-body[data-theme="dark"] #paletteLegend {
-  background: #2E1A20;
-  border-color: rgba(212,185,106,.2);
-}
-
-.legend-title {
-  font-family: 'Inter', sans-serif;
-  font-size: .62rem;
-  font-weight: 700;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: var(--accent-gold);
-  margin-bottom: 14px;
-  padding-bottom: 8px;
-  border-bottom: 1px dashed var(--border-medium);
-}
-
-.legend-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: 'Inter', sans-serif;
-  font-size: .7rem;
-  color: var(--text-secondary);
-  line-height: 1.3;
-}
-
-.legend-dot {
-  width: 16px;
-  height: 16px;
-  border-radius: 5px;
-  border: 1.5px solid;
-  flex-shrink: 0;
-  box-shadow: 0 1px 3px rgba(0,0,0,.15);
-}
-
-.legend-text {
-  flex: 1;
-  font-weight: 500;
-}
-
-/* Palette sidebar width match */
-.quiz-palette {
-  width: 240px !important;
-}
-
-/* ========== PALETTE COLORS ========== */
-.palette-btn {
-  background: #FFFFFF !important;
-  color: #1A1410 !important;
-  border: 1.5px solid #D4C8B0 !important;
-}
-body[data-theme="dark"] .palette-btn {
-  background: #2A161C !important;
-  color: #F5EDD6 !important;
-  border-color: rgba(212,185,106,.3) !important;
-}
-.palette-btn.current {
-  border: 2.5px solid #D4AF37 !important;
-  box-shadow: 0 0 0 3px rgba(212,175,55,.35) !important;
-}
-.palette-btn.correct { background: #16A34A !important; color: #FFF !important; border-color: #16A34A !important; }
-.palette-btn.wrong { background: #DC2626 !important; color: #FFF !important; border-color: #DC2626 !important; }
-.palette-btn.visited { background: #9333EA !important; color: #FFF !important; border-color: #9333EA !important; }
-.palette-btn.skipped { background: #9CA3AF !important; color: #FFF !important; border-color: #9CA3AF !important; }
-.palette-btn.answered-test { background: #3B82F6 !important; color: #FFF !important; border-color: #3B82F6 !important; }
-
-/* ========== MOBILE ========== */
-@media (max-width: 899px) {
-  #paletteLegend {
-    width: 100% !important;
-    max-height: none;
-    padding: 12px 16px;
-    border-right: none;
-    border-bottom: 1px solid var(--border-light);
-  }
-  .legend-list {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 8px 16px;
-  }
-  .legend-item { font-size: .62rem; }
-  .legend-dot { width: 12px; height: 12px; border-radius: 3px; }
-}
-
-/* ========== MOBILE COURSES SCROLL ========== */
-@media (max-width: 899px) {
-  html, body { overflow-y: auto !important; height: auto !important; }
-  .app-container { height: auto !important; min-height: 100dvh !important; overflow: visible !important; }
-  .page-wrapper { overflow: visible !important; height: auto !important; min-height: 0 !important; }
-  .page:not(.active) { display: none !important; visibility: hidden !important; pointer-events: none !important; }
-  .page.active {
-    display: block !important; visibility: visible !important;
-    position: relative !important; inset: auto !important;
-    height: auto !important; min-height: calc(100dvh - 70px) !important;
-    overflow: visible !important; padding-bottom: 130px !important;
-  }
-  #page-courses.active { padding: 20px 0 160px !important; }
-  .courses-grid { padding-bottom: 100px !important; }
-}
-/* ============================================================
-   PALETTE LEGEND — Inside palette, top
-   ============================================================ */
-#paletteLegend {
-  flex-basis: 100% !important;
-  width: 100% !important;
-  margin: 0 0 12px 0 !important;
-  padding: 0 0 12px 0 !important;
-  border-bottom: 1px dashed var(--border-medium);
-  display: block !important;
-}
-
-.legend-title {
-  font-family: 'Inter', sans-serif !important;
-  font-size: .62rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 2px !important;
-  text-transform: uppercase !important;
-  color: #D4AF37 !important;
-  margin-bottom: 8px !important;
-}
-
-.legend-item {
-  display: flex !important;
-  align-items: center !important;
-  gap: 8px !important;
-  margin-bottom: 6px !important;
-  font-family: 'Inter', sans-serif !important;
-  font-size: .68rem !important;
-  color: var(--text-secondary) !important;
-  line-height: 1.3 !important;
-}
-
-body[data-theme="dark"] .legend-item {
-  color: #C9BFB0 !important;
-}
-
-.legend-dot {
-  width: 13px !important;
-  height: 13px !important;
-  border-radius: 3px !important;
-  border: 1.5px solid !important;
-  flex-shrink: 0 !important;
-  display: inline-block !important;
-}
-
-.legend-text {
-  flex: 1 !important;
-  font-weight: 500 !important;
-}
-
-/* ============================================================
-   PALETTE BUTTON COLORS — Force both modes
-   ============================================================ */
-.palette-btn {
-  background: #FFFFFF !important;
-  color: #1A1410 !important;
-  border: 1.5px solid #D4C8B0 !important;
-}
-
-body[data-theme="dark"] .palette-btn,
-html[data-theme="dark"] .palette-btn,
-[data-theme="dark"] .palette-btn {
-  background: #2A161C !important;
-  color: #F5EDD6 !important;
-  border: 1.5px solid rgba(212,185,106,.35) !important;
-}
-
-.palette-btn.current {
-  background: #FFFFFF !important;
-  color: #1A1410 !important;
-  border: 2.5px solid #D4AF37 !important;
-  box-shadow: 0 0 0 3px rgba(212,175,55,.4) !important;
-}
-
-body[data-theme="dark"] .palette-btn.current,
-[data-theme="dark"] .palette-btn.current {
-  background: #2A161C !important;
-  color: #F5EDD6 !important;
-  border: 2.5px solid #D4AF37 !important;
-  box-shadow: 0 0 0 3px rgba(212,175,55,.5) !important;
-}
-
-body[data-theme="dark"] .palette-btn.correct,
-[data-theme="dark"] .palette-btn.correct,
-.palette-btn.correct {
-  background: #16A34A !important;
-  color: #FFFFFF !important;
-  border-color: #16A34A !important;
-}
-
-body[data-theme="dark"] .palette-btn.wrong,
-[data-theme="dark"] .palette-btn.wrong,
-.palette-btn.wrong {
-  background: #DC2626 !important;
-  color: #FFFFFF !important;
-  border-color: #DC2626 !important;
-}
-
-body[data-theme="dark"] .palette-btn.visited,
-[data-theme="dark"] .palette-btn.visited,
-.palette-btn.visited {
-  background: #9333EA !important;
-  color: #FFFFFF !important;
-  border-color: #9333EA !important;
-}
-
-body[data-theme="dark"] .palette-btn.skipped,
-[data-theme="dark"] .palette-btn.skipped,
-.palette-btn.skipped {
-  background: #9CA3AF !important;
-  color: #FFFFFF !important;
-  border-color: #9CA3AF !important;
-}
-
-body[data-theme="dark"] .palette-btn.answered-test,
-[data-theme="dark"] .palette-btn.answered-test,
-.palette-btn.answered-test {
-  background: #3B82F6 !important;
-  color: #FFFFFF !important;
-  border-color: #3B82F6 !important;
-}
-
-/* Palette sidebar — allow legend at top */
+/* Palette layout — flex wrap for legend + buttons */
 .quiz-palette {
   display: flex !important;
   flex-wrap: wrap !important;
   align-content: flex-start !important;
   gap: 6px !important;
   padding: 14px !important;
-  width: 240px !important;
+  width: 220px !important;
+  overflow-y: auto !important;
 }
 </style>
 </head>
@@ -10874,815 +10634,980 @@ function renderWeakConcepts(result) {
 </script>
 <script>
 /* ============================================================
-   RV ZYLEN — COMPLETE QUIZ ENGINE FIX (v3)
-   ES5 only — no red lines
+   LEGEND + PALETTE + FONT SIZE CONTROL
    ============================================================ */
 (function () {
   'use strict';
 
-  function applyFixes() {
-    if (typeof QUIZ_ENGINE === 'undefined') {
-      console.warn('[Fix] QUIZ_ENGINE not found yet');
-      return;
+  // Font size state
+  var FONT_SIZES = [0.95, 1.05, 1.15, 1.25, 1.4, 1.55, 1.7];
+  var fontIdx = 2; // default = 1.15rem
+  var savedFont = localStorage.getItem('rvz-qfont');
+  if (savedFont !== null) {
+    var parsed = parseInt(savedFont, 10);
+    if (parsed >= 0 && parsed < FONT_SIZES.length) fontIdx = parsed;
+  }
+
+  function applyFont() {
+    var size = FONT_SIZES[fontIdx] + 'rem';
+    var qText = document.getElementById('questionText');
+    var qOpts = document.querySelectorAll('#questionOptions .option-btn');
+    var i;
+
+    if (qText) qText.style.fontSize = size;
+    for (i = 0; i < qOpts.length; i++) {
+      qOpts[i].style.fontSize = (FONT_SIZES[fontIdx] * 0.78) + 'rem';
+    }
+  }
+
+  function buildFontControl() {
+    if (document.getElementById('fontCtrl')) return;
+    var area = document.querySelector('.quiz-question-area');
+    if (!area) return;
+
+    var wrap = document.createElement('div');
+    wrap.id = 'fontCtrl';
+    wrap.style.cssText =
+      'position:absolute;top:12px;right:18px;display:flex;gap:6px;z-index:5;';
+
+    var btnMinus = document.createElement('button');
+    btnMinus.textContent = 'A-';
+    btnMinus.title = 'Decrease font';
+    btnMinus.style.cssText =
+      'width:36px;height:36px;border-radius:50%;border:1.5px solid #D4AF37;' +
+      'background:transparent;color:#D4AF37;font-family:Inter,sans-serif;' +
+      'font-size:.75rem;font-weight:700;cursor:pointer;transition:all .2s;';
+
+    var btnPlus = document.createElement('button');
+    btnPlus.textContent = 'A+';
+    btnPlus.title = 'Increase font';
+    btnPlus.style.cssText =
+      'width:36px;height:36px;border-radius:50%;border:1.5px solid #D4AF37;' +
+      'background:transparent;color:#D4AF37;font-family:Inter,sans-serif;' +
+      'font-size:.75rem;font-weight:700;cursor:pointer;transition:all .2s;';
+
+    btnMinus.addEventListener('click', function () {
+      if (fontIdx > 0) {
+        fontIdx--;
+        localStorage.setItem('rvz-qfont', fontIdx);
+        applyFont();
+      }
+    });
+
+    btnPlus.addEventListener('click', function () {
+      if (fontIdx < FONT_SIZES.length - 1) {
+        fontIdx++;
+        localStorage.setItem('rvz-qfont', fontIdx);
+        applyFont();
+      }
+    });
+
+    btnMinus.addEventListener('mouseenter', function () {
+      btnMinus.style.background = '#D4AF37';
+      btnMinus.style.color = '#1A1410';
+    });
+    btnMinus.addEventListener('mouseleave', function () {
+      btnMinus.style.background = 'transparent';
+      btnMinus.style.color = '#D4AF37';
+    });
+    btnPlus.addEventListener('mouseenter', function () {
+      btnPlus.style.background = '#D4AF37';
+      btnPlus.style.color = '#1A1410';
+    });
+    btnPlus.addEventListener('mouseleave', function () {
+      btnPlus.style.background = 'transparent';
+      btnPlus.style.color = '#D4AF37';
+    });
+
+    wrap.appendChild(btnMinus);
+    wrap.appendChild(btnPlus);
+
+    // Quiz question area ko position relative karo
+    area.style.position = 'relative';
+    area.appendChild(wrap);
+  }
+
+  /* ---------- MAIN PAINT ---------- */
+  function paint() {
+    if (typeof QUIZ_ENGINE === 'undefined') return;
+
+    var palette = document.getElementById('quizPalette');
+    var quizPage = document.getElementById('page-quiz');
+    if (!palette || !quizPage || !quizPage.classList.contains('active')) return;
+
+    var isDark = document.body.getAttribute('data-theme') === 'dark';
+    var isTest = QUIZ_ENGINE.mode === 'test';
+
+    /* ---------- LEGEND ---------- */
+    var old = document.getElementById('paletteLegend');
+    if (old) old.remove();
+
+    var items = isTest ? [
+      { c: isDark ? '#2A161C' : '#FFFFFF', b: '#D4AF37', t: 'Current' },
+      { c: '#3B82F6', b: '#3B82F6', t: 'Answered' },
+      { c: '#9CA3AF', b: '#9CA3AF', t: 'Skipped' }
+    ] : [
+      { c: isDark ? '#2A161C' : '#FFFFFF', b: '#D4AF37', t: 'Current' },
+      { c: '#16A34A', b: '#16A34A', t: 'Correct' },
+      { c: '#DC2626', b: '#DC2626', t: 'Wrong' },
+      { c: '#9CA3AF', b: '#9CA3AF', t: 'Skipped' }
+    ];
+
+    var legend = document.createElement('div');
+    legend.id = 'paletteLegend';
+    legend.style.cssText =
+      'flex-basis:100%;width:100%;padding:0 0 12px 0;margin-bottom:10px;' +
+      'border-bottom:1px dashed ' + (isDark ? '#4A2D34' : '#B8A88A') + ';';
+
+    var html = '';
+    for (var i = 0; i < items.length; i++) {
+      html += '<div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;' +
+        'font-family:Inter,sans-serif;font-size:.82rem;line-height:1.4;' +
+        'color:' + (isDark ? '#E8DEC8' : '#1A1410') + ';font-weight:600;">' +
+        '<span style="display:inline-block;width:16px;height:16px;border-radius:4px;' +
+        'background:' + items[i].c + ';border:1.5px solid ' + items[i].b + ';flex-shrink:0;"></span>' +
+        '<span style="flex:1;">' + items[i].t + '</span>' +
+        '</div>';
     }
 
-    /* ---------- MODE SELECTION ---------- */
-    window.beginQuizWithMode = function (mode) {
-      var meta = QUIZ_ENGINE.meta;
-      if (!meta) {
-        if (typeof showToast === 'function') showToast('Quiz not loaded. Try again.', 'error');
-        return;
+    legend.innerHTML = html;
+    palette.insertBefore(legend, palette.firstChild);
+
+    /* ---------- PALETTE BUTTONS ---------- */
+    var btns = palette.querySelectorAll('.palette-btn');
+    for (var j = 0; j < btns.length; j++) {
+      var btn = btns[j];
+      var ans = QUIZ_ENGINE.answers ? QUIZ_ENGINE.answers[j] : null;
+
+      var bg = isDark ? '#2A161C' : '#FFFFFF';
+      var fg = isDark ? '#F5EDD6' : '#1A1410';
+      var bd = '#D4AF37';
+
+      if (ans) {
+        if (isTest) {
+          if (ans.selected !== null && ans.selected !== undefined) {
+            bg = '#3B82F6'; fg = '#FFFFFF'; bd = '#3B82F6';
+          }
+        } else {
+          if (ans.status === 'correct') { bg = '#16A34A'; fg = '#FFF'; bd = '#16A34A'; }
+          else if (ans.status === 'wrong_final') { bg = '#DC2626'; fg = '#FFF'; bd = '#DC2626'; }
+          else if (ans.status === 'wrong_retry') { bg = '#9333EA'; fg = '#FFF'; bd = '#9333EA'; }
+          else if (ans.status === 'skipped') { bg = '#9CA3AF'; fg = '#FFF'; bd = '#9CA3AF'; }
+        }
       }
-      var qs = QUIZ_ENGINE.questions;
-      if (!qs || qs.length === 0) {
-        if (typeof showToast === 'function') showToast('Questions missing.', 'error');
-        return;
-      }
 
-      QUIZ_ENGINE.mode = mode;
-      QUIZ_ENGINE.active = true;
-      QUIZ_ENGINE.currentIndex = 0;
-      QUIZ_ENGINE.answers = {};
-      QUIZ_ENGINE.attempts = {};
-      QUIZ_ENGINE.retryState = {};
-      QUIZ_ENGINE.showAnswerRevealed = {};
-      QUIZ_ENGINE.streak = 0;
-      QUIZ_ENGINE.bestStreak = 0;
-      QUIZ_ENGINE.startTime = Date.now();
-      QUIZ_ENGINE.questionStartTime = Date.now();
-      QUIZ_ENGINE.questionTimes = [];
-      QUIZ_ENGINE.totalTime = 0;
-      QUIZ_ENGINE.timeLeft = 60;
-      QUIZ_ENGINE.totalTimeLeft = 1500;
-      QUIZ_ENGINE.skipSuggestShown = false;
-      QUIZ_ENGINE.autoSubmitted = false;
-      QUIZ_ENGINE.tabSwitchTimestamps = [];
-      QUIZ_ENGINE.warnings = 0;
-      QUIZ_ENGINE.tabBlurredAt = null;
-      QUIZ_ENGINE.timer = null;
+      var isCurrent = (j === QUIZ_ENGINE.currentIndex);
 
-      var i;
-      for (i = 0; i < qs.length; i++) QUIZ_ENGINE.questionTimes.push(0);
-
-      if (mode === 'test') {
-        QUIZ_ENGINE.timerMode = 'total';
-        document.body.classList.add('test-mode');
+      btn.style.background = bg;
+      btn.style.color = fg;
+      if (isCurrent) {
+        btn.style.border = '2.5px solid #D4AF37';
+        btn.style.boxShadow = '0 0 0 3px rgba(212,175,55,.5)';
       } else {
-        QUIZ_ENGINE.timerMode = 'per-question';
-        document.body.classList.remove('test-mode');
+        btn.style.border = '1.5px solid ' + bd;
+        btn.style.boxShadow = 'none';
       }
+    }
 
+    // Font control buttons
+    buildFontControl();
+    applyFont();
+  }
+
+  setInterval(paint, 500);
+  window.addEventListener('load', function () { setTimeout(paint, 400); });
+
+  console.log('[Palette + Font] Ready');
+})();
+</script>
+<script>
+<script>
+/* ============================================================
+   QUIZ FINAL v2 — Fully self-contained, rewires everything
+   ============================================================ */
+(function () {
+  'use strict';
+
+  /* ========================================================
+     TOP POPUP
+     ======================================================== */
+  var popupTO = null;
+  function showTopPopup(msg) {
+    var el = document.getElementById('topPopup');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'topPopup';
+      el.style.cssText =
+        'position:fixed;top:80px;left:50%;transform:translateX(-50%) translateY(-30px);' +
+        'background:linear-gradient(135deg,#D4AF37,#B8934A);color:#1A0E14;' +
+        'padding:12px 26px;border-radius:12px;font-family:Inter,sans-serif;' +
+        'font-size:.85rem;font-weight:700;box-shadow:0 10px 30px rgba(0,0,0,.35);' +
+        'z-index:99999;opacity:0;transition:all .4s cubic-bezier(.34,1.56,.64,1);' +
+        'pointer-events:none;max-width:90vw;text-align:center;';
+      document.body.appendChild(el);
+    }
+    el.textContent = msg;
+    requestAnimationFrame(function () {
+      el.style.opacity = '1';
+      el.style.transform = 'translateX(-50%) translateY(0)';
+    });
+    if (popupTO) clearTimeout(popupTO);
+    popupTO = setTimeout(function () {
+      el.style.opacity = '0';
+      el.style.transform = 'translateX(-50%) translateY(-30px)';
+    }, 4000);
+  }
+
+  /* ========================================================
+     FONT
+     ======================================================== */
+  var FONT_SIZES = [0.95, 1.05, 1.15, 1.25, 1.4, 1.55, 1.7];
+  var fontIdx = 2;
+  try {
+    var sf = localStorage.getItem('rvz-qfont');
+    if (sf !== null) {
+      var pp = parseInt(sf, 10);
+      if (pp >= 0 && pp < FONT_SIZES.length) fontIdx = pp;
+    }
+  } catch (e) {}
+
+  function applyFont() {
+    var size = FONT_SIZES[fontIdx];
+    var qText = document.getElementById('questionText');
+    var i, t, el;
+
+    if (qText) {
+      qText.style.setProperty('font-size', size + 'rem', 'important');
+
+      // Tables
+      var tables = qText.querySelectorAll('table');
+      for (t = 0; t < tables.length; t++) {
+        tables[t].style.setProperty('font-size', (size * 0.85) + 'rem', 'important');
+      }
+      var cells = qText.querySelectorAll('td, th');
+      for (t = 0; t < cells.length; t++) {
+        cells[t].style.setProperty('font-size', (size * 0.85) + 'rem', 'important');
+        cells[t].style.setProperty('line-height', '1.5', 'important');
+      }
+      var pbs = qText.querySelectorAll('.pair-box');
+      for (t = 0; t < pbs.length; t++) {
+        pbs[t].style.setProperty('font-size', (size * 0.85) + 'rem', 'important');
+      }
+      // Any nested spans/strong inside qText with explicit font-size
+      var spans = qText.querySelectorAll('span, strong, em, b, i');
+      for (t = 0; t < spans.length; t++) {
+        // Only if they have font-size set inline
+        if (spans[t].style.fontSize) {
+          spans[t].style.setProperty('font-size', (size * 0.88) + 'rem', 'important');
+        }
+      }
+    }
+
+    var opts = document.querySelectorAll('#questionOptions .option-btn');
+    for (i = 0; i < opts.length; i++) {
+      opts[i].style.setProperty('font-size', (size * 0.88) + 'rem', 'important');
+    }
+    var lets = document.querySelectorAll('#questionOptions .option-letter');
+    for (i = 0; i < lets.length; i++) {
+      lets[i].style.setProperty('font-size', (size * 0.7) + 'rem', 'important');
+    }
+
+    // Feedback
+    var fb = document.getElementById('questionFeedback');
+    if (fb) fb.style.setProperty('font-size', (size * 0.82) + 'rem', 'important');
+  }
+
+  function buildFontCtrl() {
+    if (document.getElementById('fontCtrl')) return;
+    var area = document.querySelector('.quiz-question-area');
+    if (!area) return;
+
+    var wrap = document.createElement('div');
+    wrap.id = 'fontCtrl';
+    wrap.style.cssText = 'position:absolute;top:12px;right:18px;display:flex;gap:6px;z-index:5;';
+
+    function makeBtn(txt, title, delta) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = txt;
+      b.title = title;
+      b.style.cssText =
+        'width:36px;height:36px;border-radius:50%;border:1.5px solid #D4AF37;' +
+        'background:transparent;color:#D4AF37;font-family:Inter,sans-serif;' +
+        'font-size:.75rem;font-weight:700;cursor:pointer;transition:all .2s;';
+      b.addEventListener('mouseenter', function () {
+        b.style.background = '#D4AF37';
+        b.style.color = '#1A0E14';
+      });
+      b.addEventListener('mouseleave', function () {
+        b.style.background = 'transparent';
+        b.style.color = '#D4AF37';
+      });
+      b.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var newIdx = fontIdx + delta;
+        if (newIdx < 0) newIdx = 0;
+        if (newIdx > FONT_SIZES.length - 1) newIdx = FONT_SIZES.length - 1;
+        if (newIdx === fontIdx) return;
+        fontIdx = newIdx;
+        try { localStorage.setItem('rvz-qfont', fontIdx); } catch (err) {}
+        applyFont();
+      });
+      return b;
+    }
+    wrap.appendChild(makeBtn('A-', 'Smaller', -1));
+    wrap.appendChild(makeBtn('A+', 'Larger', 1));
+    area.style.position = 'relative';
+    area.appendChild(wrap);
+  }
+
+  /* ========================================================
+     BEGIN QUIZ (self-contained)
+     ======================================================== */
+  function beginQuizWithMode(mode) {
+    var meta = QUIZ_ENGINE.meta;
+    if (!meta) { if (typeof showToast === 'function') showToast('Quiz not loaded', 'error'); return; }
+    var qs = QUIZ_ENGINE.questions;
+    if (!qs || !qs.length) { if (typeof showToast === 'function') showToast('No questions', 'error'); return; }
+
+    QUIZ_ENGINE.mode = mode;
+    QUIZ_ENGINE.active = true;
+    QUIZ_ENGINE.currentIndex = 0;
+    QUIZ_ENGINE.answers = {};
+    QUIZ_ENGINE.attempts = {};
+    QUIZ_ENGINE.streak = 0;
+    QUIZ_ENGINE.bestStreak = 0;
+    QUIZ_ENGINE.startTime = Date.now();
+    QUIZ_ENGINE.questionStartTime = Date.now();
+    QUIZ_ENGINE.questionTimes = [];
+    for (var i = 0; i < qs.length; i++) QUIZ_ENGINE.questionTimes.push(0);
+    QUIZ_ENGINE.totalTime = 0;
+    QUIZ_ENGINE.skipSuggestShown = false;
+    QUIZ_ENGINE.autoSubmitted = false;
+    QUIZ_ENGINE.tabSwitchTimestamps = [];
+    QUIZ_ENGINE.warnings = 0;
+    QUIZ_ENGINE.tabBlurredAt = null;
+    if (QUIZ_ENGINE.timer) { clearInterval(QUIZ_ENGINE.timer); QUIZ_ENGINE.timer = null; }
+
+    if (mode === 'test') {
+      QUIZ_ENGINE.totalTimeLeft = 25 * 60;
+      QUIZ_ENGINE.timerMode = 'total';
+      document.body.classList.add('test-mode');
+    } else {
+      QUIZ_ENGINE.timeLeft = 60;
+      QUIZ_ENGINE.timerMode = 'per-question';
+      document.body.classList.remove('test-mode');
+    }
+
+    var sn = document.getElementById('quizSheetName');
+    if (sn) {
       var lbl = (mode === 'test') ? ' \u00B7 TEST' : ' \u00B7 QUIZ';
-      var el = document.getElementById('quizSheetName');
-      if (el) el.textContent = meta.series + ' \u2014 Sheet ' + meta.sheetNumber + lbl;
+      sn.textContent = meta.series + ' \u2014 Sheet ' + meta.sheetNumber + lbl;
+    }
 
-      if (typeof showPage === 'function') showPage('quiz');
-      if (typeof buildPalette === 'function') buildPalette();
-      window.loadQuestion(0);
-      window.startTimer();
-      if (typeof startAntiCheat === 'function') startAntiCheat();
-      if (typeof logActivity === 'function') logActivity('Started ' + meta.title + ' (' + mode + ')', '\uD83C\uDFAF');
-    };
+    if (typeof showPage === 'function') showPage('quiz');
 
-    /* ---------- LOAD QUESTION ---------- */
-    window.loadQuestion = function (index) {
-      var qs = QUIZ_ENGINE.questions;
-      if (index < 0 || index >= qs.length) return;
+    // BUILD PALETTE FRESH
+    buildPaletteSelf(qs);
 
-      // Save time for previous
-      if (QUIZ_ENGINE.currentIndex !== index && QUIZ_ENGINE.active) {
-        var spent = Math.floor((Date.now() - (QUIZ_ENGINE.questionStartTime || Date.now())) / 1000);
-        var prev = QUIZ_ENGINE.currentIndex;
+    // LOAD FIRST QUESTION
+    loadQuestionSelf(0);
+
+    // START TIMER
+    startTimerSelf();
+  }
+
+  /* ========================================================
+     BUILD PALETTE (fresh, self-contained)
+     ======================================================== */
+  function buildPaletteSelf(qs) {
+    var palette = document.getElementById('quizPalette');
+    if (!palette) return;
+    palette.innerHTML = '';
+
+    for (var i = 0; i < qs.length; i++) {
+      var btn = document.createElement('button');
+      btn.className = 'palette-btn';
+      btn.dataset.idx = i;
+      btn.textContent = i + 1;
+      (function (idx) {
+        btn.addEventListener('click', function () {
+          loadQuestionSelf(idx);
+        });
+      })(i);
+      palette.appendChild(btn);
+    }
+
+    paintPaletteSelf();
+    paintLegendSelf();
+  }
+
+  /* ========================================================
+     LOAD QUESTION (self-contained)
+     ======================================================== */
+  function loadQuestionSelf(index) {
+    var qs = QUIZ_ENGINE.questions;
+    if (!qs || index < 0 || index >= qs.length) return;
+
+    // Save time for previous
+    if (QUIZ_ENGINE.currentIndex !== index && QUIZ_ENGINE.active) {
+      var spent = Math.floor((Date.now() - (QUIZ_ENGINE.questionStartTime || Date.now())) / 1000);
+      var prev = QUIZ_ENGINE.currentIndex;
+      if (prev >= 0 && prev < qs.length) {
         QUIZ_ENGINE.questionTimes[prev] = (QUIZ_ENGINE.questionTimes[prev] || 0) + spent;
       }
+    }
 
-      QUIZ_ENGINE.currentIndex = index;
-      QUIZ_ENGINE.questionStartTime = Date.now();
-      QUIZ_ENGINE.skipSuggestShown = false;
+    QUIZ_ENGINE.currentIndex = index;
+    QUIZ_ENGINE.questionStartTime = Date.now();
+    QUIZ_ENGINE.skipSuggestShown = false;
 
-      var q = qs[index];
-      var meta = QUIZ_ENGINE.meta;
-      var isTest = QUIZ_ENGINE.mode === 'test';
+    var q = qs[index];
+    var meta = QUIZ_ENGINE.meta;
+    var isTest = QUIZ_ENGINE.mode === 'test';
 
-      var snEl = document.getElementById('quizSheetName');
-      if (snEl) {
-        var lbl = isTest ? ' \u00B7 TEST' : ' \u00B7 QUIZ';
-        snEl.textContent = meta.series + ' \u2014 Sheet ' + meta.sheetNumber + lbl + ' \u2014 Q' + (index + 1) + '/' + qs.length;
-      }
+    // Sheet name
+    var sn = document.getElementById('quizSheetName');
+    if (sn) {
+      var lbl = isTest ? ' \u00B7 TEST' : ' \u00B7 QUIZ';
+      sn.textContent = meta.series + ' \u2014 Sheet ' + meta.sheetNumber + lbl + ' \u2014 Q' + (index + 1) + '/' + qs.length;
+    }
 
-      // Image
-      var imgC = document.getElementById('questionImageContainer');
-      var imgEl = document.getElementById('questionImage');
-      if (q.image) {
-        if (imgC) imgC.style.display = 'block';
-        if (imgEl) imgEl.src = q.image;
-      } else if (imgC) {
-        imgC.style.display = 'none';
-      }
+    // Image
+    var imgC = document.getElementById('questionImageContainer');
+    var imgE = document.getElementById('questionImage');
+    if (q.image) {
+      if (imgC) imgC.style.display = 'block';
+      if (imgE) imgE.src = q.image;
+    } else if (imgC) {
+      imgC.style.display = 'none';
+    }
 
-      // Question text
-      var qT = document.getElementById('questionText');
-      if (qT) {
-        var bonus = q.bonus ? ' <span style="color:var(--accent-gold);font-size:.8rem;">[BONUS]</span>' : '';
-        qT.innerHTML = 'Q' + (index + 1) + '. ' + q.question + bonus;
-      }
+    // Question text
+    var qT = document.getElementById('questionText');
+    if (qT) {
+      var bonus = q.bonus ? ' <span style="color:var(--accent-gold);font-size:.8rem;">[BONUS]</span>' : '';
+      qT.innerHTML = 'Q' + (index + 1) + '. ' + q.question + bonus;
+    }
 
-      // Options
-      var oc = document.getElementById('questionOptions');
-      if (oc) {
-        var letters = ['A', 'B', 'C', 'D'];
-        var existing = QUIZ_ENGINE.answers[index];
-        var html = '';
-        var oi;
-
-        for (oi = 0; oi < q.options.length; oi++) {
-          var cls = '';
-          var dis = '';
-          var isRevealed = QUIZ_ENGINE.showAnswerRevealed && QUIZ_ENGINE.showAnswerRevealed[index];
-
-          if (existing) {
-            if (isTest) {
-              if (existing.selected === oi) cls = 'selected';
-            } else {
-              if (existing.status === 'correct') {
-                dis = 'disabled';
-                if (existing.selected === oi) cls = 'correct';
-              } else if (existing.status === 'wrong_final') {
-                dis = 'disabled';
-                if (existing.selected === oi) cls = 'wrong';
-                if (isRevealed && oi === q.answer) cls = 'correct';
-              } else if (existing.status === 'wrong_retry') {
-                if (existing.selected === oi) { cls = 'wrong'; dis = 'disabled'; }
-              } else if (existing.status === 'skipped') {
-                dis = 'disabled';
-                if (isRevealed && oi === q.answer) cls = 'correct';
-              }
+    // Options
+    var oc = document.getElementById('questionOptions');
+    if (oc) {
+      var letters = ['A', 'B', 'C', 'D'];
+      var existing = QUIZ_ENGINE.answers[index];
+      var html = '';
+      for (var oi = 0; oi < q.options.length; oi++) {
+        var cls = '';
+        var dis = '';
+        if (existing) {
+          if (isTest) {
+            if (existing.selected === oi) cls = 'selected';
+          } else {
+            if (existing.status === 'correct') {
+              dis = 'disabled';
+              if (existing.selected === oi) cls = 'correct';
+            } else if (existing.status === 'wrong') {
+              dis = 'disabled';
+              if (existing.selected === oi) cls = 'wrong';
+              if (oi === q.answer) cls = 'correct';
+            } else if (existing.status === 'retry') {
+              if (existing.selected === oi) { cls = 'wrong'; dis = 'disabled'; }
+            } else if (existing.status === 'skipped') {
+              dis = 'disabled';
+              if (oi === q.answer) cls = 'correct';
             }
           }
-
-          html += '<button class="option-btn ' + cls + '" data-idx="' + oi + '" ' + dis + '>' +
-            '<span class="option-letter">' + letters[oi] + '</span>' +
-            '<span class="option-text">' + q.options[oi] + '</span>' +
-            '</button>';
         }
-        oc.innerHTML = html;
-
-        var btns = oc.querySelectorAll('.option-btn:not([disabled])');
-        var bi;
-        for (bi = 0; bi < btns.length; bi++) {
-          (function (btn) {
-            btn.addEventListener('click', function () {
-              window.selectOption(index, parseInt(btn.dataset.idx, 10));
-            });
-          })(btns[bi]);
-        }
+        html += '<button class="option-btn ' + cls + '" data-idx="' + oi + '" ' + dis + '>' +
+          '<span class="option-letter">' + letters[oi] + '</span>' +
+          '<span class="option-text">' + q.options[oi] + '</span></button>';
       }
+      oc.innerHTML = html;
 
-      renderFeedback(index);
-      window.updateNavigationButtons();
-      window.resetQuestionTimer();
-      window.updatePalette();
-    };
+      var btns = oc.querySelectorAll('.option-btn:not([disabled])');
+      for (var bi = 0; bi < btns.length; bi++) {
+        (function (btn) {
+          btn.addEventListener('click', function () {
+            selectOptionSelf(index, parseInt(btn.dataset.idx, 10));
+          });
+        })(btns[bi]);
+      }
+    }
 
-    /* ---------- FEEDBACK ---------- */
-    function renderFeedback(index) {
-      var fb = document.getElementById('questionFeedback');
-      if (!fb) return;
-
+    // Feedback (auto explanation)
+    var fb = document.getElementById('questionFeedback');
+    if (fb) {
+      fb.className = 'question-feedback';
       fb.style.background = '';
       fb.style.borderLeft = '';
-
-      var q = QUIZ_ENGINE.questions[index];
-      var existing = QUIZ_ENGINE.answers[index];
-      var isTest = QUIZ_ENGINE.mode === 'test';
-      var revealed = QUIZ_ENGINE.showAnswerRevealed && QUIZ_ENGINE.showAnswerRevealed[index];
-
-      if (isTest || !existing) {
-        fb.className = 'question-feedback';
-        fb.innerHTML = '';
-        return;
-      }
-
-      if (existing.status === 'correct') {
-        fb.className = 'question-feedback show correct';
-        fb.innerHTML = '<strong>\u2705 Correct!</strong>';
-        return;
-      }
-
-      if (existing.status === 'wrong_retry') {
-        fb.className = 'question-feedback show wrong';
-        fb.innerHTML = '<strong>\u274C Wrong.</strong> Try Again \u2014 one more chance.';
-        return;
-      }
-
-      if (existing.status === 'wrong_final' || existing.status === 'skipped') {
-        if (!revealed) {
-          fb.className = 'question-feedback show wrong';
-          fb.innerHTML = '<strong>\u274C ' + (existing.status === 'skipped' ? 'Skipped.' : 'Wrong.') + '</strong>';
-          var btn = document.createElement('button');
-          btn.className = 'quiz-btn';
-          btn.style.marginLeft = '10px';
-          btn.style.padding = '6px 14px';
-          btn.style.fontSize = '.78rem';
-          btn.textContent = 'Show Answer & Explanation';
-          btn.addEventListener('click', function () {
-            QUIZ_ENGINE.showAnswerRevealed = QUIZ_ENGINE.showAnswerRevealed || {};
-            QUIZ_ENGINE.showAnswerRevealed[index] = true;
-            window.loadQuestion(index);
-          });
-          fb.appendChild(btn);
-        } else {
+      fb.innerHTML = '';
+      if (!isTest && existing) {
+        if (existing.status === 'correct') {
+          fb.className = 'question-feedback show correct';
+          fb.innerHTML = '<div style="margin-bottom:8px;"><strong>\u2705 Correct!</strong></div>' +
+            '<div style="line-height:1.65;">' + (q.explanation || '') + '</div>';
+        } else if (existing.status === 'wrong') {
           fb.className = 'question-feedback show';
           fb.style.background = 'rgba(154,117,48,.08)';
           fb.style.borderLeft = '3px solid var(--accent-gold)';
-          fb.innerHTML = '<strong style="color:#16A34A;">Answer: ' + q.options[q.answer] + '</strong><br><br><span style="color:var(--text-secondary);">' + (q.explanation || '') + '</span>';
+          fb.innerHTML = '<div style="margin-bottom:8px;"><strong style="color:#DC2626;">\u274C Wrong.</strong></div>' +
+            '<div style="margin-bottom:8px;"><strong style="color:#16A34A;">Correct Answer:</strong> ' +
+            '<span style="color:var(--text-primary);">' + q.options[q.answer] + '</span></div>' +
+            '<div style="line-height:1.65;">' + (q.explanation || '') + '</div>';
+        } else if (existing.status === 'retry') {
+          fb.className = 'question-feedback show wrong';
+          fb.innerHTML = '<strong>\u274C Wrong.</strong> Try Again \u2014 one more chance.';
+        } else if (existing.status === 'skipped') {
+          fb.className = 'question-feedback show';
+          fb.style.background = 'rgba(154,117,48,.08)';
+          fb.style.borderLeft = '3px solid var(--accent-gold)';
+          fb.innerHTML = '<div style="margin-bottom:8px;"><strong>\u23ED\uFE0F Skipped.</strong></div>' +
+            '<div style="margin-bottom:8px;"><strong style="color:#16A34A;">Correct Answer:</strong> ' +
+            '<span style="color:var(--text-primary);">' + q.options[q.answer] + '</span></div>' +
+            '<div style="line-height:1.65;">' + (q.explanation || '') + '</div>';
         }
       }
     }
 
-    /* ---------- SELECT OPTION ---------- */
-    window.selectOption = function (qIndex, optIdx) {
-      if (!QUIZ_ENGINE.active) return;
+    // Update UI
+    paintPaletteSelf();
+    paintLegendSelf();
+    updateNavBtnsSelf();
+    buildFontCtrl();
+    applyFont();
+    resetTimerSelf();
+  }
 
-      var now = Date.now();
-      if (window.__selLock && now - window.__selLock < 120) return;
-      window.__selLock = now;
+  /* ========================================================
+     SELECT OPTION
+     ======================================================== */
+  function selectOptionSelf(qIndex, optIdx) {
+    if (!QUIZ_ENGINE.active) return;
+    var now = Date.now();
+    if (window.__selLock && now - window.__selLock < 100) return;
+    window.__selLock = now;
 
-      var q = QUIZ_ENGINE.questions[qIndex];
-      var isTest = QUIZ_ENGINE.mode === 'test';
-      var isCorrect = (optIdx === q.answer);
-      var timeTaken = Math.floor((Date.now() - (QUIZ_ENGINE.questionStartTime || Date.now())) / 1000);
+    var q = QUIZ_ENGINE.questions[qIndex];
+    var isTest = QUIZ_ENGINE.mode === 'test';
+    var isCorrect = (optIdx === q.answer);
+    var timeTaken = Math.floor((Date.now() - (QUIZ_ENGINE.questionStartTime || Date.now())) / 1000);
 
-      /* TEST MODE — change anytime */
-      if (isTest) {
-        QUIZ_ENGINE.attempts[qIndex] = (QUIZ_ENGINE.attempts[qIndex] || 0) + 1;
+    // TEST MODE
+    if (isTest) {
+      QUIZ_ENGINE.attempts[qIndex] = (QUIZ_ENGINE.attempts[qIndex] || 0) + 1;
+      QUIZ_ENGINE.answers[qIndex] = {
+        selected: optIdx,
+        status: isCorrect ? 'correct' : 'wrong',
+        attempts: QUIZ_ENGINE.attempts[qIndex],
+        timeTaken: timeTaken
+      };
+      loadQuestionSelf(qIndex);
+      return;
+    }
+
+    // QUIZ MODE
+    var attemptNum = (QUIZ_ENGINE.attempts[qIndex] || 0) + 1;
+    QUIZ_ENGINE.attempts[qIndex] = attemptNum;
+
+    if (isCorrect) {
+      QUIZ_ENGINE.answers[qIndex] = {
+        selected: optIdx, status: 'correct', attempts: attemptNum, timeTaken: timeTaken
+      };
+      QUIZ_ENGINE.streak = (QUIZ_ENGINE.streak || 0) + 1;
+      if (QUIZ_ENGINE.streak > (QUIZ_ENGINE.bestStreak || 0)) {
+        QUIZ_ENGINE.bestStreak = QUIZ_ENGINE.streak;
+      }
+      if (typeof showToast === 'function') {
+        if (timeTaken > 60) showToast('Correct! But improve your speed.', 'success', 2500);
+        else showToast('Correct!', 'success', 1500);
+      }
+      if (QUIZ_ENGINE.timer) { clearInterval(QUIZ_ENGINE.timer); QUIZ_ENGINE.timer = null; }
+    } else {
+      if (attemptNum === 1) {
         QUIZ_ENGINE.answers[qIndex] = {
-          selected: optIdx,
-          status: isCorrect ? 'correct' : 'wrong',
-          attempts: QUIZ_ENGINE.attempts[qIndex],
-          timeTaken: timeTaken
+          selected: optIdx, status: 'retry', attempts: 1, timeTaken: timeTaken
         };
-        window.loadQuestion(qIndex);
-        return;
-      }
-
-      /* QUIZ MODE */
-      QUIZ_ENGINE.retryState = QUIZ_ENGINE.retryState || {};
-      var retry = QUIZ_ENGINE.retryState[qIndex] || 0;
-
-      if (retry === 0) {
-        if (isCorrect) {
-          QUIZ_ENGINE.answers[qIndex] = { selected: optIdx, status: 'correct', attempts: 1, timeTaken: timeTaken };
-          QUIZ_ENGINE.streak = (QUIZ_ENGINE.streak || 0) + 1;
-          if (QUIZ_ENGINE.streak > (QUIZ_ENGINE.bestStreak || 0)) QUIZ_ENGINE.bestStreak = QUIZ_ENGINE.streak;
-          if (typeof showToast === 'function') {
-            if (timeTaken > 60) showToast('Correct! But improve your speed.', 'success', 2500);
-            else showToast('Correct!', 'success', 1500);
-          }
-          milestoneCheck();
-          stopTimerNow();
-        } else {
-          QUIZ_ENGINE.retryState[qIndex] = 1;
-          QUIZ_ENGINE.answers[qIndex] = { selected: optIdx, status: 'wrong_retry', attempts: 1, timeTaken: timeTaken };
-          if (typeof showToast === 'function') showToast('Wrong. Try again!', 'error', 1800);
-        }
+        if (typeof showToast === 'function') showToast('Wrong. Try again!', 'error', 1800);
       } else {
-        if (isCorrect) {
-          QUIZ_ENGINE.answers[qIndex] = { selected: optIdx, status: 'correct', attempts: 2, timeTaken: timeTaken };
-          QUIZ_ENGINE.streak = (QUIZ_ENGINE.streak || 0) + 1;
-          if (QUIZ_ENGINE.streak > (QUIZ_ENGINE.bestStreak || 0)) QUIZ_ENGINE.bestStreak = QUIZ_ENGINE.streak;
-          if (typeof showToast === 'function') {
-            if (timeTaken > 60) showToast('Correct! But improve your speed.', 'success', 2500);
-            else showToast('Correct!', 'success', 1500);
-          }
-          milestoneCheck();
-          stopTimerNow();
-        } else {
-          QUIZ_ENGINE.answers[qIndex] = { selected: optIdx, status: 'wrong_final', attempts: 2, timeTaken: timeTaken };
-          QUIZ_ENGINE.streak = 0;
-          if (typeof showToast === 'function') {
-            if (timeTaken > 60) showToast('Focus on accuracy as well as speed.', 'error', 3000);
-            else showToast('Wrong.', 'error', 1800);
-          }
-          stopTimerNow();
+        QUIZ_ENGINE.answers[qIndex] = {
+          selected: optIdx, status: 'wrong', attempts: 2, timeTaken: timeTaken
+        };
+        QUIZ_ENGINE.streak = 0;
+        if (typeof showToast === 'function') {
+          if (timeTaken > 60) showToast('Focus on accuracy as well as speed.', 'error', 3000);
+          else showToast('Wrong.', 'error', 1800);
         }
-      }
-
-      window.loadQuestion(qIndex);
-    };
-
-    function milestoneCheck() {
-      var s = QUIZ_ENGINE.streak;
-      var msgs = { 3: "You're on fire!", 5: "Unstoppable! 5 in a row!", 7: "Legendary! 7 streak!", 10: "GOD MODE! 10 in a row!", 15: "Perfection! 15 streak!", 20: "LEGENDARY! 20 streak!" };
-      var streakEl = document.getElementById('quizStreak');
-      if (streakEl) {
-        if (s >= 2) streakEl.textContent = '\uD83D\uDD25 Streak: ' + s;
-        else streakEl.textContent = '';
-      }
-      if (msgs[s] && typeof showStreakPopup === 'function') {
-        showStreakPopup(msgs[s], 'streak');
+        if (QUIZ_ENGINE.timer) { clearInterval(QUIZ_ENGINE.timer); QUIZ_ENGINE.timer = null; }
       }
     }
 
-    /* ---------- PALETTE ---------- */
-    window.updatePalette = function () {
-      var pal = document.getElementById('quizPalette');
-      if (!pal) return;
-      var isTest = QUIZ_ENGINE.mode === 'test';
-      var btns = pal.querySelectorAll('.palette-btn');
-      var i;
-      for (i = 0; i < btns.length; i++) {
-        var btn = btns[i];
-        btn.classList.remove('current', 'visited', 'correct', 'wrong', 'review', 'skipped', 'answered-test');
-        if (i === QUIZ_ENGINE.currentIndex) btn.classList.add('current');
+    loadQuestionSelf(qIndex);
+  }
 
-        var ans = QUIZ_ENGINE.answers[i];
-        if (!ans) continue;
+  /* ========================================================
+     TIMER
+     ======================================================== */
+  function startTimerSelf() {
+    if (QUIZ_ENGINE.timer) { clearInterval(QUIZ_ENGINE.timer); QUIZ_ENGINE.timer = null; }
 
-        if (isTest) {
-          if (ans.selected !== null && ans.selected !== undefined) btn.classList.add('answered-test');
-        } else {
-          if (ans.status === 'correct') btn.classList.add('correct');
-          else if (ans.status === 'wrong_final') btn.classList.add('wrong');
-          else if (ans.status === 'wrong_retry') btn.classList.add('visited');
-          else if (ans.status === 'skipped') btn.classList.add('skipped');
+    if (QUIZ_ENGINE.mode === 'test') {
+      updateTimerDisplaySelf();
+      QUIZ_ENGINE.timer = setInterval(function () {
+        QUIZ_ENGINE.totalTimeLeft--;
+        QUIZ_ENGINE.totalTime = (QUIZ_ENGINE.totalTime || 0) + 1;
+        updateTimerDisplaySelf();
+        if (QUIZ_ENGINE.totalTimeLeft <= 0) {
+          clearInterval(QUIZ_ENGINE.timer);
+          QUIZ_ENGINE.timer = null;
+          if (typeof showToast === 'function') showToast('Time up! Auto-submitting...', 'error', 3000);
+          setTimeout(function () {
+            if (typeof submitQuiz === 'function') submitQuiz(false);
+          }, 1500);
         }
-      }
-    };
-
-    /* ---------- TIMER ---------- */
-    function stopTimerNow() {
-      if (QUIZ_ENGINE.timer) {
-        clearInterval(QUIZ_ENGINE.timer);
-        QUIZ_ENGINE.timer = null;
-      }
-    }
-    window.stopTimer = stopTimerNow;
-
-    window.startTimer = function () {
-      stopTimerNow();
-
-      if (QUIZ_ENGINE.mode === 'test') {
-        window.updateTimerDisplay();
-        QUIZ_ENGINE.timer = setInterval(function () {
-          QUIZ_ENGINE.totalTimeLeft--;
-          QUIZ_ENGINE.totalTime = (QUIZ_ENGINE.totalTime || 0) + 1;
-          window.updateTimerDisplay();
-          if (QUIZ_ENGINE.totalTimeLeft <= 0) {
-            stopTimerNow();
-            if (typeof showToast === 'function') showToast('Time up! Auto-submitting...', 'error', 3000);
-            setTimeout(function () {
-              if (typeof submitQuiz === 'function') submitQuiz(false);
-            }, 1500);
-          }
-        }, 1000);
-      } else {
-        QUIZ_ENGINE.timeLeft = 60;
-        window.updateTimerDisplay();
-        QUIZ_ENGINE.timer = setInterval(function () {
-          QUIZ_ENGINE.timeLeft--;
-          QUIZ_ENGINE.totalTime = (QUIZ_ENGINE.totalTime || 0) + 1;
-          window.updateTimerDisplay();
-          if (QUIZ_ENGINE.timeLeft === 0 && !QUIZ_ENGINE.skipSuggestShown) {
-            QUIZ_ENGINE.skipSuggestShown = true;
-            if (typeof showToast === 'function') showToast('You are taking too long. Consider skipping.', 'info', 4000);
-          }
-        }, 1000);
-      }
-    };
-
-    window.resetQuestionTimer = function () {
-      if (QUIZ_ENGINE.mode === 'test') {
-        window.updateTimerDisplay();
-        return;
-      }
-      stopTimerNow();
+      }, 1000);
+    } else {
       QUIZ_ENGINE.timeLeft = 60;
-      QUIZ_ENGINE.skipSuggestShown = false;
-      window.startTimer();
-    };
+      updateTimerDisplaySelf();
+      QUIZ_ENGINE.timer = setInterval(function () {
+        QUIZ_ENGINE.timeLeft--;
+        QUIZ_ENGINE.totalTime = (QUIZ_ENGINE.totalTime || 0) + 1;
+        updateTimerDisplaySelf();
+        if (QUIZ_ENGINE.timeLeft === 0 && !QUIZ_ENGINE.skipSuggestShown) {
+          QUIZ_ENGINE.skipSuggestShown = true;
+          showTopPopup('You are taking too long. Consider skipping.');
+        }
+      }, 1000);
+    }
+  }
 
-    window.updateTimerDisplay = function () {
-      var el = document.getElementById('quizTimer');
-      if (!el) return;
-      if (QUIZ_ENGINE.mode === 'test') {
-        var t = Math.max(0, QUIZ_ENGINE.totalTimeLeft);
-        var m = Math.floor(t / 60);
-        var s = t % 60;
-        el.textContent = m + ':' + (s < 10 ? '0' : '') + s;
+  function resetTimerSelf() {
+    if (QUIZ_ENGINE.mode === 'test') {
+      updateTimerDisplaySelf();
+      return;
+    }
+    if (QUIZ_ENGINE.timer) { clearInterval(QUIZ_ENGINE.timer); QUIZ_ENGINE.timer = null; }
+
+    var ans = QUIZ_ENGINE.answers[QUIZ_ENGINE.currentIndex];
+    var el = document.getElementById('quizTimer');
+
+    if (ans && (ans.status === 'correct' || ans.status === 'wrong' || ans.status === 'skipped')) {
+      if (el && ans.timeTaken !== undefined) {
+        el.textContent = ans.timeTaken + 's';
         el.classList.remove('warning', 'danger');
-        if (t <= 60) el.classList.add('danger');
-        else if (t <= 300) el.classList.add('warning');
-      } else {
-        var tl = QUIZ_ENGINE.timeLeft;
-        if (tl >= 0) el.textContent = tl;
-        else el.textContent = '+' + Math.abs(tl);
+        el.style.color = '#8A7B62';
+        el.style.borderColor = '';
+        el.style.background = '';
+      }
+      return;
+    }
+
+    QUIZ_ENGINE.timeLeft = 60;
+    QUIZ_ENGINE.skipSuggestShown = false;
+    startTimerSelf();
+  }
+
+  function updateTimerDisplaySelf() {
+    var el = document.getElementById('quizTimer');
+    if (!el) return;
+    if (QUIZ_ENGINE.mode === 'test') {
+      var t = Math.max(0, QUIZ_ENGINE.totalTimeLeft);
+      var m = Math.floor(t / 60);
+      var s = t % 60;
+      el.textContent = m + ':' + (s < 10 ? '0' : '') + s;
+      el.classList.remove('warning', 'danger');
+      el.style.color = ''; el.style.borderColor = ''; el.style.background = '';
+      if (t <= 60) el.classList.add('danger');
+      else if (t <= 300) el.classList.add('warning');
+    } else {
+      var tl = QUIZ_ENGINE.timeLeft;
+      if (tl >= 0) {
+        el.textContent = tl;
         el.classList.remove('warning', 'danger');
+        el.style.color = ''; el.style.borderColor = ''; el.style.background = '';
         if (tl <= 5) el.classList.add('danger');
         else if (tl <= 20) el.classList.add('warning');
+      } else {
+        el.textContent = '+' + Math.abs(tl);
+        el.classList.remove('warning');
+        el.classList.add('danger');
+        el.style.color = '#DC2626';
+        el.style.borderColor = '#DC2626';
+        el.style.background = 'rgba(220,38,38,.12)';
       }
-    };
-
-    /* ---------- NAV BUTTONS ---------- */
-    window.updateNavigationButtons = function () {
-      var prev = document.getElementById('prevQuestionBtn');
-      var next = document.getElementById('nextQuestionBtn');
-      var skip = document.getElementById('skipQuestionBtn');
-
-      if (prev) {
-        if (QUIZ_ENGINE.currentIndex === 0) prev.style.display = 'none';
-        else { prev.style.display = ''; prev.disabled = false; }
-      }
-
-      if (next) {
-        var isLast = QUIZ_ENGINE.currentIndex === QUIZ_ENGINE.questions.length - 1;
-        next.textContent = isLast ? 'Finish \u2192' : 'Next \u2192';
-      }
-
-      if (skip) {
-        if (QUIZ_ENGINE.mode === 'test') skip.style.display = 'none';
-        else {
-          skip.style.display = '';
-          var ans = QUIZ_ENGINE.answers[QUIZ_ENGINE.currentIndex];
-          skip.disabled = !!(ans && (ans.status === 'correct' || ans.status === 'wrong_final' || ans.status === 'skipped'));
-        }
-      }
-    };
-
-    /* ---------- RESULT ---------- */
-    window.calculateResult = function (autoSubmit) {
-      var meta = QUIZ_ENGINE.meta;
-      var correct = 0, wrong = 0, skipped = 0, unattempted = 0, score = 0;
-      var maxMarks = meta.marking.totalMarks;
-      var perQ = [];
-      var i;
-
-      for (i = 0; i < QUIZ_ENGINE.questions.length; i++) {
-        var q = QUIZ_ENGINE.questions[i];
-        var ans = QUIZ_ENGINE.answers[i];
-        var ts = QUIZ_ENGINE.questionTimes[i] || 0;
-        var st = 'unattempted';
-        var sel = null;
-
-        if (ans) {
-          sel = ans.selected;
-          if (ans.selected !== null && ans.selected !== undefined) {
-            if (ans.selected === q.answer) { st = 'correct'; correct++; score += meta.marking.correct; }
-            else { st = 'wrong'; wrong++; score += meta.marking.wrong; }
-          } else { st = 'skipped'; skipped++; }
-        } else unattempted++;
-
-        perQ.push({
-          index: i, question: q.question, options: q.options, answer: q.answer,
-          explanation: q.explanation, bonus: q.bonus || false,
-          selected: sel, status: st, timeSpent: ts
-        });
-      }
-
-      var proj = score + (wrong * Math.abs(meta.marking.wrong));
-      var totTime = (QUIZ_ENGINE.mode === 'test')
-        ? (25 * 60 - Math.max(0, QUIZ_ENGINE.totalTimeLeft))
-        : (QUIZ_ENGINE.totalTime || 0);
-      var att = correct + wrong;
-      var avg = att > 0 ? Math.round(totTime / att) : 0;
-
-      var weak = [];
-      for (i = 0; i < perQ.length; i++) {
-        var pq = perQ[i];
-        if (pq.status === 'wrong') weak.push({ type: 'wrong', index: pq.index });
-        else if (pq.status === 'skipped' || pq.status === 'unattempted') weak.push({ type: 'skipped', index: pq.index });
-        else if (pq.timeSpent > 60) weak.push({ type: 'slow', index: pq.index });
-      }
-
-      return {
-        score: score, maxMarks: maxMarks, correct: correct, wrong: wrong,
-        skipped: skipped, unattempted: unattempted, totalAttempted: att,
-        totalTimeSpent: totTime, avgTime: avg, bestStreak: QUIZ_ENGINE.bestStreak,
-        projectedScore: proj, perQuestion: perQ, weakConcepts: weak,
-        meta: meta, mode: QUIZ_ENGINE.mode, autoSubmit: autoSubmit
-      };
-    };
-
-    window.showResultPage = function (result, autoSubmit) {
-      var scoreEl = document.getElementById('resultScore');
-      var statsEl = document.getElementById('resultStats');
-      var msgEl = document.getElementById('resultMessage');
-      var expEl = document.getElementById('resultExplanations');
-
-      if (scoreEl) scoreEl.textContent = result.score + ' / ' + result.maxMarks;
-
-      if (statsEl) {
-        var m = Math.floor(result.totalTimeSpent / 60);
-        var s = result.totalTimeSpent % 60;
-        var tStr = m + ':' + (s < 10 ? '0' : '') + s;
-
-        statsEl.innerHTML =
-          '<div class="result-stat"><div class="result-stat-value">' + result.correct + '</div><div class="result-stat-label">Correct</div></div>' +
-          '<div class="result-stat"><div class="result-stat-value">' + result.wrong + '</div><div class="result-stat-label">Wrong</div></div>' +
-          '<div class="result-stat"><div class="result-stat-value">' + (result.skipped + result.unattempted) + '</div><div class="result-stat-label">Skipped</div></div>' +
-          '<div class="result-stat"><div class="result-stat-value">' + result.bestStreak + '</div><div class="result-stat-label">Best Streak</div></div>' +
-          '<div class="result-stat"><div class="result-stat-value">' + tStr + '</div><div class="result-stat-label">Total Time</div></div>' +
-          '<div class="result-stat"><div class="result-stat-value">' + result.avgTime + 's</div><div class="result-stat-label">Avg / Q</div></div>';
-      }
-
-      if (msgEl) {
-        var msg = '';
-        if (autoSubmit) msg += '<strong>Auto-submitted</strong> due to tab switches.<br><br>';
-        if (result.mode === 'test') msg += '<strong>Test Mode</strong><br><br>';
-        if (result.totalAttempted === 0) msg += 'No questions attempted.';
-        else if (result.wrong === 0 && result.correct > 0) msg += 'Perfect! Every attempt was correct.';
-        else if (result.wrong > 0) {
-          var bonus = result.wrong * Math.abs(result.meta.marking.wrong);
-          msg += 'If wrong answers were blank, you would have scored <strong>' + result.projectedScore + '/' + result.maxMarks + '</strong> (' + bonus + ' marks saved).';
-        } else msg += 'Good attempt!';
-        msgEl.innerHTML = msg;
-      }
-
-      var old = document.getElementById('weakConceptsSection');
-      if (old && old.parentNode) old.parentNode.removeChild(old);
-
-      if (expEl) {
-        var wc = document.createElement('div');
-        wc.id = 'weakConceptsSection';
-
-        if (result.weakConcepts.length === 0) {
-          wc.innerHTML =
-            '<div class="result-weak-concepts" style="border-left-color:#16A34A;">' +
-            '<h4 style="color:#16A34A;">No Weak Areas Detected</h4>' +
-            '<div class="weak-concept-item">Excellent work! All questions were correct and within time.</div>' +
-            '</div>';
-        } else {
-          var wl = [], sl = [], slw = [], k;
-          for (k = 0; k < result.weakConcepts.length; k++) {
-            var w = result.weakConcepts[k];
-            if (w.type === 'wrong') wl.push('Q' + (w.index + 1));
-            else if (w.type === 'skipped') sl.push('Q' + (w.index + 1));
-            else if (w.type === 'slow') slw.push('Q' + (w.index + 1));
-          }
-          var items = [];
-          if (wl.length) items.push('<strong>Weak Concepts</strong> \u2014 Review: ' + wl.join(', '));
-          if (sl.length) items.push('<strong>Skipped/Unattempted</strong> \u2014 ' + sl.join(', '));
-          if (slw.length) items.push('<strong>Slow Questions (&gt;60s)</strong> \u2014 ' + slw.join(', '));
-
-          wc.innerHTML =
-            '<div class="result-weak-concepts">' +
-            '<h4>Focus Areas</h4>' +
-            items.map(function (x) { return '<div class="weak-concept-item">' + x + '</div>'; }).join('') +
-            '</div>';
-        }
-
-        expEl.parentNode.insertBefore(wc, expEl);
-
-        var html = '', e;
-        for (e = 0; e < result.perQuestion.length; e++) {
-          var pq = result.perQuestion[e];
-          var icon = pq.status === 'correct' ? '\u2705' : pq.status === 'wrong' ? '\u274C' : '\u23ED\uFE0F';
-          var ya = (pq.selected !== null && pq.selected !== undefined) ? pq.options[pq.selected] : 'Not attempted';
-          html += '<div class="explanation-item">' +
-            '<div class="explanation-q">' + icon + ' Q' + (e + 1) + '. ' + pq.question +
-            '<span class="result-q-time">' + pq.timeSpent + 's</span></div>' +
-            '<div class="explanation-text">' +
-            '<strong>Your answer:</strong> ' + ya + '<br>' +
-            '<strong>Correct answer:</strong> ' + pq.options[pq.answer] + '<br>' +
-            '<em>' + (pq.explanation || '') + '</em>' +
-            '</div></div>';
-        }
-        expEl.innerHTML = html;
-      }
-
-      window._lastResult = result;
-      if (typeof showPage === 'function') showPage('result');
-    };
-
-    /* ---------- REWIRE BUTTONS ---------- */
-    function strip(el) {
-      if (!el || !el.parentNode) return null;
-      var c = el.cloneNode(true);
-      el.parentNode.replaceChild(c, el);
-      return c;
     }
+  }
 
-    setTimeout(function () {
-      try {
-        var prev = strip(document.getElementById('prevQuestionBtn'));
-        if (prev) prev.addEventListener('click', function () {
-          if (QUIZ_ENGINE.currentIndex > 0) window.loadQuestion(QUIZ_ENGINE.currentIndex - 1);
-        });
+  /* ========================================================
+     PAINT PALETTE
+     ======================================================== */
+  function paintPaletteSelf() {
+    var palette = document.getElementById('quizPalette');
+    if (!palette) return;
+    var isDark = document.body.getAttribute('data-theme') === 'dark';
+    var isTest = QUIZ_ENGINE.mode === 'test';
+    var btns = palette.querySelectorAll('.palette-btn');
 
-        var next = strip(document.getElementById('nextQuestionBtn'));
-        if (next) next.addEventListener('click', function () {
-          if (QUIZ_ENGINE.currentIndex < QUIZ_ENGINE.questions.length - 1) window.loadQuestion(QUIZ_ENGINE.currentIndex + 1);
-          else if (confirm('This is the last question. Submit?')) { if (typeof submitQuiz === 'function') submitQuiz(false); }
-        });
+    for (var j = 0; j < btns.length; j++) {
+      var btn = btns[j];
+      var ans = QUIZ_ENGINE.answers ? QUIZ_ENGINE.answers[j] : null;
+      var bg = isDark ? '#2A161C' : '#FFFFFF';
+      var fg = isDark ? '#F5EDD6' : '#1A1410';
+      var bd = '#D4AF37';
+      var shadow = 'none';
+      var bw = '1.5px';
 
-        var skip = strip(document.getElementById('skipQuestionBtn'));
-        if (skip) skip.addEventListener('click', function () {
-          if (QUIZ_ENGINE.mode === 'test') return;
-          var idx = QUIZ_ENGINE.currentIndex;
-          var a = QUIZ_ENGINE.answers[idx];
-          if (a && a.status === 'correct') { if (typeof showToast === 'function') showToast('Cannot skip a correct answer', 'info'); return; }
-          QUIZ_ENGINE.answers[idx] = { selected: null, status: 'skipped', attempts: 0 };
-          if (QUIZ_ENGINE.currentIndex < QUIZ_ENGINE.questions.length - 1) window.loadQuestion(QUIZ_ENGINE.currentIndex + 1);
-        });
-
-        var sub = strip(document.getElementById('submitQuizBtn'));
-        if (sub) sub.addEventListener('click', function () {
-          if (confirm('Submit the quiz now?')) { if (typeof submitQuiz === 'function') submitQuiz(false); }
-        });
-
-        var start = strip(document.getElementById('startQuizBtn'));
-        if (start) {
-          start.textContent = 'Start';
-          start.addEventListener('click', function () {
-            var sid = (typeof APP_STATE !== 'undefined' && APP_STATE.currentSheet) ? APP_STATE.currentSheet : QUIZ_ENGINE.sheetId;
-            if (!sid) { if (typeof showToast === 'function') showToast('No quiz selected', 'error'); return; }
-            if (typeof startQuiz === 'function') startQuiz(sid);
-          });
+      if (ans) {
+        if (isTest) {
+          if (ans.selected !== null && ans.selected !== undefined) { bg = '#3B82F6'; fg = '#FFF'; bd = '#3B82F6'; }
+        } else {
+          if (ans.status === 'correct') { bg = '#16A34A'; fg = '#FFF'; bd = '#16A34A'; }
+          else if (ans.status === 'wrong') { bg = '#DC2626'; fg = '#FFF'; bd = '#DC2626'; }
+          else if (ans.status === 'retry') { bg = '#9333EA'; fg = '#FFF'; bd = '#9333EA'; }
+          else if (ans.status === 'skipped') { bg = '#9CA3AF'; fg = '#FFF'; bd = '#9CA3AF'; }
         }
+      }
 
-        var modeBtns = document.querySelectorAll('.mode-option');
-        var mi;
-        for (mi = 0; mi < modeBtns.length; mi++) {
-          (function (btn) {
-            var nb = strip(btn);
-            if (nb) nb.addEventListener('click', function () {
-              var mode = nb.dataset.mode;
-              var modal = document.getElementById('quizModeModal');
-              if (modal) modal.classList.remove('show');
-              window.beginQuizWithMode(mode);
-            });
-          })(modeBtns[mi]);
-        }
+      var isCurrent = (j === QUIZ_ENGINE.currentIndex);
+      if (isCurrent) { shadow = '0 0 0 3px rgba(212,175,55,.5)'; bd = '#D4AF37'; bw = '2.5px'; }
 
-        var cb = strip(document.getElementById('quizModeClose'));
-        if (cb) cb.addEventListener('click', function () {
+      var key = bg + '|' + fg + '|' + bd + '|' + shadow + '|' + bw;
+      if (btn.getAttribute('data-pkey') === key) continue;
+      btn.setAttribute('data-pkey', key);
+
+      btn.style.setProperty('background', bg, 'important');
+      btn.style.setProperty('background-color', bg, 'important');
+      btn.style.setProperty('color', fg, 'important');
+      btn.style.setProperty('border', bw + ' solid ' + bd, 'important');
+      btn.style.setProperty('border-color', bd, 'important');
+      btn.style.setProperty('box-shadow', shadow, 'important');
+    }
+  }
+
+  /* ========================================================
+     PAINT LEGEND
+     ======================================================== */
+  var lastLegendKey = '';
+  function paintLegendSelf() {
+    var palette = document.getElementById('quizPalette');
+    if (!palette) return;
+    var isDark = document.body.getAttribute('data-theme') === 'dark';
+    var isTest = QUIZ_ENGINE.mode === 'test';
+    var key = (isDark ? 'D' : 'L') + '_' + (isTest ? 'T' : 'Q');
+
+    if (lastLegendKey === key && document.getElementById('paletteLegend')) return;
+    lastLegendKey = key;
+
+    var old = document.getElementById('paletteLegend');
+    if (old) old.remove();
+
+    var items = isTest ? [
+      { c: isDark ? '#2A161C' : '#FFFFFF', b: '#D4AF37', t: 'Current' },
+      { c: '#3B82F6', b: '#3B82F6', t: 'Answered' },
+      { c: '#9CA3AF', b: '#9CA3AF', t: 'Skipped' }
+    ] : [
+      { c: isDark ? '#2A161C' : '#FFFFFF', b: '#D4AF37', t: 'Current' },
+      { c: '#16A34A', b: '#16A34A', t: 'Correct' },
+      { c: '#DC2626', b: '#DC2626', t: 'Wrong' },
+      { c: '#9CA3AF', b: '#9CA3AF', t: 'Skipped' }
+    ];
+
+    var legend = document.createElement('div');
+    legend.id = 'paletteLegend';
+    legend.style.cssText = 'flex-basis:100%;width:100%;padding:0 0 12px 0;margin-bottom:10px;' +
+      'border-bottom:1px dashed ' + (isDark ? '#4A2D34' : '#B8A88A') + ';';
+
+    var html = '';
+    for (var i = 0; i < items.length; i++) {
+      html += '<div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;' +
+        'font-family:Inter,sans-serif;font-size:.82rem;line-height:1.4;' +
+        'color:' + (isDark ? '#E8DEC8' : '#1A1410') + ';font-weight:600;">' +
+        '<span style="display:inline-block;width:16px;height:16px;border-radius:4px;' +
+        'background:' + items[i].c + ';border:1.5px solid ' + items[i].b + ';flex-shrink:0;"></span>' +
+        '<span style="flex:1;">' + items[i].t + '</span></div>';
+    }
+    legend.innerHTML = html;
+    palette.insertBefore(legend, palette.firstChild);
+  }
+
+  /* ========================================================
+     NAV BUTTONS
+     ======================================================== */
+  function updateNavBtnsSelf() {
+    // Prev
+    var prev = document.getElementById('prevQuestionBtn');
+    if (prev) {
+      if (QUIZ_ENGINE.currentIndex === 0) prev.style.display = 'none';
+      else { prev.style.display = ''; prev.disabled = false; }
+    }
+    // Next
+    var nextBtn = document.getElementById('nextQuestionBtn');
+    if (nextBtn) {
+      var idx = QUIZ_ENGINE.currentIndex;
+      var ans = QUIZ_ENGINE.answers ? QUIZ_ENGINE.answers[idx] : null;
+      var isTest = QUIZ_ENGINE.mode === 'test';
+      var isLast = idx === QUIZ_ENGINE.questions.length - 1;
+      var attempted = false;
+      if (isTest) {
+        attempted = !!(ans && ans.selected !== null && ans.selected !== undefined);
+      } else {
+        attempted = !!(ans && (ans.status === 'correct' || ans.status === 'wrong' || ans.status === 'skipped'));
+      }
+      if (attempted || isLast) {
+        nextBtn.style.visibility = 'visible';
+        nextBtn.style.opacity = '1';
+        nextBtn.style.pointerEvents = 'auto';
+      } else {
+        nextBtn.style.visibility = 'hidden';
+        nextBtn.style.opacity = '0';
+        nextBtn.style.pointerEvents = 'none';
+      }
+      nextBtn.textContent = isLast ? 'Finish \u2192' : 'Next \u2192';
+    }
+    // Skip
+    var skip = document.getElementById('skipQuestionBtn');
+    if (skip) {
+      if (QUIZ_ENGINE.mode === 'test') skip.style.display = 'none';
+      else {
+        skip.style.display = '';
+        var a = QUIZ_ENGINE.answers ? QUIZ_ENGINE.answers[QUIZ_ENGINE.currentIndex] : null;
+        skip.disabled = !!(a && (a.status === 'correct' || a.status === 'wrong' || a.status === 'skipped'));
+      }
+    }
+  }
+
+  /* ========================================================
+     REWIRE ALL BUTTONS (run after Part 4)
+     ======================================================== */
+  function strip(el) {
+    if (!el || !el.parentNode) return null;
+    var c = el.cloneNode(true);
+    el.parentNode.replaceChild(c, el);
+    return c;
+  }
+
+  function rewireAll() {
+    // Mode buttons → beginQuizWithMode (ours)
+    var modeBtns = document.querySelectorAll('.mode-option');
+    for (var m = 0; m < modeBtns.length; m++) {
+      (function (btn) {
+        var nb = strip(btn);
+        if (nb) nb.addEventListener('click', function () {
+          var mode = nb.dataset.mode;
           var modal = document.getElementById('quizModeModal');
           if (modal) modal.classList.remove('show');
+          beginQuizWithMode(mode);
         });
-      } catch (err) {
-        console.warn('[Fix] Rewire error:', err);
-      }
-    }, 500);
-
-    console.log('[Quiz Fix] Applied successfully');
-  }
-
-  // Wait for full page load
-  if (document.readyState === 'complete') {
-    setTimeout(applyFixes, 1200);
-  } else {
-    window.addEventListener('load', function () { setTimeout(applyFixes, 1200); });
-  }
-})();
-</script>
-<script>
-(function () {
-  'use strict';
-
-  function waitForApp(n) {
-    if (typeof QUIZ_ENGINE === 'undefined') {
-      if (n < 40) setTimeout(function () { waitForApp(n + 1); }, 250);
-      return;
-    }
-    patch();
-  }
-
-  function patch() {
-    var _origUpdatePalette = window.updatePalette;
-    window.updatePalette = function () {
-      if (typeof _origUpdatePalette === 'function') _origUpdatePalette();
-      renderLegend();
-    };
-
-    var _origBegin = window.beginQuizWithMode;
-    window.beginQuizWithMode = function (mode) {
-      if (typeof _origBegin === 'function') _origBegin(mode);
-      setTimeout(renderLegend, 100);
-    };
-
-    function renderLegend() {
-      var palette = document.getElementById('quizPalette');
-      if (!palette || !palette.parentNode) return;
-
-      var old = document.getElementById('paletteLegend');
-      if (old && old.parentNode) old.parentNode.removeChild(old);
-
-      var isTest = QUIZ_ENGINE.mode === 'test';
-      var items = isTest ? [
-        { c: '#FFFFFF', b: '#D4AF37', t: 'Current Question' },
-        { c: '#3B82F6', b: '#3B82F6', t: 'Answered' },
-        { c: '#9CA3AF', b: '#9CA3AF', t: 'Skipped' }
-      ] : [
-        { c: '#FFFFFF', b: '#D4AF37', t: 'Current Question' },
-        { c: '#16A34A', b: '#16A34A', t: 'Correct' },
-        { c: '#DC2626', b: '#DC2626', t: 'Wrong (Final)' },
-        { c: '#9333EA', b: '#9333EA', t: 'Attempted (Retry)' },
-        { c: '#9CA3AF', b: '#9CA3AF', t: 'Skipped' }
-      ];
-
-      var legend = document.createElement('div');
-      legend.id = 'paletteLegend';
-      var html = '<div class="legend-title">Colour Code</div><div class="legend-list">';
-      for (var i = 0; i < items.length; i++) {
-        html += '<div class="legend-item">' +
-          '<span class="legend-dot" style="background:' + items[i].c + ';border-color:' + items[i].b + ';"></span>' +
-          '<span class="legend-text">' + items[i].t + '</span>' +
-          '</div>';
-      }
-      html += '</div>';
-      legend.innerHTML = html;
-
-      // Insert BEFORE palette (top of sidebar column)
-      palette.parentNode.insertBefore(legend, palette);
+      })(modeBtns[m]);
     }
 
-    console.log('[Legend] Ready');
+    // Close mode modal
+    var cb = strip(document.getElementById('quizModeClose'));
+    if (cb) cb.addEventListener('click', function () {
+      var modal = document.getElementById('quizModeModal');
+      if (modal) modal.classList.remove('show');
+    });
+
+    // Start quiz button
+    var start = strip(document.getElementById('startQuizBtn'));
+    if (start) {
+      start.textContent = 'Start';
+      start.addEventListener('click', function () {
+        var sid = (typeof APP_STATE !== 'undefined' && APP_STATE.currentSheet) ? APP_STATE.currentSheet : QUIZ_ENGINE.sheetId;
+        if (!sid) { if (typeof showToast === 'function') showToast('No quiz selected', 'error'); return; }
+        if (typeof startQuiz === 'function') startQuiz(sid);
+      });
+    }
+
+    // Prev
+    var prev = strip(document.getElementById('prevQuestionBtn'));
+    if (prev) prev.addEventListener('click', function () {
+      if (QUIZ_ENGINE.currentIndex > 0) loadQuestionSelf(QUIZ_ENGINE.currentIndex - 1);
+    });
+
+    // Next
+    var next = strip(document.getElementById('nextQuestionBtn'));
+    if (next) next.addEventListener('click', function () {
+      if (QUIZ_ENGINE.currentIndex < QUIZ_ENGINE.questions.length - 1) {
+        loadQuestionSelf(QUIZ_ENGINE.currentIndex + 1);
+      } else {
+        if (confirm('This is the last question. Submit?')) {
+          if (typeof submitQuiz === 'function') submitQuiz(false);
+        }
+      }
+    });
+
+    // Skip
+    var skip = strip(document.getElementById('skipQuestionBtn'));
+    if (skip) skip.addEventListener('click', function () {
+      if (QUIZ_ENGINE.mode === 'test') return;
+      var idx = QUIZ_ENGINE.currentIndex;
+      var a = QUIZ_ENGINE.answers[idx];
+      if (a && a.status === 'correct') { if (typeof showToast === 'function') showToast('Cannot skip a correct answer', 'info'); return; }
+      QUIZ_ENGINE.answers[idx] = { selected: null, status: 'skipped', attempts: 0, timeTaken: 0 };
+      if (QUIZ_ENGINE.timer) { clearInterval(QUIZ_ENGINE.timer); QUIZ_ENGINE.timer = null; }
+      if (QUIZ_ENGINE.currentIndex < QUIZ_ENGINE.questions.length - 1) {
+        loadQuestionSelf(QUIZ_ENGINE.currentIndex + 1);
+      } else {
+        updateNavBtnsSelf();
+        loadQuestionSelf(idx);
+      }
+    });
+
+    // Submit
+    var sub = strip(document.getElementById('submitQuizBtn'));
+    if (sub) sub.addEventListener('click', function () {
+      if (confirm('Submit the quiz now?')) {
+        if (typeof submitQuiz === 'function') submitQuiz(false);
+      }
+    });
+
+    // Theme observer
+    try {
+      var obs = new MutationObserver(function (muts) {
+        for (var i = 0; i < muts.length; i++) {
+          if (muts[i].attributeName === 'data-theme') {
+            lastLegendKey = '';
+            paintPaletteSelf();
+            paintLegendSelf();
+            break;
+          }
+        }
+      });
+      obs.observe(document.body, { attributes: true, attributeFilter: ['data-theme'] });
+    } catch (e) {}
+
+    console.log('[Quiz FINAL v2] Rewire done');
+  }
+
+  /* ========================================================
+     EXPORT TO WINDOW
+     ======================================================== */
+  window.beginQuizWithMode = beginQuizWithMode;
+  window.loadQuestion = loadQuestionSelf;
+  window.selectOption = selectOptionSelf;
+  window.startTimer = startTimerSelf;
+  window.resetQuestionTimer = resetTimerSelf;
+  window.updateTimerDisplay = updateTimerDisplaySelf;
+  window.updatePalette = paintPaletteSelf;
+
+  /* ========================================================
+     RUN
+     ======================================================== */
+  function runAt(t) {
+    setTimeout(function () {
+      try { rewireAll(); } catch (e) { console.warn('rewire fail', e); }
+    }, t);
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () { waitForApp(0); });
+    document.addEventListener('DOMContentLoaded', function () { runAt(700); });
   } else {
-    waitForApp(0);
+    runAt(700);
   }
-})();
-</script>
-<script>
-(function () {
-  'use strict';
+  window.addEventListener('load', function () { runAt(1100); });
 
-  function start(n) {
-    if (typeof QUIZ_ENGINE === 'undefined') {
-      if (n < 40) setTimeout(function () { start(n + 1); }, 250);
-      return;
-    }
-    run();
-  }
-
-  function run() {
-    // Override updatePalette to also draw legend
-    var _u = window.updatePalette;
-    window.updatePalette = function () {
-      if (typeof _u === 'function') _u();
-      drawLegend();
-    };
-
-    var _b = window.beginQuizWithMode;
-    window.beginQuizWithMode = function (mode) {
-      if (typeof _b === 'function') _b(mode);
-      setTimeout(drawLegend, 150);
-    };
-
-    // Also hook loadQuestion since that's called first
-    var _l = window.loadQuestion;
-    window.loadQuestion = function (i) {
-      if (typeof _l === 'function') _l(i);
-      drawLegend();
-    };
-
-    function drawLegend() {
-      var palette = document.getElementById('quizPalette');
-      if (!palette) return;
-
-      var old = document.getElementById('paletteLegend');
-      if (old && old.parentNode) old.parentNode.removeChild(old);
-
-      var isTest = QUIZ_ENGINE.mode === 'test';
-      var items = isTest ? [
-        { c: '#FFFFFF', b: '#D4AF37', t: 'Current' },
-        { c: '#3B82F6', b: '#3B82F6', t: 'Answered' },
-        { c: '#9CA3AF', b: '#9CA3AF', t: 'Skipped' }
-      ] : [
-        { c: '#FFFFFF', b: '#D4AF37', t: 'Current' },
-        { c: '#16A34A', b: '#16A34A', t: 'Correct' },
-        { c: '#DC2626', b: '#DC2626', t: 'Wrong' },
-        { c: '#9333EA', b: '#9333EA', t: 'Attempted (Retry)' },
-        { c: '#9CA3AF', b: '#9CA3AF', t: 'Skipped' }
-      ];
-
-      var legend = document.createElement('div');
-      legend.id = 'paletteLegend';
-
-      var html = '<div class="legend-title">Colour Code</div>';
-      for (var i = 0; i < items.length; i++) {
-        html += '<div class="legend-item">' +
-          '<span class="legend-dot" style="background:' + items[i].c + ' !important;border-color:' + items[i].b + ' !important;"></span>' +
-          '<span class="legend-text">' + items[i].t + '</span>' +
-          '</div>';
-      }
-      legend.innerHTML = html;
-
-      // Insert as FIRST child of palette
-      palette.insertBefore(legend, palette.firstChild);
-    }
-
-    console.log('[Legend] Fixed');
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () { start(0); });
-  } else {
-    start(0);
-  }
+  console.log('[Quiz FINAL v2] Loaded');
 })();
 </script>
 </body>
