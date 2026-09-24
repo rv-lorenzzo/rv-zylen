@@ -5953,6 +5953,56 @@ body > button:not([id]),
 [style*="position:fixed"][style*="bottom"] {
   /* Only kill if it looks like an arrow button */
 }
+/* ============================================================
+   AGGRESSIVE ARROW KILL
+   ============================================================ */
+
+/* Hide all scroll indicators */
+.scroll-indicator,
+.scroll-arrow,
+.scroll-down,
+.scroll-btn,
+.scroll-hint {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Hide slider arrows if any leftover */
+.zen-arrow,
+.zen-prev,
+.zen-next,
+.slider-arrow,
+.slider-prev,
+.slider-next {
+  display: none !important;
+}
+
+/* Hide global back buttons */
+#globalBackBtn,
+.global-back,
+.back-arrow {
+  display: none !important;
+}
+
+/* Hide any absolutely-positioned element at far left edge (0-50px) */
+body > div[style*="position: absolute"],
+body > div[style*="position:absolute"] {
+  /* only if positioned at edges */
+}
+
+/* Hide series back button unless on series detail */
+.back-btn {
+  display: none !important;
+}
+
+#page-series-detail.active .back-btn {
+  display: inline-flex !important;
+}
+
+/* Navbar — extra safety */
+.navbar {
+  overflow: hidden !important;
+}
 </style>
 </head>
 <body data-theme="light">
@@ -7095,10 +7145,17 @@ function initEventListeners() {
     });
   });
   
-  // Explore Now button (Homepage → Courses)
+    // Explore Now button (Homepage → Courses)
   const exploreBtn = document.getElementById('exploreNowBtn');
   if (exploreBtn) {
-    exploreBtn.addEventListener('click', () => {
+    // Remove old listeners by cloning
+    const newExplore = exploreBtn.cloneNode(true);
+    exploreBtn.parentNode.replaceChild(newExplore, exploreBtn);
+    
+    newExplore.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      console.log('🔘 Explore clicked');
       showPage('courses');
     });
   }
@@ -10384,9 +10441,7 @@ function renderWeakConcepts(result) {
       });
     });
 
-    // Explore Now
-    const explore = strip(document.getElementById('exploreNowBtn'));
-    if (explore) explore.addEventListener('click', () => showPage('courses'));
+    
 
     // Course cards
     document.querySelectorAll('.course-card.clickable').forEach(card => {
