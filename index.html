@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-    <link rel="preload" as="image" href="https://i.ibb.co/Kz7ynYRZ/hero-bg.png">
 <head>
+    <link rel="preload" as="image" href="https://i.ibb.co/Kz7ynYRZ/hero-bg.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#faf8f5">
@@ -874,6 +874,8 @@ body[data-theme="dark"] .welcome-bg {
   max-width: 480px;
   transition: opacity .4s ease;
 }
+
+
 
 .welcome-cta-btn {
   display: inline-flex;
@@ -6086,6 +6088,88 @@ body > button.back-btn,
   scrollbar-width: thin;
   scrollbar-color: var(--border-medium) transparent;
 }
+/* ============================================================
+   ULTRA KILL — HTML/Body scroll + scrollbar arrows
+   ============================================================ */
+html {
+  overflow: hidden !important;
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
+  height: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body {
+  overflow: hidden !important;
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
+  height: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Kill ALL scrollbar arrows in every container */
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment,
+::-webkit-scrollbar-button:vertical:start:decrement,
+::-webkit-scrollbar-button:vertical:end:increment,
+::-webkit-scrollbar-button:horizontal:start:decrement,
+::-webkit-scrollbar-button:horizontal:end:increment {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  max-width: 0 !important;
+  max-height: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  -webkit-appearance: none !important;
+}
+
+/* Kill scrollbar corner */
+::-webkit-scrollbar-corner {
+  display: none !important;
+  background: transparent !important;
+}
+
+/* Force scrollbars to be overlay only */
+::-webkit-scrollbar {
+  width: 6px !important;
+  height: 6px !important;
+  background: transparent !important;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent !important;
+  border: none !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium) !important;
+  border-radius: 3px !important;
+  border: none !important;
+}
+
+/* Firefox */
+html, body {
+  scrollbar-width: none !important;
+}
+
+.page, .page-wrapper, .profile-panel-body {
+  scrollbar-width: thin !important;
+}
+
+/* Kill any absolutely positioned arrows */
+body::before,
+body::after,
+html::before,
+html::after {
+  content: none !important;
+  display: none !important;
+}
 </style>
 </head>
 <body data-theme="light">
@@ -6287,9 +6371,9 @@ body > button.back-btn,
                 improve and build the future you imagine.
               </p>
               <button class="welcome-cta-btn" id="exploreNowBtn">
-                <span>Explore Now</span>
-                <span class="arrow">→</span>
-              </button>
+  <span>Explore Now</span>
+  <span class="arrow">→</span>
+</button>
             </div>
           </section>
 
@@ -10599,7 +10683,20 @@ function renderWeakConcepts(result) {
     setTimeout(wire, 300);
   }
 })();
-
+/* ============================================================
+   EXPLORE NOW — Document-level event delegation (bulletproof)
+   ============================================================ */
+document.addEventListener('click', function(e) {
+  const btn = e.target.closest('#exploreNowBtn');
+  if (btn) {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('🔘 Explore Now clicked');
+    if (typeof showPage === 'function') {
+      showPage('courses');
+    }
+  }
+}, true);
 </script>
 
 </body>
