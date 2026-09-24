@@ -6003,6 +6003,39 @@ body > div[style*="position:absolute"] {
 .navbar {
   overflow: hidden !important;
 }
+/* ============================================================
+   KILL EVERYTHING AT LEFT EDGE
+   ============================================================ */
+@media (min-width: 900px) {
+  /* Hide any absolutely positioned element at far left */
+  body > *,
+  .app-container > *,
+  .page-wrapper > * {
+    /* Only targets direct children, not nested */
+  }
+
+  /* Hide all buttons/spans positioned fixed at edge */
+  [style*="position:fixed"],
+  [style*="position: fixed"] {
+    /* pass */
+  }
+}
+
+/* Extra aggressive */
+body > .back-btn,
+body > button.back-btn,
+.global-back,
+.global-back-btn,
+#globalBackBtn,
+.scroll-indicator,
+.scroll-arrow,
+.zen-arrow,
+.slider-arrow {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
 </style>
 </head>
 <body data-theme="light">
